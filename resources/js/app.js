@@ -3,6 +3,8 @@ require('./bootstrap');
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 import { InertiaProgress } from '@inertiajs/progress'
+import CKEditor from 'ckeditor4-vue';
+import VueCompositionAPI from '@vue/composition-api'
 createInertiaApp({
     resolve: name => require(`./Pages/${name}`),
     setup({ el, App, props, plugin }) {
@@ -51,3 +53,8 @@ InertiaProgress.init({
     includeCSS: true,
     showSpinner: true,
 });
+Vue.config.devtools = false;
+Vue.config.productionTip = false
+window.Bus = new Vue();
+Vue.use(VueCompositionAPI)
+Vue.use(CKEditor)

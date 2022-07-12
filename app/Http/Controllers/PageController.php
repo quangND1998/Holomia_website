@@ -1,0 +1,91 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Repositories\PageRepository;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Traits\LanguageTrait;
+use App\Http\Requests\Page\StorePageRequest;
+use App\Models\Page;
+use Illuminate\Support\Facades\Gate;
+use Inertia\Inertia;
+
+class PageController extends InertiaController
+{
+    use LanguageTrait;
+    protected $page;
+
+    public function __construct(PageRepository $pageRepository)
+    {
+        $this->page = $pageRepository;
+    }
+
+
+    public function index()
+    {
+        if (Gate::allows(config('constants.USER_PERMISSION'))) {
+            $pages = $this->page->get();
+            return Inertia::render('Page', compact('pages'));
+        } {
+            return $this->errors()->errors_403();
+        }
+    }
+
+    public function store(StorePageRequest $request)
+    {
+        if (Gate::allows(config('constants.USER_PERMISSION'))) {
+
+
+            $page = Page::create([
+                'title' => $request->title,
+                'description' => 'description' . time()
+            ]);
+
+            $this->CreateLanguage($page->title, $request->title_en, $request->title_vn, $page);
+            $this->CreateLanguage($page->description, $request->description_en, $request->description_vn, $page);
+            return back()->with('success', 'Create successfully');
+        } {
+            return $this->errors()->errors_403();
+        }
+    }
+
+    public function update(StorePageRequest $request, $id)
+    {
+        if (Gate::allows(config('constants.USER_PERMISSION'))) {
+            $page = Page::with('languages')->findOrFail($id);
+            $this->updateLanguage($page->title, $request->title_en, $request->title_vn, $page);
+            $this->updateLanguage($page->description, $request->description_en, $request->description_vn, $page);
+            return back()->with('success', 'Update successfully');
+        } {
+            return $this->errors()->errors_403();
+        }
+    }
+
+    public function delete($id)
+    {
+        if (Gate::allows(config('constants.USER_PERMISSION'))) {
+            $page = Page::with('languages')->findOrFail($id);
+            foreach ($page->languages as $language) {
+                $this->deleteLanguage($language->key, 'en.json');
+                $this->deleteLanguage($language->key, 'vn.json');
+            }
+            $page->languages()->delete();
+            $page->delete();
+
+
+            return back()->with('success', 'Update successfully');
+        } else {
+            return $this->errors()->errors_403();
+        }
+    }
+    public function priorityPage(Request $request)
+    {
+        if (Gate::allows(config('constants.USER_PERMISSION')) || Gate::allows(config('constants.CREATE_VIRTUAL'))) {
+            $data = $request->data;
+            $this->page->priority($data);
+            return redirect()->back()->with('success', 'Sort  successfully');
+        } else {
+            return $this->errors()->errors_403();
+        }
+    }
+}
