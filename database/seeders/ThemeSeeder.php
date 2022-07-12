@@ -64,7 +64,20 @@ class ThemeSeeder extends Seeder
                 'link_code' => 'template.our-team',
                 'type' => 0,
                 'created_at' => new DateTime()
+            ], [
+                'title' => 'imersive_about',
+                'image_template' => 'images/theme/16576006781_imersive-aboutpng.PNG',
+                'link_code' => 'template.imersive_about',
+                'type' => 0,
+                'created_at' => new DateTime()
+            ], [
+                'title' => 'holomia event',
+                'image_template' => 'images/theme/16576007131_holmia-eventpng.PNG',
+                'link_code' => 'template.holomia_event',
+                'type' => 0,
+                'created_at' => new DateTime()
             ],
+
 
 
         ]);
