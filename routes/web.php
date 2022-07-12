@@ -30,7 +30,10 @@ Route::get('/', function () {
 });
 Route::get('index', [LandingPageController::class, 'index']);
 Route::get('immersive', [LandingPageController::class, 'immersive']);
-
+Route::get(
+    'new/{slug}',
+    [LandingPageController::class, 'chitiet_tintuc']
+)->name('new.detail');
 Route::get('/dashboard', function () {
     return Inertia::render('DashBoard');
 })->middleware(['auth'])->name('dashboard');
@@ -131,7 +134,7 @@ Route::middleware(['auth', 'verified'])->group(
             });
             Route::post('image/selectElement', [ImageController::class, 'selectElement']);
             Route::post('image/selectEmbed', [ImageController::class, 'selectEmbed']);
-            
+
             Route::group(['prefix' => 'images/{id}'], function () {
                 Route::post('store', [ImageController::class, 'store'])->name('image.store');
 

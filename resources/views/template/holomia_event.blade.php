@@ -5,13 +5,11 @@
             @foreach ($section->contents[0]->images as $image)
             <div class="gallery__item {{$image->element ==null ?'' :$image->element }}">
                 <div class="embed {{$image->embed ==null ?'' :$image->embed }}" ">
-                    <a href="{{$image->image}}" data-fancybox="gallery" data-caption="Optional caption"><img
-                            src="{{$image->image}}" /></a>
+                    <a href=" {{$image->image}}" data-fancybox="gallery" data-caption="Optional caption"><img
+                        src="{{$image->image}}" /></a>
                 </div>
             </div>
             @endforeach
-
-
-
         </div>
     </div>
+</div>

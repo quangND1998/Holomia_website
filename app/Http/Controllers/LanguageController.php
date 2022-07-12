@@ -38,7 +38,7 @@ class LanguageController extends InertiaController
             );
             $name = time();
             $language = new Languages();
-            $language->key = Str::slug($request->key);
+            $language->key = $request->key;
             $language->vn = $request->vn;
             $language->en = $request->en;
             $language->save();
