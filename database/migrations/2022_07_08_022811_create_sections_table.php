@@ -19,6 +19,7 @@ class CreateSectionsTable extends Migration
             $table->string('sub_title')->nullable();
             $table->text('description')->nullable();
             $table->integer('id_priority')->nullable();
+            $table->boolean('active')->default(true)->nullable();
             $table->unsignedBigInteger('page_id')->nullable();
             $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
             $table->integer('theme_id')->unsigned()->nullable();

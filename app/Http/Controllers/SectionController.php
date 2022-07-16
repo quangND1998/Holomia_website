@@ -13,7 +13,7 @@ use App\Http\Controllers\Traits\FileUploadTrait;
 use App\Jobs\DeleteLanguage;
 use App\Models\Themes;
 use Illuminate\Support\Str;
-
+use Illuminate\Http\Response;
 class SectionController extends Controller
 {
     use LanguageTrait, FileUploadTrait;
@@ -173,6 +173,16 @@ class SectionController extends Controller
                 Section::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
             }
             return redirect()->back()->with('success', 'Sort  successfully');
+        } else {
+            $erros = "Not found data booth!!";
+            return Inertia::render('Erros/404', ['erros' => $erros]);
+        }
+    }
+
+      public function changeActive(Request $request){
+        if (Gate::allows(config('constants.USER_PERMISSION')) || Gate::allows(config('constants.CREATE_VIRTUAL'))) {
+            Section::findOrFail($request->id)->update(['active' => $request->active]);
+            return response()->json('Change successfully', Response::HTTP_OK);
         } else {
             $erros = "Not found data booth!!";
             return Inertia::render('Erros/404', ['erros' => $erros]);

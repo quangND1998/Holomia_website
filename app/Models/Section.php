@@ -10,7 +10,7 @@ class Section extends Model
     use HasFactory;
 
     protected $table = 'sections';
-    protected $fillable = ['id', 'title', 'sub_title', 'description', 'id_priority', 'page_id', 'theme_id', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'title', 'sub_title', 'description','active', 'id_priority', 'page_id', 'theme_id', 'created_at', 'updated_at'];
 
     public function contents()
     {

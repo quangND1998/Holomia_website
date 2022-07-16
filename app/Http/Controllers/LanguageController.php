@@ -7,17 +7,23 @@ use App\Models\Languages;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Traits\LanguageTrait;
+use App\Repositories\LanguageRepository;
 use Illuminate\Support\Str;
 
 class LanguageController extends InertiaController
 {
     use LanguageTrait;
+    protected $language;
+    public function __construct(LanguageRepository $languageRepository)
+    {
+        $this->language = $languageRepository;
+    }
+
+    
     public function index(Request $request)
     {
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
-            $languages = Languages::when($request->term, function ($query, $term) {
-                $query->where('en', 'LIKE', '%' . $term . '%')->orwhere('vn', 'LIKE', '%' . $term . '%')->orwhere('key', 'LIKE', '%' . $term . '%');
-            })->paginate(10)->appends(['term' => $request->term]);
+            $languages =$this->language->query($request);
             $locales = config('app.locales');
             return Inertia::render('Language', compact('languages', 'locales'));
         } else {

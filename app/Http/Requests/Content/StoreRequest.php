@@ -24,8 +24,8 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title_en' => 'required|unique:languages,en',
-            'title_vn' => 'required|unique:languages,vn',
+            'title_en' => 'required',
+            'title_vn' => 'required',
             'subtitle_vn' => 'nullable',
             'subtitle_en' => 'nullable',
             'description_en' => 'nullable',

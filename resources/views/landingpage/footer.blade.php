@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="company-project">
-                        <h4>{{__('project')}}</h4>
+                        <h4>{{__('company_project')}}</h4>
                         <ul>
                             <li>
                                 <a href="index.html">{{__('holomia')}}</a>

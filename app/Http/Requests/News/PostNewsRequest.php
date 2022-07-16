@@ -26,8 +26,8 @@ class PostNewsRequest extends FormRequest
         return [
             'title_en' => 'required|unique:languages,en',
             'title_vn' => 'required|unique:languages,vn',
-            'content_en' => 'required_with:NoiDung',
-            'content_vn' => 'required_with:NoiDung',
+            'content_en' => 'required',
+            'content_vn' => 'required',
             'image' => 'required|mimes:png,jpg,jpeg',
             'outstanding' => 'required',
             'tags' => 'required',

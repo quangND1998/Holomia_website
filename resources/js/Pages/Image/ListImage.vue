@@ -58,7 +58,7 @@
               <td class="px-6 py-4 crop-content">
                 <img v-if="image.image" class="w-50 h-20" :src="image.image" alt="Card image cap" />
               </td>
-              <td class="px-6 py-4 crop-content">
+               <td class="px-6 py-4 crop-content">
                 <label
                   for="countries"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
@@ -72,22 +72,21 @@
                   <option
                     value="gallery__item--h-2 gallery__item--v-2"
                     :selected="image.element =='gallery__item--h-2 gallery__item--v-2' ?true :false"
-                  >2 hàng 2 cột</option>
+                  > Chiều Rộngx2 Chiều Dàix2</option>
                   <option
                     value="gallery__item--v-2"
                     :selected="image.element =='gallery__item--v-2' ?true :false"
-                  >2 Cột</option>
+                  >Chiều Rộngx2</option>
                   <option
                     value="gallery__item--h-2"
                     :selected="image.element =='gallery__item--h-2' ?true :false"
-                  >2 Hàng</option>
+                  >Chiều Dài 2</option>
                   <option
                     value="gallery__item--h-2 gallery__item--v-3"
                     :selected="image.element =='gallery__item--h-2 gallery__item--v-3' ?true :false"
-                  >2 hàng 3 cột</option>
+                  >Chiều Rộng 2 Chiều Dài 3</option>
                 </select>
               </td>
-
               <td class="px-6 py-4 crop-content">
                 <label
                   for="countries"
@@ -102,15 +101,15 @@
                   <option
                     value="embed--1-2"
                     :selected="image.embed =='embed--1-2' ?true :false"
-                  >Rộng 1 Dài 2 </option>
+                  > Dài 1  Rộng 2</option>
                   <option
                     value="embed--2-1"
                     :selected="image.embed =='embed--2-1' ?true :false"
-                  >Rộng 2 Dài 1</option>
+                  >Dài 2 Rộng 1</option>
                   <option
                     value="embed--2-3"
                     :selected="image.embed =='embed--2-3' ?true :false"
-                  >Rộng 2 Dài 3</option>
+                  >Dài 2 Rộng 3</option>
                 </select>
               </td>
 
@@ -167,7 +166,9 @@ export default {
         animation: 100,
         group: "description",
         disabled: false,
-        ghostClass: "ghost"
+        ghostClass: "ghost",
+        scrollSensitivity: 100,
+        forceFallback: true
       };
     }
   },

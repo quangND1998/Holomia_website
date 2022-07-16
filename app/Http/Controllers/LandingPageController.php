@@ -7,22 +7,40 @@ use App\Models\Languages;
 use App\Models\News;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class LandingPageController extends Controller
 {
     public function index()
     {
-        $page = Page::with('sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme')->first();
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme','sections'=>function($q){
+            $q->where('active',1);
+        }])->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
-        $last_new  = News::with('languages', 'category', 'tags')->take(2)->get();
+        $last_new  = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(2)->get();
         return view('page.home', compact('page', 'pages', 'last_new'));
     }
 
     public function immersive()
     {
-        $page = Page::with('sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme')->where('title', 'immersive')->first();
-        return view('page.immersive', compact('page'));
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme','sections'=>function($q){
+            $q->where('active',1);
+        }])->where('title', 'immersive')->first();
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        $news = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(9)->get();
+        return view('page.immersive', compact('page', 'pages', 'news'));
     }
+
+    public function contact()
+    {
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme','sections'=>function($q){
+            $q->where('active',1);
+        }])->where('title', 'contact')->first();
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        return view('page.contact', compact('page', 'pages'));
+    }
+
+
     public function chitiet_tintuc(Request $request, $slug)
     {
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();

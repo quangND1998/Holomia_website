@@ -82,7 +82,7 @@
                                         <a href="{{route('new.detail',__($tintuc->slug))}}" >{{__('see_more')}}<img src="/img/right.svg" alt=""></a>
                                     </div>
                                    </div>
-                                </div>
+                               
                             </li>
 
                     @endforeach
@@ -94,5 +94,13 @@
 
     </div>
 </div>
+ <style>
+            .news_item_left img{
+                width: 100% !important;
+            }
+            .news_item_left a{
+                color: #2196f3!important;
+            }
+        </style>
 
 @endsection

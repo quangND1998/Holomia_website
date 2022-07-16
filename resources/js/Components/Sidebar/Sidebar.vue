@@ -145,15 +145,15 @@
             <icon name="language" class="mr-1 text-blueGray-300 text-base"></icon>
               Languages
           </Link>
-       
-          <!-- <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Mail/Mail' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('mail.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-700 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
+<!--        
+          <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Mail/Mail' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('mail.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-700 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="mail" class="mr-1 text-blueGray-300 text-base"></icon>
               Mail
-          </Link>
+          </Link> -->
             <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Contact' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('contact.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-700 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="contact" class="mr-1 text-blueGray-300 text-base"></icon>
               Contact
-          </Link> -->
+          </Link>
        
           <li class="inline-flex" v-if="hasAnyPermission(['users_manage'])"></li>
         

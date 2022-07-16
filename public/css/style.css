@@ -1,5 +1,17 @@
 /* body */
 
+.language {
+    display: flex;
+}
+
+.link-language {
+    width: 20% !important;
+}
+
+.logo_language {
+    height: 25px !important;
+}
+
 h1 {
     color: #ffffff;
 }
@@ -321,8 +333,8 @@ li {
 
 .col-text span {
     color: #ffffff;
-    letter-spacing: 0.08em;
-    font-size: 21px;
+    /* letter-spacing: 0.08em; */
+    font-size: 22px;
 }
 
 .text {
@@ -447,6 +459,7 @@ li {
 }
 
 .main-view1 .background-educational {
+    background-image: url(../img/bground1.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -487,13 +500,7 @@ li {
     position: relative;
 }
 
-.main-view2 {
-    height: 50vh;
-    box-sizing: content-box;
-}
-
-.main-view2 .background-game {
-    background-image: url(../img/bground2.jpg);
+.main-view1 .background-game {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;

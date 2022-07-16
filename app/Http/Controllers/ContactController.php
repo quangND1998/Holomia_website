@@ -8,24 +8,30 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 use App\Models\Page;
+use App\Repositories\ContactRepository;
 
-class ContactController extends Controller
+class ContactController extends InertiaController
 {
+
+    protected $contact;
+    public function __construct(ContactRepository $contactRepository)
+    {
+        $this->contact = $contactRepository;
+    }
+
     public function index(Request $request)
     {
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
-            $contacts = Contact::when($request->term, function ($query, $term) {
-                $query->where('name', 'LIKE', '%' . $term . '%')->orwhere('email', 'LIKE', '%' . $term . '%')->orwhere('phone', 'LIKE', '%' . $term . '%');
-            })->paginate(10)->appends(['term' => $request->term]);
+            $contacts = $this->contact->query($request);
             return Inertia::render('Contact', compact('contacts'));
         } else {
-            $erros = 403;
-            return Inertia::render('Error', ['status' => $erros]);
+           return $this->errors()->errors_403();
         }
     }
 
     public function store(Request $request)
     {
+       
         $validator = Validator::make(
             $request->all(),
             [
@@ -57,7 +63,7 @@ class ContactController extends Controller
     {
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
         $pages = Page::get();
-    
+
         return view('landingpage.contact-success', compact('header', 'pages'));
     }
 }

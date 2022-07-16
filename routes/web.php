@@ -26,10 +26,12 @@ use App\Http\Controllers\ImageController;
 */
 
 Route::get('/', function () {
-    return redirect('/login');
+    return redirect('/index');
 });
+
 Route::get('index', [LandingPageController::class, 'index']);
 Route::get('immersive', [LandingPageController::class, 'immersive']);
+Route::get('contact', [LandingPageController::class, 'contact']);
 Route::get(
     'new/{slug}',
     [LandingPageController::class, 'chitiet_tintuc']
@@ -37,6 +39,9 @@ Route::get(
 Route::get('/dashboard', function () {
     return Inertia::render('DashBoard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::get('contact/success', [ContactController::class, 'success']);
 Route::middleware(['auth', 'verified'])->group(
     function () {
         Route::group(
@@ -52,6 +57,10 @@ Route::middleware(['auth', 'verified'])->group(
         Route::group(['prefix' => 'contacts'], function () {
             Route::get('', [ContactController::class, 'index'])->name('contact.index');
         });
+        Route::group(['prefix' => 'contacts'], function () {
+            Route::get('', [ContactController::class, 'index'])->name('contact.index');
+        });
+
 
         Route::group(['prefix' => 'admin/themes'], function () {
             Route::get('', [ThemeController::class, 'index'])->name('themes.index');
@@ -158,6 +167,7 @@ Route::middleware(['auth', 'verified'])->group(
                 [ContentController::class, 'priorityContent']
             )->name('content.priority');
         });
+        Route::post('changeActiveSection',[SectionController::class,'changeActive'])->name('section.changeActive');
     }
 );
 Route::get('language/{language}', function ($language) {

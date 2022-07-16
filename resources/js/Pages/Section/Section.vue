@@ -24,7 +24,7 @@
             <th scope="col" class="px-6 py-3">Sub Title</th>
             <th scope="col" class="px-6 py-3">Description</th>
             <th scope="col" class="px-6 py-3">Theme</th>
-
+            <th scope="col" class="px-6 py-3">Active</th>
             <th scope="col" class="px-6 py-3">
               {{
               __("action")
@@ -68,7 +68,14 @@
                   alt="Card image cap"
                 />
               </td>
-
+              <td class="px-6 py-4 crop-content">
+                <input
+                        :checked="element.active == 1 ? true : false"
+                        @change="onChangeActive(element, $event)"
+                        class="toggle-class-public"
+                        type="checkbox"
+                      />
+              </td>
               <td class="px-6 py-4">
                 <Link
                   v-if="element.theme.type ==0 ||element.theme.type ==2"
@@ -167,7 +174,25 @@ export default {
       this.$inertia.post(this.route("section.priority"), query, {
         preserveState: false
       });
-    }
+    },
+      onChangeActive(data, event) {
+      if (event.target.checked) {
+        this.form.active = 1;
+      } else {
+        this.form.active = 0;
+      }
+      let query = {
+        id: data.id,
+        active: this.form.active
+      };
+      axios
+        .post("/changeActiveSection", query)
+        .then(response => {})
+        .catch(function(error) {
+          // handle error
+          console.log(error);
+        });
+    },
   }
 };
 </script>

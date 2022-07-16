@@ -15,16 +15,24 @@ use App\Models\CategoryContent;
 use App\Models\CategoryContents;
 use App\Models\Images;
 use App\Models\Languages;
+use App\Repositories\SectionRepository;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
 class ContentController extends InertiaController
 {
     use FileUploadTrait, LanguageTrait;
+    protected $section;
+
+    public function __construct(SectionRepository $sectionRepository)
+    {
+        $this->section = $sectionRepository;
+    }
     public function index(Request $request, $slug)
     {
 
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
+
             $section = Section::with('contents.languages', 'page', 'theme', 'languages', 'contents.images')->where('title', $slug)->first();
             if ($section == null) {
                 $erros = 404;
@@ -40,10 +48,7 @@ class ContentController extends InertiaController
     public function createContent($slug)
     {
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
-            $section = Section::with('contents.languages', 'page', 'theme', 'theme', 'languages')->where('title', $slug)->first();
-
-
-
+            $section = $this->section->findOnebySlug($slug);
             if ($section == null) {
                 $erros = 404;
                 return Inertia::render('Error', ['status' => $erros]);
