@@ -37,9 +37,9 @@ class SendMailDefault implements ShouldQueue
     public function handle()
     {
         $users = $this->users;
-       
-        $mail = $this->mail;
         
+        $mail = $this->mail;
+
         foreach ($users as $user) {
             FacadesMail::to($user->email)->send(new DefaultMail($user, $mail));
             //Mail::to("ngant1096@gmail.com")->send(new DefaultMail($user, $mail));

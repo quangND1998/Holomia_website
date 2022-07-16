@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
      <base href="{{ asset('') }}">
+     <link rel="icon" href="/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reponsive.css">
@@ -15,8 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400;1,900&family=Montserrat:wght@200&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400;1,900&family=Montserrat:wght@200&family=Oxanium&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Metrophobic&family=Oxanium:wght@200&family=Podkova&family=Poppins&display=swap" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Metrophobic&family=Open+Sans:ital,wght@1,300&family=Oxanium:wght@200&family=Podkova&family=Poppins&family=Roboto:wght@100&display=swap" rel="stylesheet"> -->
-    
+   
     <!-- Bootstrap CSS -->
     <link
     rel="stylesheet"
@@ -43,7 +43,7 @@
                     <div class="menu-pc">
                         <div id="nav_sticky" class="menu-content overlay">
                             <div class="logo-menu-pc">
-                                <a href="/index"><img src="assets/img/logoxanhh.png" class="logo-holo logo-pc img-fluid" alt=""></a>
+                                <a href="/index"><img src="img/logoxanhh.png" class="logo-holo logo-pc img-fluid" alt=""></a>
                             </div>
                             <nav class="menu-demo">
                                 <ul class="list-menu">
@@ -89,7 +89,7 @@
                         <div class="mean-bar">
                             <div class=" logo-mobile">
                                 <div class="logo-menu">
-                                    <a href="index.html"><img src="assets/img/logoxanhh.png" class="logo-holo img-fluid" alt=""></a>
+                                    <a href="index.html"><img src="img/logoxanhh.png" class="logo-holo img-fluid" alt=""></a>
                                 </div>
                                 <!-- <div class="open-menu">
                                     <i class="fas fa-bars"></i>

@@ -205,8 +205,7 @@ li {
 }
 
 .left_end {
-    float: left;
-    width: 50%;
+    text-align: center;
     font-weight: 500;
 }
 
@@ -872,16 +871,26 @@ li {
     padding: 3rem 0rem;
 }
 
+.single_page_contact {
+    width: 100%;
+    /* height: 100%; */
+    position: absolute;
+    top: 50%;
+    color: #fff;
+}
+
 .page-contact h1 {
     color: black;
     margin: auto;
 }
 
-.icon-contact {}
+.icon-contact {
+    top: 50%;
+}
 
 .icon-contact i {
     font-size: 30px;
-    color: black;
+    color: #fff;
 }
 
 .form_contact {
@@ -919,6 +928,7 @@ li {
     position: relative;
     padding: 0rem 0rem 3rem;
     margin-top: 4rem;
+    background-color: aliceblue;
     /* padding-bottom: 3rem; */
 }
 
@@ -929,6 +939,11 @@ li {
 .immersive-img {
     width: 50%;
     margin-top: 2%;
+}
+
+.immersive-img iframe {
+    width: 100%;
+    height: 100%;
 }
 
 .immersive-content {
@@ -1360,7 +1375,7 @@ hr {
 #header {
     background-color: #001C54;
     position: fixed;
-    top: 0;
+    top: 0 !important;
     width: 100%;
     display: block;
     transition: top 0.3s;

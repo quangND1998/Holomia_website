@@ -80,11 +80,11 @@
                   <option
                     value="gallery__item--h-2"
                     :selected="image.element =='gallery__item--h-2' ?true :false"
-                  >Chiều Dài 2</option>
+                  >Chiều Dàix2</option>
                   <option
                     value="gallery__item--h-2 gallery__item--v-3"
                     :selected="image.element =='gallery__item--h-2 gallery__item--v-3' ?true :false"
-                  >Chiều Rộng 2 Chiều Dài 3</option>
+                  >Chiều Rộngx2 Chiều Dàix3</option>
                 </select>
               </td>
               <td class="px-6 py-4 crop-content">
@@ -101,15 +101,15 @@
                   <option
                     value="embed--1-2"
                     :selected="image.embed =='embed--1-2' ?true :false"
-                  > Dài 1  Rộng 2</option>
+                  > Rộngx1 Dàix2</option>
                   <option
                     value="embed--2-1"
                     :selected="image.embed =='embed--2-1' ?true :false"
-                  >Dài 2 Rộng 1</option>
+                  >Rộngx2 Dàix1</option>
                   <option
                     value="embed--2-3"
                     :selected="image.embed =='embed--2-3' ?true :false"
-                  >Dài 2 Rộng 3</option>
+                  >Rộngx2 Dàix3</option>
                 </select>
               </td>
 

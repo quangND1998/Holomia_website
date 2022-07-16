@@ -14,6 +14,8 @@ use App\Http\Controllers\CategoryContentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\MailController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -166,6 +168,14 @@ Route::middleware(['auth', 'verified'])->group(
                 'content/priority',
                 [ContentController::class, 'priorityContent']
             )->name('content.priority');
+        });
+        Route::group(['prefix' => 'mails'], function () {
+            Route::get('', [MailController::class, 'index'])->name('mail.index');
+            Route::post('', [MailController::class, 'store'])->name('mail.store');
+            Route::put('update/{id}', [MailController::class, 'update'])->name('mail.update');
+            Route::delete('delete/{id}', [MailController::class, 'delete'])->name('mail.delete');
+            Route::get('previewMail/{id}', [MailController::class, 'previewMail'])->name('mail.previewMail');
+            Route::put('sendMail/{id}', [MailController::class, 'sendMail'])->name('mail.sendMail');
         });
         Route::post('changeActiveSection',[SectionController::class,'changeActive'])->name('section.changeActive');
     }

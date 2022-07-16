@@ -25,7 +25,7 @@
                                     <span class="d-block time-event">{{
                                         \Carbon\Carbon::parse($new->created_at)->isoFormat('MMMM, D,YYYY').' '.'-'.'
                                         '.\Carbon\Carbon::parse($new->created_at)->diffForHumans()}}</span>
-                                    <a href="{{route('new.detail',__($new->slug))}}" target="_blank"
+                                    <a href="{{route('new.detail',__($new->slug))}}" 
                                         class="title-event"><span
                                             class="d-block text-font ">{{__($new->title)}}</span></a>
 

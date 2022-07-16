@@ -8,14 +8,19 @@
                 <div class="img-company-overview" data-aos="fade-left">
                     <div class="slider-for">
                         @foreach ($section->contents as  $content)
-                             <img src="{{$content->images[0]->image}}" alt="">
+                            @if(count($content->images) >0)
+                                <img src="{{$content->images[0]->image}}" alt="">
+                            @endif
+                            
                         @endforeach
                        
                    
                     </div>
                     <div class="slider-nav">
                         @foreach ($section->contents as  $content)
-                             <img src="{{$content->images[0]->image}}" alt="">
+                            @if(count($content->images) >0)
+                                <img src="{{$content->images[0]->image}}" alt="">
+                            @endif
                         @endforeach
                         
                     </div>
