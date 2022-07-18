@@ -1,7 +1,7 @@
 <template>
   <div class="mt-10 sm:mt-0">
     <BreadCrumb :page="page" :name="null" />
-
+   
     <div class="mb-1 mt-4 flex justify-between items-center">
       <div class="flex items-center justify-end">
         <Link
@@ -187,7 +187,14 @@ export default {
       };
       axios
         .post("/changeActiveSection", query)
-        .then(response => {})
+        .then(response => {
+          setTimeout(() => {
+            this.$toast.success(response.data, {
+                position: "bottom-right",
+                duration: 5000
+            });
+        }, 1000);
+        })
         .catch(function(error) {
           // handle error
           console.log(error);

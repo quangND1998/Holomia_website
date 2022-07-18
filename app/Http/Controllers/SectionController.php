@@ -179,7 +179,7 @@ class SectionController extends Controller
         }
     }
 
-      public function changeActive(Request $request){
+    public function changeActive(Request $request){
         if (Gate::allows(config('constants.USER_PERMISSION')) || Gate::allows(config('constants.CREATE_VIRTUAL'))) {
             Section::findOrFail($request->id)->update(['active' => $request->active]);
             return response()->json('Change successfully', Response::HTTP_OK);

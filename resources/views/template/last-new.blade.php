@@ -16,7 +16,7 @@
             <div class="item-news" data-aos="zoom-in">
                 <img src="{{$new->image}}" class="img-fluid img-news" alt="">
                 <div class="content-news">
-                    <span class="time">{{ \Carbon\Carbon::parse($new->created_at)->format('d/m/Y')}}</span>
+                    <span class="time">{{ \Carbon\Carbon::parse($new->created_at)->isoFormat('MMMM D, YYYY')}}</span>
                     <div class="title-news">
                          <a href="{{route('new.detail',__($new->slug))}}" >
                                 <h5 class="title-lastest-news text-font">{{__($new->title)}}</h5>

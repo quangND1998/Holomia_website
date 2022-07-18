@@ -66,24 +66,26 @@
                 <h2 class="title_related_news">{{__('related_news')}}</h2>
                 <ul class="related_news">
                     @foreach($tintuc_lienquan as $tintuc )
-                      <li class="col_related_news">
-                                <div class="row ">
-                                   <div class="img-left">
-                                        <img src="{{$tintuc->image}}" class="img-fluid img_news " alt="">
-                                   </div>
-                                   <div class="text-event">
-                                    <h5><a href="{{route('new.detail',__($tintuc->slug))}}">{{__($tintuc->title)}}</a></h5>
-                                    <div class="der_news">{!!Str::words(strip_tags(__($tintuc->content)), 5, '...')!!} </div></div>
-                                    <div class="calendar">
-                                        <div class="left-news">
-                                            <img src="/img/lich.svg" alt="">
-                                          {{ \Carbon\Carbon::parse($tintuc->created_at)->format('d/m/Y')}}
-                                        </div>
-                                        <a href="{{route('new.detail',__($tintuc->slug))}}" >{{__('see_more')}}<img src="/img/right.svg" alt=""></a>
+                    <li class="col_related_news">
+                        <div class="row ">
+                            <div class="img-left">
+                                <img src="{{$tintuc->image}}" class="img-fluid img_news " alt="">
+                            </div>
+                            <div class="text-event">
+                                <h5><a href="{{route('new.detail',__($tintuc->slug))}}">{{__($tintuc->title)}}</a></h5>
+                                <div class="der_news">{!!Str::words(strip_tags(__($tintuc->content)), 5, '...')!!}
+                                </div>
+                                <div class="calendar">
+                                    <div class="left-news">
+                                        <img src="/img/lich.svg" alt="">
+                                        {{ \Carbon\Carbon::parse($tintuc->created_at)->format('d/m/Y')}}
                                     </div>
-                                   </div>
-                               
-                            </li>
+                                    <a href="{{route('new.detail',__($tintuc->slug))}}">{{__('see_more')}}<img
+                                            src="/img/right.svg" alt=""></a>
+                                </div>
+                            </div>
+
+                    </li>
 
                     @endforeach
 
@@ -94,13 +96,14 @@
 
     </div>
 </div>
- <style>
-            .news_item_left img{
-                width: 100% !important;
-            }
-            .news_item_left a{
-                color: #2196f3!important;
-            }
-        </style>
+<style>
+    .news_item_left img {
+        width: 100% !important;
+    }
+
+    .news_item_left a {
+        color: #2196f3 !important;
+    }
+</style>
 
 @endsection

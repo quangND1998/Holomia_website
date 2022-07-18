@@ -5368,6 +5368,11 @@
     "vue-hot-reload-api" "^2.3.0"
     "vue-style-loader" "^4.1.0"
 
+"vue-notification@^1.3.20":
+  "integrity" "sha512-vPj67Ah72p8xvtyVE8emfadqVWguOScAjt6OJDEUdcW5hW189NsqvfkOrctxHUUO9UYl9cTbIkzAEcPnHu+zBQ=="
+  "resolved" "https://registry.npmjs.org/vue-notification/-/vue-notification-1.3.20.tgz"
+  "version" "1.3.20"
+
 "vue-server-renderer@^2.6.14":
   "integrity" "sha512-HifYRa/LW7cKywg9gd4ZtvtRuBlstQBao5ZCWlg40fyB4OPoGfEXAzxb0emSLv4pBDOHYx0UjpqvxpiQFEuoLA=="
   "resolved" "https://registry.npmjs.org/vue-server-renderer/-/vue-server-renderer-2.6.14.tgz"
@@ -5403,7 +5408,12 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2.5.17", "vue@^2.6.0", "vue@^2.6.14", "vue@>= 2.5 < 2.7":
+"vue-toast-notification@^0.6.3":
+  "integrity" "sha512-w4daYmEWsUsqDfON1snfhMUxxm+Blf9OISnoOeKrN3f7HqKvH4pQYwIcPOvIr9cX2EOsRReMWfv8Kha03n9nqw=="
+  "resolved" "https://registry.npmjs.org/vue-toast-notification/-/vue-toast-notification-0.6.3.tgz"
+  "version" "0.6.3"
+
+"vue@^2.0.0", "vue@^2.5.17", "vue@^2.6.0", "vue@^2.6.14", "vue@>= 2.5 < 2.7":
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"

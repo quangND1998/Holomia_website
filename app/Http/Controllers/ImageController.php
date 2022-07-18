@@ -127,9 +127,7 @@ class ImageController extends InertiaController
 
     public function selectElement(Request $request)
     {
-
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
-
             Images::find($request->id)->update(['element' => $request->element]);
             return response()->json('Change successfully', Response::HTTP_OK);
         } else {
@@ -140,10 +138,22 @@ class ImageController extends InertiaController
 
     public function selectEmbed(Request $request)
     {
-
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
-
             Images::find($request->id)->update(['embed' => $request->embed]);
+            return response()->json('Change successfully', Response::HTTP_OK);
+        } else {
+            $erros = 403;
+            return Inertia::render('Erros', ['status' => $erros]);
+        }
+    }
+
+    public function editNameImage(Request $request)
+    {
+        if (Gate::allows(config('constants.USER_PERMISSION'))) {
+            if($request->id ==null || $request->name ==null){
+                return response()->json('The name must be required', Response::HTTP_BAD_REQUEST);
+            }
+            Images::find($request->id)->update(['name' => $request->name]);
             return response()->json('Change successfully', Response::HTTP_OK);
         } else {
             $erros = 403;

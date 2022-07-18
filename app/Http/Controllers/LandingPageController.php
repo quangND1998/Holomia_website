@@ -57,7 +57,6 @@ class LandingPageController extends Controller
                 return view('page.new_detail', compact('pages', 'tintuc', 'tintuc_lienquan', 'number_all', 'theloais', 'header'));
             }
         } else {
-
             return view('landingpage.not-found', compact('pages', 'header'));
         }
     }

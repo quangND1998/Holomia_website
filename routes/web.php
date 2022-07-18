@@ -178,6 +178,8 @@ Route::middleware(['auth', 'verified'])->group(
             Route::put('sendMail/{id}', [MailController::class, 'sendMail'])->name('mail.sendMail');
         });
         Route::post('changeActiveSection',[SectionController::class,'changeActive'])->name('section.changeActive');
+        Route::post('editNameImage',[ImageController::class,'editNameImage']);
+        
     }
 );
 Route::get('language/{language}', function ($language) {

@@ -5,6 +5,10 @@ import { createInertiaApp } from '@inertiajs/inertia-vue'
 import { InertiaProgress } from '@inertiajs/progress'
 import CKEditor from 'ckeditor4-vue';
 import VueCompositionAPI from '@vue/composition-api'
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
+
+Vue.use(VueToast);
 createInertiaApp({
     resolve: name => require(`./Pages/${name}`),
     setup({ el, App, props, plugin }) {
