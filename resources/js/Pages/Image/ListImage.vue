@@ -53,24 +53,37 @@
                 class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
               >{{index +1}}</th>
 
-              <td  v-if="editMode==false" class="px-6 py-4">{{image.name}}<a
+              <td v-if="editMode==false" class="px-6 py-4">
+                {{image.name}}
+                <a
                   @click="editName(image)"
                   type="button"
                   class="inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                 >
                   <icon name="edit" />
-                </a></td>
-              <td v-else class="px-6 py-4"><input type="text"  ref="name_image" :value="image.name" :id="image.id" @keyup.enter="submit(image,index)" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" ><a
+                </a>
+              </td>
+              <td v-else class="px-6 py-4">
+                <input
+                  type="text"
+                  ref="name_image"
+                  :value="image.name"
+                  :id="image.id"
+                  @keyup.enter="submit(image,index)"
+                  class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                />
+                <a
                   @click="editName(image)"
                   type="button"
                   class="inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                 >
                   <icon name="edit" />
-                </a></td>
+                </a>
+              </td>
               <td class="px-6 py-4 crop-content">
                 <img v-if="image.image" class="w-50 h-20" :src="image.image" alt="Card image cap" />
               </td>
-               <td class="px-6 py-4 crop-content">
+              <td class="px-6 py-4 crop-content">
                 <label
                   for="countries"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
@@ -84,7 +97,7 @@
                   <option
                     value="gallery__item--h-2 gallery__item--v-2"
                     :selected="image.element =='gallery__item--h-2 gallery__item--v-2' ?true :false"
-                  > Chiều Rộngx2 Chiều Dàix2</option>
+                  >Chiều Rộngx2 Chiều Dàix2</option>
                   <option
                     value="gallery__item--v-2"
                     :selected="image.element =='gallery__item--v-2' ?true :false"
@@ -113,7 +126,7 @@
                   <option
                     value="embed--1-2"
                     :selected="image.embed =='embed--1-2' ?true :false"
-                  > Rộngx1 Dàix2</option>
+                  >Rộngx1 Dàix2</option>
                   <option
                     value="embed--2-1"
                     :selected="image.embed =='embed--2-1' ?true :false"
@@ -186,8 +199,8 @@ export default {
   },
   data() {
     return {
-      name:null,
-      editMode:false,
+      name: null,
+      editMode: false,
       form: this.$inertia.form({
         id: null,
         name: null,
@@ -222,10 +235,21 @@ export default {
 
       axios
         .post("/admin/pages/image/selectElement", query)
-        .then(response => {})
+        .then(response => {
+          setTimeout(() => {
+            this.$toast.success(response.data, {
+              position: "bottom-right",
+              duration: 5000
+            });
+          }, 1000);
+        })
         .catch(function(error) {
-          // handle error
-          console.log(error);
+          setTimeout(() => {
+            this.$toast.error(error.response.data, {
+              position: "bottom-right",
+              duration: 5000
+            });
+          }, 1000);
         });
     },
     onChangeEmbed(data, event) {
@@ -236,41 +260,51 @@ export default {
 
       axios
         .post("/admin/pages/image/selectEmbed", query)
-        .then(response => {})
+        .then(response => {
+          setTimeout(() => {
+            this.$toast.success(response.data, {
+              position: "bottom-right",
+              duration: 5000
+            });
+          }, 1000);
+        })
         .catch(function(error) {
-          // handle error
-          console.log(error);
+          setTimeout(() => {
+            this.$toast.error(error.response.data, {
+              position: "bottom-right",
+              duration: 5000
+            });
+          }, 1000);
         });
     },
-    editName(data){
+    editName(data) {
       this.name = data.name;
       // this.dragOptions.disabled = !this.dragOptions.disabled
-      this.editMode = !this.editMode
+      this.editMode = !this.editMode;
     },
-    submit(data,index){
+    submit(data, index) {
       let query = {
         name: this.$refs.name_image[index].value,
         id: data.id
       };
-      //  this.$inertia.post("/editNameImage", query);
       axios
         .post("/editNameImage", query)
         .then(response => {
           // this.dragOptions.disabled= false
-            setTimeout(() => {
+          setTimeout(() => {
             this.$toast.success(response.data, {
-                position: "bottom-right",
-                duration: 5000
+              position: "bottom-right",
+              duration: 5000
             });
-        }, 1000);
+          }, 1000);
         })
-        .catch((error)=> {
-            setTimeout(() => {
+        .catch(error => {
+          setTimeout(() => {
             this.$toast.error(error.response.data, {
-                position: "bottom-right",
-                duration: 5000
+              position: "bottom-right",
+              duration: 5000
             });
-        }, 1000);
+          }, 1000);
         });
     }
   }

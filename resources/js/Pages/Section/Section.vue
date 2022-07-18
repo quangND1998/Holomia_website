@@ -191,7 +191,7 @@ export default {
           setTimeout(() => {
             this.$toast.success(response.data, {
                 position: "bottom-right",
-                duration: 5000
+                duration: 3000
             });
         }, 1000);
         })
