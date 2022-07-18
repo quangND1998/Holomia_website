@@ -185,6 +185,7 @@ class ContentController extends InertiaController
     {
 
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
+           
             $content = Content::with('languages', 'contentable')->findOrFail($id);
             $language_title = Languages::where('key', $content->title)->first();
             // $language_sub_title = Languages::where('key', $content->sub_title)->first();

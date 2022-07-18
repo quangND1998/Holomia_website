@@ -313,7 +313,7 @@ export default {
         title_en: null,
         title_vn: null,
         subtitle_en: null,
-        subtitle_en: null,
+        subtitle_vn: null,
         sub_title: null,
         description: null,
         description_en: null,

@@ -77,6 +77,38 @@ class ThemeSeeder extends Seeder
                 'type' => 0,
                 'created_at' => new DateTime()
             ],
+            [
+                'title' => 'about us',
+                'image_template' => 'images/theme/16576837001_about-uspng.PNG',
+                'link_code' => 'template.about_us',
+                'type' => 0,
+                'created_at' => new DateTime()
+            ],
+
+            [
+                'title' => 'contact_detail',
+                'image_template' => 'images/theme/16576837711_contact-detailpng.PNG',
+                'link_code' => 'template.contact_detail',
+                'type' => 0,
+                'created_at' => new DateTime()
+            ],
+
+            [
+                'title' => 'contact-form',
+                'image_template' => 'images/theme/16581128031_contact-formpng.PNG',
+                'link_code' => 'template.contact-form',
+                'type' => 0,
+                'created_at' => new DateTime()
+            ],
+
+            [
+                'title' => 'holomia news',
+                'image_template' => 'images/theme/16581131731_holomia-newspng.PNG',
+                'link_code' => 'template.holomia-news',
+                'type' => 0,
+                'created_at' => new DateTime()
+            ],
+
 
 
 

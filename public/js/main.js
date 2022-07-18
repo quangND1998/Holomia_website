@@ -3,14 +3,14 @@ window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
         document.getElementById("header").style.top = "0";
-        console.log("123");
+
     } else {
         document.getElementById("header").style.top = "0px";
         document.getElementById("header").style.top = "-100px";
         //  document.getElementById("header").style.width = "100%";
         //  document.getElementById("header").style.zIndex = "100";
         //  document.getElementById("header").style.position = "fixed";
-        console.log("567");
+
     }
     prevScrollpos = currentScrollPos;
 }

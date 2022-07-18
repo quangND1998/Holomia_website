@@ -500,6 +500,7 @@ li {
 }
 
 .main-view1 .background-game {
+    background-image: url(../img/bground2.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -1375,7 +1376,7 @@ hr {
 #header {
     background-color: #001C54;
     position: fixed;
-    top: 0 !important;
+    top: 0;
     width: 100%;
     display: block;
     transition: top 0.3s;
@@ -1721,3 +1722,5 @@ img {
     background-color: #fff;
     ;
 }
+
+1
