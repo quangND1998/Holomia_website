@@ -24,7 +24,7 @@
                         <span>{!!Str::words(strip_tags(__($new->content)), 10, '...')!!}</span>
                     </div>
                      <div class="read-more-laster">
-                    <a class="link-read-more" hhref="{{route('new.detail',__($new->slug))}}" >{{__('read_more')}}</a>
+                    <a class="link-read-more" href="{{route('new.detail',__($new->slug))}}" >{{__('read_more')}}</a>
                 </div>
 
                 </div>
