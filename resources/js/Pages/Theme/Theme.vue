@@ -76,11 +76,11 @@
               <span
                 v-else-if="element.type==2"
                 class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-gray-800 text-white rounded-full"
-              >Blog(No Category )</span>
-              <span
+              >News</span>
+              <!-- <span
                 v-else-if="element.type==3"
                 class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-gray-800 text-white rounded-full"
-              >Blog(Category )</span>
+              >Blog(Category )</span> -->
             </td>
             <td class="px-6 py-4">
               <a

@@ -78,12 +78,24 @@
               </td>
               <td class="px-6 py-4">
                 <Link
-                  v-if="element.theme.type ==0 ||element.theme.type ==2"
+                  v-if="element.theme.type ==0 "
                   type="button"
                   data-toggle="tooltip"
                   data-placement="bottom"
                   title="Contents"
                   :href="route('content.index',element.title)"
+                  class="inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                >
+                  <icon name="content" />
+                </Link>
+
+              <Link
+                  v-if="element.theme.type ==2 "
+                  type="button"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="Contents"
+                  :href="route('tintuc.index')"
                   class="inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                 >
                   <icon name="content" />
