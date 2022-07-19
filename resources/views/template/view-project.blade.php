@@ -7,7 +7,7 @@
                 <h1 class="title" data-aos="fade-down" >{{__($content->title)}}</h1>
                 <span class="text-font"  style="color: rgba(255, 255, 255, 0.7) ; padding-top:1rem">{!!__($content->description)!!}</span>
                 <div class="view ">
-                    <a  class=" " href="immersive">
+                    <a  class=" " href="">
                         <span >View Project </span><i class="fas fa-arrow-right icon-view"></i>
                     </a>
                 </div>
