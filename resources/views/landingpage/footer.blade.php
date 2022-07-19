@@ -16,8 +16,8 @@
                         <div class="contact">
                             <span><i class="fas fa-map-marker-alt pr-3"></i>{{__('company-address')}}</span>
                             <span><i class="fas fa-map-marker-alt pr-3"></i>{{__('company-address1')}}</span>
-                            <span><a href="tel:{{__('company-phone')}}"><i class="fas fa-phone-alt pr-3"></i>{{__('company-phone')}}</span>
-                            <span><a href="mailto:{{__('company-email')}}"><i class="fas fa-envelope pr-3"></i>{{__('company-email')}}</span>
+                            <span><a href="tel:{{__('company-phone')}}"><i class="fas fa-phone-alt pr-3"></i>{{__('company-phone')}}</a></span>
+                            <span><a href="mailto:{{__('company-email')}}"><i class="fas fa-envelope pr-3"></i>{{__('company-email')}}</a></span>
                         </div>
                     </div>
                     <div class="company-project">
@@ -51,3 +51,9 @@
             </div>       
         </div>
     </footer>
+    <style>
+        .company-contact a {
+            text-decoration: none !important;
+            color: #ffffffb3 !important;
+        }
+    </style>

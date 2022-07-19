@@ -10,7 +10,7 @@
                     </div>
                     <div class="immersive-content">
                         <div class=" text-immersive">
-                            <a href="../page/item-immersive.html"><h5>{{__($section->title)}}</h5></a>
+                            <a href="immersive"><h5>{{__($section->title)}}</h5></a>
                             <span class="text-font">{!!__($section->description)!!}
                                
                                 </span>
