@@ -51,36 +51,41 @@
                             </div>
                             <nav class="menu-demo">
                                 <ul class="list-menu">
-                                      @foreach ($pages as $page)
-                                       @if ($page->title =="home")
-                                    <li class="menu__item">
-                                       
-                                        <a href="/index" class="menu__link  {{ Request::segment(1) === 'index' ? 'active' : '' }}">{{__($page->title)}}</a>
-                                    </li>
-                                    @elseif($page->title =="project")
-                                        <li class="menu__item to-left dropdown">
-            
-                                            <a href=""  class="menu__link ">{{__($page->title)}} </a>
-                                            <div class="dropdown-content">
-                                                <a href="https://missionxvr.com/index" class="drop_link" target="_blank">Mission X</a>
-                                                
-                                            </div>
-                                        </li>
-                                    @else
-                                      <li class="menu__item to-left">
-        
-                                        <a href="/{{$page->title}}"  class="menu__link {{ Request::segment(1) === $page->title ? 'active' : '' }} ">{{__($page->title)}}</a>
-        
-                                    </li>
-                                  
+                                @foreach ($pages as $page)
+                                    @if ($page->title =="home")
+                                            <li class="menu__item">
+                                            
+                                                <a href="/index" class="menu__link  {{ Request::segment(1) === 'index' ? 'active' : '' }}">{{__($page->title)}}</a>
+                                            </li>
+                                            @elseif($page->title =="project")
+                                                <li class="menu__item to-left dropdown">
+                    
+                                                    <a href=""  class="menu__link ">{{__($page->title)}} </a>
+                                                    <div class="dropdown-content">
+                                                        <a href="https://missionxvr.com/index" class="drop_link" target="_blank">Mission X</a>
+                                                        
+                                                    </div>
+                                                </li>
+                                            @else
+                                            <li class="menu__item to-left">
+                
+                                                <a href="/{{$page->title}}"  class="menu__link {{ Request::segment(1) === $page->title ? 'active' : '' }} ">{{__($page->title)}}</a>
+                
+                                            </li>
+                                        
                                     @endif
                                   
                                     
-                                     @endforeach
-                                         <li class="language">
-                                        <a href="/language/en" class="menu__link menu_news"><img src="/img/en.png" class="img-fluid logo_language" alt=""></a>
-                                        <a href="/language/vn" class="menu__link menu_news"><img src="/img/vn.png" class="img-fluid logo_language" alt=""></a>
+                                @endforeach
+                                </ul>                                     
+                                <ul class="list-language">
+                                     <li class="menu__item to-left menu-language">
+                                        <a href="/language/en" class="menu__link menu_news "><img src="/img/en.png" class="img-fluid logo_language" alt=""> </a>
                                     </li>
+                                    <li class="menu__item to-left menu-language">
+                                        <a href="/language/vn" class="menu__link menu_news "><img src="/img/vn.png" class="img-fluid logo_language" alt=""> </a>
+                                    </li>
+                                
                                 </ul>
                                 
                                 
@@ -147,7 +152,8 @@
     @include('landingpage.footer')
    
 
-
+    <script async src="/js/youtube_2.js"></script>
+    <script async custom-element="amp-youtube" src="js/youtube_1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     {{--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  --}}
     <script src="/js/bootstrap-notify.min.js" ></script>    

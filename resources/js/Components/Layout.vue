@@ -3,7 +3,6 @@
         <sidebar />
         <div class="relative md:ml-64 bg-blueGray-100">
             <admin-navbar />
-            <header-stats />
 
             <div class="flex-1 overflow-hidden px-4 py-8 md:p-4 overflow-y-auto" scroll-region>
                 <slot />

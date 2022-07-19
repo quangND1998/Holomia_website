@@ -112,6 +112,8 @@ class SectionController extends Controller
 
                 ]
             );
+            $section->theme_id = $request->theme_id;
+            $section->save();
             $this->updateLanguage($section->title, $request->title_en, $request->title_vn, $section);
             $this->updateLanguage($section->sub_title, $request->sub_title_en, $request->sub_title_vn, $section);
             $this->updateLanguage($section->description, $request->description_en, $request->description_vn, $section);
