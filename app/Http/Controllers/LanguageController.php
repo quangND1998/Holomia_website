@@ -38,8 +38,8 @@ class LanguageController extends InertiaController
                 $request,
                 [
                     'key' => 'required|unique:languages,key',
-                    'vn' => 'required',
-                    'en' => 'required',
+                    // 'vn' => 'required',
+                    // 'en' => 'required',
                 ]
             );
             $name = time();
@@ -61,8 +61,8 @@ class LanguageController extends InertiaController
             $this->validate(
                 $request,
                 [
-                    'vn' => 'required',
-                    'en' => 'required',
+                    // 'vn' => 'required',
+                    // 'en' => 'required',
                 ]
             );
             $language = Languages::findOrFail($id);

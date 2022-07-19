@@ -6,9 +6,9 @@
                         <img src="/img/logoxanhh.png" class="img-fluid logo_company" alt="">
                         <span class="title-company">{{__('company-infor')}}</span>
                         <div class="link-icon">
-                            <a href="https://www.facebook.com/HolomiaVR"><i class="fab fa-facebook"></i></a>
-                            <a href="https://www.youtube.com/channel/UCrSonn_ZkOGc4Um7bqsDEQw"><i class="fab fa-youtube"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href="{{__('holomia_facebook')}}"><i class="fab fa-facebook"></i></a>
+                            <a href="{{__('holomia_youtube')}}"><i class="fab fa-youtube"></i></a>
+                            <a href="{{__('holomia_instagram')}}"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="company-contact">

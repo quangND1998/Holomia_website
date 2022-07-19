@@ -7,9 +7,9 @@
                     <div class="col-lg-12 single_page_contact">
                         <h1 class="title text-center">{{__($section->title)}}</h1>
                         <div class="icon-contact text-center pt-4">
-                            <a href="https://www.facebook.com/search/top?q=holomia" class="pr-4"><i class="fab fa-facebook"></i></a>
-                            <a href="https://www.youtube.com/results?search_query=holomia" class="pr-4"><i class="fab fa-youtube"></i></a>
-                            <a href="" class="pr-4"><i class="fab fa-instagram-square"></i></a>
+                            <a href="{{__('holomia_facebook')}}" class="pr-4"><i class="fab fa-facebook"></i></a>
+                            <a href="{{__('holomia_youtube')}}" class="pr-4"><i class="fab fa-youtube"></i></a>
+                            <a href="{{__('holomia_instagram')}}" class="pr-4"><i class="fab fa-instagram-square"></i></a>
                         </div>
                         <div class="text-center pt-4">
                             <span>{{__('company-email')}}</span>
