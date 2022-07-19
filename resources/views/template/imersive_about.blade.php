@@ -1,5 +1,5 @@
  <div class="container">
-                <div class="row">
+                <div class="row pb-5">
                     <div class="immersive-img">
                         {{--  <video autoplay="" muted="" loop="" id="Video">
                             <source src="/img/event.mp4" type="video/mp4">

@@ -160,7 +160,11 @@
         
 
           <li class="inline-flex" v-if="$page.props.auth.user">
+                <Link   :href="route('logout')" method="post" class=" px-4 py-2.5 flex flex-wrap text-blueGray-700 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold"  v-if="$page.props.auth.user">
 
+            <icon name="logout" class="mr-1 text-blueGray-300 text-base"></icon>
+            <div class="text-sm">Logout</div>
+          </Link>
            
           </li>
 
