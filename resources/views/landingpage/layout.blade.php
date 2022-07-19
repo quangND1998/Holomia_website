@@ -151,9 +151,6 @@
     @yield('content')
     @include('landingpage.footer')
    
-
-    <script async src="/js/youtube_2.js"></script>
-    <script async custom-element="amp-youtube" src="js/youtube_1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     {{--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  --}}
     <script src="/js/bootstrap-notify.min.js" ></script>    
