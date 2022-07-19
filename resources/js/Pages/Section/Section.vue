@@ -53,7 +53,7 @@
                 class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
               >{{index +1}}</th>
 
-              <td class="px-6 py-4">{{__(element.title)}}</td>
+              <td class="px-6 py-4 crop-content" >{{__(element.title)}}</td>
               <td class="px-6 py-4 crop-content">{{__(element.sub_title)}}</td>
 
               <td v-if="element.description" class="px-6 py-4 crop-content">
