@@ -26,8 +26,8 @@
         >
           <tr>
             <th scope="col" class="px-6 py-3">STT</th>
-            <th scope="col" class="px-6 py-3">Tên</th>
-            <th scope="col" class="px-6 py-3">Tên Không Dấu</th>
+            <th scope="col" class="px-6 py-3">Name</th>
+            <th scope="col" class="px-6 py-3">Slug</th>
 
             <th scope="col" class="px-6 py-3">
               {{

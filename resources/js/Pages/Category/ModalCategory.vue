@@ -38,7 +38,7 @@
                   <div class="mt-1 flex rounded-md shadow-sm" v-if="editMode ==false">
                     <span
                       class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                    >Title</span>
+                    >{{__('title')}} </span>
                     <input
                       type="text"
                       v-model="form.title"
@@ -55,7 +55,7 @@
                   <div class="mt-1 flex rounded-md shadow-sm">
                     <span
                       class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                    >Title English</span>
+                    >{{__('title')}} English</span>
                     <input
                       type="text"
                       v-model="form.title_en"
@@ -72,7 +72,7 @@
                   <div class="mt-1 flex rounded-md shadow-sm">
                     <span
                       class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                    >Title VietNamese</span>
+                    >{{__('title')}}  VietNamese</span>
                     <input
                       type="text"
                       v-model="form.title_vn"

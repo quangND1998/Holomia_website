@@ -9,7 +9,6 @@
         <Link
           :href="route('tintuc.create')"
           class="flex items-center bg-gray-500 text-white active:bg-pink-600 font-sans text-sm px-4 py-1.5 rounded shadow-md hover:bg-gray-700 hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          
           data-toggle="tooltip"
           data-placement="bottom"
           title="Tags"
@@ -19,7 +18,6 @@
         </Link>
         <Link
           class="flex items-center bg-gray-500 text-white active:bg-pink-600 font-sans text-sm px-4 py-1.5 rounded shadow-md hover:bg-gray-700 hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          
           data-toggle="tooltip"
           data-placement="bottom"
           title="Tags"
@@ -31,7 +29,6 @@
         <Link
           :href="route('theloai.index')"
           class="flex items-center bg-gray-500 text-white active:bg-pink-600 font-sans text-sm px-4 py-1.5 rounded shadow-md hover:bg-gray-700 hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          
           data-toggle="tooltip"
           data-placement="bottom"
           title="Thể Loại"
@@ -67,11 +64,11 @@
         >
           <tr>
             <th scope="col" class="px-6 py-3">STT</th>
-            <th scope="col" class="px-6 py-3">Thể loại</th>
+            <th scope="col" class="px-6 py-3">Category</th>
             <th scope="col" class="px-6 py-3">Title</th>
             <th scope="col" class="px-6 py-3">Sub Title</th>
             <!-- <th scope="col" class="px-6 py-3">Content</th> -->
-            <th scope="col" class="px-6 py-3">Nổi Bật</th>
+            <th scope="col" class="px-6 py-3">Outstanding</th>
             <th scope="col" class="px-6 py-3">Tags</th>
             <th scope="col" class="px-6 py-3">Preview</th>
 
@@ -119,7 +116,11 @@
             </span>
           </td>
           <td class="px-6 py-4 crop-content">
-            <a :href="route('tintuc.preview', __(element.slug))" target="_blank" class="text-blue-500">Preview</a> 
+            <a
+              :href="route('tintuc.preview', __(element.slug))"
+              target="_blank"
+              class="text-blue-500"
+            >Preview</a>
           </td>
           <td class="px-6 py-4 crop-content">
             <img width="300" height="150" :src="element.image" alt="Card image cap" />
@@ -127,7 +128,6 @@
 
           <td class="px-6 py-4">
             <Link
-              
               :href="route('tintuc.edit',element.id)"
               class="inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
@@ -135,7 +135,6 @@
             </Link>
 
             <a
-              
               @click="onDelete(element.id)"
               class="inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >

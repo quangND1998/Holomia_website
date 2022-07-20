@@ -1,7 +1,8 @@
 <template>
   <div class="mt-10 sm:mt-0 overflow-auto">
     <h1 class="mt-2">
-      <i class="fa fa-newspaper-o"></i> Cập nhật Tin Tức
+      <i class="fa fa-newspaper-o"></i>
+      {{__('update')}} {{__('news')}}
     </h1>
 
     <div class="md:mt-0 md:col-span-3 mt-8">
@@ -62,7 +63,7 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >Tiêu Đề English</label>
+                >{{__('title')}} English</label>
                 <input
                   v-model="form.title_en"
                   type="text"
@@ -160,7 +161,6 @@
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
             <Link
-              
               :href="route('tintuc.index')"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             >Back</Link>

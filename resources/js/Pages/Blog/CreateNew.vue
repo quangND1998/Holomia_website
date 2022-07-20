@@ -1,7 +1,7 @@
 <template>
   <div class="mt-10 sm:mt-0 overflow-auto">
      
-    <h1 class="mt-2"><i class="fa fa-newspaper-o"></i></i> Tạo mới Tin Tức</h1>
+    <h1 class="mt-2"><i class="fa fa-newspaper-o"></i></i>   {{__('create')}} {{__('news')}}</h1>
 
 
     <div class="md:mt-0 md:col-span-3 mt-8">
@@ -18,7 +18,7 @@
                 <div class="text-red-500" v-if="errors.tags">{{ errors.tags }}</div>
             </div>
             <div class="col-span-6 sm:col-span-2" >
-                <label for="country" class="block text-sm font-medium text-gray-700">Thể Loại</label>
+                <label for="country" class="block text-sm font-medium text-gray-700">Categories</label>
                <select
                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     id="grid-state"
@@ -56,7 +56,7 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >Tiêu Đề English</label>
+                >{{__('title')}} English</label>
                 <input
                   v-model="form.title_en"
                   type="text"
@@ -73,7 +73,7 @@
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >Tiêu Đề Tiếng Việt</label>
+                >{{__('title')}} VietNamese</label>
                 <input
                   v-model="form.title_vn"
                   type="text"
@@ -90,7 +90,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Nổi Bật</label>
+                >Outstanding</label>
                 <div class="mt-1">
                       <input
                         type="radio"
@@ -104,7 +104,7 @@
                         <span
                           for="helper-checkbox"
                           class="font-medium text-gray-900 dark:text-gray-300"
-                        >Không</span>
+                        >No</span>
                       </div>
                        <input
                         type="radio"
@@ -119,7 +119,7 @@
                          
                           for="helper-checkbox"
                           class="font-medium text-gray-900 dark:text-gray-300"
-                        >Có</span>
+                        >Yes</span>
                       </div>
                 </div>
                 <div class="text-red-500" v-if="errors.outstanding">{{ errors.outstanding }}</div>
@@ -129,7 +129,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Content English</label>
+                >{{__('content')}} English</label>
                 <div class="mt-1">
                    <ckeditor
                       v-model="form.content_en"
@@ -144,7 +144,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Content VietNamese</label>
+                >{{__('content')}} VietNamese</label>
                 <div class="mt-1">
                   <ckeditor
                     v-model="form.content_vn"

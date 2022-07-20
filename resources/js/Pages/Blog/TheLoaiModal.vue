@@ -15,8 +15,11 @@
               <div
                 class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t"
               >
-                <h3 class="text-3xl font-semibold" v-if="editMode == false">{{ __('create') }} Thể Loại</h3>
-                <h3 class="text-3xl font-semibold" v-else>{{ __('update') }} Thể Loại</h3>
+                <h3
+                  class="text-3xl font-semibold"
+                  v-if="editMode == false"
+                >{{ __('create') }} Category</h3>
+                <h3 class="text-3xl font-semibold" v-else>{{ __('update') }} Category</h3>
                 <button
                   class="p-1 ml-auto bg-transparent border-0 text-gray-300 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                   @click="closeModal()"
@@ -29,13 +32,13 @@
                 </button>
               </div>
               <!--body-->
-                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+              <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                 <div class="col-span-3 sm:col-span-2">
                   <label for="company_website" class="block text-sm font-medium text-gray-700">Tên</label>
                   <div class="mt-1 flex rounded-md shadow-sm">
                     <span
                       class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                    >Tên</span>
+                    >Name</span>
                     <input
                       type="text"
                       v-model="form.name"
@@ -47,15 +50,13 @@
                   </div>
                   <p class="text-red-500 text-xs italic" v-if="errors.name">{{ errors.name }}</p>
                 </div>
-               
-                 </div>
+              </div>
               <!--footer-->
               <div
                 class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b"
               >
                 <button
                   class="inline-block px-3 py-2 mr-1 mb-1 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                  
                   @click="closeModal()"
                 >{{ __('cancel') }}</button>
                 <button
@@ -99,8 +100,7 @@ export default {
       showModal: false,
       form: this.$inertia.form({
         id: null,
-        name: null,
-      
+        name: null
       })
     };
   },
@@ -129,7 +129,7 @@ export default {
       this.editMode = true;
       this.form.id = data.id;
       this.form.name = data.name;
-   
+
       this.toggleModal();
     },
 
@@ -153,9 +153,8 @@ export default {
     },
     reset: function() {
       this.form = this.$inertia.form({
-         id: null,
-        name: null,
-     
+        id: null,
+        name: null
       });
     },
     update() {

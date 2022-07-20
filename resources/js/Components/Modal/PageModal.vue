@@ -44,7 +44,7 @@
                 </div>
                 <div class="p-3 col-span-2">
                   <div class="mb-4">
-                    <label>Title English</label>
+                    <label>{{__('title')}} English</label>
                     <input
                       type="text"
                       v-model="form.title_en"
@@ -56,7 +56,7 @@
                 </div>
                 <div class="p-3 row-span-2 col-span-2">
                   <div class="mb-4">
-                    <label>Title VietNamese </label>
+                    <label>{{__('title')}} VietNamese </label>
                     <input
                       type="text"
                       v-model="form.title_vn"
@@ -71,7 +71,7 @@
               <div class="md:flex grid grid-rows-2 grid-flow-col gap-4">
                 <div class="p-3">
                   <div class="mb-4">
-                    <label>{{__('Description')}} English</label>
+                    <label>{{__('description')}} English</label>
                     <textarea
                       type="text"
                       v-model="form.description_en"
@@ -86,7 +86,7 @@
                 </div>
                 <div class="p-3">
                   <div class="mb-4">
-                    <label>{{__('Description')}} VietNam</label>
+                    <label>{{__('description')}} VietNam</label>
                     <textarea
                       type="text"
                       v-model="form.description_vn"
