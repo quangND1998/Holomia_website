@@ -8,7 +8,7 @@
       <div class="flex items-center justify-end">
         <button
           class="flex items-center bg-gray-500 text-white active:bg-pink-600 font-sans text-sm px-4 py-1.5 rounded shadow-md hover:bg-gray-700 hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          type="button"
+          
           v-on:click="onAddClass()"
         >
           <icon class="w-6 h-6" name="create" />Add
@@ -68,14 +68,14 @@
           <td class="px-6 py-4">
             <a
               @click="onEdit(element)"
-              type="button"
+            
               class="inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               <icon name="edit" />
             </a>
 
             <a
-              type="button"
+              
               @click="onDelete(element.id)"
               class="inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >

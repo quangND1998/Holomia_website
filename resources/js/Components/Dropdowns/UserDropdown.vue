@@ -38,7 +38,7 @@
         class="flex items-center text-sm py-2 px-4 font-normal w-full whitespace-nowrap bg-transparent text-blueGray-700"
         :href="route('logout')"
         as="button"
-        type="button"
+        
         method="post"
       >
         <icon name="logout" class="w-4 h-4 mr-2" />

@@ -7,7 +7,7 @@
     >
       <button
         class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-        type="button"
+       
         v-on:click="toggleCollapseShow('bg-white m-2 py-3 px-6')"
       >
         <i class="fas fa-bars"></i>
@@ -42,7 +42,7 @@
             </div>
             <div class="w-6/12 flex justify-end">
               <button
-                type="button"
+                
                 class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
                 v-on:click="toggleCollapseShow('hidden')"
               >
