@@ -43,7 +43,7 @@
             <th scope="col" class="px-6 py-3">STT</th>
             <th scope="col" class="px-6 py-3">Key</th>
             <th scope="col" class="px-6 py-3">{{__('en')}}</th>
-            <th scope="col" class="px-6 py-3">{{__('en')}}</th>
+            <th scope="col" class="px-6 py-3">{{__('vn')}}</th>
             <th scope="col" class="px-6 py-3">
               {{
               __("action")
