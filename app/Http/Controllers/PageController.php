@@ -6,6 +6,7 @@ use App\Repositories\PageRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Traits\LanguageTrait;
 use App\Http\Requests\Page\StorePageRequest;
+use App\Models\Languages;
 use App\Models\Page;
 use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
@@ -49,10 +50,26 @@ class PageController extends InertiaController
         }
     }
 
-    public function update(StorePageRequest $request, $id)
+    public function update(Request $request, $id)
     {
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
             $page = Page::with('languages')->findOrFail($id);
+            $language_title = Languages::where('key', $page->title)->first();
+            $this->validate(
+                $request,
+                [
+                    // 'title' => 'required|unique:languages,key,' . $language_title->id,
+                    'description_en' => 'nullable',
+                    'description_vn' => 'nullable',
+                    'title_en' => 'required',
+                    'title_vn' => 'required'
+                ],
+                [
+                    'title_en.required' => __('Hãy nhập tiêu đề Tiếng Anh'),
+                    'title_vn.required' => __('Hãy nhập tiêu đề  Tiếng Việt'),
+                ]
+
+            );
             $this->updateLanguage($page->title, $request->title_en, $request->title_vn, $page);
             $this->updateLanguage($page->description, $request->description_en, $request->description_vn, $page);
             return back()->with('success', 'Update successfully');

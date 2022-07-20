@@ -134,7 +134,7 @@
           </Link>
            <Link   :class="[$page.component === 'Blog/Tintuc' ? 'opacity-75 text-blue-300 bg-coolGray-900' : '']"  :href="route('tintuc.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="new" class="mr-1 text-blueGray-300 text-base"></icon>
-              Tin Tức
+              News
           </Link>
 
           <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.url.startsWith('/admin/themes') ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('themes.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">

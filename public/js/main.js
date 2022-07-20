@@ -1,19 +1,19 @@
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        document.getElementById("header").style.top = "0";
+// var prevScrollpos = window.pageYOffset;
+// window.onscroll = function() {
+//     var currentScrollPos = window.pageYOffset;
+//     if (prevScrollpos > currentScrollPos) {
+//         document.getElementById("header").style.top = "0";
 
-    } else {
-        document.getElementById("header").style.top = "0px";
-        document.getElementById("header").style.top = "-100px";
-        //  document.getElementById("header").style.width = "100%";
-        //  document.getElementById("header").style.zIndex = "100";
-        //  document.getElementById("header").style.position = "fixed";
+//     } else {
+//         document.getElementById("header").style.top = "0px";
+//         document.getElementById("header").style.top = "-100px";
+//         //  document.getElementById("header").style.width = "100%";
+//         //  document.getElementById("header").style.zIndex = "100";
+//         //  document.getElementById("header").style.position = "fixed";
 
-    }
-    prevScrollpos = currentScrollPos;
-}
+//     }
+//     prevScrollpos = currentScrollPos;
+// }
 
 // animation aos
 AOS.init();
