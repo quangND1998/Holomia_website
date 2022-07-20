@@ -64,11 +64,11 @@
         >
           <tr>
             <th scope="col" class="px-6 py-3">STT</th>
-            <th scope="col" class="px-6 py-3">Category</th>
-            <th scope="col" class="px-6 py-3">Title</th>
-            <th scope="col" class="px-6 py-3">Sub Title</th>
+            <th scope="col" class="px-6 py-3">{{__('category')}}</th>
+            <th scope="col" class="px-6 py-3">{{__('title')}}</th>
+            <th scope="col" class="px-6 py-3">{{__('sub_title')}}</th>
             <!-- <th scope="col" class="px-6 py-3">Content</th> -->
-            <th scope="col" class="px-6 py-3">Outstanding</th>
+            <th scope="col" class="px-6 py-3">{{__('outstanding')}}</th>
             <th scope="col" class="px-6 py-3">Tags</th>
             <th scope="col" class="px-6 py-3">Preview</th>
 

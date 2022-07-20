@@ -18,7 +18,7 @@
                 <div class="text-red-500" v-if="errors.tags">{{ errors.tags }}</div>
             </div>
             <div class="col-span-6 sm:col-span-2" >
-                <label for="country" class="block text-sm font-medium text-gray-700">Categories</label>
+                <label for="country" class="block text-sm font-medium text-gray-700">{{__('category')}}</label>
                <select
                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     id="grid-state"
@@ -90,7 +90,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Outstanding</label>
+                >{{__('outstanding')}}</label>
                 <div class="mt-1">
                       <input
                         type="radio"

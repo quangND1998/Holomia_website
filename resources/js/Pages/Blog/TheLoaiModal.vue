@@ -18,8 +18,8 @@
                 <h3
                   class="text-3xl font-semibold"
                   v-if="editMode == false"
-                >{{ __('create') }} Category</h3>
-                <h3 class="text-3xl font-semibold" v-else>{{ __('update') }} Category</h3>
+                >{{ __('create') }} {{__('category')}}</h3>
+                <h3 class="text-3xl font-semibold" v-else>{{ __('update') }} {{__('category')}}</h3>
                 <button
                   class="p-1 ml-auto bg-transparent border-0 text-gray-300 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                   @click="closeModal()"
@@ -34,7 +34,7 @@
               <!--body-->
               <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                 <div class="col-span-3 sm:col-span-2">
-                  <label for="company_website" class="block text-sm font-medium text-gray-700">Tên</label>
+                  <label for="company_website" class="block text-sm font-medium text-gray-700">Name</label>
                   <div class="mt-1 flex rounded-md shadow-sm">
                     <span
                       class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
