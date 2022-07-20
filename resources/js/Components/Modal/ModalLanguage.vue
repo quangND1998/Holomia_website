@@ -66,7 +66,7 @@
                   <label
                     for="street_address"
                     class="block text-sm font-medium text-gray-700"
-                  >English</label>
+                  >{{__('en')}}</label>
                   <div class="mt-1">
                     <ckeditor
                       v-if="showCkeditor"
@@ -90,7 +90,7 @@
                   <label
                     for="street_address"
                     class="block text-sm font-medium text-gray-700"
-                  >VietNamese</label>
+                  >{{__('vn')}}</label>
                   <div class="mt-1">
                     <ckeditor
                       v-if="showCkeditor"

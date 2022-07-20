@@ -84,7 +84,7 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >Title English</label>
+                >{{__('title')}} {{__('en')}}</label>
                 <input
                   v-model="form.title_en"
                   type="text"
@@ -101,7 +101,7 @@
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >Title VietNamese</label>
+                >{{__('title')}} {{__('vn')}}</label>
                 <input
                   v-model="form.title_vn"
                   type="text"
@@ -118,7 +118,7 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >SubTitle English</label>
+                >{{__('sub_title')}} {{__('en')}}</label>
                 <input
                   v-model="form.subtitle_en"
                   type="text"
@@ -135,7 +135,7 @@
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >SubTitle VietNamese</label>
+                >{{__('sub_title')}} {{__('vn')}}</label>
                 <input
                   v-model="form.subtitle_vn"
                   type="text"
@@ -151,7 +151,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Description English</label>
+                >{{__('description')}} {{__('en')}}</label>
                 <div class="mt-1">
                   <ckeditor
                     v-model="form.description_en"
@@ -166,7 +166,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Description VietNamese</label>
+                >{{__('description')}} {{__('vn')}}</label>
                 <div class="mt-1">
                   <ckeditor
                     v-model="form.description_vn"
@@ -252,7 +252,6 @@
               </span>
             </div>
             <Link
-              
               :href="route('content.index',section.title)"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             >Back</Link>

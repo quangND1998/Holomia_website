@@ -13,7 +13,7 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >Title English</label>
+                >{{__('title')}} {{__('en')}}</label>
                 <input
                   v-model="form.title_en"
                   type="text"
@@ -30,7 +30,7 @@
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >Title VietNamese</label>
+                >{{__('title')}} {{__('vn')}}</label>
                 <input
                   v-model="form.title_vn"
                   type="text"
@@ -49,7 +49,7 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >Sub Title English</label>
+                >{{__('sub_title')}} {{__('en')}}</label>
                 <input
                   v-model="form.sub_title_en"
                   type="text"
@@ -66,7 +66,7 @@
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >Sub Title VietNamese</label>
+                >{{__('sub_title')}} {{__('vn')}}</label>
                 <input
                   v-model="form.sub_title_vn"
                   type="text"
@@ -83,7 +83,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Description English</label>
+                >{{__('description')}} {{__('en')}}</label>
                 <div class="mt-1">
                         <ckeditor
                     v-model="form.description_en"
@@ -105,7 +105,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Description VietNamese</label>
+                >{{__('description')}} {{__('vn')}}</label>
                 <div class="mt-1">
                      <ckeditor
                     v-model="form.description_vn"

@@ -42,8 +42,8 @@
           <tr>
             <th scope="col" class="px-6 py-3">STT</th>
             <th scope="col" class="px-6 py-3">Key</th>
-            <th scope="col" class="px-6 py-3">English</th>
-            <th scope="col" class="px-6 py-3">Vietnamese</th>
+            <th scope="col" class="px-6 py-3">{{__('en')}}</th>
+            <th scope="col" class="px-6 py-3">{{__('en')}}</th>
             <th scope="col" class="px-6 py-3">
               {{
               __("action")

@@ -1,20 +1,18 @@
 <template>
   <div class="mt-10 sm:mt-0 overflow-auto">
     <BreadCrumb :page="page" name="Create" />
-    <h1>Create</h1>
+    <h1>{{__('create')}}</h1>
 
     <div class="mt-5 md:mt-0 md:col-span-3">
       <form @submit.prevent="save">
         <div class="shadow overflow-hidden sm:rounded-md">
           <div class="px-4 py-5 bg-white sm:p-6">
-            <div class="grid gap-4 ">
-              
-
+            <div class="grid gap-4">
               <div class="col-span-6 sm:col-span-3">
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >Title English</label>
+                >{{__('title')}} {{__('en')}}</label>
                 <input
                   v-model="form.title_en"
                   type="text"
@@ -31,7 +29,7 @@
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >Title VietNamese</label>
+                >{{__('title')}} {{__('vn')}}</label>
                 <input
                   v-model="form.title_vn"
                   type="text"
@@ -44,12 +42,11 @@
                 <div class="text-red-500" v-if="errors.title_vn">{{ errors.title_vn }}</div>
               </div>
 
-
               <div class="col-span-6 sm:col-span-3">
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >Sub Title English</label>
+                >{{_('sub_title')}} {{__('en')}}</label>
                 <input
                   v-model="form.sub_title_en"
                   type="text"
@@ -66,7 +63,7 @@
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >Sub Title VietNamese</label>
+                >{{_('sub_title')}} {{__('vn')}}</label>
                 <input
                   v-model="form.sub_title_vn"
                   type="text"
@@ -79,12 +76,11 @@
                 <div class="text-red-500" v-if="errors.sub_title_vn">{{ errors.sub_title_vn }}</div>
               </div>
 
-             
               <div class="col-span-6 sm:col-span-3">
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Description English</label>
+                >{{__('description')}} {{__('en')}}</label>
                 <div class="mt-1">
                   <ckeditor
                     v-model="form.description_en"
@@ -107,7 +103,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Description VietNamese</label>
+                >{{__('description')}} {{__('vn')}}</label>
                 <div class="mt-1">
                   <ckeditor
                     v-model="form.description_vn"
@@ -181,7 +177,6 @@
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
             <Link
-              
               :href="route('section.index',page.id)"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             >Back</Link>

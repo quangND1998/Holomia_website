@@ -63,7 +63,7 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >{{__('title')}} English</label>
+                >{{__('title')}} {{__('en')}}</label>
                 <input
                   v-model="form.title_en"
                   type="text"
@@ -131,7 +131,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Content English</label>
+                >{{__('content')}} {{__('en')}}</label>
                 <div class="mt-1">
                   <ckeditor
                     v-model="form.content_en"
@@ -146,7 +146,7 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
-                >Content VietNamese</label>
+                >Content {{__('vn')}}</label>
                 <div class="mt-1">
                   <ckeditor
                     v-model="form.content_vn"
