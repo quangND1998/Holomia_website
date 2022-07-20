@@ -27,8 +27,8 @@
         >
           <tr>
             <th scope="col" class="px-6 py-3">STT</th>
-            <th scope="col" class="px-6 py-3">Name</th>
-            <th scope="col" class="px-6 py-3">Description</th>
+            <th scope="col" class="px-6 py-3">{{__('title')}}</th>
+            <th scope="col" class="px-6 py-3">{{__('description')}}</th>
 
             <th scope="col" class="px-6 py-3">
               {{
