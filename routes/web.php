@@ -14,7 +14,9 @@ use App\Http\Controllers\CategoryContentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +32,7 @@ use App\Http\Controllers\MailController;
 Route::get('/', function () {
     return redirect('/index');
 });
-
+Route::get('/{name}.html', [ProjectController::class, 'preview_project']);
 Route::get('index', [LandingPageController::class, 'index']);
 Route::get('immersive', [LandingPageController::class, 'immersive']);
 Route::get('contact', [LandingPageController::class, 'contact']);
@@ -177,9 +179,22 @@ Route::middleware(['auth', 'verified'])->group(
             Route::get('previewMail/{id}', [MailController::class, 'previewMail'])->name('mail.previewMail');
             Route::put('sendMail/{id}', [MailController::class, 'sendMail'])->name('mail.sendMail');
         });
-        Route::post('changeActiveSection',[SectionController::class,'changeActive'])->name('section.changeActive');
-        Route::post('editNameImage',[ImageController::class,'editNameImage']);
-        
+        Route::post('changeActiveSection', [SectionController::class, 'changeActive'])->name('section.changeActive');
+        Route::post('editNameImage', [ImageController::class, 'editNameImage']);
+        // Route::get('projects', [ProjectController::class, 'index'])->name('project.index');
+
+        Route::group(['prefix' => 'admin/projects'], function () {
+            Route::get('', [ProjectController::class, 'index'])->name('project.index');
+            Route::post('', [ProjectController::class, 'store'])->name('project.store');
+            Route::post('update/{id}', [ProjectController::class, 'update'])->name('project.update');
+            Route::delete('delete/{id}', [ProjectController::class, 'delete'])->name('project.delete');
+            Route::group(['prefix' => 'item/{id}'], function () {
+                Route::get('', [ItemController::class, 'index'])->name('item.index');
+                Route::post('', [ItemController::class, 'store'])->name('item.store');
+                Route::post('update', [ItemController::class, 'update'])->name('item.update');
+                Route::delete('delete', [ItemController::class, 'delete'])->name('item.delete');
+            });
+        });
     }
 );
 Route::get('language/{language}', function ($language) {

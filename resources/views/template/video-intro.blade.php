@@ -2,9 +2,9 @@
  <div id="video_page">
         <div class="text-block">
             <div class="text-container">
-                <h1 class="title text-white">{{__($section->title)}}</h1>
+                {{--  <h1 class="title text-white">{{__($section->title)}}</h1>
                 <span class="text-white ">{{__($section->sub_title)}}</span>
-                <button class="btn-create-room">Create Room</button>
+                <button class="btn-create-room">Create Room</button>  --}}
             </div>
         </div>
         {{--  <video autoplay="" muted="" loop="" id="myVideo">  --}}
@@ -13,3 +13,9 @@
             {{--  <amp-youtube id="myVideo" class="video_gl" autoplay loop  layout="responsive" data-videoid="{{count($section->contents) >0 ? $section->contents[0]->video :''}}"></amp-youtube>  --}}
         {{--  </video>  --}}
     </div>
+<script>
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        // true for mobile device
+            $(".video_cover").attr('src',`https://www.youtube.com/embed/{{count($section->contents) >0 ? $section->contents[0]->video :''}}`);
+    }
+</script>

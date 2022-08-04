@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="title-event-join ">
-                <h1 style="color:black" class="title">Holomia event to join</h1>
+                <h1 style="color:black" class="title">{{__($section->title)}}</h1>
             </div>
 
             <div class=" d-flex">

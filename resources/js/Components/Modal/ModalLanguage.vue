@@ -203,7 +203,8 @@ export default {
       this.form.id = data.id;
       this.form.key = data.key;
       this.form.en = data.en;
-      if (data.en[0] === "<") {
+      
+      if (data.en !==null && data.en[0] === "<") {
         this.showCkeditor = true;
 
       }
