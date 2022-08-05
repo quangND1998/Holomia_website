@@ -18,17 +18,17 @@ class ProjectController extends InertiaController
 
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
             $projects = Project::get();
-
             return Inertia::render('Project/Index', compact('projects'));
         } else {
             return $this->errors()->errors_403();
         }
     }
-    public function preview_project($name)
+    public function preview_project($slug)
     {
 
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
-        $project = Project::with('items')->where('name', $name)->first();
+        $project = Project::with('items')->where('slug', $slug)->first();
+
 
         return view('project', compact('project', 'pages'));
     }
@@ -49,7 +49,8 @@ class ProjectController extends InertiaController
                 mkdir($destinationpath, 0777, true);
             }
             $project = Project::create([
-                'name' => Str::slug($request->name),
+                'name' => $request->name,
+                'slug' => Str::slug($request->name),
 
             ]);
             $project_path = $destinationpath . $project->id . '/';
@@ -85,8 +86,8 @@ class ProjectController extends InertiaController
             }
             $name = time();
             $project->update([
-                'name' =>
-                Str::slug($request->name),
+                'name' => $request->name,
+                'slug' => Str::slug($request->name),
                 'image' => $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $project_path, $project->image) : $project->image
 
             ]);

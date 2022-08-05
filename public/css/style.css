@@ -44,8 +44,15 @@ li {
 .text-font {
     font-family: 'Poppins', sans-serif;
 }
-
-
+#video_page img{
+    width: 100%;
+    height: auto;
+}
+.item-link img{
+    height: 320px;
+    width: 100%;
+    object-fit: cover;
+}
 /* menu - header */
 
 .menu__link.active {
@@ -790,7 +797,7 @@ li {
 }
 .aboutus2-content{
     width: 60%;
-   
+
 }
 .aboutus-content3{
     text-align: center;

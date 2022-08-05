@@ -16,6 +16,7 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->string('link')->nullable();
             $table->string('thumb')->nullable();
             $table->unsignedBigInteger('project_id')->unsigned()->nullable();

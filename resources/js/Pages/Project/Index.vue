@@ -50,7 +50,7 @@
               <Link :href="route('item.index',element.id)">{{element.name}}</Link>
             </td>
             <td class="px-6 py-4">
-              <a :href="`${element.name}.html`">Preview</a>
+              <a :href="`${element.slug}.html`">Preview</a>
             </td>
 
             <td class="px-6 py-4">
