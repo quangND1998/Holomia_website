@@ -17,25 +17,30 @@
                 <h1 class="title " id="title-overview">{{$project->name}} </h1>
 
             </div>
-            <div class="row">
-                @foreach ($project->items as $item )
+            <div class="row" id="results">
+                @foreach ($items as $item )
                     <div class="col-6 item-link">
-                    <div class="overview" data-aos="fade-down">
-                        <a href="{{$item->link}}">
-                            <img src="{{$item->thumb}}" class=" img_fluid" alt="">
-                            <h4 class="text-black">{{$item->name}}
+                        <div class="overview" data-aos="fade-down">
+                            <a href="{{$item->link}}">
+                                <img src="{{$item->thumb}}" class=" img_fluid" alt="">
+                                <h4 class="text-black">{{$item->name}}
 
-                            </h4>
-                        </a>
+                                </h4>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 @endforeach
 
-
+            </div>
+            <div class="d-flex Page navigation example">
+                {!! $items->links() !!}
             </div>
         </div>
     </div>
 
+    <script>
 
+        </script>
 @endsection
+
 @section('javascript')

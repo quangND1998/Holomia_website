@@ -23,14 +23,13 @@ class ProjectController extends InertiaController
             return $this->errors()->errors_403();
         }
     }
-    public function preview_project($slug)
+    public function preview_project($slug, Request $request)
     {
 
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $project = Project::with('items')->where('slug', $slug)->first();
-
-
-        return view('project', compact('project', 'pages'));
+        $items = $project->items()->paginate(4);
+        return view('project', compact('project','items','pages'));
     }
 
 

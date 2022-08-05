@@ -403,7 +403,10 @@ li {
 }
 
 .section3 span {
-    width: 300px;
+    /* width: 300px; */
+}
+.pagination .page-item a{
+    color: black !important;
 }
 
 .col-overview-left {

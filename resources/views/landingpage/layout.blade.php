@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400;1,900&family=Montserrat:wght@200&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400;1,900&family=Montserrat:wght@200&family=Oxanium&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Metrophobic&family=Oxanium:wght@200&family=Podkova&family=Poppins&display=swap" rel="stylesheet">
-   
+
     <!-- Bootstrap CSS -->
     <link
     rel="stylesheet"
@@ -33,7 +33,7 @@
     <style>
         .bg-dark{
             background-color: #06152D !important;
-            
+
         }
         .nav-link {
             color:#fff !important;
@@ -54,30 +54,30 @@
                                 @foreach ($pages as $page)
                                     @if ($page->title =="home")
                                             <li class="menu__item">
-                                            
+
                                                 <a href="/index" class="menu__link  {{ Request::segment(1) === 'index' ? 'active' : '' }}">{{__($page->title)}}</a>
                                             </li>
                                             @elseif($page->title =="project")
                                                 <li class="menu__item to-left dropdown">
-                    
+
                                                     <a href=""  class="menu__link ">{{__($page->title)}} </a>
                                                     <div class="dropdown-content">
                                                         <a href="https://missionxvr.com/index" class="drop_link" target="_blank">Mission X</a>
-                                                        
+
                                                     </div>
                                                 </li>
                                             @else
                                             <li class="menu__item to-left">
-                
+
                                                 <a href="/{{$page->title}}"  class="menu__link {{ Request::segment(1) === $page->title ? 'active' : '' }} ">{{__($page->title)}}</a>
-                
+
                                             </li>
-                                        
+
                                     @endif
-                                  
-                                    
+
+
                                 @endforeach
-                                </ul>                                     
+                                </ul>
                                 <ul class="list-language">
                                      <li class="menu__item to-left menu-language">
                                         <a href="/language/en" class="menu__link menu_news "><img src="/img/en.png" class="img-fluid logo_language" alt=""> </a>
@@ -85,16 +85,16 @@
                                     <li class="menu__item to-left menu-language">
                                         <a href="/language/vn" class="menu__link menu_news "><img src="/img/vn.png" class="img-fluid logo_language" alt=""> </a>
                                     </li>
-                                
+
                                 </ul>
-                                
-                                
+
+
                             </nav>
                         </div>
                     </div>
-                
+
                     <div class="menu-mobile mean-container">
-                        
+
                         <div class="mean-bar">
                             <div class=" logo-mobile">
                                 <div class="logo-menu">
@@ -107,7 +107,7 @@
                                     <span  class="meanmenu-reveal meanclose" >X</span>
                                     <i class="fas fa-bars open-menu"></i>
                                 </div>
-                                
+
                             </div>
                             <nav class="mean-nav collapse"  id="menusilde"><nav class="mean-nav">
                                 <ul>
@@ -122,14 +122,14 @@
                                         <a class="">Project </a>
                                         <div class="dropdown-content-mobile">
                                             <a href="https://missionxvr.com/index" class="drop_link" target="_blank">Mission X</a>
-                                            
+
                                         </div>
                                     </li>
                                     @else
                                     <li>
                                         <a href="/{{$page->title}}">{{__($page->title)}}</a>
                                     </li>
-                                 
+
                                     @endif
                                     @endforeach
                                     <li class="language">
@@ -141,24 +141,24 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
 
     </header>
 
     @yield('content')
     @include('landingpage.footer')
-   
+
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     {{--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  --}}
-    <script src="/js/bootstrap-notify.min.js" ></script>    
+    <script src="/js/bootstrap-notify.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
      <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/main.js"></script>
-   
+
 </body>
 </html>

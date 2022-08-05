@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Inertia\Inertia;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
         JsonResource::withoutWrapping();
         Inertia::share([
             'locale' => function () {
