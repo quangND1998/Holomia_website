@@ -32,7 +32,7 @@ use App\Http\Controllers\ProjectController;
 Route::get('/', function () {
     return redirect('/index');
 });
-Route::get('/{name}.html', [ProjectController::class, 'preview_project']);
+Route::get('/{name}', [ProjectController::class, 'preview_project']);
 Route::get('index', [LandingPageController::class, 'index']);
 Route::get('immersive', [LandingPageController::class, 'immersive']);
 Route::get('contact', [LandingPageController::class, 'contact']);
