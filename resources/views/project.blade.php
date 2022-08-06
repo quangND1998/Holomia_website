@@ -42,5 +42,9 @@
 
         </script>
 @endsection
-
+<style>
+    .text_center{
+        justify-content: center;
+    }
+</style>
 @section('javascript')
