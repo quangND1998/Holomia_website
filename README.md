@@ -45,6 +45,10 @@ php artisan db:seed
 Run the dev server (the output will give the address):
 
 ```sh
+php artisan optimize
+```
+
+```sh
 php artisan serve
 ```
 
