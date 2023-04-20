@@ -3,11 +3,11 @@
 <div id="video_page">
         <div class="text-block">
             <div class="text-container">
-                <h1 class="title text-white">{{$project->name}}</h1>
+                <h1 class="title text-white">{{$project ? $project->name: ''}}</h1>
 
             </div>
         </div>
-       <img src="{{$project->image}}" alt="">
+       <img src="{{$project ? $project->image: ''}}" alt="">
     </div>
 
     <!-- section3 -->
