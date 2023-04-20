@@ -36,6 +36,7 @@ Route::get('/{name}.html', [ProjectController::class, 'preview_project']);
 Route::get('index', [LandingPageController::class, 'index']);
 Route::get('immersive', [LandingPageController::class, 'immersive']);
 Route::get('contact', [LandingPageController::class, 'contact']);
+Route::get('projects', [LandingPageController::class, 'project']);
 Route::get(
     'new/{slug}',
     [LandingPageController::class, 'chitiet_tintuc']
