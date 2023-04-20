@@ -35,7 +35,14 @@ class ThemeController extends InertiaController
     {
 
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
+            $this->validate($request, [
+                'title' => 'required|unique:themes,title',
+                'link_code' => 'required',
+                'image_template' => 'required|mimes:png,jpg,jpeg',
+                'type' => 'required',
 
+
+            ]);
 
             $destinationpath = 'images/theme/';
             if (!file_exists($destinationpath)) {

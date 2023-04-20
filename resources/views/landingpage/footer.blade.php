@@ -15,7 +15,7 @@
                         <h4>{{__('company-contact')}}</h4>
                         <div class="contact">
                             <span><i class="fas fa-map-marker-alt pr-3"></i>{{__('company-address')}}</span>
-                            <span><i class="fas fa-map-marker-alt pr-3"></i>{{__('company-address1')}}</span>
+                            {{--  <span><i class="fas fa-map-marker-alt pr-3"></i>{{__('company-address1')}}</span>  --}}
                             <span><a href="tel:{{__('company-phone')}}"><i class="fas fa-phone-alt pr-3"></i>{{__('company-phone')}}</a></span>
                             <span><a href="mailto:{{__('company-email')}}"><i class="fas fa-envelope pr-3"></i>{{__('company-email')}}</a></span>
                         </div>
