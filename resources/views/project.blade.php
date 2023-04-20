@@ -3,20 +3,21 @@
 <div id="video_page">
         <div class="text-block">
             <div class="text-container">
-                <h1 class="title text-white">{{$project->name}}</h1>
+                <h1 class="title text-white">{{$project ? $project->name: ''}}</h1>
 
             </div>
         </div>
-       <img src="{{$project->image}}" alt="">
+       <img src="{{$project ? $project->image: ''}}" alt="">
     </div>
 
     <!-- section3 -->
     <div class="section3">
         <div class="container">
             <div class="row text_center">
-                <h1 class="title " id="title-overview">{{$project->name}} </h1>
+                <h1 class="title " id="title-overview">{{$project ? $project->name: ''}} </h1>
 
             </div>
+            @if($items)
             <div class="row" id="results">
                 @foreach ($items as $item )
                     <div class="col-6 item-link">
@@ -32,9 +33,11 @@
                 @endforeach
 
             </div>
+         
             <div class="d-flex Page navigation example">
                 {!! $items->links() !!}
             </div>
+               @endif
         </div>
     </div>
 
