@@ -28,8 +28,12 @@ class ProjectController extends InertiaController
 
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $project = Project::with('items')->where('slug', $slug)->first();
-        $items = $project->items()->paginate(4);
-        return view('project', compact('project','items','pages'));
+        if ($project) {
+            $items = $project->items()->paginate(4);
+        } else {
+            $items = null;
+        }
+        return view('project', compact('project', 'items', 'pages'));
     }
 
 

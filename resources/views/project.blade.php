@@ -14,9 +14,10 @@
     <div class="section3">
         <div class="container">
             <div class="row text_center">
-                <h1 class="title " id="title-overview">{{$project->name}} </h1>
+                <h1 class="title " id="title-overview">{{$project ? $project->name: ''}} </h1>
 
             </div>
+            @if($items)
             <div class="row" id="results">
                 @foreach ($items as $item )
                     <div class="col-6 item-link">
@@ -32,9 +33,11 @@
                 @endforeach
 
             </div>
+         
             <div class="d-flex Page navigation example">
                 {!! $items->links() !!}
             </div>
+               @endif
         </div>
     </div>
 
