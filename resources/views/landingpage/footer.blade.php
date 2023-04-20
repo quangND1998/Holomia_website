@@ -27,7 +27,7 @@
                                 <a href="https://holomia.com/real360-hoian-ancient.html">{{__('holomia')}}</a>
                             </li>
                             <li>
-                                <a href="https://missionxvr.com/index">{{__('missionxvr')}}</a>
+                                <a href="/projects">{{__('missionxvr')}}</a>
                             </li>
                         </ul>
                     </div>
