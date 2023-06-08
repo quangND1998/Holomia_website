@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoryHolo360;
 use App\Models\CategoryNew;
+use App\Models\Holo360Project;
 use App\Models\Languages;
 use App\Models\News;
 use App\Models\Page;
@@ -70,6 +72,8 @@ class LandingPageController extends Controller
     public function holo360(){
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
         $pages = Page::get();
-        return view('page.project360', compact('pages', 'header'));
+        $categories = CategoryHolo360::with('holo_projects')->get(); 
+        $projects= Holo360Project::get();
+        return view('page.project360', compact('pages', 'header','categories', 'projects'));
     }
 }

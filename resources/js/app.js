@@ -57,8 +57,8 @@ InertiaProgress.init({
     includeCSS: true,
     showSpinner: true,
 });
-Vue.config.devtools = false;
-Vue.config.productionTip = false
+Vue.config.devtools = true;
+Vue.config.productionTip = true
 window.Bus = new Vue();
 Vue.use(VueCompositionAPI)
 Vue.use(CKEditor)

@@ -136,6 +136,18 @@
             <icon name="new" class="mr-1 text-blueGray-300 text-base"></icon>
               News
           </Link>
+          <li class="ml-4 menu_dropdown">
+            <a  class="text-white flex"><icon name="page" class="mr-1 text-blueGray-300  text-sm"></icon>Holo360</a>
+            <ul class="sub_menu ml-6">
+              <li class="my-3">
+                <Link  :href="route('category_holo360.index')"  class="italic text-white text-blueGray-300 hover:text-blueGray-400 text-sm">Category </Link>
+              </li>
+              <li class="my-3">
+                <Link  :href="route('project_holo360.index')"  class="italic text-white text-blueGray-300 hover:text-blueGray-400 text-sm">Project</Link>
+              </li>
+            </ul>
+          </li>
+          
 
           <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.url.startsWith('/admin/themes') ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('themes.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="theme" class="mr-1 text-blueGray-300 text-base"></icon>
@@ -195,6 +207,11 @@ export default {
     return {
       collapseShow: "hidden",
     };
+  },
+  mounted(){
+// $('.menu_dropdown').click(function(){
+//   $('.sub_menu').ToggleClass()
+// })
   },
   methods: {
     toggleCollapseShow: function (classes) {
