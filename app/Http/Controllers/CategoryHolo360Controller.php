@@ -8,8 +8,10 @@ use App\Models\CategoryHolo360;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
+use App\Http\Controllers\Traits\FileUploadTrait;
 class CategoryHolo360Controller extends Controller
 {
+    use FileUploadTrait;
     public function index(){
         $categories =CategoryHolo360::get();
         return Inertia::render('CategoryHolo360/Index',compact('categories'));
@@ -34,12 +36,18 @@ class CategoryHolo360Controller extends Controller
         // $category->name = $request->name
     }
     public function delete( $id){
-        $category = CategoryHolo360::findOrFail($id);
+        // xóa category thi project bị xóa
+        $category = CategoryHolo360::with('holo_projects')->findOrFail($id);
+        foreach($category->holo_projects as $project){
+            $extension = " ";
+            $this->DeleteFolder($project->image, $extension);
+        }
        $category->delete();
        return back()->with('success', 'Delete successfully');
     }
     public function update( UpdateCategoryHolo360Request $request , CategoryHolo360 $category){
-      
+
+
         $category->update([
             'name'=> $request->name,
             'slug'=>  Str::slug($request->name),

@@ -28660,61 +28660,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Components/Icon */ "./resources/js/Components/Icon.vue");
 /* harmony import */ var _Components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Layout */ "./resources/js/Components/Layout.vue");
 /* harmony import */ var _Components_Pagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Pagination */ "./resources/js/Components/Pagination.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.umd.js");
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -28866,6 +28813,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+ // sắp xếp
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -28877,7 +28826,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Pagination: _Components_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"],
+    draggable: (vuedraggable__WEBPACK_IMPORTED_MODULE_3___default())
+  },
+  computed: {
+    // sắp xếp
+    dragOptions: function dragOptions() {
+      return {
+        animation: 100,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost",
+        scrollSensitivity: 100,
+        forceFallback: true
+      };
+    }
   },
   data: function data() {
     return {
@@ -28893,6 +28856,14 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    onUnpublishedChange: function onUnpublishedChange() {
+      var query = {
+        data: this.projects
+      };
+      this.$inertia.post(this.route("project_holo360.priority"), query, {
+        preserveState: false
+      });
+    },
     closeModel: function closeModel() {
       this.showModel = false;
       this.editMode = false;
@@ -32363,6 +32334,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // sắp xếp
     onUnpublishedChange: function onUnpublishedChange() {
       var query = {
         data: this.list_image
@@ -76395,7 +76367,7 @@ var render = function () {
                           _vm._v(" "),
                           _c("input", {
                             staticClass:
-                              " p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none ",
+                              "p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none",
                             attrs: {
                               accept: ".jpg, .jpeg, .png",
                               id: "file_input",
@@ -76471,7 +76443,9 @@ var render = function () {
                             },
                             [
                               _c("option", { domProps: { value: null } }, [
-                                _vm._v("Choose a country"),
+                                _vm._v(
+                                  "\n                                    Choose a country\n                                "
+                                ),
                               ]),
                               _vm._v(" "),
                               _vm._l(
@@ -76483,7 +76457,13 @@ var render = function () {
                                       key: index,
                                       domProps: { value: category.id },
                                     },
-                                    [_vm._v(_vm._s(category.name))]
+                                    [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(category.name) +
+                                          "\n                                "
+                                      ),
+                                    ]
                                   )
                                 }
                               ),
@@ -76597,104 +76577,135 @@ var render = function () {
             _vm._m(0),
             _vm._v(" "),
             _c(
-              "tbody",
-              _vm._l(_vm.projects, function (project, index) {
-                return _c(
-                  "tr",
-                  {
-                    key: index,
-                    staticClass:
-                      "bg-white border-b dark:bg-gray-800 dark:border-gray-700",
+              "draggable",
+              _vm._b(
+                {
+                  attrs: { tag: "tbody", "item-key": "id_priority" },
+                  on: {
+                    change: _vm.onUnpublishedChange,
+                    start: function ($event) {
+                      _vm.isDragging = true
+                    },
+                    end: function ($event) {
+                      _vm.isDragging = false
+                    },
                   },
-                  [
-                    _c(
-                      "th",
-                      {
-                        staticClass:
-                          "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white",
-                        attrs: { scope: "row" },
-                      },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(index + 1) +
-                            "\n                    "
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(project.title) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(project.link) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _c("img", {
-                        staticClass: "w-16 ",
-                        attrs: { src: project.image, alt: "" },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
+                  model: {
+                    value: _vm.projects,
+                    callback: function ($$v) {
+                      _vm.projects = $$v
+                    },
+                    expression: "projects",
+                  },
+                },
+                "draggable",
+                _vm.dragOptions,
+                false
+              ),
+              [
+                _vm._l(_vm.projects, function (project, index) {
+                  return _c(
+                    "tr",
+                    {
+                      key: index,
+                      staticClass:
+                        "bg-white border-b dark:bg-gray-800 dark:border-gray-700",
+                    },
+                    [
                       _c(
-                        "span",
+                        "th",
                         {
                           staticClass:
-                            "bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500",
-                        },
-                        [_vm._v(_vm._s(project.category_project.name))]
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "font-medium text-blue-600 hover:underline mx-1",
-                          on: {
-                            click: function ($event) {
-                              return _vm.edit(project)
-                            },
-                          },
-                        },
-                        [_vm._v("Edit")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "text-[#e71212] font-medium mx-1",
-                          on: {
-                            click: function ($event) {
-                              return _vm.deleteProject(project.id)
-                            },
-                          },
+                            "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white",
+                          attrs: { scope: "row" },
                         },
                         [
                           _vm._v(
-                            "\n                            Delete\n                        "
+                            "\n                            " +
+                              _vm._s(index + 1) +
+                              "\n                        "
                           ),
                         ]
                       ),
-                    ]),
-                  ]
-                )
-              }),
-              0
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(project.title) +
+                            "\n                        "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(project.link) +
+                            "\n                        "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
+                        _c("img", {
+                          staticClass: "w-16",
+                          attrs: { src: project.image, alt: "" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500",
+                          },
+                          [_vm._v(_vm._s(project.category_project.name))]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "font-medium text-blue-600 hover:underline mx-1",
+                            on: {
+                              click: function ($event) {
+                                return _vm.edit(project)
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                                Edit\n                            "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "text-[#e71212] font-medium mx-1",
+                            on: {
+                              click: function ($event) {
+                                return _vm.deleteProject(project.id)
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                                Delete\n                            "
+                            ),
+                          ]
+                        ),
+                      ]),
+                    ]
+                  )
+                }),
+              ],
+              2
             ),
-          ]
+          ],
+          1
         ),
       ]
     ),

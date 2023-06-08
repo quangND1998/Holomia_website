@@ -16,7 +16,8 @@ class ProjectHolo360Controller extends Controller
     use FileUploadTrait;
     public function index(){
         $categories = CategoryHolo360::get();
-        $projects =Holo360Project::with('category_project')->get();
+        // sắp xếp orderBy('id_priority','asc')->get();
+        $projects =Holo360Project::with('category_project')->orderBy('id_priority','asc')->get();
         return Inertia::render('CategoryHolo360/ProjectHolo',compact('projects','categories'));
     }
     public function store(StoreProjectHolo360Request $request){
@@ -56,5 +57,16 @@ class ProjectHolo360Controller extends Controller
         $this->DeleteFolder($project->image, $extension);
        $project->delete();
        return back()->with('success', 'Delete successfully');
+    }
+    // sắp xếp
+    public function priorityProject(Request $request)
+    {
+        
+            $data = $request->data;
+            for ($i = 0; $i < count($data); $i++) {
+                Holo360Project::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
+            }
+            return redirect()->back()->with('success', 'Sort  successfully');
+     
     }
 }

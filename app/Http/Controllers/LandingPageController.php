@@ -73,7 +73,7 @@ class LandingPageController extends Controller
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
         $pages = Page::get();
         $categories = CategoryHolo360::with('holo_projects')->get(); 
-        $projects= Holo360Project::get();
+        $projects= Holo360Project::orderBy('id_priority','asc')->get();;
         return view('page.project360', compact('pages', 'header','categories', 'projects'));
     }
 }

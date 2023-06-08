@@ -209,6 +209,7 @@ export default {
     };
   },
   methods: {
+    // sắp xếp
     onUnpublishedChange() {
       let query = {
         data: this.list_image
