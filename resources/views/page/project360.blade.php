@@ -200,524 +200,74 @@
             <h1 class="text-dark text-center title_list">List Project Holo360</h1>
             <div class="row mt-5 pt-5">
                 <div class="tab ">
-                    <button class="tablinks active" onclick="openCity(event, 'page_all')">All</button>
-                    <button class="tablinks" onclick="openCity(event, 'page_tour360')">Tour 360</button>
-                    <button class="tablinks" onclick="openCity(event, 'page_tourvr')">Tour VR</button>
-                    <button class="tablinks" onclick="openCity(event, 'page_scan')">Scan</button>
-                    <button class="tablinks" onclick="openCity(event, 'page_expo')">Expo</button>
-                    <button class="tablinks" onclick="openCity(event, 'page_projectBase')">Project Base</button>
+                    <button  class="tablinks active" onclick="openCity(event, 'page_all')">All</button>
+                    @foreach ($categories as $category)
+                    <button class="tablinks" onclick="openCity(event, '{{$category->slug}}')">{{$category->name}}</button>
+                    @endforeach
+                   
+                
                 </div>
                 <hr class="line">
-                <div id="page_all" class="tabcontent active">
-                    <div class="page_item my-5">
-                        <div class="text_content">
+                <div id="page_all" class="tabcontent active w-100">
+                    <div class="page_item my-5 " >
+                        {{-- <div class="text_content">
                             <p>Công nghệ 3D được sử dụng để tạo ra những hình ảnh, thước phim minh họa cho dự án tương lai.
                                 Người mua nhà, người bán hàng dễ dàng thấy trước dự án một cách trực quan. Ứng dụng 3D làm
                                 phim và tour 360, mọi người có thể xem trước, di chuyển, quan sát
                                 tất cả các góc nhìn khác nhau hay đi đến tất cả các vị trí xung quanh
                                 như chính họ đang đứng trong các căn phòng, các không gian cảu dự án. Một khả năng
                                 địa điểm mà hình ảnh phối cảnh thông thường không bao giờ thực hiện được.</p>
-                        </div>
+                        </div> --}}
                         <div class="row">
+                            @foreach ($projects as $project )
                             <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
                                 <div class="item-slide">
                                     <div class="product text-center">
-                                        <a href="https://360.holomia.com/tour/29L4EHYO3VIIvad1M?startscene=0"
+                                        <a href="{{$project->link}}"
                                             target="_blank">
                                             <div class="img_product">
-                                                <img src="img/TA_BD.png" alt="">
+                                                <img src="{{$project->image}}" alt="">
                                             </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
+                                            <h5 class="text-dark pt-2">{{$project->title}}</h5>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="https://360.holomia.com/tour/11oJsUdLCaSBCczwF?startscene=0"
-                                            target="_blank">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tam Chúc</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="https://360.holomia.com/tour/14QzK4kObArq3zTpc?startscene=0"
-                                            target="_blank">
-                                            <div class="img_product">
-                                                <img src="img/catlinh.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tour VR Metro Cát Linh - Hà Đông</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                           
+                        
                         </div>
                     </div>
                 </div>
-                <div id="page_tour360" class="tabcontent ">
+                @foreach ($categories as $category)
+                <div id="{{$category->slug}}" class="tabcontent w-100">
                     <div class="page_item my-5">
                         <div class="text_content">
-                            <p>Công nghệ 3D được sử dụng để tạo ra những hình ảnh, thước phim minh họa cho dự án tương lai.
-                                Người mua nhà, người bán hàng dễ dàng thấy trước dự án một cách trực quan. Ứng dụng 3D làm
-                                phim và tour 360, mọi người có thể xem trước, di chuyển, quan sát
-                                tất cả các góc nhìn khác nhau hay đi đến tất cả các vị trí xung quanh
-                                như chính họ đang đứng trong các căn phòng, các không gian cảu dự án. Một khả năng
-                                địa điểm mà hình ảnh phối cảnh thông thường không bao giờ thực hiện được.</p>
+                            <p>{{$category->content}}</p>
                         </div>
                         <div class="row">
+                            @foreach ($category->holo_projects as $project )
                             <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4">
                                 <div class="item-slide">
                                     <div class="product text-center">
-                                        <a href="https://360.holomia.com/tour/29L4EHYO3VIIvad1M?startscene=0"
+                                        <a href="{{$project->link}}"
                                             target="_blank">
                                             <div class="img_product">
-                                                <img src="img/TA_BD.png" alt="">
+                                                <img src="{{$project->image}}" alt="">
                                             </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
+                                            <h5 class="text-dark pt-2">{{$project->title}}</h5>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="https://360.holomia.com/tour/11oJsUdLCaSBCczwF?startscene=0"
-                                            target="_blank">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tam Chúc</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="https://360.holomia.com/tour/14QzK4kObArq3zTpc?startscene=0"
-                                            target="_blank">
-                                            <div class="img_product">
-                                                <img src="img/catlinh.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tour VR Metro Cát Linh - Hà Đông</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                           
+                      
                         </div>
                     </div>
                 </div>
-                <div id="page_tourvr" class="tabcontent ">
-                    <div class="page_item my-5">
-                        <div class="text_content">
-                            <p>Công nghệ 3D được sử dụng để tạo ra những hình ảnh, thước phim minh họa cho dự án tương lai.
-                                Người mua nhà, người bán hàng dễ dàng thấy trước dự án một cách trực quan. Ứng dụng 3D làm
-                                phim và tour 360, mọi người có thể xem trước, di chuyển, quan sát
-                                tất cả các góc nhìn khác nhau hay đi đến tất cả các vị trí xung quanh
-                                như chính họ đang đứng trong các căn phòng, các không gian cảu dự án. Một khả năng
-                                địa điểm mà hình ảnh phối cảnh thông thường không bao giờ thực hiện được.</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="page_scan" class="tabcontent ">
-                    <div class="page_item my-5">
-                        <div class="text_content">
-                            <p>Công nghệ 3D được sử dụng để tạo ra những hình ảnh, thước phim minh họa cho dự án tương lai.
-                                Người mua nhà, người bán hàng dễ dàng thấy trước dự án một cách trực quan. Ứng dụng 3D làm
-                                phim và tour 360, mọi người có thể xem trước, di chuyển, quan sát
-                                tất cả các góc nhìn khác nhau hay đi đến tất cả các vị trí xung quanh
-                                như chính họ đang đứng trong các căn phòng, các không gian cảu dự án. Một khả năng
-                                địa điểm mà hình ảnh phối cảnh thông thường không bao giờ thực hiện được.</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="page_expo" class="tabcontent ">
-                    <div class="page_item my-5">
-                        <div class="text_content">
-                            <p>Công nghệ 3D được sử dụng để tạo ra những hình ảnh, thước phim minh họa cho dự án tương lai.
-                                Người mua nhà, người bán hàng dễ dàng thấy trước dự án một cách trực quan. Ứng dụng 3D làm
-                                phim và tour 360, mọi người có thể xem trước, di chuyển, quan sát
-                                tất cả các góc nhìn khác nhau hay đi đến tất cả các vị trí xung quanh
-                                như chính họ đang đứng trong các căn phòng, các không gian cảu dự án. Một khả năng
-                                địa điểm mà hình ảnh phối cảnh thông thường không bao giờ thực hiện được.</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="page_projectBase" class="tabcontent ">
-                    <div class="page_item my-5">
-                        <div class="text_content">
-                            <p>Công nghệ 3D được sử dụng để tạo ra những hình ảnh, thước phim minh họa cho dự án tương lai.
-                                Người mua nhà, người bán hàng dễ dàng thấy trước dự án một cách trực quan. Ứng dụng 3D làm
-                                phim và tour 360, mọi người có thể xem trước, di chuyển, quan sát
-                                tất cả các góc nhìn khác nhau hay đi đến tất cả các vị trí xung quanh
-                                như chính họ đang đứng trong các căn phòng, các không gian cảu dự án. Một khả năng
-                                địa điểm mà hình ảnh phối cảnh thông thường không bao giờ thực hiện được.</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
-                                <div class="item-slide">
-                                    <div class="product text-center">
-                                        <a href="">
-                                            <div class="img_product">
-                                                <img src="img/banner_holo360.jpg" alt="">
-                                            </div>
-                                            <h5 class="text-dark pt-2">Tràng An - Bái Đính</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>

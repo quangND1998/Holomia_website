@@ -11,12 +11,14 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\CategoryContentController;
+use App\Http\Controllers\CategoryHolo360Controller;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectHolo360Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -197,6 +199,20 @@ Route::middleware(['auth', 'verified'])->group(
                 Route::delete('delete', [ItemController::class, 'delete'])->name('item.delete');
             });
         });
+        Route::group(['prefix' => 'admin/category_holo360'], function () {
+            Route::get('', [CategoryHolo360Controller::class, 'index'])->name('category_holo360.index');
+            Route::post('',[CategoryHolo360Controller::class, 'store'])->name('category_holo360.store');
+            Route::put('update/{category}',[CategoryHolo360Controller::class, 'update'])->name('category_holo360.update');
+            Route::delete('delete/{id}',[CategoryHolo360Controller::class, 'delete'])->name('category_holo360.delete');            
+        });
+
+        Route::group(['prefix' => 'admin/project_holo360'], function () {
+            Route::get('',[ProjectHolo360Controller::class, 'index'])->name('project_holo360.index');
+            Route::post('',[ProjectHolo360Controller::class, 'store'])->name('project_holo360.store');
+            Route::post('update/{project}',[ProjectHolo360Controller::class, 'update'])->name('project_holo360.update');
+            Route::delete('delete/{id}',[ProjectHolo360Controller::class, 'delete'])->name('project_holo360.delete');            
+        });
+     
     }
 );
 Route::get('language/{language}', function ($language) {
