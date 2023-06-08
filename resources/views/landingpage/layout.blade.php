@@ -64,7 +64,7 @@
                                                     <a href=""  class="menu__link ">{{__($page->title)}} </a>
                                                     <div class="dropdown-content">
                                                         <a href="https://holomia.com/real360-hoian-ancient.html" class="drop_link" target="_self">Holo 360</a>
-                                                        <a href="/projects" class="drop_link" >Mission X</a>
+                                                        <a href="/projects" class="drop_link" >{{__('missionxvr')}}</a>
                                                     </div>
                                                     
                                                 </li>
@@ -123,8 +123,8 @@
                                         <!-- <a target="_blank" href="https://missionxvr.com/index">Project</a> -->
                                         <a class="">Project </a>
                                         <div class="dropdown-content-mobile">
-                                            <a href="https://missionxvr.com/index" class="drop_link" target="_blank">Mission X</a>
-
+                                               <a href="https://holomia.com/real360-hoian-ancient.html" class="drop_link" target="_self">Holo 360</a>
+                                            <a href="/projects" class="drop_link" >{{__('missionxvr')}}</a>
                                         </div>
                                     </li>
                                     @else

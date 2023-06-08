@@ -13,8 +13,8 @@ class LandingPageController extends Controller
 {
     public function index()
     {
-        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme','sections'=>function($q){
-            $q->where('active',1);
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
         }])->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $last_new  = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(2)->get();
@@ -23,8 +23,8 @@ class LandingPageController extends Controller
 
     public function immersive()
     {
-        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme','sections'=>function($q){
-            $q->where('active',1);
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
         }])->where('title', 'immersive')->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $news = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(9)->get();
@@ -33,8 +33,8 @@ class LandingPageController extends Controller
 
     public function contact()
     {
-        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme','sections'=>function($q){
-            $q->where('active',1);
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
         }])->where('title', 'contact')->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         return view('page.contact', compact('page', 'pages'));
@@ -62,9 +62,10 @@ class LandingPageController extends Controller
     }
 
 
-    public function project(){
+    public function project()
+    {
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
-        $pages = Page::get();
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         return view('page.project', compact('pages', 'header'));
     }
 }
