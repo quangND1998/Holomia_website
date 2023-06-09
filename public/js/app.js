@@ -28614,6 +28614,7 @@ __webpack_require__.r(__webpack_exports__);
     closeModel: function closeModel() {
       this.showModel = false;
       this.editMode = false;
+      this.reset();
     },
     addCategory: function addCategory() {
       this.showModel = true;
@@ -28903,6 +28904,7 @@ __webpack_require__.r(__webpack_exports__);
     closeModel: function closeModel() {
       this.showModel = false;
       this.editMode = false;
+      this.reset();
     },
     addCategory: function addCategory() {
       this.showModel = true;

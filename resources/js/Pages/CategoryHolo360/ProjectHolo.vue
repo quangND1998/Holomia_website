@@ -207,6 +207,7 @@ export default {
         closeModel() {
             this.showModel = false;
             this.editMode = false;
+            this.reset();
         },
         addCategory() {
             this.showModel = true;
