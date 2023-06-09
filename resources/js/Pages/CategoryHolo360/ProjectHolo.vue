@@ -4,8 +4,11 @@
             class="fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full bg-[#00000069]">
             <div class="relative w-full max-w-2xl max-h-full m-auto">
                 <div class="relative bg-white rounded-lg shadow">
-                    <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-start justify-between p-4 border-b rounded-t ">
+                        <h3 class="text-xl font-semibold text-gray-900 " v-if="editMode == true ">
+                            Edit Project Holo360
+                        </h3>
+                        <h3 v-else class="text-xl font-semibold text-gray-900 ">
                             Create Project Holo360
                         </h3>
                         <button type="button"
@@ -28,7 +31,7 @@
                                     Title
                                 </label>
                                 <input v-model="form.title"
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     id="username" type="text" placeholder="Name" />
                                 <div class="text-red-700" v-if="errors.title">
                                     {{ errors.title }}
@@ -40,8 +43,8 @@
                                     Link
                                 </label>
                                 <input v-model="form.link"
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="username" type="text" placeholder="Name" />
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    id="username" type="text" placeholder="Link" />
                                 <div class="text-red-700" v-if="errors.link">
                                     {{ errors.link }}
                                 </div>
@@ -51,7 +54,7 @@
                                     Image
                                 </label>
                                 <input @input="form.image = $event.target.files[0]" accept=".jpg, .jpeg, .png"
-                                    class="p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
+                                    class="p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none"
                                     id="file_input" type="file" />
                                 <div class="text-red-700" v-if="errors.image">
                                     {{ errors.image }}
@@ -62,9 +65,9 @@
                                     Category
                                 </label>
                                 <select v-model="form.category_holo360_id" id="countries"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     <option :value="null">
-                                        Choose a country
+                                        Choose a category
                                     </option>
                                     <option v-for="(category, index) in categories" :key="index" :value="category.id">
                                         {{ category.name }}
@@ -91,22 +94,22 @@
                 </div>
             </div>
         </div>
-
-        <h2 class="text-2xl font-bold">Project Holo360</h2>
+        
+        <h2 class="text-3xl font-medium text-blue-600 mt-5">Project Holo360</h2>
         <button class="px-3 py-2 bg-[#0f1d89] rounded-lg text-white my-3 text-md font-semibold" @click="addCategory()">
             Create
         </button>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left text-gray-500 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
-                        <th scope="col" class="px-6 py-3">STT</th>
-                        <th scope="col" class="px-6 py-3">Title</th>
+                        <th scope="col" class="py-3 px-3">STT</th>
+                        <th scope="col" class="py-3">Title</th>
 
-                        <th scope="col" class="px-6 py-3">Link</th>
-                        <th scope="col" class="px-6 py-3">Image</th>
-                        <th scope="col" class="px-6 py-3">Category</th>
-                        <th scope="col" class="px-6 py-3">Action</th>
+                        <th scope="col" class="py-3">Link</th>
+                        <th scope="col" class="py-3">Image</th>
+                        <th scope="col" class="py-3">Category</th>
+                        <th scope="col" class="py-3">Action</th>
                     </tr>
                 </thead>
                  <!-- sắp xếp -->
@@ -114,29 +117,29 @@
                     @start="isDragging = true" @end="isDragging = false" item-key="id_priority">
                     <template>
                         <tr v-for="(project, index) in projects" :key="index"
-                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            class="bg-white border-b ">
+                            <th scope="row" class=" font-medium text-gray-900 whitespace-nowrap px-4">
                                 {{ index + 1 }}
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="">
                                 {{ project.title }}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="">
                                 {{ project.link }}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="py-2">
                                 <img :src="project.image" class="w-16" alt="" />
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="">
                                 <span
-                                    class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500">{{
+                                    class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded  border border-gray-500">{{
                                         project.category_project.name }}</span>
                             </td>
-                            <td class="px-6 py-4">
-                                <button @click="edit(project)" class="font-medium text-blue-600 hover:underline mx-1">
+                            <td class="">
+                                <button @click="edit(project)" class="font-medium text-blue-600 hover:no-underline hover:text-blue-700   mx-1">
                                     Edit
                                 </button>
-                                <button class="text-[#e71212] font-medium mx-1" @click="deleteProject(project.id)">
+                                <button class="text-[#e71212] font-medium mx-1 hover:text-red-700" @click="deleteProject(project.id)">
                                     Delete
                                 </button>
                             </td>

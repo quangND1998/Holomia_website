@@ -203,7 +203,12 @@ Route::middleware(['auth', 'verified'])->group(
             Route::get('', [CategoryHolo360Controller::class, 'index'])->name('category_holo360.index');
             Route::post('',[CategoryHolo360Controller::class, 'store'])->name('category_holo360.store');
             Route::put('update/{category}',[CategoryHolo360Controller::class, 'update'])->name('category_holo360.update');
-            Route::delete('delete/{id}',[CategoryHolo360Controller::class, 'delete'])->name('category_holo360.delete');            
+            Route::delete('delete/{id}',[CategoryHolo360Controller::class, 'delete'])->name('category_holo360.delete');  
+            
+            Route::post(
+                '/priority',
+                [CategoryHolo360Controller::class, 'priorityCategory']
+            )->name('category_holo360.priority');
         });
 
         Route::group(['prefix' => 'admin/project_holo360'], function () {

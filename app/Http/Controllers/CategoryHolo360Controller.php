@@ -13,7 +13,7 @@ class CategoryHolo360Controller extends Controller
 {
     use FileUploadTrait;
     public function index(){
-        $categories =CategoryHolo360::get();
+        $categories =CategoryHolo360::with('holo_projects')->orderBy('id_priority','asc')->get();
         return Inertia::render('CategoryHolo360/Index',compact('categories'));
     }
     public function store(StoreCategoryHolo360 $request){
@@ -55,4 +55,15 @@ class CategoryHolo360Controller extends Controller
         ]);
         return back()->with('success', 'Create successfully');
     }
+     // sắp xếp
+     public function priorityCategory(Request $request)
+     {
+         
+             $data = $request->data;
+             for ($i = 0; $i < count($data); $i++) {
+                CategoryHolo360::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
+             }
+             return redirect()->back()->with('success', 'Sort  successfully');
+      
+     }
 }

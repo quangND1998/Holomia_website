@@ -220,7 +220,7 @@
                         </div> --}}
                         <div class="row">
                             @foreach ($projects as $project )
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
+                            <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4 my-2">
                                 <div class="item-slide">
                                     <div class="product text-center">
                                         <a href="{{$project->link}}"
@@ -228,7 +228,7 @@
                                             <div class="img_product">
                                                 <img src="{{$project->image}}" alt="">
                                             </div>
-                                            <h5 class="text-dark pt-2">{{$project->title}}</h5>
+                                            <h5 class="text-dark pt-2 title_product">{{$project->title}}</h5>
                                         </a>
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
                         </div>
                         <div class="row">
                             @foreach ($category->holo_projects as $project )
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4">
+                            <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4 my-2">
                                 <div class="item-slide">
                                     <div class="product text-center">
                                         <a href="{{$project->link}}"
@@ -255,7 +255,7 @@
                                             <div class="img_product">
                                                 <img src="{{$project->image}}" alt="">
                                             </div>
-                                            <h5 class="text-dark pt-2">{{$project->title}}</h5>
+                                            <h5 class="text-dark pt-2 title_product">{{$project->title}}</h5>
                                         </a>
                                     </div>
                                 </div>
@@ -292,9 +292,16 @@
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             padding: 0.7rem;
             border-radius: 8px;
+            height: 285px;
         }
         .product {
             overflow: hidden;
+        }
+        .product h5{
+            font-size: 18px;
+        }
+        .title_product:hover{
+            color:#e39a0e !important;
         }
         .img_product {
             position: relative;
@@ -487,6 +494,23 @@
                 width: 70%;
             }
         }
+        .slick-prev, .slick-next{
+            display: block !important;
+        }
+        .slick-arrow {
+	z-index: 1;
+	width: 40px;
+	height: 40px;
+    position: absolute;
+    top:50%;
+    font-size: 30px;
+        }
+        .fa-chevron-circle-left{
+            left:2%;
+        }
+        .fa-chevron-circle-right{
+            right:2%;
+        }
     </style>
     <script>
        
@@ -495,7 +519,9 @@
                 slidesToShow: 1,
                slidesToScroll: 1,
                autoplay:true,
-               arrows:true,
+               arrows: true,
+               prevArrow: '<i class="fas fa-chevron-circle-left" style="color: #bdc3cb"></i>',
+               nextArrow: '<i class="fas fa-chevron-circle-right" style="color: #bdc3cb"></i>'
             });
             });
 
