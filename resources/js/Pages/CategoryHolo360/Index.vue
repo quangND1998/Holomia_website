@@ -249,7 +249,7 @@ export default {
         },
         saveCategory() {
             if(this.editMode){
-                this.form.put(this.route("category_holo360.update",this.form.id), {
+                this.form.post(this.route("category_holo360.update",this.form.id), {
                 preserveState: true,
 
                 onError: (errors) => {

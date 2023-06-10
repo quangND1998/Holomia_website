@@ -28641,7 +28641,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.editMode) {
-        this.form.put(this.route("category_holo360.update", this.form.id), {
+        this.form.post(this.route("category_holo360.update", this.form.id), {
           preserveState: true,
           onError: function onError(errors) {
             if (Object.keys(errors).length > 0) {}
