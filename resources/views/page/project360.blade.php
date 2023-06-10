@@ -176,12 +176,11 @@
                                 </div>
                             </div>
                             @endforeach
-
-
+                            {{ $projects->links() }}
                         </div>
                     </div>
                 </div>
-              
+
                 @foreach ($categories as $category)
                 <div id="{{$category->slug}}" class="tabcontent w-100">
                     <div class="page_item my-5">
@@ -189,29 +188,27 @@
                             <p>{!! $category->content !!}</p>
                         </div>
                         <div class="row">
-                            @foreach ($category->holo_projects as $project )
+                            @foreach ($category->holo_projects as $holo_project )
                             <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4 my-2">
                                 <div class="item-slide">
                                     <div class="product text-center">
-                                        <a href="{{$project->link}}"
+                                        <a href="{{$holo_project->link}}"
                                             target="_blank">
                                             <div class="img_product">
-                                                <img src="{{$project->image}}" alt="">
+                                                <img src="{{$holo_project->image}}" alt="">
                                             </div>
-                                            <h5 class="text-dark pt-2 title_product">{{$project->title}}</h5>
+                                            <h5 class="text-dark pt-2 title_product">{{$holo_project->title}}</h5>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
-
-
                         </div>
-                        
+
                     </div>
                 </div>
                 @endforeach
-                {{ $projects->links() }}
+
             </div>
         </div>
     </div>
