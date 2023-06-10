@@ -17,7 +17,7 @@ class ProjectHolo360Controller extends Controller
     public function index(){
         $categories = CategoryHolo360::get();
         // sắp xếp orderBy('id_priority','asc')->get();
-        $projects =Holo360Project::with('category_project')->orderBy('id_priority','asc')->get();
+        $projects =Holo360Project::with('category_project')->orderBy('id_priority','asc')->paginate(10);
         return Inertia::render('CategoryHolo360/ProjectHolo',compact('projects','categories'));
     }
     public function store(StoreProjectHolo360Request $request){

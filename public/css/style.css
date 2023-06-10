@@ -44,15 +44,19 @@ li {
 .text-font {
     font-family: 'Poppins', sans-serif;
 }
-#video_page img{
+
+#video_page img {
     width: 100%;
     height: auto;
 }
-.item-link img{
+
+.item-link img {
     height: 320px;
     width: 100%;
     object-fit: cover;
 }
+
+
 /* menu - header */
 
 .menu__link.active {
@@ -89,7 +93,7 @@ li {
 
 .dropdown {
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .dropdown-content {
@@ -405,7 +409,8 @@ li {
 .section3 span {
     /* width: 300px; */
 }
-.pagination .page-item a{
+
+.pagination .page-item a {
     color: black !important;
 }
 
@@ -1764,14 +1769,16 @@ img {
     width: 100%;
     height: 100%;
 }
-.page_iframe{
-    margin-top:4rem;
+
+.page_iframe {
+    margin-top: 4rem;
 }
-.iframe_item{
+
+.iframe_item {
     width: 100%;
     height: 85vh;
 }
 
- body{
+body {
     overflow-x: hidden !important;
 }
