@@ -146,8 +146,8 @@
                     @foreach ($categories as $category)
                     <button class="tablinks" onclick="openCity(event, '{{$category->slug}}')">{{$category->name}}</button>
                     @endforeach
-                   
-                
+
+
                 </div>
                 <hr class="line">
                 <div id="page_all" class="tabcontent active w-100">
@@ -176,8 +176,8 @@
                                 </div>
                             </div>
                             @endforeach
-                           
-                        
+
+
                         </div>
                     </div>
                 </div>
@@ -185,7 +185,7 @@
                 <div id="{{$category->slug}}" class="tabcontent w-100">
                     <div class="page_item my-5">
                         <div class="text_content">
-                            <p>{{$category->content}}</p>
+                            <p>{!! $category->content !!}</p>
                         </div>
                         <div class="row">
                             @foreach ($category->holo_projects as $project )
@@ -203,8 +203,8 @@
                                 </div>
                             </div>
                             @endforeach
-                           
-                      
+
+
                         </div>
                     </div>
                 </div>
@@ -370,7 +370,7 @@
         .text_content p {
             color: black;
         }
-       
+
 
         @media only screen and (max-width: 640px) {
             .item-slide{
@@ -393,7 +393,7 @@
                 font-size: 46px;
             }
         }
-       
+
         @media only screen and (max-width: 480px) {
             .text_content {
                 width: 100%;
@@ -455,7 +455,7 @@
         }
     </style>
     <script>
-       
+
         $(document).ready(function(){
             $('.your-class').slick({
                 slidesToShow: 1,
@@ -480,7 +480,7 @@
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-        
+
 
 
         //  $('a[data-slide]').click(function(e) {
