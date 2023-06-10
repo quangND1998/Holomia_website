@@ -181,6 +181,7 @@
                         </div>
                     </div>
                 </div>
+              
                 @foreach ($categories as $category)
                 <div id="{{$category->slug}}" class="tabcontent w-100">
                     <div class="page_item my-5">
@@ -206,10 +207,11 @@
 
 
                         </div>
+                        
                     </div>
                 </div>
                 @endforeach
-
+                {{ $projects->links() }}
             </div>
         </div>
     </div>

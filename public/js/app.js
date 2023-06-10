@@ -28867,6 +28867,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
  // sắp xếp
@@ -76763,7 +76765,7 @@ var render = function () {
                 false
               ),
               [
-                _vm._l(_vm.projects, function (project, index) {
+                _vm._l(_vm.projects.data, function (project, index) {
                   return _c(
                     "tr",
                     { key: index, staticClass: "bg-white border-b " },
@@ -76864,7 +76866,13 @@ var render = function () {
           ],
           1
         ),
-      ]
+        _vm._v(" "),
+        _c("pagination", {
+          staticClass: "mt-6",
+          attrs: { links: _vm.projects.links },
+        }),
+      ],
+      1
     ),
   ])
 }

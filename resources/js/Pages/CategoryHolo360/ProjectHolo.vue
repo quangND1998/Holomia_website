@@ -116,7 +116,7 @@
                 <draggable v-model="projects" tag="tbody" @change="onUnpublishedChange" v-bind="dragOptions"
                     @start="isDragging = true" @end="isDragging = false" item-key="id_priority">
                     <template>
-                        <tr v-for="(project, index) in projects" :key="index"
+                        <tr v-for="(project, index) in projects.data" :key="index"
                             class="bg-white border-b ">
                             <th scope="row" class=" font-medium text-gray-900 whitespace-nowrap px-4">
                                 {{ index + 1 }}
@@ -146,7 +146,9 @@
                         </tr>
                     </template>
                 </draggable>
+                
             </table>
+            <pagination class="mt-6" :links="projects.links" />
         </div>
     </div>
 </template>

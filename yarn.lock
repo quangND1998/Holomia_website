@@ -5352,6 +5352,11 @@
   "resolved" "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
   "version" "1.1.2"
 
+"vue-currency-directive@^1.5.5":
+  "integrity" "sha512-hvYVj96VO/1HdnzK/ymLCmVr7agnhIB9WjhmKJEm/TI8aBf2ARwAP0qfW5I6mA6wV3FG1/mzIZNPRyhM+KjCZQ=="
+  "resolved" "https://registry.npmjs.org/vue-currency-directive/-/vue-currency-directive-1.5.5.tgz"
+  "version" "1.5.5"
+
 "vue-hot-reload-api@^2.3.0":
   "integrity" "sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog=="
   "resolved" "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz"
