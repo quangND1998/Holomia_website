@@ -14,6 +14,7 @@ class CategoryHolo360 extends Model
         "name",
         "slug",
         "content",
+        "image",
         "id_priority"
 
     ];

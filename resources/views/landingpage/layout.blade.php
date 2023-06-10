@@ -124,6 +124,7 @@
                                         <!-- <a target="_blank" href="https://missionxvr.com/index">Project</a> -->
                                         <a class="">Project </a>
                                         <div class="dropdown-content-mobile">
+                                            <a href="/holo360" class="drop_link">Holo360</a>
                                             <a href="https://missionxvr.com/index" class="drop_link" target="_blank">Mission X</a>
 
                                         </div>

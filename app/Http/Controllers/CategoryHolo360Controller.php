@@ -26,10 +26,16 @@ class CategoryHolo360Controller extends Controller
         //         // 'en' => 'required',
         //     ]
         // );
+        $name = time();
+        $destinationpath = 'images/categories/';
+        if (!file_exists($destinationpath)) {
+            mkdir($destinationpath, 0777, true);
+        }
         CategoryHolo360::create([
             'name'=> $request->name,
             'slug'=>  Str::slug($request->name),
-            'content' => $request->content
+            'content' => $request->content,
+            'image' =>  $request->hasFile('image') ? $this->image($request->file('image'), $destinationpath) : null,
         ]);
         return back()->with('success', 'Create successfully');
         // $category = new CategoryHolo360();
@@ -47,11 +53,16 @@ class CategoryHolo360Controller extends Controller
     }
     public function update( UpdateCategoryHolo360Request $request , CategoryHolo360 $category){
 
-
+        $name = time();
+        $destinationpath = 'images/contents/';
+        if (!file_exists($destinationpath)) {
+            mkdir($destinationpath, 0777, true);
+        }
         $category->update([
             'name'=> $request->name,
             'slug'=>  Str::slug($request->name),
-            'content' => $request->content
+            'content' => $request->content,
+            'image' =>  $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $destinationpath, $category->image) : $category->image,
         ]);
         return back()->with('success', 'Create successfully');
     }

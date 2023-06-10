@@ -3,81 +3,23 @@
 
     <div class="banner">
         <div class="your-class">
+            @foreach ($categories as $category)
             <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
+                <img src="{{$category->image}}" class="image_slide" alt="">
                 <div class="text_slide">
                     <div class="center_text">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h1 class="title_slide">Tour 360</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
+                                    <h1 class="title_slide">{{$category->name}}</h1>
+                                    <a href="/holo360" class="watch_video">Xem dự án </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="title_slide">Tour VR</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="title_slide">scan</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="title_slide">expo</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="title_slide">project base</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
           </div>
         {{-- <div class="slider slider-for">
             <div class="item_slider_for">

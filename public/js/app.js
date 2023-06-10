@@ -28561,6 +28561,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
  // sắp xếp
@@ -28584,7 +28600,8 @@ __webpack_require__.r(__webpack_exports__);
       form: this.$inertia.form({
         id: null,
         name: null,
-        content: null
+        content: null,
+        image: null
       })
     };
   },
@@ -28668,7 +28685,8 @@ __webpack_require__.r(__webpack_exports__);
       this.form = this.$inertia.form({
         id: null,
         name: null,
-        content: null
+        content: null,
+        image: null
       });
     },
     onDelete: function onDelete(id) {
@@ -75927,6 +75945,47 @@ var render = function () {
                             },
                             [
                               _vm._v(
+                                "\n                                Image\n                            "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticClass:
+                              "p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none",
+                            attrs: {
+                              accept: ".jpg, .jpeg, .png",
+                              id: "file_input",
+                              type: "file",
+                            },
+                            on: {
+                              input: function ($event) {
+                                _vm.form.image = $event.target.files[0]
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.image
+                            ? _c("div", { staticClass: "text-red-700" }, [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm.errors.image) +
+                                    "\n                            "
+                                ),
+                              ])
+                            : _vm._e(),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "mb-2" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "block text-gray-700 text-sm font-bold mb-2",
+                              attrs: { for: "username" },
+                            },
+                            [
+                              _vm._v(
                                 "\n                                Content\n                            "
                               ),
                             ]
@@ -76138,6 +76197,13 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "px-6 py-4" }, [
+                        _c("img", {
+                          staticClass: "w-16",
+                          attrs: { src: category.image, alt: "" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
                         _c(
                           "button",
                           {
@@ -76206,6 +76272,10 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
             _vm._v("content"),
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
+            _vm._v("image"),
           ]),
           _vm._v(" "),
           _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [

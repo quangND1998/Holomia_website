@@ -26,7 +26,8 @@ class StoreCategoryHolo360 extends FormRequest
     {
         return [
             'name' => 'required|unique:category_holo360,name',
-            'content'=> 'nullable'
+            'content'=> 'nullable',
+            'image' => 'required|mimes:png,jpg,jpeg',
         ];
     }
 }

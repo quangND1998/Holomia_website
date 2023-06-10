@@ -18,6 +18,7 @@ class CreateCategoryHolo360Table extends Migration
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->longText('content')->nullable();
+            $table->string('image')->nullable();
             $table->integer('id_priority')->nullable();
             $table->timestamps();
         });
@@ -31,5 +32,8 @@ class CreateCategoryHolo360Table extends Migration
     public function down()
     {
         Schema::dropIfExists('category_holo360');
+        Schema::table('category_holo360', function (Blueprint $table) {
+            //
+        });
     }
 }

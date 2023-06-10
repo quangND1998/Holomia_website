@@ -60,7 +60,20 @@
                                     {{ errors.name }}
                                 </div>
                             </div>
-
+                            <div class="mb-2">
+                                <label
+                                    class="block text-gray-700 text-sm font-bold mb-2"
+                                    for="username"
+                                >
+                                    Image
+                                </label>
+                                <input @input="form.image = $event.target.files[0]" accept=".jpg, .jpeg, .png"
+                                    class="p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none"
+                                    id="file_input" type="file" />
+                                <div class="text-red-700" v-if="errors.image">
+                                    {{ errors.image }}
+                                </div>
+                            </div>
                             <div class="mb-2">
                                 <label
                                     class="block text-gray-700 text-sm font-bold mb-2"
@@ -126,6 +139,7 @@
                         <th scope="col" class="px-6 py-3">Name</th>
 
                         <th scope="col" class="px-6 py-3">content</th>
+                        <th scope="col" class="px-6 py-3">image</th>
                         <th scope="col" class="px-6 py-3">Action</th>
                     </tr>
                 </thead>
@@ -150,7 +164,9 @@
                         <td class="px-6 py-4">
                             {{ category.content }}
                         </td>
-
+                        <td class="px-6 py-4">
+                            <img :src="category.image" class="w-16"  alt="">
+                        </td>
                         <td class="px-6 py-4">
                             <button
                           
@@ -194,6 +210,7 @@ export default {
                 id: null,
                 name: null,
                 content: null,
+                image: null,
             }),
         };
     },
@@ -279,6 +296,7 @@ export default {
                 id: null,
                 name: null,
                 content: null,
+                image: null,
             });
         },
         onDelete(id) {
