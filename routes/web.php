@@ -203,8 +203,8 @@ Route::middleware(['auth', 'verified'])->group(
             Route::get('', [CategoryHolo360Controller::class, 'index'])->name('category_holo360.index');
             Route::post('',[CategoryHolo360Controller::class, 'store'])->name('category_holo360.store');
             Route::post('update/{category}',[CategoryHolo360Controller::class, 'update'])->name('category_holo360.update');
-            Route::delete('delete/{id}',[CategoryHolo360Controller::class, 'delete'])->name('category_holo360.delete');  
-            
+            Route::delete('delete/{id}',[CategoryHolo360Controller::class, 'delete'])->name('category_holo360.delete');
+
             Route::post(
                 '/priority',
                 [CategoryHolo360Controller::class, 'priorityCategory']
@@ -215,14 +215,14 @@ Route::middleware(['auth', 'verified'])->group(
             Route::get('',[ProjectHolo360Controller::class, 'index'])->name('project_holo360.index');
             Route::post('',[ProjectHolo360Controller::class, 'store'])->name('project_holo360.store');
             Route::post('update/{project}',[ProjectHolo360Controller::class, 'update'])->name('project_holo360.update');
-            Route::delete('delete/{id}',[ProjectHolo360Controller::class, 'delete'])->name('project_holo360.delete');  
+            Route::delete('delete/{id}',[ProjectHolo360Controller::class, 'delete'])->name('project_holo360.delete');
             Route::post(
                 '/priority',
                 [ProjectHolo360Controller::class, 'priorityProject']
             )->name('project_holo360.priority');
-          
+
         });
-     
+
     }
 );
 Route::get('language/{language}', function ($language) {

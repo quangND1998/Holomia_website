@@ -59,15 +59,15 @@
                                                 <a href="/index" class="menu__link  {{ Request::segment(1) === 'index' ? 'active' : '' }}">{{__($page->title)}}</a>
                                             </li>
                                             @elseif($page->title =="project")
-                                            
+
                                                 <li class="menu__item to-left dropdown">
 {{-- https://holomia.com/real360-hoian-ancient.html --}}
                                                     <a href=""  class="menu__link ">{{__($page->title)}} </a>
                                                     <div class="dropdown-content">
-                                                        <a href="/holo360" class="drop_link" target="_self">Holo 360</a>
+                                                        <a href="/real360-hoian-ancient.html" class="drop_link" target="_self">Holo 360</a>
                                                         <a href="/projects" class="drop_link" >Mission X</a>
                                                     </div>
-                                                    
+
                                                 </li>
                                             @else
                                             <li class="menu__item to-left">
