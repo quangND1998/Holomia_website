@@ -169,7 +169,7 @@
                         </td>
                         <td class="px-6 py-4">
                             <button
-                          
+
                                 class="font-medium text-blue-600 hover:underline mx-1 hover:text-blue-700" @click="edit(category)"
                                 >Edit</button
                             >
@@ -249,7 +249,7 @@ export default {
         },
         saveCategory() {
             if(this.editMode){
-                this.form.put(this.route("category_holo360.update",this.form.id), {
+                this.form.post(this.route("category_holo360.update",this.form.id), {
                 preserveState: true,
 
                 onError: (errors) => {
@@ -282,7 +282,7 @@ export default {
                 },
             });
             }
-            
+
         },
         edit(data){
             this.showModel=true;
