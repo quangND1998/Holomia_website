@@ -185,7 +185,7 @@
                 <div id="{{$category->slug}}" class="tabcontent w-100">
                     <div class="page_item my-5">
                         <div class="text_content">
-                            <p>{{$category->content}}</p>
+                            <p>{!! $category->content !!}</p>
                         </div>
                         <div class="row">
                             @foreach ($category->holo_projects as $project )
