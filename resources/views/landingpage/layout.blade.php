@@ -59,15 +59,22 @@
                                                 <a href="/index" class="menu__link  {{ Request::segment(1) === 'index' ? 'active' : '' }}">{{__($page->title)}}</a>
                                             </li>
                                             @elseif($page->title =="project")
-                                            
+
                                                 <li class="menu__item to-left dropdown">
 {{-- https://holomia.com/real360-hoian-ancient.html --}}
                                                     <a href=""  class="menu__link ">{{__($page->title)}} </a>
                                                     <div class="dropdown-content">
-                                                        <a href="/holo360" class="drop_link" target="_self">Holo 360</a>
-                                                        <a href="/projects" class="drop_link" >Mission X</a>
+                                                            <a href="/holo360" class="drop_link link_holo360" target="_self">Holo 360</a>
+                                                                <ul class="menuHolo_sub p-0">
+                                                                    @foreach (App\Models\CategoryHolo360::get() as $category)
+                                                                    <li>
+                                                                        <a  href="/holo360?category={{$category->slug}}" class="drop_link sub_linkHolo ">{{$category->name}}</a>
+                                                                    </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            <a href="/projects" class="drop_link" >Mission X</a>
                                                     </div>
-                                                    
+
                                                 </li>
                                             @else
                                             <li class="menu__item to-left">
@@ -124,7 +131,7 @@
                                         <!-- <a target="_blank" href="https://missionxvr.com/index">Project</a> -->
                                         <a class="">Project </a>
                                         <div class="dropdown-content-mobile">
-                                               <a href="https://holomia.com/real360-hoian-ancient.html" class="drop_link" target="_self">Holo 360</a>
+                                               <a href="/holo360" class="drop_link" target="_self">Holo 360</a>
                                             <a href="/projects" class="drop_link" >{{__('missionxvr')}}</a>
                                         </div>
                                     </li>
@@ -163,6 +170,37 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/js/main.js"></script>
+<style>
+    .menuHolo_sub{
+        position: absolute;
+        right: -110px;
+        top: 0;
+        display: none;
+        min-width: 160px;
+        background: #001C54
+    }
+    .link_holo360:hover + .menuHolo_sub{
+        display: block;
+    }
+    .menuHolo_sub:hover + .link_holo360{
+        display: block;
+    }
+    .menuHolo_sub:hover{
+        display: block;
+    }
+    .sub_linkHolo{
+        font-size: 14px !important;
+        cursor: pointer;
+        
+    }
+    .sub_linkHolo:hover{
+        color: rgb(214, 153, 20);
+    }
 
+   
+    .active {
+            color: rgb(214, 153, 20);
+        }
+</style>
 </body>
 </html>

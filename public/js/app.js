@@ -28388,6 +28388,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Components/Icon */ "./resources/js/Components/Icon.vue");
 /* harmony import */ var _Components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Layout */ "./resources/js/Components/Layout.vue");
 /* harmony import */ var _Components_Pagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Pagination */ "./resources/js/Components/Pagination.vue");
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.umd.js");
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_3__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -28554,6 +28578,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+ // sắp xếp
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -28564,7 +28590,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Pagination: _Components_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"],
+    draggable: (vuedraggable__WEBPACK_IMPORTED_MODULE_3___default())
   },
   data: function data() {
     return {
@@ -28573,14 +28600,38 @@ __webpack_require__.r(__webpack_exports__);
       form: this.$inertia.form({
         id: null,
         name: null,
-        content: null
+        content: null,
+        image: null
       })
     };
   },
+  computed: {
+    // sắp xếp
+    dragOptions: function dragOptions() {
+      return {
+        animation: 100,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost",
+        scrollSensitivity: 100,
+        forceFallback: true
+      };
+    }
+  },
   methods: {
+    onUnpublishedChange: function onUnpublishedChange() {
+      var query = {
+        data: this.categories
+      }; // console.log("drag");
+
+      this.$inertia.post(this.route("category_holo360.priority"), query, {
+        preserveState: false
+      });
+    },
     closeModel: function closeModel() {
       this.showModel = false;
       this.editMode = false;
+      this.reset();
     },
     addCategory: function addCategory() {
       this.showModel = true;
@@ -28590,7 +28641,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.editMode) {
-        this.form.put(this.route("category_holo360.update", this.form.id), {
+        this.form.post(this.route("category_holo360.update", this.form.id), {
           preserveState: true,
           onError: function onError(errors) {
             if (Object.keys(errors).length > 0) {}
@@ -28634,7 +28685,8 @@ __webpack_require__.r(__webpack_exports__);
       this.form = this.$inertia.form({
         id: null,
         name: null,
-        content: null
+        content: null,
+        image: null
       });
     },
     onDelete: function onDelete(id) {
@@ -28660,56 +28712,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Components/Icon */ "./resources/js/Components/Icon.vue");
 /* harmony import */ var _Components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Layout */ "./resources/js/Components/Layout.vue");
 /* harmony import */ var _Components_Pagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Pagination */ "./resources/js/Components/Pagination.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.umd.js");
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -28866,6 +28870,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+ // sắp xếp
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -28877,7 +28883,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Pagination: _Components_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"],
+    draggable: (vuedraggable__WEBPACK_IMPORTED_MODULE_3___default())
+  },
+  computed: {
+    // sắp xếp
+    dragOptions: function dragOptions() {
+      return {
+        animation: 100,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost",
+        scrollSensitivity: 100,
+        forceFallback: true
+      };
+    }
   },
   data: function data() {
     return {
@@ -28893,9 +28913,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    onUnpublishedChange: function onUnpublishedChange() {
+      var query = {
+        data: this.projects
+      };
+      this.$inertia.post(this.route("project_holo360.priority"), query, {
+        preserveState: false
+      });
+    },
     closeModel: function closeModel() {
       this.showModel = false;
       this.editMode = false;
+      this.reset();
     },
     addCategory: function addCategory() {
       this.showModel = true;
@@ -32363,6 +32392,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // sắp xếp
     onUnpublishedChange: function onUnpublishedChange() {
       var query = {
         data: this.list_image
@@ -75777,21 +75807,34 @@ var render = function () {
                       "div",
                       {
                         staticClass:
-                          "flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600",
+                          "flex items-start justify-between p-4 border-b rounded-t ",
                       },
                       [
-                        _c(
-                          "h3",
-                          {
-                            staticClass:
-                              "text-xl font-semibold text-gray-900 dark:text-white",
-                          },
-                          [
-                            _vm._v(
-                              "\n                        Create Category Holo360\n                    "
+                        _vm.editMode == true
+                          ? _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "text-xl font-semibold text-gray-900 ",
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Edit Category Holo360\n                    "
+                                ),
+                              ]
+                            )
+                          : _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "text-xl font-semibold text-gray-900 ",
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Create Category Holo360\n                    "
+                                ),
+                              ]
                             ),
-                          ]
-                        ),
                         _vm._v(" "),
                         _c(
                           "button",
@@ -75866,7 +75909,7 @@ var render = function () {
                               },
                             ],
                             staticClass:
-                              "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+                              "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ",
                             attrs: {
                               id: "username",
                               type: "text",
@@ -75904,6 +75947,47 @@ var render = function () {
                             },
                             [
                               _vm._v(
+                                "\n                                Image\n                            "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticClass:
+                              "p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none",
+                            attrs: {
+                              accept: ".jpg, .jpeg, .png",
+                              id: "file_input",
+                              type: "file",
+                            },
+                            on: {
+                              input: function ($event) {
+                                _vm.form.image = $event.target.files[0]
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.image
+                            ? _c("div", { staticClass: "text-red-700" }, [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm.errors.image) +
+                                    "\n                            "
+                                ),
+                              ])
+                            : _vm._e(),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "mb-2" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "block text-gray-700 text-sm font-bold mb-2",
+                              attrs: { for: "username" },
+                            },
+                            [
+                              _vm._v(
                                 "\n                                Content\n                            "
                               ),
                             ]
@@ -75919,11 +76003,12 @@ var render = function () {
                               },
                             ],
                             staticClass:
-                              "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+                              "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ",
                             attrs: {
                               id: "username",
+                              rows: "5",
                               type: "text",
-                              placeholder: "Content",
+                              placeholder: "Content...",
                             },
                             domProps: { value: _vm.form.content },
                             on: {
@@ -76014,7 +76099,7 @@ var render = function () {
         )
       : _vm._e(),
     _vm._v(" "),
-    _c("h2", { staticClass: "text-2xl font-bold" }, [
+    _c("h2", { staticClass: " font-medium text-blue-600 text-3xl" }, [
       _vm._v("Category Holo360"),
     ]),
     _vm._v(" "),
@@ -76046,86 +76131,121 @@ var render = function () {
             _vm._m(0),
             _vm._v(" "),
             _c(
-              "tbody",
-              _vm._l(_vm.categories, function (category, index) {
-                return _c(
-                  "tr",
-                  {
-                    key: index,
-                    staticClass:
-                      "bg-white border-b dark:bg-gray-800 dark:border-gray-700",
+              "draggable",
+              _vm._b(
+                {
+                  attrs: { tag: "tbody", "item-key": "id_priority" },
+                  on: {
+                    change: _vm.onUnpublishedChange,
+                    start: function ($event) {
+                      _vm.isDragging = true
+                    },
+                    end: function ($event) {
+                      _vm.isDragging = false
+                    },
                   },
-                  [
-                    _c(
-                      "th",
-                      {
-                        staticClass:
-                          "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white",
-                        attrs: { scope: "row" },
-                      },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(index + 1) +
-                            "\n                    "
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(category.name) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(category.content) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
+                  model: {
+                    value: _vm.categories,
+                    callback: function ($$v) {
+                      _vm.categories = $$v
+                    },
+                    expression: "categories",
+                  },
+                },
+                "draggable",
+                _vm.dragOptions,
+                false
+              ),
+              [
+                _vm._l(_vm.categories, function (category, index) {
+                  return _c(
+                    "tr",
+                    {
+                      key: index,
+                      staticClass:
+                        "bg-white border-b dark:bg-gray-800 dark:border-gray-700",
+                    },
+                    [
                       _c(
-                        "button",
+                        "th",
                         {
                           staticClass:
-                            "font-medium text-blue-600 hover:underline mx-1",
-                          on: {
-                            click: function ($event) {
-                              return _vm.edit(category)
-                            },
-                          },
-                        },
-                        [_vm._v("Edit")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "text-[#e71212] font-medium mx-1",
-                          on: {
-                            click: function ($event) {
-                              return _vm.onDelete(category.id)
-                            },
-                          },
+                            "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white",
+                          attrs: { scope: "row" },
                         },
                         [
                           _vm._v(
-                            "\n                            Delete\n                        "
+                            "\n                        " +
+                              _vm._s(index + 1) +
+                              "\n                    "
                           ),
                         ]
                       ),
-                    ]),
-                  ]
-                )
-              }),
-              0
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(category.name) +
+                            "\n                    "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(category.content) +
+                            "\n                    "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
+                        _c("img", {
+                          staticClass: "w-16",
+                          attrs: { src: category.image, alt: "" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "px-6 py-4" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "font-medium text-blue-600 hover:underline mx-1 hover:text-blue-700",
+                            on: {
+                              click: function ($event) {
+                                return _vm.edit(category)
+                              },
+                            },
+                          },
+                          [_vm._v("Edit")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "text-[#e71212] font-medium mx-1 hover:text-red-700",
+                            on: {
+                              click: function ($event) {
+                                return _vm.onDelete(category.id)
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                            Delete\n                        "
+                            ),
+                          ]
+                        ),
+                      ]),
+                    ]
+                  )
+                }),
+              ],
+              2
             ),
-          ]
+          ],
+          1
         ),
       ]
     ),
@@ -76154,6 +76274,10 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
             _vm._v("content"),
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
+            _vm._v("image"),
           ]),
           _vm._v(" "),
           _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
@@ -76208,21 +76332,34 @@ var render = function () {
                       "div",
                       {
                         staticClass:
-                          "flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600",
+                          "flex items-start justify-between p-4 border-b rounded-t ",
                       },
                       [
-                        _c(
-                          "h3",
-                          {
-                            staticClass:
-                              "text-xl font-semibold text-gray-900 dark:text-white",
-                          },
-                          [
-                            _vm._v(
-                              "\n                        Create Project Holo360\n                    "
+                        _vm.editMode == true
+                          ? _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "text-xl font-semibold text-gray-900 ",
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Edit Project Holo360\n                    "
+                                ),
+                              ]
+                            )
+                          : _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "text-xl font-semibold text-gray-900 ",
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Create Project Holo360\n                    "
+                                ),
+                              ]
                             ),
-                          ]
-                        ),
                         _vm._v(" "),
                         _c(
                           "button",
@@ -76297,7 +76434,7 @@ var render = function () {
                               },
                             ],
                             staticClass:
-                              "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+                              "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ",
                             attrs: {
                               id: "username",
                               type: "text",
@@ -76350,11 +76487,11 @@ var render = function () {
                               },
                             ],
                             staticClass:
-                              "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+                              "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ",
                             attrs: {
                               id: "username",
                               type: "text",
-                              placeholder: "Name",
+                              placeholder: "Link",
                             },
                             domProps: { value: _vm.form.link },
                             on: {
@@ -76395,7 +76532,7 @@ var render = function () {
                           _vm._v(" "),
                           _c("input", {
                             staticClass:
-                              " p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none ",
+                              "p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none",
                             attrs: {
                               accept: ".jpg, .jpeg, .png",
                               id: "file_input",
@@ -76446,7 +76583,7 @@ var render = function () {
                                 },
                               ],
                               staticClass:
-                                "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                                "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ",
                               attrs: { id: "countries" },
                               on: {
                                 change: function ($event) {
@@ -76471,7 +76608,9 @@ var render = function () {
                             },
                             [
                               _c("option", { domProps: { value: null } }, [
-                                _vm._v("Choose a country"),
+                                _vm._v(
+                                  "\n                                    Choose a category\n                                "
+                                ),
                               ]),
                               _vm._v(" "),
                               _vm._l(
@@ -76483,7 +76622,13 @@ var render = function () {
                                       key: index,
                                       domProps: { value: category.id },
                                     },
-                                    [_vm._v(_vm._s(category.name))]
+                                    [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(category.name) +
+                                          "\n                                "
+                                      ),
+                                    ]
                                   )
                                 }
                               ),
@@ -76565,7 +76710,7 @@ var render = function () {
         )
       : _vm._e(),
     _vm._v(" "),
-    _c("h2", { staticClass: "text-2xl font-bold" }, [
+    _c("h2", { staticClass: "text-3xl font-medium text-blue-600 mt-5" }, [
       _vm._v("Project Holo360"),
     ]),
     _vm._v(" "),
@@ -76589,114 +76734,145 @@ var render = function () {
       [
         _c(
           "table",
-          {
-            staticClass:
-              "w-full text-sm text-left text-gray-500 dark:text-gray-400",
-          },
+          { staticClass: "w-full text-sm text-left text-gray-500 " },
           [
             _vm._m(0),
             _vm._v(" "),
             _c(
-              "tbody",
-              _vm._l(_vm.projects, function (project, index) {
-                return _c(
-                  "tr",
-                  {
-                    key: index,
-                    staticClass:
-                      "bg-white border-b dark:bg-gray-800 dark:border-gray-700",
+              "draggable",
+              _vm._b(
+                {
+                  attrs: { tag: "tbody", "item-key": "id_priority" },
+                  on: {
+                    change: _vm.onUnpublishedChange,
+                    start: function ($event) {
+                      _vm.isDragging = true
+                    },
+                    end: function ($event) {
+                      _vm.isDragging = false
+                    },
                   },
-                  [
-                    _c(
-                      "th",
-                      {
-                        staticClass:
-                          "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white",
-                        attrs: { scope: "row" },
-                      },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(index + 1) +
-                            "\n                    "
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(project.title) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(project.link) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _c("img", {
-                        staticClass: "w-16 ",
-                        attrs: { src: project.image, alt: "" },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
+                  model: {
+                    value: _vm.projects,
+                    callback: function ($$v) {
+                      _vm.projects = $$v
+                    },
+                    expression: "projects",
+                  },
+                },
+                "draggable",
+                _vm.dragOptions,
+                false
+              ),
+              [
+                _vm._l(_vm.projects.data, function (project, index) {
+                  return _c(
+                    "tr",
+                    { key: index, staticClass: "bg-white border-b " },
+                    [
                       _c(
-                        "span",
+                        "th",
                         {
                           staticClass:
-                            "bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500",
-                        },
-                        [_vm._v(_vm._s(project.category_project.name))]
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "px-6 py-4" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "font-medium text-blue-600 hover:underline mx-1",
-                          on: {
-                            click: function ($event) {
-                              return _vm.edit(project)
-                            },
-                          },
-                        },
-                        [_vm._v("Edit")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "text-[#e71212] font-medium mx-1",
-                          on: {
-                            click: function ($event) {
-                              return _vm.deleteProject(project.id)
-                            },
-                          },
+                            " font-medium text-gray-900 whitespace-nowrap px-4",
+                          attrs: { scope: "row" },
                         },
                         [
                           _vm._v(
-                            "\n                            Delete\n                        "
+                            "\n                            " +
+                              _vm._s(index + 1) +
+                              "\n                        "
                           ),
                         ]
                       ),
-                    ]),
-                  ]
-                )
-              }),
-              0
+                      _vm._v(" "),
+                      _c("td", {}, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(project.title) +
+                            "\n                        "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", {}, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(project.link) +
+                            "\n                        "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "py-2" }, [
+                        _c("img", {
+                          staticClass: "w-16",
+                          attrs: { src: project.image, alt: "" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", {}, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded  border border-gray-500",
+                          },
+                          [_vm._v(_vm._s(project.category_project.name))]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", {}, [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "font-medium text-blue-600 hover:no-underline hover:text-blue-700   mx-1",
+                            on: {
+                              click: function ($event) {
+                                return _vm.edit(project)
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                                Edit\n                            "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "text-[#e71212] font-medium mx-1 hover:text-red-700",
+                            on: {
+                              click: function ($event) {
+                                return _vm.deleteProject(project.id)
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                                Delete\n                            "
+                            ),
+                          ]
+                        ),
+                      ]),
+                    ]
+                  )
+                }),
+              ],
+              2
             ),
-          ]
+          ],
+          1
         ),
-      ]
+        _vm._v(" "),
+        _c("pagination", {
+          staticClass: "mt-6",
+          attrs: { links: _vm.projects.links },
+        }),
+      ],
+      1
     ),
   ])
 }
@@ -76707,33 +76883,30 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "thead",
-      {
-        staticClass:
-          "text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400",
-      },
+      { staticClass: "text-xs text-gray-700 uppercase bg-gray-50 " },
       [
         _c("tr", [
-          _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
+          _c("th", { staticClass: "py-3 px-3", attrs: { scope: "col" } }, [
             _vm._v("STT"),
           ]),
           _vm._v(" "),
-          _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
+          _c("th", { staticClass: "py-3", attrs: { scope: "col" } }, [
             _vm._v("Title"),
           ]),
           _vm._v(" "),
-          _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
+          _c("th", { staticClass: "py-3", attrs: { scope: "col" } }, [
             _vm._v("Link"),
           ]),
           _vm._v(" "),
-          _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
+          _c("th", { staticClass: "py-3", attrs: { scope: "col" } }, [
             _vm._v("Image"),
           ]),
           _vm._v(" "),
-          _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
+          _c("th", { staticClass: "py-3", attrs: { scope: "col" } }, [
             _vm._v("Category"),
           ]),
           _vm._v(" "),
-          _c("th", { staticClass: "px-6 py-3", attrs: { scope: "col" } }, [
+          _c("th", { staticClass: "py-3", attrs: { scope: "col" } }, [
             _vm._v("Action"),
           ]),
         ]),

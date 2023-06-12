@@ -9,11 +9,12 @@
             <div class="relative w-full max-w-2xl max-h-full m-auto">
                 <div class="relative bg-white rounded-lg shadow">
                     <div
-                        class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
+                        class="flex items-start justify-between p-4 border-b rounded-t "
                     >
-                        <h3
-                            class="text-xl font-semibold text-gray-900 dark:text-white"
-                        >
+                        <h3 class="text-xl font-semibold text-gray-900 " v-if="editMode == true ">
+                            Edit Category Holo360
+                        </h3>
+                        <h3 v-else class="text-xl font-semibold text-gray-900 ">
                             Create Category Holo360
                         </h3>
                         <button
@@ -50,7 +51,7 @@
                                 </label>
                                 <input
                                     v-model="form.name"
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     id="username"
                                     type="text"
                                     placeholder="Name"
@@ -59,7 +60,20 @@
                                     {{ errors.name }}
                                 </div>
                             </div>
-
+                            <div class="mb-2">
+                                <label
+                                    class="block text-gray-700 text-sm font-bold mb-2"
+                                    for="username"
+                                >
+                                    Image
+                                </label>
+                                <input @input="form.image = $event.target.files[0]" accept=".jpg, .jpeg, .png"
+                                    class="p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none"
+                                    id="file_input" type="file" />
+                                <div class="text-red-700" v-if="errors.image">
+                                    {{ errors.image }}
+                                </div>
+                            </div>
                             <div class="mb-2">
                                 <label
                                     class="block text-gray-700 text-sm font-bold mb-2"
@@ -69,10 +83,11 @@
                                 </label>
                                 <textarea
                                     v-model="form.content"
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     id="username"
+                                    rows="5"
                                     type="text"
-                                    placeholder="Content"
+                                    placeholder="Content..."
                                 ></textarea>
                                 <div class="text-red-700" v-if="errors.content">
                                     {{ errors.content }}
@@ -105,7 +120,7 @@
             </div>
         </div>
 
-        <h2 class="text-2xl font-bold">Category Holo360</h2>
+        <h2 class=" font-medium text-blue-600 text-3xl">Category Holo360</h2>
         <button
             class="px-3 py-2 bg-[#0f1d89] rounded-lg text-white my-3 text-md font-semibold"
             @click="addCategory()"
@@ -124,10 +139,14 @@
                         <th scope="col" class="px-6 py-3">Name</th>
 
                         <th scope="col" class="px-6 py-3">content</th>
+                        <th scope="col" class="px-6 py-3">image</th>
                         <th scope="col" class="px-6 py-3">Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <!-- sắp xếp -->
+                <draggable v-model="categories" tag="tbody" @change="onUnpublishedChange" v-bind="dragOptions"
+                    @start="isDragging = true" @end="isDragging = false" item-key="id_priority">
+                    <template>
                     <tr
                         v-for="(category, index) in categories"
                         :key="index"
@@ -145,19 +164,22 @@
                         <td class="px-6 py-4">
                             {{ category.content }}
                         </td>
-
+                        <td class="px-6 py-4">
+                            <img :src="category.image" class="w-16"  alt="">
+                        </td>
                         <td class="px-6 py-4">
                             <button
-                          
-                                class="font-medium text-blue-600 hover:underline mx-1" @click="edit(category)"
+
+                                class="font-medium text-blue-600 hover:underline mx-1 hover:text-blue-700" @click="edit(category)"
                                 >Edit</button
                             >
-                            <button class="text-[#e71212] font-medium mx-1" @click = "onDelete(category.id)">
+                            <button class="text-[#e71212] font-medium mx-1 hover:text-red-700" @click = "onDelete(category.id)">
                                 Delete
                             </button>
                         </td>
                     </tr>
-                </tbody>
+                </template>
+            </draggable>
             </table>
         </div>
     </div>
@@ -167,6 +189,8 @@
 import Icon from "@/Components/Icon";
 import Layout from "@/Components/Layout";
 import Pagination from "@/Components/Pagination";
+// sắp xếp
+import draggable from "vuedraggable";
 export default {
     layout: Layout,
     props: {
@@ -176,6 +200,7 @@ export default {
     components: {
         Pagination,
         Icon,
+        draggable,
     },
     data() {
         return {
@@ -185,13 +210,38 @@ export default {
                 id: null,
                 name: null,
                 content: null,
+                image: null,
             }),
         };
     },
+    computed: {
+        // sắp xếp
+        dragOptions() {
+            return {
+                animation: 100,
+                group: "description",
+                disabled: false,
+                ghostClass: "ghost",
+                scrollSensitivity: 100,
+                forceFallback: true,
+            };
+        },
+    },
     methods: {
+        onUnpublishedChange() {
+            let query = {
+                data: this.categories
+            };
+            // console.log("drag");
+            this.$inertia.post(this.route("category_holo360.priority"), query, {
+                preserveState: false
+            });
+
+        },
         closeModel() {
             this.showModel = false;
             this.editMode = false;
+            this.reset();
         },
         addCategory() {
             this.showModel = true;
@@ -199,7 +249,7 @@ export default {
         },
         saveCategory() {
             if(this.editMode){
-                this.form.put(this.route("category_holo360.update",this.form.id), {
+                this.form.post(this.route("category_holo360.update",this.form.id), {
                 preserveState: true,
 
                 onError: (errors) => {
@@ -232,7 +282,7 @@ export default {
                 },
             });
             }
-            
+
         },
         edit(data){
             this.showModel=true;
@@ -246,6 +296,7 @@ export default {
                 id: null,
                 name: null,
                 content: null,
+                image: null,
             });
         },
         onDelete(id) {

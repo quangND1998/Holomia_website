@@ -14,10 +14,11 @@ class CategoryHolo360 extends Model
         "name",
         "slug",
         "content",
+        "image",
         "id_priority"
 
     ];
     public function holo_projects(){
-        return $this->hasMany(Holo360Project::class, 'category_holo360_id');
+        return $this->hasMany(Holo360Project::class, 'category_holo360_id')->orderBy('id_priority','asc');
     }
 }

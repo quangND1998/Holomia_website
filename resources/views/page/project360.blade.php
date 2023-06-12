@@ -1,226 +1,52 @@
 @extends('landingpage.layout')
 @section('content')
 
-    <div class="banner">
+    {{-- <div class="banner">
         <div class="your-class">
+            @foreach ($categories as $category)
             <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
+                <img src="{{$category->image}}" class="image_slide" alt="">
                 <div class="text_slide">
                     <div class="center_text">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h1 class="title_slide">Tour 360</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
+                                    <h1 class="title_slide">{{$category->name}}</h1>
+                                    <a href="/holo360" class="watch_video">Xem dự án </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="title_slide">Tour VR</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="title_slide">scan</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="title_slide">expo</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item_slide">
-                <img src="img/banner_holo360.jpg" class="image_slide" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="title_slide">project base</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
           </div>
-        {{-- <div class="slider slider-for">
-            <div class="item_slider_for">
-                <img src="img/banner_holo360.jpg" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="wow fadeInDown">Tour 360</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item_slider_for">
-                <img src="img/banner_holo360.jpg" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="wow fadeInDown">Tour VR</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        
+    </div> --}}
 
-            </div>
-            <div class="item_slider_for">
-                <img src="img/banner_holo360.jpg" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="wow fadeInDown">Scan</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="item_slider_for">
-                <img src="img/banner_holo360.jpg" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="wow fadeInDown">Expo</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="item_slider_for">
-                <img src="img/banner_holo360.jpg" alt="">
-                <div class="text_slide">
-                    <div class="center_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="wow fadeInDown">Project Base</h1>
-                                    <a href="" class="watch_video">Xem dự án </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="slider slider-nav">
-            <div class="item_slide_nav">
-                <div class="d-flex">
-                    <h3>Tour 360</h3>
-                    <img src="img/icon360.jpg" class="img_slider_nav" alt="">
-                </div>
-            </div>
-            <div class="item_slide_nav">
-                <div class="d-flex">
-                    <h3>Tour VR</h3>
-                    <img src="img/icon_slider.png" class="img_slider_nav" alt="">
-                </div>
-            </div>
-            <div class="item_slide_nav">
-                <div class="d-flex">
-                    <h3>Tour Scan</h3>
-                    <img src="img/icon_slider.png" class="img_slider_nav" alt="">
-                </div>
-            </div>
-            <div class="item_slide_nav">
-                <div class="d-flex">
-                    <h3>Expo</h3>
-                    <img src="img/expo.png" class="img_slider_nav" alt="" style="height:25px">
-                </div>
-            </div>
-            <div class="item_slide_nav">
-                <div class="d-flex">
-                    <h3>Project Base</h3>
-                    <img src="img/icon_project.png" class="img_slider_nav" alt="">
-                </div>
-            </div>
-        </div> --}}
-    </div>
-
-    <div class="text-dark">
+    <div class="text-dark pt-5">
 
         <div class="container mt-5 ">
-            <h1 class="text-dark text-center title_list">List Project Holo360</h1>
+            <h1 class="text-dark text-center title_list">{{__('project_holo360')}}</h1>
+            <div class="content_list">
+                {{__('description_holo360')}}
+            </div>
             <div class="row mt-5 pt-5">
                 <div class="tab ">
-                    <button  class="tablinks active" onclick="openCity(event, 'page_all')">All</button>
+                    <a  href="/holo360" class="tablinks {{ Request::get('category') ==null ? 'active' : '' }}" >All</a>
                     @foreach ($categories as $category)
-                    <button class="tablinks" onclick="openCity(event, '{{$category->slug}}')">{{$category->name}}</button>
+                    {{-- <button class="tablinks" onclick="openCity(event, '{{$category->slug}}')">{{$category->name}}</button> --}}
+                        <a href="/holo360?category={{$category->slug}}" class="tablinks {{ Request::get('category') === $category->slug ? 'active' : '' }} ">{{$category->name}}</a>
                     @endforeach
-                   
-                
+
+
                 </div>
                 <hr class="line">
                 <div id="page_all" class="tabcontent active w-100">
                     <div class="page_item my-5 " >
-                        {{-- <div class="text_content">
-                            <p>Công nghệ 3D được sử dụng để tạo ra những hình ảnh, thước phim minh họa cho dự án tương lai.
-                                Người mua nhà, người bán hàng dễ dàng thấy trước dự án một cách trực quan. Ứng dụng 3D làm
-                                phim và tour 360, mọi người có thể xem trước, di chuyển, quan sát
-                                tất cả các góc nhìn khác nhau hay đi đến tất cả các vị trí xung quanh
-                                như chính họ đang đứng trong các căn phòng, các không gian cảu dự án. Một khả năng
-                                địa điểm mà hình ảnh phối cảnh thông thường không bao giờ thực hiện được.</p>
-                        </div> --}}
                         <div class="row">
                             @foreach ($projects as $project )
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4 my-2">
+                            <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4 my-2">
                                 <div class="item-slide">
                                     <div class="product text-center">
                                         <a href="{{$project->link}}"
@@ -228,51 +54,67 @@
                                             <div class="img_product">
                                                 <img src="{{$project->image}}" alt="">
                                             </div>
-                                            <h5 class="text-dark pt-2">{{$project->title}}</h5>
+                                            <h5 class="text-dark pt-2 title_product">{{$project->title}}</h5>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
-                           
-                        
+                            {{ $projects->links() }}
                         </div>
                     </div>
                 </div>
+
                 @foreach ($categories as $category)
                 <div id="{{$category->slug}}" class="tabcontent w-100">
                     <div class="page_item my-5">
                         <div class="text_content">
-                            <p>{{$category->content}}</p>
+                            <p>{!! $category->content !!}</p>
                         </div>
-                        <div class="row">
-                            @foreach ($category->holo_projects as $project )
-                            <div class="col-xs-12 col-sm-6  col-md-4 col-lg-4">
+                        <div class="row" >
+                            @foreach ($category->holo_projects as $holo_project )
+                            <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4 my-2">
                                 <div class="item-slide">
                                     <div class="product text-center">
-                                        <a href="{{$project->link}}"
+                                        <a href="{{$holo_project->link}}"
                                             target="_blank">
                                             <div class="img_product">
-                                                <img src="{{$project->image}}" alt="">
+                                                <img src="{{$holo_project->image}}" alt="">
                                             </div>
-                                            <h5 class="text-dark pt-2">{{$project->title}}</h5>
+                                            <h5 class="text-dark pt-2 title_product">{{$holo_project->title}}</h5>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
-                           
-                      
                         </div>
+
                     </div>
                 </div>
                 @endforeach
-
             </div>
+           
         </div>
     </div>
 
     <style>
+        .tablinks{
+            color:black !important;
+        }
+        .page_item .row{
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+            justify-content: center;
+        }
+        .content_list{
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
         .nav-link {
             color: black !important;
         }
@@ -292,9 +134,16 @@
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             padding: 0.7rem;
             border-radius: 8px;
+            height: 285px;
         }
         .product {
             overflow: hidden;
+        }
+        .product h5{
+            font-size: 18px;
+        }
+        .title_product:hover{
+            color:#e39a0e !important;
         }
         .img_product {
             position: relative;
@@ -344,7 +193,7 @@
         }
 
         .tablinks.active {
-            color: rgb(214, 153, 20);
+            color: rgb(214, 153, 20) !important;
             border: 0 !important;
 
         }
@@ -415,13 +264,14 @@
             font-size: 15px;
         }
         .title_list{
-            text-transform: uppercase
+            text-transform: uppercase;
+            margin-bottom:1rem;
         }
 
         .text_content p {
             color: black;
         }
-       
+
 
         @media only screen and (max-width: 640px) {
             .item-slide{
@@ -444,7 +294,7 @@
                 font-size: 46px;
             }
         }
-       
+
         @media only screen and (max-width: 480px) {
             .text_content {
                 width: 100%;
@@ -487,15 +337,34 @@
                 width: 70%;
             }
         }
+        .slick-prev, .slick-next{
+            display: block !important;
+        }
+        .slick-arrow {
+	z-index: 1;
+	width: 40px;
+	height: 40px;
+    position: absolute;
+    top:50%;
+    font-size: 30px;
+        }
+        .fa-chevron-circle-left{
+            left:2%;
+        }
+        .fa-chevron-circle-right{
+            right:2%;
+        }
     </style>
     <script>
-       
+
         $(document).ready(function(){
             $('.your-class').slick({
                 slidesToShow: 1,
                slidesToScroll: 1,
                autoplay:true,
-               arrows:true,
+               arrows: true,
+               prevArrow: '<i class="fas fa-chevron-circle-left" style="color: #bdc3cb"></i>',
+               nextArrow: '<i class="fas fa-chevron-circle-right" style="color: #bdc3cb"></i>'
             });
             });
 
@@ -512,7 +381,7 @@
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-        
+
 
 
         //  $('a[data-slide]').click(function(e) {

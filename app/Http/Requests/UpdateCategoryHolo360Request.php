@@ -26,8 +26,9 @@ class UpdateCategoryHolo360Request extends FormRequest
         return [
             'name' => [
                 'required',
-                Rule::unique('category_holo360', 'name')->ignore($this->category)
+                Rule::unique('category_holo360', 'name')->ignore($this->category),               
             ],
+            'image'=>'nullable|mimes:png,jpg,jpeg',
         ];
     }
 }

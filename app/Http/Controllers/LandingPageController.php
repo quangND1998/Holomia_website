@@ -70,11 +70,24 @@ class LandingPageController extends Controller
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         return view('page.project', compact('pages', 'header'));
     }
-    public function holo360(){
+    public function holo360(Request $request){
+        // dd($request->category);
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
         $pages = Page::get();
-        $categories = CategoryHolo360::with('holo_projects')->get(); 
-        $projects= Holo360Project::get();
+        $categories = CategoryHolo360::with('holo_projects')->orderBy('id_priority','asc')->get();
+        $category_current = CategoryHolo360::where('slug',$request->category)->first();
+        if($category_current == null){
+            $projects= Holo360Project::orderBy('id_priority','asc')->paginate(9);
+        }else{
+            $projects = $category_current->holo_projects()->paginate(9);
+        }
+        
+        // 
+
         return view('page.project360', compact('pages', 'header','categories', 'projects'));
+    }
+    public function holo360_filter(Request $request){
+       
+
     }
 }
