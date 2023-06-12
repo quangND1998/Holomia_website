@@ -44,6 +44,11 @@
                 <hr class="line">
                 <div id="page_all" class="tabcontent active w-100">
                     <div class="page_item my-5 " >
+                        @if($category_current)
+                        <div class="text_content">
+                            <p>{!! $category_current->content !!}</p>
+                        </div>
+                        @endif
                         <div class="row">
                             @foreach ($projects as $project )
                             <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4 my-2">

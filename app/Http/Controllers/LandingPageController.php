@@ -84,7 +84,7 @@ class LandingPageController extends Controller
         
         // 
 
-        return view('page.project360', compact('pages', 'header','categories', 'projects'));
+        return view('page.project360', compact('pages', 'header','categories', 'projects','category_current'));
     }
     public function holo360_filter(Request $request){
        
