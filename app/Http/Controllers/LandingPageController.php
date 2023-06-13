@@ -74,7 +74,7 @@ class LandingPageController extends Controller
         // dd($request->category);
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
-        $categories = CategoryHolo360::with('holo_projects')->orderBy('id_priority','asc')->get();
+        $categories = CategoryHolo360::with('holo_projects')->get();
         $category_current = CategoryHolo360::where('slug',$request->category)->first();
         if($category_current == null){
             $projects= Holo360Project::orderBy('id_priority','asc')->paginate(9);
