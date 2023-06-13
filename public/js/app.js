@@ -28942,7 +28942,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onUnpublishedChange: function onUnpublishedChange() {
       var query = {
-        data: this.projects
+        data: this.projects.data,
+        current_page: this.projects.current_page
       };
       this.$inertia.post(this.route("project_holo360.priority"), query, {
         preserveState: false
