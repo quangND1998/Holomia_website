@@ -133,7 +133,7 @@
                     </tr>
                 </thead>
                  <!-- sắp xếp -->
-                <draggable v-model="projects" tag="tbody" @change="onUnpublishedChange" v-bind="dragOptions"
+                <draggable v-model="projects.data" tag="tbody" @change="onUnpublishedChange" v-bind="dragOptions"
                     @start="isDragging = true" @end="isDragging = false" item-key="id_priority">
                     <template>
                         <tr v-for="(project, index) in projects.data" :key="index"
