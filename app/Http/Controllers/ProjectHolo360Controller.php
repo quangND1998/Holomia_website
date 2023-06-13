@@ -69,7 +69,9 @@ class ProjectHolo360Controller extends Controller
     {
 
         $data = $request->data;
-        for ($i = 0; $i < count($data); $i++) {
+        
+        for ($i = 10*$request->current_page; $i < count($data)*$request->current_page; $i++) {
+
             Holo360Project::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
         }
         return redirect()->back()->with('success', 'Sort  successfully');
