@@ -50,7 +50,7 @@
                         </div>
                         @endif
                         <div class="row">
-                            @foreach ($projects as $project )
+                            @foreach ($projects->sortBy('id_priority','asc') as $project )
                             <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4 my-2">
                                 <div class="item-slide">
                                     @if ($project->type==='Link')
