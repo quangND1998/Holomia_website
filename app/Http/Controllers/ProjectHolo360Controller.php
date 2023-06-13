@@ -19,6 +19,8 @@ class ProjectHolo360Controller extends Controller
         $categories = CategoryHolo360::get();
         $types = [['type' => 'Link'], ['type' => 'Iframe']];
         // sắp xếp orderBy('id_priority','asc')->get();
+        $projects = Holo360Project::get();
+        return $projects;
         $projects = Holo360Project::with('category_project')->orderBy('id_priority', 'asc')->paginate(10);
         return Inertia::render('CategoryHolo360/ProjectHolo', compact('projects', 'categories', 'types'));
     }
