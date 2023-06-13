@@ -79,7 +79,7 @@ class LandingPageController extends Controller
         if($category_current == null){
             // $projects= Holo360Project::get();
             // return $projects;
-            $projects= Holo360Project::orderBy('id_priority','asc')->paginate(9);
+            $projects= Holo360Project::paginate(9);
       
 
         }else{
