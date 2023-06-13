@@ -27,10 +27,8 @@ class StoreProjectHolo360Request extends FormRequest
             'title'=> 'required|unique:holo360_project,title,',
            'link' => 'required',
            'type' => 'required',
-           'image' => ['required_if:can_upload_file,true','nullable','mimes:jpeg,jpg,png'],
+           'image' => ['required_if:type,==,Link','nullable','mimes:jpeg,jpg,png'],
            'category_holo360_id' => 'required',
-     
-
         ];
     }
 }

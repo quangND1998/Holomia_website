@@ -76631,46 +76631,48 @@ var render = function () {
                             : _vm._e(),
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "mb-2" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass:
-                                "block text-gray-700 text-sm font-bold mb-2",
-                              attrs: { for: "username" },
-                            },
-                            [
-                              _vm._v(
-                                "\n                                Image\n                            "
+                        _vm.form.type == "Link"
+                          ? _c("div", { staticClass: "mb-2" }, [
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "block text-gray-700 text-sm font-bold mb-2",
+                                  attrs: { for: "username" },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                Image\n                            "
+                                  ),
+                                ]
                               ),
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            staticClass:
-                              "p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none",
-                            attrs: {
-                              accept: ".jpg, .jpeg, .png",
-                              id: "file_input",
-                              type: "file",
-                            },
-                            on: {
-                              input: function ($event) {
-                                _vm.form.image = $event.target.files[0]
-                              },
-                            },
-                          }),
-                          _vm._v(" "),
-                          _vm.errors.image
-                            ? _c("div", { staticClass: "text-red-700" }, [
-                                _vm._v(
-                                  "\n                                " +
-                                    _vm._s(_vm.errors.image) +
-                                    "\n                            "
-                                ),
-                              ])
-                            : _vm._e(),
-                        ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                staticClass:
+                                  "p-1.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none",
+                                attrs: {
+                                  accept: ".jpg, .jpeg, .png",
+                                  id: "file_input",
+                                  type: "file",
+                                },
+                                on: {
+                                  input: function ($event) {
+                                    _vm.form.image = $event.target.files[0]
+                                  },
+                                },
+                              }),
+                              _vm._v(" "),
+                              _vm.errors.image
+                                ? _c("div", { staticClass: "text-red-700" }, [
+                                    _vm._v(
+                                      "\n                                " +
+                                        _vm._s(_vm.errors.image) +
+                                        "\n                            "
+                                    ),
+                                  ])
+                                : _vm._e(),
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
                         _c("div", { staticClass: "mb-2" }, [
                           _c(
