@@ -53,7 +53,7 @@
                             @foreach ($projects as $project )
                             <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4 my-2">
                                 <div class="item-slide">
-                                    @if ($project->type=='Link')
+                                    @if ($project->type==='Link')
                                     <div class="product text-center">
                                       
                                         <a href="{{$project->link}}"
@@ -65,7 +65,7 @@
                                         </a>
                                      
                                     </div>
-                                    @elseif($project->type=='Iframe')
+                                    @elseif($project->type==='Iframe')
                                     <iframe width="560" height="315" src="{{$project->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                     @endif
                                 </div>

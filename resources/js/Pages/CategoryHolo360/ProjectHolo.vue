@@ -227,7 +227,8 @@ export default {
     methods: {
         onUnpublishedChange() {
       let query = {
-        data: this.projects
+        data: this.projects.data,
+        current_page: this.projects.current_page
       };
       this.$inertia.post(this.route("project_holo360.priority"), query, {
         preserveState: false
