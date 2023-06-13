@@ -116,9 +116,10 @@
     </div>
 
     <style>
-        .product iframe{
-            /* width: 100% !important;
-            overflow: auto !important; */
+        .item-slide iframe{
+            width: 100% !important;
+            height: 100%;
+            overflow: auto !important;
         }
         .pagination{
             justify-content: center;
