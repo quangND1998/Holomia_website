@@ -28,6 +28,7 @@ class StoreProjectHolo360Request extends FormRequest
            'link' => 'required',
            'image' => 'required|mimes:png,jpg,jpeg',
            'category_holo360_id' => 'required',
+           'type' => 'required',
 
         ];
     }

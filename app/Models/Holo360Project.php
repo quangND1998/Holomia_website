@@ -16,6 +16,7 @@ class Holo360Project extends Model
         "link",
         "image",
         "category_holo360_id",
+        "type",
         "id_priority"
     ];
     public function category_project(){
