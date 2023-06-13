@@ -24,7 +24,7 @@
                         <h4>{{__('company_project')}}</h4>
                         <ul>
                             <li>
-                                <a href="https://holomia.com/real360-hoian-ancient.html">{{__('holomia')}}</a>
+                                <a href="/holo360">{{__('holomia')}}</a>
                             </li>
                             <li>
                                 <a href="/projects">{{__('missionxvr')}}</a>
