@@ -66,7 +66,7 @@
                                     {{ errors.link }}
                                 </div>
                             </div>
-                            <div class="mb-2">
+                            <div class="mb-2" v-if="form.type=='Link'">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                                     Image
                                 </label>

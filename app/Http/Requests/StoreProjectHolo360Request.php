@@ -26,7 +26,7 @@ class StoreProjectHolo360Request extends FormRequest
         return [
             'title'=> 'required|unique:holo360_project,title,',
            'link' => 'required',
-           'image' => 'required|mimes:png,jpg,jpeg',
+           'image' => ['required_if:type,==,Link','nullable','mimes:jpeg,jpg,png'],
            'category_holo360_id' => 'required',
            'type' => 'required',
 
