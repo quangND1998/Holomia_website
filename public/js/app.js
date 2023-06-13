@@ -28869,6 +28869,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
  // sắp xếp
@@ -28879,7 +28904,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     projects: Array,
     categories: Array,
-    errors: Object
+    errors: Object,
+    types: Array
   },
   components: {
     Pagination: _Components_Pagination__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -28908,6 +28934,7 @@ __webpack_require__.r(__webpack_exports__);
         title: null,
         link: null,
         image: null,
+        type: null,
         category_holo360_id: null
       })
     };
@@ -28973,6 +29000,7 @@ __webpack_require__.r(__webpack_exports__);
         title: null,
         link: null,
         image: null,
+        type: null,
         category_holo360_id: null
       });
     },
@@ -28986,6 +29014,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.id = data.id;
       this.form.title = data.title;
       this.form.link = data.link;
+      this.form.type = data.type;
       this.form.category_holo360_id = data.category_holo360_id;
     }
   }
@@ -76472,6 +76501,93 @@ var render = function () {
                             },
                             [
                               _vm._v(
+                                "\n                                Type\n                            "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.type,
+                                  expression: "form.type",
+                                },
+                              ],
+                              staticClass:
+                                "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ",
+                              on: {
+                                change: function ($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function (o) {
+                                      return o.selected
+                                    })
+                                    .map(function (o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.form,
+                                    "type",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                },
+                              },
+                            },
+                            [
+                              _c("option", { domProps: { value: null } }, [
+                                _vm._v(
+                                  "\n                                    Choose a type\n                                "
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.types, function (type, index) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: index,
+                                    domProps: { value: type.type },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(type.type) +
+                                        "\n                                "
+                                    ),
+                                  ]
+                                )
+                              }),
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _vm.errors.type
+                            ? _c("div", { staticClass: "text-red-700" }, [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm.errors.type) +
+                                    "\n                            "
+                                ),
+                              ])
+                            : _vm._e(),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "mb-2" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "block text-gray-700 text-sm font-bold mb-2",
+                              attrs: { for: "username" },
+                            },
+                            [
+                              _vm._v(
                                 "\n                                Link\n                            "
                               ),
                             ]
@@ -76822,6 +76938,17 @@ var render = function () {
                       _vm._v(" "),
                       _c("td", {}, [
                         _c(
+                          "span",
+                          {
+                            staticClass:
+                              "bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded  border border-gray-500",
+                          },
+                          [_vm._v(_vm._s(project.type))]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", {}, [
+                        _c(
                           "button",
                           {
                             staticClass:
@@ -76904,6 +77031,10 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("th", { staticClass: "py-3", attrs: { scope: "col" } }, [
             _vm._v("Category"),
+          ]),
+          _vm._v(" "),
+          _c("th", { staticClass: "py-3", attrs: { scope: "col" } }, [
+            _vm._v("Type"),
           ]),
           _vm._v(" "),
           _c("th", { staticClass: "py-3", attrs: { scope: "col" } }, [

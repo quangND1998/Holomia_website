@@ -14,13 +14,16 @@ use App\Http\Requests\UpdateProjectHolo360Request;
 class ProjectHolo360Controller extends Controller
 {
     use FileUploadTrait;
-    public function index(){
+    public function index()
+    {
         $categories = CategoryHolo360::get();
+        $types = [['type' => 'Link'], ['type' => 'Iframe']];
         // sắp xếp orderBy('id_priority','asc')->get();
-        $projects =Holo360Project::with('category_project')->orderBy('id_priority','asc')->paginate(10);
-        return Inertia::render('CategoryHolo360/ProjectHolo',compact('projects','categories'));
+        $projects = Holo360Project::with('category_project')->orderBy('id_priority', 'asc')->paginate(10);
+        return Inertia::render('CategoryHolo360/ProjectHolo', compact('projects', 'categories', 'types'));
     }
-    public function store(StoreProjectHolo360Request $request){
+    public function store(StoreProjectHolo360Request $request)
+    {
         // dd($request);
         $name = time();
         $destinationpath = 'images/projects/';
@@ -28,45 +31,48 @@ class ProjectHolo360Controller extends Controller
             mkdir($destinationpath, 0777, true);
         }
         Holo360Project::create([
-            'title'=> $request->title,
-            'slug'=>  Str::slug($request->title),
+            'title' => $request->title,
+            'slug' =>  Str::slug($request->title),
             'link' => $request->link,
+            'type' => $request->type,
             'image' =>  $request->hasFile('image') ? $this->image($request->file('image'), $destinationpath) : null,
             'category_holo360_id' => $request->category_holo360_id,
         ]);
-        return back() -> with('success', 'Create successfully');
+        return back()->with('success', 'Create successfully');
     }
-    public function update(UpdateProjectHolo360Request $request, Holo360Project $project){
+    public function update(UpdateProjectHolo360Request $request, Holo360Project $project)
+    {
         $name = time();
         $destinationpath = 'images/contents/';
         if (!file_exists($destinationpath)) {
             mkdir($destinationpath, 0777, true);
         }
-        $project ->update([
-            'title'=> $request->title,
-            'slug'=>  Str::slug($request->title),
+        $project->update([
+            'title' => $request->title,
+            'slug' =>  Str::slug($request->title),
             'link' => $request->link,
+            'type' => $request->type,
             'image' =>  $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $destinationpath, $project->image) : $project->image,
             'category_holo360_id' => $request->category_holo360_id,
         ]);
-        return back() -> with('success', 'Update successfully');
+        return back()->with('success', 'Update successfully');
     }
-    public function delete($id){
+    public function delete($id)
+    {
         $project = Holo360Project::findOrFail($id);
         $extension = " ";
         $this->DeleteFolder($project->image, $extension);
-       $project->delete();
-       return back()->with('success', 'Delete successfully');
+        $project->delete();
+        return back()->with('success', 'Delete successfully');
     }
     // sắp xếp
     public function priorityProject(Request $request)
     {
-        
-            $data = $request->data;
-            for ($i = 0; $i < count($data); $i++) {
-                Holo360Project::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
-            }
-            return redirect()->back()->with('success', 'Sort  successfully');
-     
+
+        $data = $request->data;
+        for ($i = 0; $i < count($data); $i++) {
+            Holo360Project::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
+        }
+        return redirect()->back()->with('success', 'Sort  successfully');
     }
 }

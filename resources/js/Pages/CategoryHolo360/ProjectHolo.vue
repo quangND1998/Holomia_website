@@ -37,6 +37,23 @@
                                     {{ errors.title }}
                                 </div>
                             </div>
+                            <div class="mb-2">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                                    Type
+                                </label>
+                                <select v-model="form.type" 
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                    <option :value="null">
+                                        Choose a type
+                                    </option>
+                                    <option v-for="(type, index) in types" :key="index" :value="type.type">
+                                        {{ type.type }}
+                                    </option>
+                                </select>
+                                <div class="text-red-700" v-if="errors.type">
+                                    {{ errors.type }}
+                                </div>
+                            </div>
 
                             <div class="mb-2">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -77,6 +94,8 @@
                                     {{ errors.category_holo360_id }}
                                 </div>
                             </div>
+
+                          
                         </div>
                     </div>
 
@@ -109,6 +128,7 @@
                         <th scope="col" class="py-3">Link</th>
                         <th scope="col" class="py-3">Image</th>
                         <th scope="col" class="py-3">Category</th>
+                        <th scope="col" class="py-3">Type</th>
                         <th scope="col" class="py-3">Action</th>
                     </tr>
                 </thead>
@@ -134,6 +154,11 @@
                                 <span
                                     class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded  border border-gray-500">{{
                                         project.category_project.name }}</span>
+                            </td>
+                            <td class="">
+                                <span
+                                    class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded  border border-gray-500">{{
+                                        project.type }}</span>
                             </td>
                             <td class="">
                                 <button @click="edit(project)" class="font-medium text-blue-600 hover:no-underline hover:text-blue-700   mx-1">
@@ -165,6 +190,7 @@ export default {
         projects: Array,
         categories: Array,
         errors: Object,
+        types:Array
     },
     components: {
         Pagination,
@@ -193,6 +219,7 @@ export default {
                 title: null,
                 link: null,
                 image: null,
+                type: null,
                 category_holo360_id: null,
             }),
         };
@@ -259,6 +286,7 @@ export default {
                 title: null,
                 link: null,
                 image: null,
+                type: null,
                 category_holo360_id: null,
             });
         },
@@ -273,6 +301,7 @@ export default {
             this.form.id = data.id;
             this.form.title = data.title;
             this.form.link = data.link;
+            this.form.type = data.type;
             this.form.category_holo360_id = data.category_holo360_id;
         },
     },

@@ -33,7 +33,8 @@ class UpdateProjectHolo360Request extends FormRequest
               
             'image'=>'nullable|mimes:png,jpg,jpeg',
             'category_holo360_id' => 'required',
- 
+            'type' => 
+            'required',
           
         ];
     }
