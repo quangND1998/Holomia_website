@@ -18,7 +18,7 @@ class ProjectHolo360Controller extends Controller
     {
         $categories = CategoryHolo360::get();
         $types = [['type' => 'Link'], ['type' => 'Iframe']];
-        $projects = Holo360Project::with('category_project')->orderBy('id_priority','asc')->paginate(10);
+        $projects = Holo360Project::with('category_project')->paginate(10);
         return Inertia::render('CategoryHolo360/ProjectHolo', compact('projects', 'categories', 'types'));
     }
     public function store(StoreProjectHolo360Request $request)
@@ -29,7 +29,8 @@ class ProjectHolo360Controller extends Controller
         if (!file_exists($destinationpath)) {
             mkdir($destinationpath, 0777, true);
         }
-        Holo360Project::create([
+       
+       $project =  Holo360Project::create([
             'title' => $request->title,
             'slug' =>  Str::slug($request->title),
             'link' => $request->link,
@@ -37,6 +38,8 @@ class ProjectHolo360Controller extends Controller
             'image' =>  $request->hasFile('image') ? $this->image($request->file('image'), $destinationpath) : null,
             'category_holo360_id' => $request->category_holo360_id,
         ]);
+        $count = Holo360Project::count();
+        $project->update(['id_priority'=> $count]);
         return back()->with('success', 'Create successfully');
     }
     public function update(UpdateProjectHolo360Request $request, Holo360Project $project)
