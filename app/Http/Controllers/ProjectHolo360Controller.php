@@ -18,7 +18,7 @@ class ProjectHolo360Controller extends Controller
     {
         $categories = CategoryHolo360::get();
         $types = [['type' => 'Link'], ['type' => 'Iframe']];
-        $projects = Holo360Project::with('category_project')->orderBy('id_priority','asc')->paginate(10);
+        $projects = Holo360Project::with('category_project')->paginate(10);
         return Inertia::render('CategoryHolo360/ProjectHolo', compact('projects', 'categories', 'types'));
     }
     public function store(StoreProjectHolo360Request $request)
