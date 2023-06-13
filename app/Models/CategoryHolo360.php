@@ -19,6 +19,6 @@ class CategoryHolo360 extends Model
 
     ];
     public function holo_projects(){
-        return $this->hasMany(Holo360Project::class, 'category_holo360_id')->orderBy('id_priority','asc');
+        return $this->hasMany(Holo360Project::class, 'category_holo360_id')->orderBy('id','asc')->orderBy('id_priority','asc');
     }
 }
