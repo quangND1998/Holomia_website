@@ -76871,11 +76871,11 @@ var render = function () {
                     },
                   },
                   model: {
-                    value: _vm.projects,
+                    value: _vm.projects.data,
                     callback: function ($$v) {
-                      _vm.projects = $$v
+                      _vm.$set(_vm.projects, "data", $$v)
                     },
-                    expression: "projects",
+                    expression: "projects.data",
                   },
                 },
                 "draggable",
