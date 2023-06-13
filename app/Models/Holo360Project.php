@@ -20,6 +20,6 @@ class Holo360Project extends Model
         "id_priority"
     ];
     public function category_project(){
-        return $this->belongsTo(CategoryHolo360::class, 'category_holo360_id')->orderBy('id_priority','asc');
+        return $this->belongsTo(CategoryHolo360::class, 'category_holo360_id')->orderBy('id','asc')->orderBy('id_priority','asc');
     }
 }
