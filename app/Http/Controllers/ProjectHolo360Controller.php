@@ -75,9 +75,9 @@ class ProjectHolo360Controller extends Controller
             }
         }
         else{
-            for ($i = (10*($request->current_page -1))+1; $i < count($data)*$request->current_page; $i++) {
+            for ($i =0; $i < count($data); $i++) {
 
-                Holo360Project::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
+                Holo360Project::findOrFail($data[$i]['id'])->update(['id_priority' =>  10*($request->current_page -1)+1 + $i]);
             }
         }
        
