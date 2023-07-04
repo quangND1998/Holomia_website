@@ -191,13 +191,13 @@
     .sub_linkHolo{
         font-size: 14px !important;
         cursor: pointer;
-        
+
     }
     .sub_linkHolo:hover{
         color: rgb(214, 153, 20);
     }
 
-   
+
     .active {
             color: rgb(214, 153, 20);
         }

@@ -21,7 +21,7 @@
             </div>
             @endforeach
           </div>
-        
+
     </div> --}}
 
     <div class="text-dark pt-5">
@@ -38,8 +38,6 @@
                     {{-- <button class="tablinks" onclick="openCity(event, '{{$category->slug}}')">{{$category->name}}</button> --}}
                         <a href="/holo360?category={{$category->slug}}" class="tablinks {{ Request::get('category') === $category->slug ? 'active' : '' }} ">{{$category->name}}</a>
                     @endforeach
-
-
                 </div>
                 <hr class="line">
                 <div id="page_all" class="tabcontent active w-100">
@@ -55,7 +53,7 @@
                                 <div class="item-slide">
                                     @if ($project->type=='Link')
                                     <div class="product text-center">
-                                      
+
                                         <a href="{{$project->link}}"
                                             target="_blank">
                                             <div class="img_product">
@@ -63,7 +61,7 @@
                                             </div>
                                             <h5 class="text-dark pt-2 title_product">{{$project->title}}</h5>
                                         </a>
-                                     
+
                                     </div>
                                     @elseif($project->type=='Iframe')
                                     <iframe width="560" height="315" src="{{$project->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -71,7 +69,7 @@
                                 </div>
                             </div>
                             @endforeach
-                          
+
                         </div>
                         {{-- <div class=""> --}}
                             {{ $projects->links() }}
@@ -100,7 +98,7 @@
                                         </a>
                                         @else
                                         @endif
-                                      
+
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +109,7 @@
                 </div>
                 @endforeach
             </div>
-           
+
         </div>
     </div>
 
