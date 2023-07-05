@@ -1,4 +1,6 @@
 @extends('landingpage.layout')
+@section('title', $project->name)
+@section('image', asset($project->image))
 @section('content')
 <div id="video_page">
         <div class="text-block">
@@ -33,7 +35,7 @@
                 @endforeach
 
             </div>
-         
+
             <div class="d-flex Page navigation example">
                 {!! $items->links() !!}
             </div>
