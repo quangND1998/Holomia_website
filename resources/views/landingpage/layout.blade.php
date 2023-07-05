@@ -1,11 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Holomia</title>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
      <base href="{{ asset('') }}">
      <link rel="icon" href="/img/favicon.png">
+     <title>  @if(View::hasSection('title')) @yield('title') @else Holomia @endif</title>
+     <meta property="og:image" content="@if(View::hasSection('image')) @yield('image') @else img/thumb1.jpg @endif"  />
+    {{-- <meta property="og:image" content="@if(View::hasSection('image')) @yield('image') @else img/thumb1.jpg @endif"  /> --}}
+    <meta name="copyright" content="Holomia">
+    <meta name="generator" content="holomia.com">
+    <meta name="author" content="holomia.com">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reponsive.css">
