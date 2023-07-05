@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Traits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Models\Languages;
-
+use Illuminate\Support\Facades\Http;
 trait LanguageTrait
 {
     public function updateLanguage($key, $en, $vn, $relation)
@@ -194,5 +194,16 @@ trait LanguageTrait
     public function formatRequest($value)
     {
         return $value == null ? " " : $value;
+    }
+
+
+    public function storeApi($key, $en, $vn, $data){
+        dd(config('api.API_URL'));
+        $response = Http::post(config('api.API_URL').'/language/store', [
+            'key' => $key,
+            'en' => $en,
+            'vn' => $vn,
+            'data' => $data,
+        ]);
     }
 }
