@@ -26,7 +26,10 @@
                         {{--  data-aos="fade-down" --}}
                         <div class="overview">
                             <a href="{{$item->link}}">
-                                <img src="{{$item->thumb}}" class=" img_fluid imgage_holo360 " alt="">
+                                <div class="image_overview">
+                                    <img src="{{$item->thumb}}" class=" img_fluid imgage_holo360 " alt="">
+                                </div>
+                                
                                 <div class="d-flex content_holo360">
                                    
                                     <h4 class="text-black title_holo360">{{$item->name}} </h4>
@@ -55,5 +58,25 @@
     .text_center{
         justify-content: center;
     }
+    .overview{
+        overflow: hidden;
+    }
+    .image_overview{
+        position: relative;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+    }
+    .overview img{
+        position: relative;
+        width: 100%;
+            transition: 0.5s;
+            height: 200px;
+            object-fit: cover;
+    }
+    .overview img:hover {
+            transform: scale(1.1);
+        }
 </style>
 @section('javascript')
