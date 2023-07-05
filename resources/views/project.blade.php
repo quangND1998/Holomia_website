@@ -24,8 +24,11 @@
                 @foreach ($items as $item )
                     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 item-link">
                         <div class="overview">
-                            <a href="{{ $item->link }}" class="item_preview imgage_holo360"  id="{{ $item->id }}" target="_blank">
-                                <img src="{{$item->thumb}}" class=" img_fluid" alt="">
+                            <a href="{{$item->link}}">
+                                <div class="image_overview">
+                                    <img src="{{$item->thumb}}" class=" img_fluid imgage_holo360 " alt="">
+                                </div>
+                                
                                 <div class="d-flex content_holo360">
                                     <h4 class="text-title title_holo360">{{$item->name}} </h4>
                                     <p class="count_eye"><i class="far fa-eye mr-2"></i><span class="text_view">{{ $item->view }}</span></p>
@@ -53,6 +56,26 @@
     .text_center{
         justify-content: center;
     }
+    .overview{
+        overflow: hidden;
+    }
+    .image_overview{
+        position: relative;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+    }
+    .overview img{
+        position: relative;
+        width: 100%;
+            transition: 0.5s;
+            height: 200px;
+            object-fit: cover;
+    }
+    .overview img:hover {
+            transform: scale(1.1);
+        }
 </style>
 <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
