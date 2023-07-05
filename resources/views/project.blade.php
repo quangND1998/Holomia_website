@@ -22,12 +22,17 @@
             @if($items)
             <div class="row" id="results">
                 @foreach ($items as $item )
-                    <div class="col-4 item-link">
-                        <div class="overview" data-aos="fade-down">
+                    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 item-link">
+                        {{--  data-aos="fade-down" --}}
+                        <div class="overview">
                             <a href="{{$item->link}}">
-                                <img src="{{$item->thumb}}" class=" img_fluid" alt="">
-                                <p class="count_eye"><i class="far fa-eye mr-2"></i>234k</p>
-                                <h4 class="text-black title_holo360">{{$item->name}} </h4>
+                                <img src="{{$item->thumb}}" class=" img_fluid imgage_holo360 " alt="">
+                                <div class="d-flex content_holo360">
+                                   
+                                    <h4 class="text-black title_holo360">{{$item->name}} </h4>
+                                    <p class="count_eye"><i class="far fa-eye mr-2"></i>234k</p>
+                                </div>
+                               
                             </a>
                         </div>
                     </div>
