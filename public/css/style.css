@@ -55,20 +55,32 @@ li {
     height: 250px;
     width: 100%;
     object-fit: cover;
+    /* margin:1rem 0rem; */
 }
 .count_eye{
     color:black;
-    /* text-align: end; */
+    /* text-align: end; 
+    */
     margin-bottom: 0;
     margin-top:0.8rem;
 }
+.text-title{
+    color:#0000009c;
+}
 .content_holo360{
     justify-content: space-between;
+    padding:0.5rem 0.5rem;
 }
 .title_holo360{
-    font-size: 20px;
+    font-size: 18px;
 }
-
+.imgage_holo360{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.item-link{
+    margin:1rem 0rem;
+}
 /* menu - header */
 
 .menu__link.active {
@@ -435,8 +447,10 @@ li {
 }
 
 .overview {
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     text-align: center;
+    border: 1px solid #00000014;
+    border-radius: 10px;
 }
 .title_holo360:hover{
     color:rgb(175, 136, 9);
@@ -1796,4 +1810,7 @@ img {
 
 body {
     overflow-x: hidden !important;
+}
+#title-overview{
+    text-align: center;
 }
