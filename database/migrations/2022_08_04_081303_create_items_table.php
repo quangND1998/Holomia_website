@@ -19,6 +19,7 @@ class CreateItemsTable extends Migration
             $table->string('slug')->nullable();
             $table->string('link')->nullable();
             $table->string('thumb')->nullable();
+            $table->integer('view')->nullable();
             $table->unsignedBigInteger('project_id')->unsigned()->nullable();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->timestamps();

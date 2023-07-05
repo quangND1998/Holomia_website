@@ -9,7 +9,7 @@ use App\Models\Page;
 use App\Models\Project;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
-
+use App\Models\Item;
 class ProjectController extends InertiaController
 {
     use FileUploadTrait;
@@ -29,13 +29,18 @@ class ProjectController extends InertiaController
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $project = Project::with('items')->where('slug', $slug)->first();
         if ($project) {
-            $items = $project->items()->paginate(4);
+            $items = $project->items()->paginate(12);
         } else {
             $items = null;
         }
         return view('project', compact('project', 'items', 'pages'));
     }
-
+    public function saveView( Request $request){
+        $item = Item::findOrfail($request->id);
+        $item->view += 1;
+        $item->save();
+        return $item->view;
+    }
 
     public function store(Request $request)
     {
