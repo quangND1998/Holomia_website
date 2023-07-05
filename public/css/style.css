@@ -51,11 +51,17 @@ li {
 }
 
 .item-link img {
-    height: 320px;
+    /* height: 320px; */
+    height: 250px;
     width: 100%;
     object-fit: cover;
 }
-
+.count_eye{
+    color:black;
+    text-align: end;
+    margin-bottom: 0;
+    margin-top:0.2rem;
+}
 
 /* menu - header */
 
@@ -426,9 +432,12 @@ li {
     margin-top: 5rem;
     text-align: center;
 }
+.title_holo360:hover{
+    color:rgb(175, 136, 9);
+}
 
 .overview h4 {
-    margin-top: 2rem;
+    margin-top: 0.8rem;
 }
 
 .learn-more {
