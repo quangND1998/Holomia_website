@@ -14,7 +14,7 @@
 
     <!-- section3 -->
     <div class="section3">
-        <div class="container">
+        <div class="">
             <div class="row text_center">
                 <h1 class="title " id="title-overview">{{$project ? $project->name: ''}} </h1>
 
@@ -76,6 +76,20 @@
     .overview img:hover {
             transform: scale(1.1);
         }
+        @media   (min-width: 1600px){
+            .section3{
+                padding: 3rem 17rem !important;
+                
+            }
+        }
+        @media   (min-width: 1300px && max-width:1599px){
+            .section3{
+                padding: 2rem 10rem !important;
+            }
+        }
+       
+
+           
 </style>
 <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
