@@ -24,7 +24,7 @@
                 @foreach ($items as $item )
                     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 item-link">
                         <div class="overview">
-                            <a href="{{$item->link}}">
+                            <a href="{{ $item->link }}" class="item_preview imgage_holo360"  id="{{ $item->id }}" target="_blank">
                                 <div class="image_overview">
                                     <img src="{{$item->thumb}}" class=" img_fluid imgage_holo360 " alt="">
                                 </div>
