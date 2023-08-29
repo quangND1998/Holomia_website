@@ -87,8 +87,8 @@
                                                 <a href="/projects" class="menu__link  {{ Request::segment(1) === 'projects' ? 'active' : '' }}">{{ __($page->title) }} </a>
                                                 <div class="dropdown-content">
                                                     
-                                                    <a href="/projects" class="drop_link">Mission X</a>
-                                                    <a href="https://zone.holomia.com"  target="_blank" class="drop_link">Holomia VRZ</a>
+                                                    <a href="/projects" class="drop_link">VR Laser Tag </a>
+                                                            <a href="https://zone.holomia.com"  target="_blank" class="drop_link">VR Zone</a>
                                                     <a href="https://xr.holomia.com" target="_blank" class="drop_link">Holomia XR</a>
                                                 </div>
 
@@ -166,8 +166,8 @@
                                                             360</a> --}}
                                                         {{-- <a href="/projects"
                                                             class="drop_link">{{ __('missionxvr') }}</a> --}}
-                                                            <a href="/projects" class="drop_link">Mission X</a>
-                                                            <a href="https://zone.holomia.com"  target="_blank" class="drop_link">Holomia VRZ</a>
+                                                            <a href="/projects" class="drop_link">VR Laser Tag </a>
+                                                            <a href="https://zone.holomia.com"  target="_blank" class="drop_link">VR Zone</a>
                                                             <a href="https://xr.holomia.com" target="_blank" class="drop_link">Holomia XR</a>
                                                     </div>
                                                 </li>
