@@ -33745,6 +33745,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal */ "./resources/js/Pages/Project/Modal.vue");
 /* harmony import */ var _Components_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Layout */ "./resources/js/Components/Layout.vue");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.umd.js");
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_5__);
+//
+//
+//
+//
 //
 //
 //
@@ -33829,6 +33835,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+ // sắp xếp
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -33837,7 +33845,8 @@ __webpack_require__.r(__webpack_exports__);
     Modal: _Modal__WEBPACK_IMPORTED_MODULE_2__["default"],
     Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"],
     Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_4__.Link,
-    BreadCrumb: _BreadCrumb__WEBPACK_IMPORTED_MODULE_1__["default"]
+    BreadCrumb: _BreadCrumb__WEBPACK_IMPORTED_MODULE_1__["default"],
+    draggable: (vuedraggable__WEBPACK_IMPORTED_MODULE_5___default())
   },
   props: {
     projects: Array,
@@ -33846,7 +33855,30 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
+  computed: {
+    // sắp xếp
+    dragOptions: function dragOptions() {
+      return {
+        animation: 100,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost",
+        scrollSensitivity: 100,
+        forceFallback: true
+      };
+    }
+  },
   methods: {
+    // sắp xếp
+    onUnpublishedChange: function onUnpublishedChange() {
+      var query = {
+        data: this.projects
+      }; // console.log("drag");
+
+      this.$inertia.post(this.route("project.priority"), query, {
+        preserveState: false
+      });
+    },
     onDelete: function onDelete(id) {
       if (!confirm("Are you sure want to remove?")) return;
       this.$inertia["delete"](this.route("project.delete", id), {
@@ -33967,6 +33999,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Layout */ "./resources/js/Components/Layout.vue");
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue */ "./node_modules/@inertiajs/inertia-vue/dist/index.js");
 /* harmony import */ var _BreadCrumb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./BreadCrumb */ "./resources/js/Pages/Project/Item/BreadCrumb.vue");
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.umd.js");
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_5__);
+//
+//
+//
+//
 //
 //
 //
@@ -34061,6 +34099,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+ // sắp xếp
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -34069,7 +34109,8 @@ __webpack_require__.r(__webpack_exports__);
     Modal: _Modal__WEBPACK_IMPORTED_MODULE_1__["default"],
     Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"],
     BreadCrumb: _BreadCrumb__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__.Link
+    Link: _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_3__.Link,
+    draggable: (vuedraggable__WEBPACK_IMPORTED_MODULE_5___default())
   },
   props: {
     items: Array,
@@ -34079,7 +34120,30 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
+  computed: {
+    // sắp xếp
+    dragOptions: function dragOptions() {
+      return {
+        animation: 100,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost",
+        scrollSensitivity: 100,
+        forceFallback: true
+      };
+    }
+  },
   methods: {
+    // sắp xếp
+    onUnpublishedChange: function onUnpublishedChange() {
+      var query = {
+        data: this.items
+      }; // console.log("drag");
+
+      this.$inertia.post(this.route("item.priority", this.project.id), query, {
+        preserveState: false
+      });
+    },
     onDelete: function onDelete(id) {
       if (!confirm("Are you sure want to remove?")) return;
       this.$inertia["delete"](this.route("item.delete", id), {
@@ -84782,98 +84846,125 @@ var render = function () {
               ),
               _vm._v(" "),
               _c(
-                "tbody",
-                _vm._l(_vm.projects, function (element, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: index,
-                      staticClass:
-                        "bg-white border-b dark:bg-gray-800 dark:border-gray-700",
+                "draggable",
+                _vm._b(
+                  {
+                    attrs: { tag: "tbody", "item-key": "id_priority" },
+                    on: {
+                      change: _vm.onUnpublishedChange,
+                      start: function ($event) {
+                        _vm.isDragging = true
+                      },
+                      end: function ($event) {
+                        _vm.isDragging = false
+                      },
                     },
-                    [
-                      _c(
-                        "th",
-                        {
-                          staticClass:
-                            "px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap",
-                          attrs: { scope: "row" },
-                        },
-                        [_vm._v(_vm._s(index + 1))]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "px-6 py-4" },
-                        [
-                          _c(
-                            "Link",
-                            {
-                              attrs: {
-                                href: _vm.route("item.index", element.id),
-                              },
-                            },
-                            [_vm._v(_vm._s(element.name))]
-                          ),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "px-6 py-4" }, [
-                        _c("a", { attrs: { href: element.slug + ".html" } }, [
-                          _vm._v("Preview"),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "px-6 py-4" }, [
-                        element.image
-                          ? _c("img", {
-                              staticClass: "w-50 h-20",
-                              attrs: {
-                                src: element.image,
-                                alt: "Card image cap",
-                              },
-                            })
-                          : _vm._e(),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "px-6 py-4" }, [
+                    model: {
+                      value: _vm.projects,
+                      callback: function ($$v) {
+                        _vm.projects = $$v
+                      },
+                      expression: "projects",
+                    },
+                  },
+                  "draggable",
+                  _vm.dragOptions,
+                  false
+                ),
+                [
+                  _vm._l(_vm.projects, function (element, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: index,
+                        staticClass:
+                          "bg-white border-b dark:bg-gray-800 dark:border-gray-700",
+                      },
+                      [
                         _c(
-                          "a",
+                          "th",
                           {
                             staticClass:
-                              "inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out",
-                            on: {
-                              click: function ($event) {
-                                return _vm.onEdit(element)
-                              },
-                            },
+                              "px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap",
+                            attrs: { scope: "row" },
                           },
-                          [_c("icon", { attrs: { name: "edit" } })],
-                          1
+                          [_vm._v(_vm._s(index + 1))]
                         ),
                         _vm._v(" "),
                         _c(
-                          "a",
-                          {
-                            staticClass:
-                              "inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out",
-                            on: {
-                              click: function ($event) {
-                                return _vm.onDelete(element.id)
+                          "td",
+                          { staticClass: "px-6 py-4" },
+                          [
+                            _c(
+                              "Link",
+                              {
+                                attrs: {
+                                  href: _vm.route("item.index", element.id),
+                                },
                               },
-                            },
-                          },
-                          [_c("icon", { attrs: { name: "delete" } })],
+                              [_vm._v(_vm._s(element.name))]
+                            ),
+                          ],
                           1
                         ),
-                      ]),
-                    ]
-                  )
-                }),
-                0
+                        _vm._v(" "),
+                        _c("td", { staticClass: "px-6 py-4" }, [
+                          _c("a", { attrs: { href: element.slug + ".html" } }, [
+                            _vm._v("Preview"),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "px-6 py-4" }, [
+                          element.image
+                            ? _c("img", {
+                                staticClass: "w-50 h-20",
+                                attrs: {
+                                  src: element.image,
+                                  alt: "Card image cap",
+                                },
+                              })
+                            : _vm._e(),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "px-6 py-4" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.onEdit(element)
+                                },
+                              },
+                            },
+                            [_c("icon", { attrs: { name: "edit" } })],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.onDelete(element.id)
+                                },
+                              },
+                            },
+                            [_c("icon", { attrs: { name: "delete" } })],
+                            1
+                          ),
+                        ]),
+                      ]
+                    )
+                  }),
+                ],
+                2
               ),
-            ]
+            ],
+            1
           ),
         ]
       ),
@@ -85176,87 +85267,114 @@ var render = function () {
               ),
               _vm._v(" "),
               _c(
-                "tbody",
-                _vm._l(_vm.items, function (element, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: index,
-                      staticClass:
-                        "bg-white border-b dark:bg-gray-800 dark:border-gray-700",
+                "draggable",
+                _vm._b(
+                  {
+                    attrs: { tag: "tbody", "item-key": "id_priority" },
+                    on: {
+                      change: _vm.onUnpublishedChange,
+                      start: function ($event) {
+                        _vm.isDragging = true
+                      },
+                      end: function ($event) {
+                        _vm.isDragging = false
+                      },
                     },
-                    [
-                      _c(
-                        "th",
-                        {
-                          staticClass:
-                            "px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap",
-                          attrs: { scope: "row" },
-                        },
-                        [_vm._v(_vm._s(index + 1))]
-                      ),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "px-6 py-4" }, [
-                        _vm._v(
-                          "\n       \n            " +
-                            _vm._s(element.name) +
-                            "\n          "
-                        ),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "px-6 py-4" }, [
-                        element.thumb
-                          ? _c("img", {
-                              staticClass: "w-50 h-20",
-                              attrs: {
-                                src: element.thumb,
-                                alt: "Card image cap",
-                              },
-                            })
-                          : _vm._e(),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "px-6 py-4" }, [
-                        _vm._v(_vm._s(element.link)),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "px-6 py-4" }, [
+                    model: {
+                      value: _vm.items,
+                      callback: function ($$v) {
+                        _vm.items = $$v
+                      },
+                      expression: "items",
+                    },
+                  },
+                  "draggable",
+                  _vm.dragOptions,
+                  false
+                ),
+                [
+                  _vm._l(_vm.items, function (element, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: index,
+                        staticClass:
+                          "bg-white border-b dark:bg-gray-800 dark:border-gray-700",
+                      },
+                      [
                         _c(
-                          "a",
+                          "th",
                           {
                             staticClass:
-                              "inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out",
-                            on: {
-                              click: function ($event) {
-                                return _vm.onEdit(element)
-                              },
-                            },
+                              "px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap",
+                            attrs: { scope: "row" },
                           },
-                          [_c("icon", { attrs: { name: "edit" } })],
-                          1
+                          [_vm._v(_vm._s(index + 1))]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out",
-                            on: {
-                              click: function ($event) {
-                                return _vm.onDelete(element.id)
+                        _c("td", { staticClass: "px-6 py-4" }, [
+                          _vm._v(
+                            "\n       \n            " +
+                              _vm._s(element.name) +
+                              "\n          "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "px-6 py-4" }, [
+                          element.thumb
+                            ? _c("img", {
+                                staticClass: "w-50 h-20",
+                                attrs: {
+                                  src: element.thumb,
+                                  alt: "Card image cap",
+                                },
+                              })
+                            : _vm._e(),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "px-6 py-4" }, [
+                          _vm._v(_vm._s(element.link)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "px-6 py-4" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.onEdit(element)
+                                },
                               },
                             },
-                          },
-                          [_c("icon", { attrs: { name: "delete" } })],
-                          1
-                        ),
-                      ]),
-                    ]
-                  )
-                }),
-                0
+                            [_c("icon", { attrs: { name: "edit" } })],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.onDelete(element.id)
+                                },
+                              },
+                            },
+                            [_c("icon", { attrs: { name: "delete" } })],
+                            1
+                          ),
+                        ]),
+                      ]
+                    )
+                  }),
+                ],
+                2
               ),
-            ]
+            ],
+            1
           ),
         ]
       ),

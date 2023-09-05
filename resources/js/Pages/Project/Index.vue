@@ -36,7 +36,10 @@
             </th>
           </tr>
         </thead>
-        <tbody>
+        <!-- sắp xếp -->
+        <draggable v-model="projects" tag="tbody" @change="onUnpublishedChange" v-bind="dragOptions"
+                    @start="isDragging = true" @end="isDragging = false" item-key="id_priority">
+                    <template>
           <tr
             v-for="(element, index) in projects"
             :key="index"
@@ -73,7 +76,8 @@
               </a>
             </td>
           </tr>
-        </tbody>
+        </template>
+            </draggable>
       </table>
     </div>
   </div>
@@ -86,13 +90,17 @@ import Modal from "./Modal";
 import Layout from "@/Components/Layout";
 import { Link } from "@inertiajs/inertia-vue";
 
+// sắp xếp
+import draggable from "vuedraggable";
+
 export default {
   layout: Layout,
   components: {
     Modal,
     Icon,
     Link,
-    BreadCrumb
+    BreadCrumb,
+    draggable,
   },
   props: {
     projects: Array,
@@ -101,7 +109,31 @@ export default {
   data() {
     return {};
   },
+  computed: {
+        // sắp xếp
+        dragOptions() {
+            return {
+                animation: 100,
+                group: "description",
+                disabled: false,
+                ghostClass: "ghost",
+                scrollSensitivity: 100,
+                forceFallback: true,
+            };
+        },
+    },
   methods: {
+     // sắp xếp
+     onUnpublishedChange() {
+            let query = {
+                data: this.projects
+            };
+            // console.log("drag");
+            this.$inertia.post(this.route("project.priority"), query, {
+                preserveState: false
+            });
+
+        },
     onDelete(id) {
       if (!confirm("Are you sure want to remove?")) return;
       this.$inertia.delete(this.route("project.delete", id), {

@@ -17,7 +17,7 @@ class ProjectController extends InertiaController
     {
 
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
-            $projects = Project::get();
+            $projects = Project::with('items')->orderBy('id_priority','asc')->get();
             return Inertia::render('Project/Index', compact('projects'));
         } else {
             return $this->errors()->errors_403();
@@ -124,4 +124,17 @@ class ProjectController extends InertiaController
             return $this->errors()->errors_403();
         }
     }
+
+     // sắp xếp
+     public function priorityProject(Request $request)
+     {
+       
+             $data = $request->data;
+        //    dd($data);
+             for ($i = 0; $i < count($data); $i++) {
+                Project::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
+             }
+             return redirect()->back()->with('success', 'Sort  successfully');
+      
+     }
 }
