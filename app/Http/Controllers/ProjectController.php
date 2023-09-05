@@ -28,8 +28,12 @@ class ProjectController extends InertiaController
 
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $project = Project::with('items')->where('slug', $slug)->first();
+
+        // dd($project);
+
         if ($project) {
-            $items = $project->items()->paginate(12);
+            $items = Item::where('project_id', $project->id)->orderBy('id_priority','asc')->paginate(12);
+            // $items = $project->items()->orderBy('id_priority','desc')->paginate(12);
         } else {
             $items = null;
         }
@@ -128,13 +132,13 @@ class ProjectController extends InertiaController
      // sắp xếp
      public function priorityProject(Request $request)
      {
-       
+
              $data = $request->data;
         //    dd($data);
              for ($i = 0; $i < count($data); $i++) {
                 Project::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
              }
              return redirect()->back()->with('success', 'Sort  successfully');
-      
+
      }
 }
