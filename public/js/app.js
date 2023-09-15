@@ -33832,6 +33832,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -34567,6 +34571,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -34589,7 +34630,8 @@ __webpack_require__.r(__webpack_exports__);
       form: this.$inertia.form({
         id: null,
         name: null,
-        image: null
+        image: null,
+        type: "header"
       })
     };
   },
@@ -34621,6 +34663,7 @@ __webpack_require__.r(__webpack_exports__);
       this.editMode = true;
       this.form.id = data.id;
       this.form.name = data.name;
+      this.form.type = data.type;
       this.toggleModal();
     },
     save: function save() {
@@ -34647,7 +34690,8 @@ __webpack_require__.r(__webpack_exports__);
       this.form = this.$inertia.form({
         id: null,
         name: null,
-        image: null // audio360: null
+        image: null,
+        type: null // audio360: null
 
       });
     },
@@ -84815,6 +84859,12 @@ var render = function () {
                     _c(
                       "th",
                       { staticClass: "px-6 py-3", attrs: { scope: "col" } },
+                      [_vm._v("Type")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      { staticClass: "px-6 py-3", attrs: { scope: "col" } },
                       [
                         _c("icon", {
                           staticClass: "items-center",
@@ -84907,6 +84957,14 @@ var render = function () {
                           ],
                           1
                         ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "px-6 py-4" }, [
+                          _vm._v(
+                            "\n             " +
+                              _vm._s(element.type) +
+                              "\n          "
+                          ),
+                        ]),
                         _vm._v(" "),
                         _c("td", { staticClass: "px-6 py-4" }, [
                           _c("a", { attrs: { href: element.slug + ".html" } }, [
@@ -85880,7 +85938,9 @@ var render = function () {
                                   { staticClass: "text-3xl font-semibold" },
                                   [
                                     _vm._v(
-                                      _vm._s(_vm.__("create")) + " Project"
+                                      "\n                " +
+                                        _vm._s(_vm.__("create")) +
+                                        " Project\n              "
                                     ),
                                   ]
                                 )
@@ -85889,7 +85949,9 @@ var render = function () {
                                   { staticClass: "text-3xl font-semibold" },
                                   [
                                     _vm._v(
-                                      _vm._s(_vm.__("update")) + " Project"
+                                      "\n                " +
+                                        _vm._s(_vm.__("update")) +
+                                        " Project\n              "
                                     ),
                                   ]
                                 ),
@@ -85989,9 +86051,90 @@ var render = function () {
                                         staticClass:
                                           "text-red-500 text-xs italic",
                                       },
-                                      [_vm._v(_vm._s(_vm.errors.name))]
+                                      [
+                                        _vm._v(
+                                          "\n                  " +
+                                            _vm._s(_vm.errors.name) +
+                                            "\n                "
+                                        ),
+                                      ]
                                     )
                                   : _vm._e(),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-span-3 sm:col-span-2" },
+                              [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "block text-gray-700 text-sm font-bold mb-2",
+                                    attrs: { for: "username" },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                  Type Template\n                "
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.type,
+                                        expression: "form.type",
+                                      },
+                                    ],
+                                    staticClass:
+                                      "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5",
+                                    on: {
+                                      change: function ($event) {
+                                        var $$selectedVal =
+                                          Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function (o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function (o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                        _vm.$set(
+                                          _vm.form,
+                                          "type",
+                                          $event.target.multiple
+                                            ? $$selectedVal
+                                            : $$selectedVal[0]
+                                        )
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c(
+                                      "option",
+                                      { attrs: { value: "header" } },
+                                      [_vm._v("Have header")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "option",
+                                      { attrs: { value: "not_header" } },
+                                      [_vm._v("Not header")]
+                                    ),
+                                  ]
+                                ),
                               ]
                             ),
                             _vm._v(" "),
@@ -86035,7 +86178,11 @@ var render = function () {
                               _vm._v(" "),
                               _vm.errors.image
                                 ? _c("div", { staticClass: "text-red-500" }, [
-                                    _vm._v(_vm._s(_vm.errors.image)),
+                                    _vm._v(
+                                      "\n                  " +
+                                        _vm._s(_vm.errors.image) +
+                                        "\n                "
+                                    ),
                                   ])
                                 : _vm._e(),
                               _vm._v(" "),
@@ -86073,7 +86220,13 @@ var render = function () {
                                   },
                                 },
                               },
-                              [_vm._v(_vm._s(_vm.__("cancel")))]
+                              [
+                                _vm._v(
+                                  "\n                " +
+                                    _vm._s(_vm.__("cancel")) +
+                                    "\n              "
+                                ),
+                              ]
                             ),
                             _vm._v(" "),
                             _vm.editMode == false
@@ -86111,7 +86264,13 @@ var render = function () {
                                       },
                                     },
                                   },
-                                  [_vm._v(_vm._s(_vm.__("update")))]
+                                  [
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(_vm.__("update")) +
+                                        "\n              "
+                                    ),
+                                  ]
                                 ),
                           ]
                         ),

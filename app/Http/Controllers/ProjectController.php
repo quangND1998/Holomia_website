@@ -37,7 +37,14 @@ class ProjectController extends InertiaController
         } else {
             $items = null;
         }
-        return view('project', compact('project', 'items', 'pages'));
+        if($project->type == "header"){
+            return view('project', compact('project', 'items', 'pages'));
+        }else{
+            return view('project_not_header', compact('project', 'items'));
+        }
+
+
+        // project_not_header
     }
     public function saveView( Request $request){
         $item = Item::findOrfail($request->id);
@@ -63,6 +70,7 @@ class ProjectController extends InertiaController
             $project = Project::create([
                 'name' => $request->name,
                 'slug' => Str::slug($request->name),
+                'type' => $request->type,
 
             ]);
             $project_path = $destinationpath . $project->id . '/';
@@ -100,8 +108,8 @@ class ProjectController extends InertiaController
             $project->update([
                 'name' => $request->name,
                 'slug' => Str::slug($request->name),
-                'image' => $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $project_path, $project->image) : $project->image
-
+                'image' => $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $project_path, $project->image) : $project->image,
+                'type' => $request->type,
             ]);
 
 

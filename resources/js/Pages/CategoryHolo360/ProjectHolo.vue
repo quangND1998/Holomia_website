@@ -41,7 +41,7 @@
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                                     Type
                                 </label>
-                                <select v-model="form.type" 
+                                <select v-model="form.type"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     <option :value="null">
                                         Choose a type
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
 
-                          
+
                         </div>
                     </div>
 
@@ -113,7 +113,7 @@
                 </div>
             </div>
         </div>
-        
+
         <h2 class="text-3xl font-medium text-blue-600 mt-5">Project Holo360</h2>
         <button class="px-3 py-2 bg-[#0f1d89] rounded-lg text-white my-3 text-md font-semibold" @click="addCategory()">
             Create
@@ -171,7 +171,7 @@
                         </tr>
                     </template>
                 </draggable>
-                
+
             </table>
             <pagination class="mt-6" :links="projects.links" />
         </div>
