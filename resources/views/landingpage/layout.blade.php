@@ -160,7 +160,7 @@
                                             @elseif($page->title == 'project')
                                                 <li class="dropdown-mobile">
                                                     <!-- <a target="_blank" href="https://missionxvr.com/index">Project</a> -->
-                                                    <a class="">Products </a>
+                                                    <a class="">Product </a>
                                                     <div class="dropdown-content-mobile">
                                                         {{-- <a href="/holo360" class="drop_link" target="_self">Holo
                                                             360</a> --}}
