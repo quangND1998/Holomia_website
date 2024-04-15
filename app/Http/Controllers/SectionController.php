@@ -48,6 +48,7 @@ class SectionController extends Controller
             $page = Page::with('sections.languages', 'sections.theme')->findOrFail($id);
             $themes = Themes::get();
             $sections = $page->sections;
+            // dd($sections);
             return Inertia::render('Section/SectionCreate', compact('page', 'themes', 'sections'));
         } else {
             $erros = 403;
