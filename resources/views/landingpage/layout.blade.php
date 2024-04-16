@@ -49,6 +49,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    @vite('resources/css/app.css')
+
 </head>
 <style>
     .bg-dark {
@@ -83,10 +85,10 @@
                                             </li>
                                         @elseif($page->title == 'project')
                                             <li class="menu__item to-left dropdown">
-                                                
+
                                                 <a href="" class="menu__link  ">{{ __($page->title) }} </a>
                                                 <div class="dropdown-content">
-                                                    
+
                                                     <a href="https://missionxvr.com/"  target="_blank" class="drop_link">VR Laser Tag Mission X </a>
                                                     <a href="https://zone.holomia.com"  target="_blank" class="drop_link">Holomia VR Zone</a>
                                                     <a href="https://xr.holomia.com" target="_blank" class="drop_link">Holomia XR</a>
@@ -95,12 +97,12 @@
                                             </li>
                                             @elseif($page->title == 'holo360')
                                             <li class="menu__item to-left dropdown">
-                                                
+
                                                 <a href="/holo360" class="menu__link {{ Request::segment(1) === 'holo360' ? 'active' : '' }}">{{ __($page->title) }} </a>
                                                 <div class="dropdown-content">
                                                     @foreach (App\Models\CategoryHolo360::get() as $category)
                                                     <a href="/holo360?category={{$category->slug}}" class="drop_link link_holo360" target="_self">{{$category->name}}</a>
-                                                    @endforeach                                                               
+                                                    @endforeach
                                                 </div>
 
                                             </li>
