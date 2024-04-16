@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    @vite('resources/css/app.css')
     <meta property="og:image" content="img/thumb1.jpg">
 
     <link
@@ -69,7 +70,7 @@
                     <div class="menu-pc">
                         <div class="topheader flex justify-between">
                             <div class="left">
-                                
+
                                 <p>Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội</p>
                             </div>
                         </div>
@@ -215,6 +216,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/js/main.js"></script>
+
     <style>
         .menuHolo_sub {
             position: absolute;
