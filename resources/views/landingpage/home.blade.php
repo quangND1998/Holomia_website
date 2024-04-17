@@ -48,8 +48,10 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    {{-- @vite('resources/css/app.css') --}}
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 <style>
     .bg-dark {
@@ -64,34 +66,13 @@
 
 <body>
     <header>
-        <div id="">
-            <div class="">
+        <div id="header">
+            <div class="container">
                 <div class="nav_header">
                     <div class="menu-pc">
-                        <div class="top_header bg-[#0F197A] h-[48px] text-white my-2 flex flex-wrap justify-end ">
-                            <div class="flex  mx-4 w-[200px]">
-                                <i class="uil uil-clock text-white mx-2 text-[14px]"></i>
-                                <p> 08:00 - 21:00 </p>
-                            </div>
-                            <div class="border-r-2 border-[#D0D5DD]"></div>
-                            <div class="flex  mx-4 w-[200px] ">
-                                <i class="uil uil-envelope-alt text-white mx-2 text-[14px]"></i>
-                                <a href=""> Email </a>
-                            </div>
-                            <div class="border-r-2 border-[#D0D5DD]"></div>
-                            <div class="flex mx-4 w-[200px] ">
-                                <i class="uil uil-phone-alt text-white mx-2 text-[14px]"></i>
-                                <p> 0336 555 876  /  0359 719 595 </p>
-                            </div>
-                            <div class="border-r-2 border-[#D0D5DD]"></div>
-                            <div class="flex mx-4 w-[200px]">
-                                <img class="w-6 h-6 mx-2" src="images/uk.png" alt="">
-                                <img class="w-6 h-6 mx-2" src="images/vietnam.png" alt="">
-                            </div>
-                        </div>
                         <div id="nav_sticky" class="menu-content overlay">
                             <div class="logo-menu-pc">
-                                <a href="/index"><img src="images/logo.png" class="logo-holo logo-pc img-fluid"
+                                <a href="/index"><img src="img/logoxanh.png" class="logo-holo logo-pc img-fluid"
                                         alt=""></a>
                             </div>
                             <nav class="menu-demo">
@@ -227,7 +208,7 @@
 
     </header>
 
-    {{-- @yield('content') --}}
+    @yield('content')
     @include('landingpage.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>

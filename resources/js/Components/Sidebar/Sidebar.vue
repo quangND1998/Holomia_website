@@ -140,6 +140,10 @@
             <icon name="setting" class="mr-1 text-blueGray-300 text-base"></icon>
               Setting
           </Link>
+          <Link   :class="[$page.component === 'person' ? 'opacity-75 text-blue-300 bg-coolGray-900' : '']"  :href="route('person.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
+            <icon name="page" class="mr-1 text-blueGray-300 text-base"></icon>
+            Teacher & Student
+          </Link>
           <Link   :class="[$page.component === 'course' ? 'opacity-75 text-blue-300 bg-coolGray-900' : '']"  :href="route('course.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="page" class="mr-1 text-blueGray-300 text-base"></icon>
               Course

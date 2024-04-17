@@ -23,6 +23,8 @@ class CreateCoursesTable extends Migration
             $table->longText('info')->nullable();
             $table->longText('roadmap')->nullable();
             $table->longText('open_schedule')->nullable();
+            $table->string('image')->nullable();
+
             $table->timestamps();
         });
     }

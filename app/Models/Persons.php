@@ -9,5 +9,9 @@ class Persons extends Model
 {
     use HasFactory;
     protected $table = 'persons';
-    protected $fillable = ['id', 'name', 'description', 'type','created_at', 'updated_at'];
+    protected $fillable = ['id', 'name', 'description', 'type','image','created_at', 'updated_at'];
+    public function languages()
+    {
+        return $this->morphMany(Languages::class, 'languageable');
+    }
 }

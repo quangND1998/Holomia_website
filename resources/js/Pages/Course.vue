@@ -22,6 +22,7 @@
                         <th scope="col" class="px-6 py-3">{{ __('sub_title') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('time') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('number_student') }}</th>
+                        <th scope="col" class="px-6 py-3">{{ __('image_thumb') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('price') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('info') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('roadmap') }}</th>
@@ -42,10 +43,13 @@
                         <td class="px-6 py-4">{{ __(course.sub_title) }}</td>
                         <td class="px-6 py-4">{{ __(course.time) }} month</td>
                         <td class="px-6 py-4">{{ __(course.number_student)}} đã học</td>
+                        <td class="px-6 py-4 max-w-2">
+                            <img class="w-20" :src="course.image" alt="">
+                        </td>
                         <td class="px-6 py-4">{{ __(course.price) }}</td>
-                        <td class="px-6 py-4">{{ __(course.info) }}</td>
-                        <td class="px-6 py-4">{{ __(course.roadmap)}}</td>
-                        <td class="px-6 py-4">{{ __(course.open_schedule)}}</td>
+                        <td class="px-6 py-4 h-20"><p style="height: 20px;">{{ __(course.info) }}</p></td>
+                        <td class="px-6 py-4 h-20"><p style="height: 20px;">{{ __(course.roadmap)}}</p></td>
+                        <td class="px-6 py-4 h-20"><p style="height: 20px;">{{ __(course.open_schedule)}}</p></td>
                         <td class="px-6 py-4">
                             <a @click="onEdit(course)"
                                 class="inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
@@ -63,28 +67,63 @@
             </table>
             <form v-if="showModal == true" class="space-y-4 text-gray-700">
                 <div
-                    class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-                    <div class="relative w-auto my-6 mx-auto max-w-3xl">
+                    class="h-[600px] fixed mt-14  inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+                    <div class=" relative w-auto my-6 mx-auto max-w-6xl ">
                         <div
-                            class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            class=" border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                             <!--body-->
-                            <div class="flex flex-wrap w-full">
+                            <div
+                                class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                                <h3 class="text-3xl font-semibold" v-if="editMode == false">{{ __('create_Course') }} </h3>
+                                <h3 class="text-3xl font-semibold" v-else>{{ __('update_Course') }}</h3>
+                                <button
+                                class="p-1 ml-auto bg-transparent border-0 text-gray-300 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                @click="closeModal()"
+                                >
+                                <span
+                                    class="bg-transparent h-6 w-6 text-2xl block outline-none focus:outline-none"
+                                >
+                                    <i class="fas fa-times"></i>
+                                </span>
+                                </button>
+                            </div>
+                            <div  class="h-96 overflow-auto flex flex-wrap w-full mx-2 ">
                                 <div class="w-1/2 px-2" >
                                     <div class="mb-4">
-                                        <label>{{ __('title') }} </label>
-                                        <input type="text" v-model="form.title"
-                                            :class="[errors.title ? 'border-red-500' : '']"
+                                        <label>{{ __('title') }} {{ __('en') }} </label>
+                                        <input type="text" v-model="form.title_en"
+                                            :class="[errors.title_en ? 'border-red-500' : '']"
                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        <div class="text-red-500 font-bold" v-if="errors.title">{{ errors.title }}</div>
+                                        <div class="text-red-500 font-bold" v-if="errors.title_en">{{ errors.title_en }}</div>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 px-2" >
+                                    <div class="mb-4">
+                                        <label>{{ __('title') }} {{ __('vn') }} </label>
+                                        <input type="text" v-model="form.title_vn"
+                                            :class="[errors.title_vn ? 'border-red-500' : '']"
+                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                        <div class="text-red-500 font-bold" v-if="errors.title_vn">{{ errors.title_vn }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="w-1/2 px-2">
+                                    <div class="mb-4">
+                                        <label>{{ __('sub_title') }} {{ __('en') }} </label>
+                                        <input type="text" v-model="form.sub_title_en"
+                                            :class="[errors.sub_title_en ? 'border-red-500' : '']"
+                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                        <div class="text-red-500 font-bold" v-if="errors.sub_title_en">{{ errors.sub_title_en }}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="w-1/2 px-2">
                                     <div class="mb-4">
-                                        <label>{{ __('sub_title') }} </label>
-                                        <input type="text" v-model="form.sub_title"
-                                            :class="[errors.sub_title ? 'border-red-500' : '']"
+                                        <label>{{ __('sub_title') }} {{ __('vn') }} </label>
+                                        <input type="text" v-model="form.sub_title_vn"
+                                            :class="[errors.sub_title_vn ? 'border-red-500' : '']"
                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        <div class="text-red-500 font-bold" v-if="errors.sub_title">{{ errors.sub_title }}
+                                        <div class="text-red-500 font-bold" v-if="errors.sub_title_vn">{{ errors.sub_title_vn }}
                                         </div>
                                     </div>
                                 </div>
@@ -110,33 +149,96 @@
                                 </div>
                                 <div class="w-1/2 px-2">
                                     <div class="mb-4">
-                                        <label>{{ __('info') }}</label>
-                                        <input type="text" v-model="form.info"
-                                            :class="[errors.info ? 'border-red-500' : '']"
-                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        <div class="text-red-500 font-bold" v-if="errors.info">{{ errors.info }}
+                                        <label>{{ __('info') }} {{ __('en') }}</label>
+                                        <div class="mt-1">
+                                            <ckeditor
+                                                v-model="form.info_en"
+                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                placeholder="Description VietNamese"
+                                            ></ckeditor>
                                         </div>
+                                        <div class="text-red-500" v-if="errors.info_en">{{ errors.info_en }}</div>
                                     </div>
                                 </div>
                                 <div class="w-1/2 px-2">
                                     <div class="mb-4">
-                                        <label>{{ __('roadmap') }}</label>
-                                        <input type="text" v-model="form.roadmap"
-                                            :class="[errors.roadmap ? 'border-red-500' : '']"
-                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        <div class="text-red-500 font-bold" v-if="errors.roadmap">{{ errors.roadmap }}
+                                        <label>{{ __('info') }} {{ __('vn') }}</label>
+                                        <div class="mt-1">
+                                            <ckeditor
+                                                v-model="form.info_vn"
+                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                placeholder="Description VietNamese"
+                                            ></ckeditor>
                                         </div>
+                                        <div class="text-red-500" v-if="errors.info_vn">{{ errors.info_vn }}</div>
                                     </div>
                                 </div>
                                 <div class="w-1/2 px-2">
                                     <div class="mb-4">
-                                        <label>{{ __('open_schedule') }}</label>
-                                        <input type="text" v-model="form.open_schedule"
-                                            :class="[errors.open_schedule ? 'border-red-500' : '']"
-                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        <div class="text-red-500 font-bold" v-if="errors.open_schedule">{{ errors.open_schedule }}
+                                        <label>{{ __('roadmap') }} {{ __('en') }}</label>
+                                        <div class="mt-1">
+                                            <ckeditor
+                                                v-model="form.roadmap_en"
+                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                placeholder="Description VietNamese"
+                                            ></ckeditor>
                                         </div>
+                                        <div class="text-red-500" v-if="errors.roadmap_en">{{ errors.roadmap_en }}</div>
                                     </div>
+                                </div>
+                                <div class="w-1/2 px-2">
+                                    <div class="mb-4">
+                                        <label>{{ __('roadmap') }} {{ __('vn') }}</label>
+                                        <div class="mt-1">
+                                            <ckeditor
+                                                v-model="form.roadmap_vn"
+                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                placeholder="Description VietNamese"
+                                            ></ckeditor>
+                                        </div>
+                                        <div class="text-red-500" v-if="errors.roadmap_vn">{{ errors.roadmap_vn }}</div>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 px-2">
+                                    <div class="mb-4">
+                                        <label>{{ __('open_schedule') }} {{ __('en') }}</label>
+                                        <div class="mt-1">
+                                            <ckeditor
+                                                v-model="form.open_schedule_en"
+                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                placeholder="Description VietNamese"
+                                            ></ckeditor>
+                                        </div>
+                                        <div class="text-red-500" v-if="errors.open_schedule_en">{{ errors.open_schedule_en }}</div>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 px-2">
+                                    <div class="mb-4">
+                                        <label>{{ __('open_schedule') }} {{ __('vn') }}</label>
+                                        <div class="mt-1">
+                                            <ckeditor
+                                                v-model="form.open_schedule_vn"
+                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                placeholder="Description VietNamese"
+                                            >
+                                            </ckeditor>
+                                        </div>
+                                        <div class="text-red-500" v-if="errors.open_schedule_vn">{{ errors.open_schedule_vn }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-span-6 sm:col-span-2" >
+                                        <label for="country" class="block text-sm font-medium text-gray-700">Image thumb</label>
+                                        <input
+                                        @input="form.image  = $event.target.files[0]"
+                                        type="file"
+                                        name="email_address"
+                                        id="email_address"
+                                        placeholder="Title VietNamese"
+                                        autocomplete="Image"
+                                        accept=".png, .jpeg, .jpg"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                        />
+                                        <div class="text-red-500" v-if="errors.image">{{ errors.image }}</div>
                                 </div>
                             </div>
                             <div
@@ -188,35 +290,121 @@ export default {
             form: this.$inertia.form({
                 id: null,
                 title: null,
+                title_vn: null,
+                title_en: null,
                 sub_title: null,
+                sub_title_vn: null,
+                sub_title_en: null,
                 time: null,
                 number_student: null,
                 info: null,
+                info_vn: null,
+                info_en: null,
                 roadmap: null,
+                roadmap_vn: null,
+                roadmap_en: null,
                 open_schedule: null,
+                open_schedule_vn: null,
+                open_schedule_en: null,
+                image: null,
             })
         };
     },
     methods: {
+
         onEdit : function (data) {
+            this.reset();
             this.editMode = true;
             this.showModal = true;
             this.form.id = data.id;
             this.form.title = data.title;
             this.form.sub_title = data.sub_title;
-            this.form.time = data.time;
-            this.form.number_student = data.number_student;
             this.form.info = data.info;
             this.form.roadmap = data.roadmap;
             this.form.open_schedule = data.open_schedule;
+
+            const result = data.languages.find(
+                element => element.key == this.form.title
+            );
+            this.form.title_vn = result == undefined ? null : result.vn;
+            this.form.title_en = result == undefined ? null : result.en;
+
+            const result2 = data.languages.find(
+                element => element.key == this.form.sub_title
+            );
+            console.log(result2);
+            this.form.sub_title_vn = result2 == undefined ? null : result2.vn;
+            this.form.sub_title_en = result2 == undefined ? null : result2.en;
+            this.form.time = data.time;
+            this.form.number_student = data.number_student;
+
+            const result3 = data.languages.find(
+                element => element.key == this.form.info
+            );
+            console.log(result3);
+            this.form.info_vn = result3 == undefined ? null : result3.vn;
+            this.form.info_en = result3 == undefined ? null : result3.en;
+
+            const result4 = data.languages.find(
+                element => element.key == this.form.roadmap
+            );
+            this.form.roadmap_vn = result4 == undefined ? null : result4.vn;
+            this.form.roadmap_en = result4 == undefined ? null : result4.en;
+
+            const result5 = data.languages.find(
+                element => element.key == this.form.open_schedule
+            );
+            this.form.open_schedule_vn = result5 == undefined ? null : result5.vn;
+            this.form.open_schedule_en = result5 == undefined ? null : result5.en;
+
+        },
+        reset: function() {
+        this.form = this.$inertia.form({
+            id: null,
+                title: null,
+                title_vn: null,
+                title_en: null,
+                sub_title: null,
+                sub_title_vn: null,
+                sub_title_en: null,
+                time: null,
+                number_student: null,
+                info: null,
+                info_vn: null,
+                info_en: null,
+                roadmap: null,
+                roadmap_vn: null,
+                roadmap_en: null,
+                open_schedule: null,
+                open_schedule_vn: null,
+                open_schedule_en: null,
+                image: null,
+        });
         },
         onAddClass: function() {
             this.showModal = true;
             this.editMode = false;
+            this.reset();
         },
         closeModal: function() {
             this.showModal = false;
             this.editMode = false;
+        },
+        save: function() {
+            this.form.post(this.route("course.save"), {
+                preserveState: true,
+                onError: errors => {
+                if (Object.keys(errors).length > 0) {
+                    this.showModal = true;
+                    this.editMode = true;
+                }
+                },
+                onSuccess: page => {
+                this.showModal = false;
+                this.editMode = false;
+                this.reset();
+                }
+            });
         },
         update: function() {
             this.form.put(this.route("course.update", this.form.id), {

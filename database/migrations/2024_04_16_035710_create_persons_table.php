@@ -18,6 +18,7 @@ class CreatePersonsTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->string('type')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

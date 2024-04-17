@@ -32122,6 +32122,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -32151,7 +32180,8 @@ __webpack_require__.r(__webpack_exports__);
         number_student: null,
         info: null,
         roadmap: null,
-        open_schedule: null
+        open_schedule: null,
+        image: null
       })
     };
   },
@@ -82983,361 +83013,464 @@ var render = function () {
                             "border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none",
                         },
                         [
-                          _c("div", { staticClass: "flex flex-wrap w-full" }, [
-                            _c("div", { staticClass: "w-1/2 px-2" }, [
-                              _c("div", { staticClass: "mb-4" }, [
-                                _c("label", [
-                                  _vm._v(_vm._s(_vm.__("title")) + " "),
-                                ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.title,
-                                      expression: "form.title",
-                                    },
-                                  ],
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t",
+                            },
+                            [
+                              _vm.editMode == false
+                                ? _c(
+                                    "h3",
+                                    { staticClass: "text-3xl font-semibold" },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.__("create_Course")) + " "
+                                      ),
+                                    ]
+                                  )
+                                : _c(
+                                    "h3",
+                                    { staticClass: "text-3xl font-semibold" },
+                                    [_vm._v(_vm._s(_vm.__("update_Course")))]
+                                  ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
                                   staticClass:
-                                    "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
-                                  class: [
-                                    _vm.errors.title ? "border-red-500" : "",
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.form.title },
+                                    "p-1 ml-auto bg-transparent border-0 text-gray-300 float-right text-3xl leading-none font-semibold outline-none focus:outline-none",
                                   on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "title",
-                                        $event.target.value
-                                      )
+                                    click: function ($event) {
+                                      return _vm.closeModal()
                                     },
                                   },
-                                }),
-                                _vm._v(" "),
-                                _vm.errors.title
-                                  ? _c(
-                                      "div",
-                                      { staticClass: "text-red-500 font-bold" },
-                                      [_vm._v(_vm._s(_vm.errors.title))]
-                                    )
-                                  : _vm._e(),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "w-1/2 px-2" }, [
-                              _c("div", { staticClass: "mb-4" }, [
-                                _c("label", [
-                                  _vm._v(_vm._s(_vm.__("sub_title")) + " "),
-                                ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.sub_title,
-                                      expression: "form.sub_title",
+                                },
+                                [_vm._m(0)]
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flex flex-wrap w-full mx-2" },
+                            [
+                              _c("div", { staticClass: "w-1/2 px-2" }, [
+                                _c("div", { staticClass: "mb-4" }, [
+                                  _c("label", [
+                                    _vm._v(_vm._s(_vm.__("title")) + " "),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.title,
+                                        expression: "form.title",
+                                      },
+                                    ],
+                                    staticClass:
+                                      "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                    class: [
+                                      _vm.errors.title ? "border-red-500" : "",
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.form.title },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "title",
+                                          $event.target.value
+                                        )
+                                      },
                                     },
-                                  ],
-                                  staticClass:
-                                    "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
-                                  class: [
-                                    _vm.errors.sub_title
-                                      ? "border-red-500"
-                                      : "",
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.form.sub_title },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "sub_title",
-                                        $event.target.value
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.title
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass: "text-red-500 font-bold",
+                                        },
+                                        [_vm._v(_vm._s(_vm.errors.title))]
                                       )
-                                    },
-                                  },
-                                }),
-                                _vm._v(" "),
-                                _vm.errors.sub_title
-                                  ? _c(
-                                      "div",
-                                      { staticClass: "text-red-500 font-bold" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.sub_title) +
-                                            "\n                                    "
-                                        ),
-                                      ]
-                                    )
-                                  : _vm._e(),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "w-1/2 px-2" }, [
-                              _c("div", { staticClass: "mb-4" }, [
-                                _c("label", [
-                                  _vm._v(_vm._s(_vm.__("number_student"))),
+                                    : _vm._e(),
                                 ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-1/2 px-2" }, [
+                                _c("div", { staticClass: "mb-4" }, [
+                                  _c("label", [
+                                    _vm._v(_vm._s(_vm.__("sub_title")) + " "),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.sub_title,
+                                        expression: "form.sub_title",
+                                      },
+                                    ],
+                                    staticClass:
+                                      "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                    class: [
+                                      _vm.errors.sub_title
+                                        ? "border-red-500"
+                                        : "",
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.form.sub_title },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "sub_title",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.sub_title
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass: "text-red-500 font-bold",
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.sub_title) +
+                                              "\n                                    "
+                                          ),
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-1/2 px-2" }, [
+                                _c("div", { staticClass: "mb-4" }, [
+                                  _c("label", [
+                                    _vm._v(_vm._s(_vm.__("number_student"))),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.number_student,
+                                        expression: "form.number_student",
+                                      },
+                                    ],
+                                    staticClass:
+                                      "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                    class: [
+                                      _vm.errors.number_student
+                                        ? "border-red-500"
+                                        : "",
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: {
                                       value: _vm.form.number_student,
-                                      expression: "form.number_student",
                                     },
-                                  ],
-                                  staticClass:
-                                    "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
-                                  class: [
-                                    _vm.errors.number_student
-                                      ? "border-red-500"
-                                      : "",
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.form.number_student },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "number_student",
-                                        $event.target.value
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "number_student",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.number_student
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass: "text-red-500 font-bold",
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.number_student) +
+                                              "\n                                    "
+                                          ),
+                                        ]
                                       )
-                                    },
-                                  },
-                                }),
-                                _vm._v(" "),
-                                _vm.errors.number_student
-                                  ? _c(
-                                      "div",
-                                      { staticClass: "text-red-500 font-bold" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.number_student) +
-                                            "\n                                    "
-                                        ),
-                                      ]
-                                    )
-                                  : _vm._e(),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "w-1/2 px-2" }, [
-                              _c("div", { staticClass: "mb-4" }, [
-                                _c("label", [_vm._v(_vm._s(_vm.__("time")))]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.time,
-                                      expression: "form.time",
-                                    },
-                                  ],
-                                  staticClass:
-                                    "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
-                                  class: [
-                                    _vm.errors.time ? "border-red-500" : "",
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.form.time },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "time",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                                _vm._v(" "),
-                                _vm.errors.time
-                                  ? _c(
-                                      "div",
-                                      { staticClass: "text-red-500 font-bold" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.time) +
-                                            "\n                                    "
-                                        ),
-                                      ]
-                                    )
-                                  : _vm._e(),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "w-1/2 px-2" }, [
-                              _c("div", { staticClass: "mb-4" }, [
-                                _c("label", [_vm._v(_vm._s(_vm.__("info")))]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.info,
-                                      expression: "form.info",
-                                    },
-                                  ],
-                                  staticClass:
-                                    "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
-                                  class: [
-                                    _vm.errors.info ? "border-red-500" : "",
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.form.info },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "info",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                                _vm._v(" "),
-                                _vm.errors.info
-                                  ? _c(
-                                      "div",
-                                      { staticClass: "text-red-500 font-bold" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.info) +
-                                            "\n                                    "
-                                        ),
-                                      ]
-                                    )
-                                  : _vm._e(),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "w-1/2 px-2" }, [
-                              _c("div", { staticClass: "mb-4" }, [
-                                _c("label", [
-                                  _vm._v(_vm._s(_vm.__("roadmap"))),
+                                    : _vm._e(),
                                 ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.roadmap,
-                                      expression: "form.roadmap",
-                                    },
-                                  ],
-                                  staticClass:
-                                    "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
-                                  class: [
-                                    _vm.errors.roadmap ? "border-red-500" : "",
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.form.roadmap },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "roadmap",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                                _vm._v(" "),
-                                _vm.errors.roadmap
-                                  ? _c(
-                                      "div",
-                                      { staticClass: "text-red-500 font-bold" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.roadmap) +
-                                            "\n                                    "
-                                        ),
-                                      ]
-                                    )
-                                  : _vm._e(),
                               ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "w-1/2 px-2" }, [
-                              _c("div", { staticClass: "mb-4" }, [
-                                _c("label", [
-                                  _vm._v(_vm._s(_vm.__("open_schedule"))),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-1/2 px-2" }, [
+                                _c("div", { staticClass: "mb-4" }, [
+                                  _c("label", [_vm._v(_vm._s(_vm.__("time")))]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.time,
+                                        expression: "form.time",
+                                      },
+                                    ],
+                                    staticClass:
+                                      "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                    class: [
+                                      _vm.errors.time ? "border-red-500" : "",
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.form.time },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "time",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.time
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass: "text-red-500 font-bold",
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.time) +
+                                              "\n                                    "
+                                          ),
+                                        ]
+                                      )
+                                    : _vm._e(),
                                 ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.open_schedule,
-                                      expression: "form.open_schedule",
-                                    },
-                                  ],
-                                  staticClass:
-                                    "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
-                                  class: [
-                                    _vm.errors.open_schedule
-                                      ? "border-red-500"
-                                      : "",
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.form.open_schedule },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "open_schedule",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                                _vm._v(" "),
-                                _vm.errors.open_schedule
-                                  ? _c(
-                                      "div",
-                                      { staticClass: "text-red-500 font-bold" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(_vm.errors.open_schedule) +
-                                            "\n                                    "
-                                        ),
-                                      ]
-                                    )
-                                  : _vm._e(),
                               ]),
-                            ]),
-                          ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-1/2 px-2" }, [
+                                _c("div", { staticClass: "mb-4" }, [
+                                  _c("label", [_vm._v(_vm._s(_vm.__("info")))]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.info,
+                                        expression: "form.info",
+                                      },
+                                    ],
+                                    staticClass:
+                                      "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                    class: [
+                                      _vm.errors.info ? "border-red-500" : "",
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.form.info },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "info",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.info
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass: "text-red-500 font-bold",
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.info) +
+                                              "\n                                    "
+                                          ),
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-1/2 px-2" }, [
+                                _c("div", { staticClass: "mb-4" }, [
+                                  _c("label", [
+                                    _vm._v(_vm._s(_vm.__("roadmap"))),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.roadmap,
+                                        expression: "form.roadmap",
+                                      },
+                                    ],
+                                    staticClass:
+                                      "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                    class: [
+                                      _vm.errors.roadmap
+                                        ? "border-red-500"
+                                        : "",
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.form.roadmap },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "roadmap",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.roadmap
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass: "text-red-500 font-bold",
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.roadmap) +
+                                              "\n                                    "
+                                          ),
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "w-1/2 px-2" }, [
+                                _c("div", { staticClass: "mb-4" }, [
+                                  _c("label", [
+                                    _vm._v(_vm._s(_vm.__("open_schedule"))),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.open_schedule,
+                                        expression: "form.open_schedule",
+                                      },
+                                    ],
+                                    staticClass:
+                                      "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                    class: [
+                                      _vm.errors.open_schedule
+                                        ? "border-red-500"
+                                        : "",
+                                    ],
+                                    attrs: { type: "text" },
+                                    domProps: { value: _vm.form.open_schedule },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "open_schedule",
+                                          $event.target.value
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.open_schedule
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass: "text-red-500 font-bold",
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.open_schedule) +
+                                              "\n                                    "
+                                          ),
+                                        ]
+                                      )
+                                    : _vm._e(),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-span-6 sm:col-span-2" },
+                                [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass:
+                                        "block text-sm font-medium text-gray-700",
+                                      attrs: { for: "country" },
+                                    },
+                                    [_vm._v("Image thumb")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    staticClass:
+                                      "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                                    attrs: {
+                                      type: "file",
+                                      name: "email_address",
+                                      id: "email_address",
+                                      placeholder: "Title VietNamese",
+                                      autocomplete: "Image",
+                                      accept: ".png, .jpeg, .jpg",
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        _vm.form.image = $event.target.files[0]
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.image
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "text-red-500" },
+                                        [_vm._v(_vm._s(_vm.errors.image))]
+                                      )
+                                    : _vm._e(),
+                                ]
+                              ),
+                            ]
+                          ),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -83421,7 +83554,21 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "bg-transparent h-6 w-6 text-2xl block outline-none focus:outline-none",
+      },
+      [_c("i", { staticClass: "fas fa-times" })]
+    )
+  },
+]
 render._withStripped = true
 
 
