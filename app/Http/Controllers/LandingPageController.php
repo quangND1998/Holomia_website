@@ -10,7 +10,8 @@ use App\Models\News;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use App\Models\Persons;
+use Inertia\Inertia;
 class LandingPageController extends Controller
 {
     public function index()
@@ -93,6 +94,9 @@ class LandingPageController extends Controller
     }
     public function holo360_filter(Request $request){
        
-
+    }
+    public function homepage(){
+        $persons = Persons::with('languages')->paginate(10);
+        return Inertia::render('Home', compact('persons'));
     }
 }

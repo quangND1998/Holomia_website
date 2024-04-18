@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ThemeSeeder::class,
             PageSeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }

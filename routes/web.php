@@ -37,6 +37,8 @@ use App\Http\Controllers\SettingController;
 Route::get('/', function () {
     return redirect('/index');
 });
+
+Route::get('homepage', [LandingPageController::class, 'homepage']);
 Route::get('/{name}.html', [ProjectController::class, 'preview_project']);
 Route::post('/item/save/{id}', [ProjectController::class, 'saveView']);
 Route::get('index', [LandingPageController::class, 'index']);
