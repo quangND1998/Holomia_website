@@ -19,7 +19,7 @@ export default {
         chanels: Array,
         errors: Object
     },
-    
+
     components: {
     //  HeaderStats,
 

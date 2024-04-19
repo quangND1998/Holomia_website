@@ -52,6 +52,7 @@
     {{-- @vite('resources/css/app.css') --}}
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="./node_modules/preline/dist/preline.js"></script>
 </head>
 <style>
     .bg-dark {

@@ -7,7 +7,8 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
-        "./node_modules/flowbite/**/*.js"
+        "./node_modules/flowbite/**/*.js",
+        './node_modules/preline/dist/*.js',
       ],
     purge: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
@@ -99,6 +100,7 @@ module.exports = {
     plugins: [
         require("@tailwindcss/forms"),
         require('flowbite/plugin'),
+        require('preline/plugin'),
         plugin(function({ addComponents, theme }) {
             const screens = theme("screens", {});
             addComponents([{
@@ -139,7 +141,7 @@ module.exports = {
                         },
                     },
                 },
-                
+
             ]);
         }),
     ],

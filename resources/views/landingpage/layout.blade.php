@@ -51,6 +51,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css">
 </head>
 <style>
     .bg-dark {

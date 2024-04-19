@@ -7,6 +7,8 @@ import CKEditor from 'ckeditor4-vue';
 import VueCompositionAPI from '@vue/composition-api'
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+import VueGlide from 'vue-glide-js'
+import 'vue-glide-js/dist/vue-glide.css'
 
 Vue.use(VueToast);
 createInertiaApp({
