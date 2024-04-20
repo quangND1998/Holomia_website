@@ -17,7 +17,7 @@ class ProjectController extends InertiaController
     {
 
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
-            $projects = Project::get();
+            $projects = Project::with('items')->orderBy('id_priority','asc')->get();
             return Inertia::render('Project/Index', compact('projects'));
         } else {
             return $this->errors()->errors_403();
@@ -28,12 +28,23 @@ class ProjectController extends InertiaController
 
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $project = Project::with('items')->where('slug', $slug)->first();
+
+        // dd($project);
+
         if ($project) {
-            $items = $project->items()->paginate(12);
+            $items = Item::where('project_id', $project->id)->orderBy('id_priority','asc')->paginate(12);
+            // $items = $project->items()->orderBy('id_priority','desc')->paginate(12);
         } else {
             $items = null;
         }
-        return view('project', compact('project', 'items', 'pages'));
+        if($project->type == "header"){
+            return view('project', compact('project', 'items', 'pages'));
+        }else{
+            return view('project_not_header', compact('project', 'items'));
+        }
+
+
+        // project_not_header
     }
     public function saveView( Request $request){
         $item = Item::findOrfail($request->id);
@@ -59,6 +70,7 @@ class ProjectController extends InertiaController
             $project = Project::create([
                 'name' => $request->name,
                 'slug' => Str::slug($request->name),
+                'type' => $request->type,
 
             ]);
             $project_path = $destinationpath . $project->id . '/';
@@ -96,8 +108,8 @@ class ProjectController extends InertiaController
             $project->update([
                 'name' => $request->name,
                 'slug' => Str::slug($request->name),
-                'image' => $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $project_path, $project->image) : $project->image
-
+                'image' => $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $project_path, $project->image) : $project->image,
+                'type' => $request->type,
             ]);
 
 
@@ -124,4 +136,17 @@ class ProjectController extends InertiaController
             return $this->errors()->errors_403();
         }
     }
+
+     // sắp xếp
+     public function priorityProject(Request $request)
+     {
+
+             $data = $request->data;
+        //    dd($data);
+             for ($i = 0; $i < count($data); $i++) {
+                Project::findOrFail($data[$i]['id'])->update(['id_priority' => $i]);
+             }
+             return redirect()->back()->with('success', 'Sort  successfully');
+
+     }
 }
