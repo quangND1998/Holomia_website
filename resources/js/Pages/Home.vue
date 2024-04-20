@@ -258,8 +258,8 @@
 
             </div>
             <div class="containt2">
-                <div class="w-[90%] mt-[200px] mb-[60px] mx-auto flex">
-                    <div class="w-1/2  mx-10 ">
+                <div class="w-[80%] mt-[200px] mb-[60px] mx-auto flex">
+                    <div class="w-1/2 mr-10">
                         <img class="w-full rounded-[10px]" src="images/2.jpg" alt="">
                     </div>
                     <div class="w-1/2">
@@ -309,9 +309,9 @@
                     </div>
                 </div>
             </div>
-            <div class="containt3 w-[90%] mx-auto">
+            <div class="containt3 w-[80%] mx-auto my-[120px]">
                 <vue-glide :perView="4" class="">
-                    <vue-glide-slide v-for="i in 10" :key="i" >
+                    <vue-glide-slide v-for="i in 10" :key="i">
                         <div class="border rounded-[10px]">
                             <img class="w-full" src="images/picture.png" alt="">
                             <div class="m-4">
@@ -332,6 +332,62 @@
                         <button data-glide-dir=">">next</button>
                     </template>
                 </vue-glide>
+            </div>
+            <div class="containt5">
+                <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 w-[80%] mx-auto my-[120px]">
+                    <div class="rounded-[10px] my-6" v-for="i in 6" :key="i">
+                        <img class="rounded-t-[10px] w-full" src="/images/2.jpg" alt="">
+                        <div class="bg-[#AD0101] relative p-3 rounded-b-[10px]">
+                            <p class="text-white uppercase text-[24px]">Nguyễn Vy Khanh</p>
+                            <p class="text-white text-[16px]">Lớp 11, THPT...</p>
+                            <div
+                                class="absolute top-[-45px] right-4 lg:scale-[1] md:right-0 md:scale-[0.7]  sm:scale-[0.6]">
+                                <img class="w-[100px] h-[90px]" src="/images/star.png" alt="">
+                                <p
+                                    class="text-[#E5920E] text-[14px] absolute top-[25px] right-[35px] w-[30px] text-center items-center justify-center font-semibold">
+                                    8.0 IELTS</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="containt6 bg-[#FDF7F7]">
+                <div class="w-[80%]  mx-auto flex py-[60px]">
+                    <div class="w-1/2 mx-10 flex justify-center items-center ">
+                        <img class="w-full rounded-[10px]" src="images/img.jpg" alt="">
+                    </div>
+                    <div class="w-1/2 mx-16 relative my-auto ">
+                        <p class="text-[#101828] uppercase font-semibold text-[40px] my-2"> TƯ VẤN VÀ KIỂM TRA MIỄN PHÍ </p>
+                        <p class="content">
+                            Bạn còn thắc mắc và băn khoăn về các khóa học tại Cambridge IEC? Nhận tư vấn trực tiếp miễn
+                            phí từ đội
+                            ngũ của Cambridge IEC về lộ trình học phù hợp cho bản thân mình ngay trong hôm nay bằng cách
+                            điền thông
+                            tin của bạn vào form bên dưới.
+                        </p>
+                        <form class="my-8">
+                            <div class="my-3">
+                                <p class="font-semibold">Họ tên</p>
+                                <input type="text" class="w-full border border-[#CBD5E0] bg-[#FDF7F7] rounded-[10px]">
+                            </div>
+                            <div class="my-3">
+                                <p class="font-semibold">Tuổi</p>
+                                <input type="text" class="w-full border border-[#CBD5E0] bg-[#FDF7F7] rounded-[10px]">
+                            </div>
+                            <div class="my-3">
+                                <p class="font-semibold">Số điện thoại</p>
+                                <input type="text" class="w-full border border-[#CBD5E0] bg-[#FDF7F7] rounded-[10px]">
+                            </div>
+                            <button
+                                class="absolute right-0   justify-end items-end text-white my-3 end-2.5  border bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">
+                                {{ __('register') }}
+                                <i class="uil uil-arrow-right text-white mx-2 text-[14px]"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
