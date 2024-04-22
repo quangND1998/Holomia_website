@@ -46,7 +46,7 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >{{_('sub_title')}} {{__('en')}}</label>
+                >{{__('sub_title')}} {{__('en')}}</label>
                 <input
                   v-model="form.sub_title_en"
                   type="text"
@@ -63,7 +63,7 @@
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >{{_('sub_title')}} {{__('vn')}}</label>
+                >{{__('sub_title')}} {{__('vn')}}</label>
                 <input
                   v-model="form.sub_title_vn"
                   type="text"
@@ -88,14 +88,6 @@
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Description VietNamese"
                   ></ckeditor>
-                  <!-- <textarea
-                    v-model="form.description_en"
-                    id="about"
-                    name="about"
-                    rows="3"
-                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description English"
-                  ></textarea>-->
                 </div>
                 <div class="text-red-500" v-if="errors.description_en">{{ errors.description_en }}</div>
               </div>
