@@ -13,6 +13,10 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+<<<<<<< HEAD
+=======
+# /public/images
+>>>>>>> origin/web_combridge
 /resources/lang/en.json
 /resources/lang/vn.json
 /public/Metropolist/
