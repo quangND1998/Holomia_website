@@ -1,0 +1,34 @@
+.slick-prev:before {
+    position: absolute;
+    top: 30%;
+    left: 22px;
+    content: url(../images/icon/arrow_blue.svg) !important;
+}
+
+ .slick-next:before {
+    position: absolute;
+    top: 30%;
+    right: 45px;
+    content: url(../images/icon/arrow_right.svg) !important;
+}
+.slick-prev{
+    position: relative;
+    left: -10px;
+    top: 50%;
+    background-color: rgb(255 255 255 / 50%) !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+
+}
+.slick-next
+{
+    position: relative;
+    right: -10px;
+    top: 50%;
+    background-color: rgb(255 255 255 / 50%) !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+
+}
