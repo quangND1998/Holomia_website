@@ -43,7 +43,7 @@
                     </div>
                     <div class="w-1/2 relative">
                         <div
-                            class="border border-[#A60303] rounded-[12px] bg-white  flex  items-center px-4 w-[267px] ml-20">
+                            class="border border-[#A60303] rounded-[12px] bg-white  flex  items-center px-4 w-[320px] ml-20">
                             <img class="w-[48px] h-[48px] my-4" src="/images/camket.png" alt="">
                             <div class="mx-4">
                                 <p class="text-[#101828] text-[24px] font-semibold">{{ __('camket') }}</p>

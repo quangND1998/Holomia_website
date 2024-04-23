@@ -1,4 +1,4 @@
-<div id="content"  class="bg-[#FCF5F6]">
+<div id="content"  class="bg-[#ffffff]">
     <div class="py-[80px]">
         <div class="w-full">
             <div class="w-full flex flex-wrap justify-center mb-[40px]">
@@ -6,15 +6,15 @@
                 <p class="text-[#101828] uppercase text-[40px] font-semibold w-full text-center">{{ __($section->sub_title) }}</p>
                 <p class="text-[#667085] text-[16px] w-full text-center"> {!! __($section->description) !!} </p>
             </div>
-            <div class="slider_partner w-[80%] mx-auto flex justify-center items-center  ">
+            <div class="slider_partner w-[80%] mx-auto flex justify-center items-center mt-[70px] ">
 
                 @foreach ($section->contents as  $content)
-                
+
                         @if(count($content->images) >0)
                         <div class="h-[80px] flex justify-center items-center">
                             <img class="w-auto max-h-[80px]  mx-1" src="{{$content->images[0]->image}}" alt="">
                         </div>
-                       
+
                         @endif
                 @endforeach
             </div>

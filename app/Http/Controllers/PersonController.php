@@ -28,6 +28,7 @@ class PersonController extends Controller
                 'name' => $request->name,
                 'description' => 'description' . $name,
                 'type' => $request->type,
+                'score' => $request->score,
                 'image' => $request->hasFile('image') ? $this->image($request->file('image'), $destinationpath) : null,
 
             ]);
@@ -49,6 +50,7 @@ class PersonController extends Controller
             $person->update([
                 'name' => $request->name,
                 'type' => $request->type,
+                'score' => $request->score,
                 'image' =>  $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $destinationpath, $person->image) : $person->image,
 
             ]);
@@ -65,7 +67,6 @@ class PersonController extends Controller
         if (File::exists($imagePath)) {
             // Delete the image file
             File::delete($imagePath);
-            return "Image deleted successfully.";
         }
         $person->delete();
         return back()->with('success', 'Delete successfully');

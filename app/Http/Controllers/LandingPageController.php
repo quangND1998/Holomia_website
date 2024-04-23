@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoryHolo360;
 use App\Models\CategoryNew;
+use App\Models\Course;
 use App\Models\Holo360Project;
 use App\Models\Languages;
 use App\Models\News;
@@ -21,7 +22,10 @@ class LandingPageController extends Controller
         }])->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $last_new  = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(2)->get();
-        return view('page.home', compact('page', 'pages', 'last_new'));
+        $courses = Course::all();
+        $teachers = Persons::where('type','teacher')->take(10)->get();
+        $students = Persons::where('type','student')->take(6)->get();
+        return view('page.home', compact('page', 'pages', 'last_new','courses','teachers','students'));
     }
 
     public function immersive()
@@ -76,27 +80,40 @@ class LandingPageController extends Controller
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $categories = CategoryHolo360::with('holo_projects')->orderBy('id_priority','asc')->get();
-       
+
         $category_current = CategoryHolo360::where('slug',$request->category)->first();
         if($category_current == null){
             // $projects= Holo360Project::get();
             // return $projects;
             $projects= Holo360Project::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->paginate(9);
-      
+
 
         }else{
             $projects = $category_current->holo_projects()->paginate(9)->appends(['category' => $request->category]);
         }
-        
-        // 
+
+        //
 
         return view('page.project360', compact('pages', 'header','categories', 'projects','category_current'));
     }
     public function holo360_filter(Request $request){
-       
+
     }
     public function homepage(){
         $persons = Persons::with('languages')->paginate(10);
         return Inertia::render('Home', compact('persons'));
+    }
+    public function about_cammbridge()
+    {
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
+        }])->where('title', 'about_cammbridge')->first();
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+
+        $last_new  = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(2)->get();
+        $courses = Course::all();
+        $teachers = Persons::where('type','teacher')->take(10)->get();
+        $students = Persons::where('type','student')->take(6)->get();
+        return view('page.about_cammbridge', compact('page', 'pages', 'last_new','courses','teachers','students'));
     }
 }

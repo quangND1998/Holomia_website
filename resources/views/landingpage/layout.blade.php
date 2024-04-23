@@ -130,21 +130,21 @@
                                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                                 aria-labelledby="dropdownLargeButton">
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="about_cammbridge"
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-60">{{ __('about') }}
                                                         {{ __('Cambridge IEC') }}</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="teacher_cammbridge"
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">{{ __('teacher') }}
                                                         {{ __('Cambridge IEC') }}</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="student"
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">{{ __('excellent_student') }}</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="activity"
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">{{ __('experiential_activities') }}</a>
                                                 </li>
                                             </ul>
@@ -166,7 +166,7 @@
                                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                                 aria-labelledby="dropdownLargeButton">
                                                 <li>
-                                                    <a href="#"
+                                                    <a href="course"
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-60">{{ __('about') }}
                                                         {{ __('Cambridge IEC') }}</a>
                                                 </li>
@@ -174,11 +174,11 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="news"
                                             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white">{{ __('News') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="contact"
                                             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{ __('Contact') }}</a>
                                     </li>
                                 </ul>

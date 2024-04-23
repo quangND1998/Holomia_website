@@ -1,4 +1,4 @@
-<div id="content"  >
+<div id="course"  >
     <div class="my-[120px]">
         <div class="w-full">
             <div class="w-full flex flex-wrap   justify-center my-[60px]">
@@ -8,16 +8,16 @@
             </div>
             <div class="slider_course w-[80%] mx-auto">
 
-                @foreach ($section->contents as  $content)
+                @foreach ($courses as  $course)
                 <div class="transition ease-in-out border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110  duration-300 h-[400px]">
-                    @if(count($content->images) >0)
-                    <img class="w-full h-[200px] object-cover" src="{{$content->images[0]->image}}" alt="">
+                    @if($course->image != null)
+                    <img class="w-full h-[200px] object-cover" src="{{$course->image}}" alt="">
                     @endif
                     <div class="m-4">
-                        <div class="my-2">
-                            <p class="text-[#0F197A] text-[16px]">{{ __($content->title) }}</p>
-                            <p class="text-[#101828] text-[24px]">{!! __($content->sub_title) !!}</p>
-                            <p class="text-[#667085] text-[16px]">{!! __($content->description) !!}</p>
+                        <div class="my-2 ">
+                            <p class="text-[#0F197A] text-[16px]">{{ __($course->title) }}</p>
+                            <p class="text-[#101828] text-[24px] truncate  line-clamp-3">{!! __($course->sub_title) !!}</p>
+                            <p class="text-[#667085] text-[16px] truncate  line-clamp-3">{!! __($course->info) !!}</p>
                         </div>
                         <a class="text-[#0F62FE] mt-10" href="">{{ __('more') }}
                             <i class="uil uil-arrow-right text-[#0F62FE] mx-2 text-[14px]"></i> </a>

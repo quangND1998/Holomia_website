@@ -19,6 +19,7 @@ class CreatePersonsTable extends Migration
             $table->longText('description');
             $table->string('type')->nullable();
             $table->string('image')->nullable();
+            $table->string('score')->nullable();
             $table->timestamps();
         });
     }

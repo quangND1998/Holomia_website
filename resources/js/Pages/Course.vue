@@ -18,6 +18,7 @@
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
+                        <th scope="col" class="px-6 py-3">{{ __('STT') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('title') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('sub_title') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('time') }}</th>
@@ -49,7 +50,7 @@
                         <td class="px-6 py-4">{{ __(course.price) }}</td>
                         <td class="px-6 py-4 h-20"><p style="height: 20px;">{{ __(course.info) }}</p></td>
                         <td class="px-6 py-4 h-20"><p style="height: 20px;">{{ __(course.roadmap)}}</p></td>
-                        <td class="px-6 py-4 h-20"><p style="height: 20px;">{{ __(course.open_schedule)}}</p></td>
+                        <td class="px-6 py-4 h-20 line-clamp-2"><p style="height: 20px; ">{{ __(course.open_schedule)}}</p></td>
                         <td class="px-6 py-4">
                             <a @click="onEdit(course)"
                                 class="inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
@@ -136,6 +137,30 @@
                                         <div class="text-red-500 font-bold" v-if="errors.number_student">{{ errors.number_student }}
                                         </div>
                                     </div>
+                                </div>
+                                <div class="w-1/2 px-2">
+                                    <div class="mb-4">
+                                        <label>{{ __('price') }}</label>
+                                        <input type="number" v-model="form.price"
+                                            :class="[errors.price ? 'border-red-500' : '']"
+                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                        <div class="text-red-500 font-bold" v-if="errors.price">{{ errors.price }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 px-2" >
+                                        <label for="country" class="block text-sm font-medium text-gray-700">Image thumb</label>
+                                        <input
+                                        @input="form.image  = $event.target.files[0]"
+                                        type="file"
+                                        name="email_address"
+                                        id="email_address"
+                                        placeholder="Title VietNamese"
+                                        autocomplete="Image"
+                                        accept=".png, .jpeg, .jpg"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                        />
+                                        <div class="text-red-500" v-if="errors.image">{{ errors.image }}</div>
                                 </div>
                                 <div class="w-1/2 px-2">
                                     <div class="mb-4">
@@ -226,20 +251,7 @@
                                         <div class="text-red-500" v-if="errors.open_schedule_vn">{{ errors.open_schedule_vn }}</div>
                                     </div>
                                 </div>
-                                <div class="col-span-6 sm:col-span-2" >
-                                        <label for="country" class="block text-sm font-medium text-gray-700">Image thumb</label>
-                                        <input
-                                        @input="form.image  = $event.target.files[0]"
-                                        type="file"
-                                        name="email_address"
-                                        id="email_address"
-                                        placeholder="Title VietNamese"
-                                        autocomplete="Image"
-                                        accept=".png, .jpeg, .jpg"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                        />
-                                        <div class="text-red-500" v-if="errors.image">{{ errors.image }}</div>
-                                </div>
+
                             </div>
                             <div
                                 class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
@@ -307,6 +319,7 @@ export default {
                 open_schedule_vn: null,
                 open_schedule_en: null,
                 image: null,
+                price: null,
             })
         };
     },
@@ -322,7 +335,7 @@ export default {
             this.form.info = data.info;
             this.form.roadmap = data.roadmap;
             this.form.open_schedule = data.open_schedule;
-
+            this.form.price = data.price;
             const result = data.languages.find(
                 element => element.key == this.form.title
             );
@@ -379,6 +392,7 @@ export default {
                 open_schedule_vn: null,
                 open_schedule_en: null,
                 image: null,
+                price: null,
         });
         },
         onAddClass: function() {
@@ -421,7 +435,12 @@ export default {
                 this.reset();
                 }
             });
+        },
+        onDelete: function(id) {
+            if (!confirm("Are you sure want to remove?")) return;
+            this.$inertia.delete(this.route("course.delete", id));
         }
+
     }
 };
 </script>

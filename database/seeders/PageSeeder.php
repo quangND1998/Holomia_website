@@ -18,5 +18,10 @@ class PageSeeder extends Seeder
         Page::create(['title' => 'project']);
         Page::create(['title' => 'immersive']);
         Page::create(['title' => 'contact']);
+        Page::create(['title' => 'about_cammbridge']);
+        Page::create(['title' => 'teacher_cammbridge']);
+        Page::create(['title' => 'student']);
+        Page::create(['title' => 'activity']);
+        Page::create(['title' => 'course']);
     }
 }

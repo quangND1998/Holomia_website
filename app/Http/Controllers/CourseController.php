@@ -56,6 +56,7 @@ class CourseController extends Controller
     }
     public function update(Request $request,$id)
     {
+        // dd($request);
         $course = Course::findOrFail($id);
         if($course){
             $destinationpath = 'images/course/';
@@ -81,13 +82,13 @@ class CourseController extends Controller
     }
     public function delete($id){
         $person = Course::findOrFail($id);
+        // dd($person);
         $imagePath = public_path($person->image);
 
-        // Check if the image file exists
         if (File::exists($imagePath)) {
             // Delete the image file
             File::delete($imagePath);
-            return "Image deleted successfully.";
+            // return "Image deleted successfully.";
         }
         $person->delete();
         return back()->with('success', 'Delete successfully');

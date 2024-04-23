@@ -7,25 +7,21 @@
                 <p class="text-[#667085] text-[16px] w-full text-center"> {!! __($section->description) !!} </p>
             </div>
             <div class="slider_course w-[80%] mx-auto">
+                @foreach ($teachers as $teacher)
 
-                {{-- @foreach ($section->contents as  $content)
-                <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110  h-[400px]">
-                    @if(count($content->images) >0)
-                    <img class="w-full h-[200px] object-cover" src="{{$content->images[0]->image}}" alt="">
+                <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
+                    @if($teacher->image != null)
+                    <img class="w-full h-[368px] object-cover " src="{{ $teacher->image }}" alt="">
                     @endif
-                    <div class="m-4">
-                        <div class="my-2">
-                            <p class="text-[#0F197A] text-[16px]">{{ __($content->title) }}</p>
-                            <p class="text-[#101828] text-[24px]">{!! __($content->sub_title) !!}</p>
-                            <p class="text-[#667085] text-[16px]">{!! __($content->description) !!}</p>
-                        </div>
-                        <a class="text-[#0F62FE] mt-10" href="">{{ __('more') }}
-                            <i class="uil uil-arrow-right text-[#0F62FE] mx-2 text-[14px]"></i> </a>
+                    <div class="absolute w-full bottom-0 items-center text-center p-4 bg-gradient-to-b from-[#00000000] to-[#000000]">
+                        <p class="text-[#FFFFFF] uppercase text-[24px]">{{ $teacher->name }}</p>
+                        <p class="text-[#FFFFFF] text-[16px]">{{ __($teacher->description) }}</p>
                     </div>
 
                 </div>
-                @endforeach --}}
-                <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
+                @endforeach
+
+                {{-- <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
                     <img class="w-full h-[368px] object-cover " src="images/teacher.jpg" alt="">
                     <div class="absolute w-full bottom-0 items-center text-center p-4 bg-gradient-to-b from-[#00000000] to-[#000000]">
                         <p class="text-[#FFFFFF] uppercase text-[24px]">Trung học</p>
@@ -64,15 +60,7 @@
                         <p class="text-[#FFFFFF] text-[16px]">Khóa học A2 nâng cao</p>
                     </div>
 
-                </div>
-                <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
-                    <img class="w-full h-[368px] object-cover " src="images/teacher.jpg" alt="">
-                    <div class="absolute w-full bottom-0 items-center text-center p-4 bg-gradient-to-b from-[#00000000] to-[#000000]">
-                        <p class="text-[#FFFFFF] uppercase text-[24px]">Trung học</p>
-                        <p class="text-[#FFFFFF] text-[16px]">Khóa học A2 nâng cao</p>
-                    </div>
-
-                </div>
+                </div> --}}
             </div>
 
 

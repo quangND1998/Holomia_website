@@ -39,6 +39,13 @@ Route::get('/', function () {
 });
 
 Route::get('homepage', [LandingPageController::class, 'homepage']);
+Route::get('about_cammbridge', [LandingPageController::class, 'about_cammbridge']);
+Route::get('teacher_cammbridge', [LandingPageController::class, 'teacher_cammbridge']);
+Route::get('student', [LandingPageController::class, 'student']);
+Route::get('activity', [LandingPageController::class, 'activity']);
+Route::get('course', [LandingPageController::class, 'course']);
+
+
 Route::get('/{name}.html', [ProjectController::class, 'preview_project']);
 Route::post('/item/save/{id}', [ProjectController::class, 'saveView']);
 Route::get('index', [LandingPageController::class, 'index']);
@@ -224,16 +231,16 @@ Route::middleware(['auth', 'verified'])->group(
                     '/priority',
                     [ItemController::class, 'priorityItem']
                 )->name('item.priority');
-    
-           
+
+
             });
-     
+
             Route::post(
                 '/priority',
                 [ProjectController::class, 'priorityProject']
             )->name('project.priority');
         });
-        
+
 
         Route::group(['prefix' => 'admin/category_holo360'], function () {
             Route::get('', [CategoryHolo360Controller::class, 'index'])->name('category_holo360.index');
