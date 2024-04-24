@@ -151,6 +151,44 @@ $('.slider_course').slick({
          }
        ]
   });
+  $('.slider_introduce').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: false,
+    autoplaySpeed: 2500,
+    infinite: true,
+    dots: true,
+    responsive: [
+         {
+           breakpoint: 1025,
+           settings: {
+             arrows: false,
+           }
+         },
+         {
+           breakpoint: 801,
+           settings: {
+             slidesToShow: 3,
+             arrows: false,
+           }
+         },
+         {
+           breakpoint: 600,
+           settings: {
+             slidesToShow: 2,
+             arrows: false,
+           }
+         },
+         {
+           breakpoint: 481,
+           settings: {
+             slidesToShow: 2,
+             arrows: false,
+           }
+         }
+       ]
+  });
  $('.slider_business').slick({
     slidesPerRow: 3,
     rows: 2,
@@ -470,3 +508,27 @@ $('.slider_course').slick({
    focusOnSelect: true,
    autoplay:true
  });
+
+ $(document).ready(function() {
+  var slider = $('.slider_auto');
+
+  slider.slick({
+    // Các tùy chọn khác của Slick Slider
+    // ...
+    slidesToShow: getSlidesToShow(), // Số lượng hiển thị được xác định tự động
+  });
+
+  // Hàm tính số lượng hiển thị tự động dựa trên số lượng slide
+  function getSlidesToShow() {
+    var slideCount = slider.find('.slick-slide').length;
+    console.log('slideCount',slideCount);
+
+    if (slideCount >= 3) {
+      return 3; // Nếu có 3 slide trở lên, chia thành 3 phần
+    } else if (slideCount === 2) {
+      return 2; // Nếu có 2 slide, chia đôi
+    } else {
+      return 1; // Mặc định: chỉ có 1 slide, hiển thị full width
+    }
+  }
+});

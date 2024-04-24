@@ -12,7 +12,7 @@
 
                 @foreach ($section->contents as $content)
                     <div
-                        class="bg-[#FCF5F6] min-h-[400px] border border-[#BF344D] transition ease-in-out  rounded-[10px] mx-2 hover:-translate-y-1 hover:scale-110  duration-300 p-[32px]">
+                        class="bg-[#FCF5F6] min-h-[500px] border border-[#BF344D] transition ease-in-out  rounded-[10px] mx-2 hover:-translate-y-1 hover:scale-110  duration-300 p-[32px]">
                         <div class="rounded-[20px] bg-[#FFFFFF] px-[32px] py-[20px] relative">
                             <img class="w-[19px] absolute left-0 top-0" src="/images/dau_left.png" alt="">
                             <div class="">

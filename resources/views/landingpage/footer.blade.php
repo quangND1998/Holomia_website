@@ -1,6 +1,6 @@
-    <footer class="bg-[#101F73] px-6">
+    <footer class="bg-[#101F73] px-[80px]">
 
-        <div class="w-full flex justify-between ">
+        <div class="w-full flex justify-between pt-[48px]">
             <div class="bg-white m-3">
                 <img class="h-[80px]" src="images/logo.png" alt="">
             </div>
@@ -22,27 +22,67 @@
                 </form>
             </div>
         </div>
-        <div class="w-full flex m-2">
+        <div class="w-full flex mx-2  my-[40px] py-[60px] border-t-[1px] border-b-[1px]">
             <div class="w-1/4">
-                <p class="text-[#FFFFFF] text-[24px]">Cambridge IEC English Centre</p>
-                <p class="text-[#FFFFFF] text-[16px]">CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội </p>
+                <p class="text-[#FFFFFF] text-[24px] my-3">Cambridge IEC Engpsh Centre</p>
+                <p class="text-[#FFFFFF] text-[16px] my-2">CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội </p>
                 <p class="text-[#FFFFFF] text-[16px]">CS2: 195 Đội Cấn, Ba Đình, Hà Nội </p>
             </div>
             <div class="w-1/4">
-                <p class="text-[#FFFFFF] text-[24px]">Cambridge IEC English Centre</p>
-                <p class="text-[#FFFFFF] text-[16px]">CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội </p>
-                <p class="text-[#FFFFFF] text-[16px]">CS2: 195 Đội Cấn, Ba Đình, Hà Nội </p>
+                <a href="about_cammbridge">
+                    <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('aboutus') }}</p>
+                </a>
+                <a href="about_cammbridge">
+                <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('gioithieu') }} </p>
+                </a>
+                <a href="teacher_cammbridge">
+                    <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('teacher') }}</p>
+                </a>
+                <a href="student">
+                <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('excellent_student') }} </p>
+                </a>
+                <a href="activity">
+                <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('experiential_activities') }}</p>
+                </a>
+               
             </div>
             <div class="w-1/4">
-                <p class="text-[#FFFFFF] text-[24px]">Cambridge IEC English Centre</p>
-                <p class="text-[#FFFFFF] text-[16px]">CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội </p>
-                <p class="text-[#FFFFFF] text-[16px]">CS2: 195 Đội Cấn, Ba Đình, Hà Nội </p>
+                <a href="about_cammbridge">
+                    <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('course') }}</p>
+                </a>
+                <a href="about_cammbridge">
+                <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('mamnon') }} </p>
+                </a>
+                <a href="teacher_cammbridge">
+                    <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('tieuhoc') }}</p>
+                </a>
+                <a href="student">
+                <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('trunghoc') }} </p>
+                </a>
+                <a href="activity">
+                <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('ielts') }}</p>
+                </a>
+               
             </div>
             <div class="w-1/4">
-                <p class="text-[#FFFFFF] text-[24px]">Cambridge IEC English Centre</p>
-                <p class="text-[#FFFFFF] text-[16px]">CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội </p>
-                <p class="text-[#FFFFFF] text-[16px]">CS2: 195 Đội Cấn, Ba Đình, Hà Nội </p>
+                <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('social_network') }}</p>
+                
+                <div class="icon flex">
+                    <a href="about_cammbridge" class="mr-[16px]">
+                        <img class="h-[24px] w-[24px]" src="images/facebook.png">
+                    </a>
+                    <a href="about_cammbridge" class="mr-[16px]">
+                        <img class="h-[24px] w-[24px]" src="images/tiktok.png">
+                    </a>
+                    <a href="about_cammbridge" class="mr-[16px]">
+                        <img class="h-[24px] w-[24px]" src="images/youtube.png">
+                    </a>
+                </div>
+               
             </div>
+        </div>
+        <div class="w-full pb-[40px] ">
+            <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('copyright') }}</p>
         </div>
     </footer>
 
