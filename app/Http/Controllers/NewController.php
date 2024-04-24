@@ -66,6 +66,7 @@ class NewController extends InertiaController
     }
     public function store(PostNewsRequest $request)
     {
+        // dd($request);
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
             $destinationpath = 'images/tintuc/';
             if (!file_exists($destinationpath)) {
@@ -75,6 +76,7 @@ class NewController extends InertiaController
             $tintuc = News::create([
                 'title' => 'title' . $name,
                 'slug' => 'slug' . $name,
+                'content_slug' => 'content_slug' .$name,
                 'content' => 'content' . $name,
                 'image' => $request->hasFile('image') ? $this->image($request->file('image'), $destinationpath) : null,
                 'category_id' => $request->category_id,
@@ -84,6 +86,7 @@ class NewController extends InertiaController
             $tags = Tag::find($request->tags);
             $tintuc->tags()->sync($tags);
             $this->CreateLanguage($tintuc->title, $request->title_en, $request->title_vn, $tintuc);
+            $this->CreateLanguage($tintuc->content_slug, $request->content_slug_en, $request->content_slug_vn, $tintuc);
             $this->CreateLanguage($tintuc->content, $request->content_en, $request->content_vn, $tintuc);
             $this->CreateLanguage($tintuc->slug, Str::slug($request->title_en), Str::slug($request->title_vn), $tintuc);
             return redirect('/admin/blogs/tintuc')->with('success', 'Create successfully');
@@ -94,6 +97,7 @@ class NewController extends InertiaController
 
     public function update(Request $request, $id)
     {
+        
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
             $tintuc = News::with('languages')->findOrFail($id);
             $language_title = Languages::where('key', $tintuc->title)->first();
@@ -139,6 +143,7 @@ class NewController extends InertiaController
             $tintuc->tags()->sync($tags);
             $tintuc->save();
             $this->updateLanguage($tintuc->title, $request->title_en, $request->title_vn, $tintuc);
+            $this->updateLanguage($tintuc->content_slug, $request->content_slug_en, $request->content_slug_vn, $tintuc);
             $this->updateLanguage($tintuc->slug, Str::slug($request->title_en), Str::slug($request->title_vn), $tintuc);
             $this->updateLanguage($tintuc->content, $request->content_en, $request->content_vn, $tintuc);
 

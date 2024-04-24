@@ -131,6 +131,34 @@
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
+                >{{__('content_slug')}} {{__('en')}}</label>
+                <div class="mt-1">
+                  <ckeditor
+                    v-model="form.content_slug_en"
+                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                    placeholder="Description VietNamese"
+                  ></ckeditor>
+                </div>
+                <div class="text-red-500" v-if="errors.content_slug_en">{{ errors.content_slug_en }}</div>
+              </div>
+              <div class="col-span-6 sm:col-span-2">
+                <label
+                  for="street_address"
+                  class="block text-sm font-medium text-gray-700"
+                >content_slug {{__('vn')}}</label>
+                <div class="mt-1">
+                  <ckeditor
+                    v-model="form.content_slug_vn"
+                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                    placeholder="Description VietNamese"
+                  ></ckeditor>
+                </div>
+                <div class="text-red-500" v-if="errors.content_slug_vn">{{ errors.content_slug_vn }}</div>
+              </div>
+              <div class="col-span-6 sm:col-span-2">
+                <label
+                  for="street_address"
+                  class="block text-sm font-medium text-gray-700"
                 >{{__('content')}} {{__('en')}}</label>
                 <div class="mt-1">
                   <ckeditor
@@ -211,6 +239,9 @@ export default {
         content: null,
         content_en: null,
         content_vn: null,
+        content_slug: null,
+        content_slug_vn: null,
+        content_slug_en: null,
         image: null,
         outstanding: 0,
         tags: this.getData(),
@@ -233,6 +264,14 @@ export default {
     );
     this.form.content_en = result2 == undefined ? null : result2.en;
     this.form.content_vn = result2 == undefined ? null : result2.vn;
+
+    const result3 = this.new.languages.find(
+      element => element.key == this.new.content_slug
+    );
+    // console.log(result3);
+    this.form.content_slug_en = result3 == undefined ? null : result3.en;
+    this.form.content_slug_vn = result3 == undefined ? null : result3.vn;
+
     this.form.outstanding = this.new.outstanding;
     this.form.category_id = this.new.category_id;
   },
@@ -277,6 +316,15 @@ export default {
       );
       this.form.content_en = result2 == undefined ? null : result2.en;
       this.form.content_vn = result2 == undefined ? null : result2.en;
+
+      
+      const result3 = this.new.languages.find(
+        element => element.key == this.new.content_slug
+      );
+      this.form.content_slug_en = result3 == undefined ? null : result3.en;
+      this.form.content_slug_vn = result3 == undefined ? null : result3.vn;
+
+
       this.form.outstanding = this.new.outstanding;
       this.form.category_id = this.new.category_id;
       let object = Object.assign({}, this.new.tags);

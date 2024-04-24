@@ -26,91 +26,16 @@
                     </div>
                 </div>
                 @endforeach
-                {{-- <div class="rounded-[10px] my-6" >
-                    <img class="rounded-t-[10px] w-full" src="/images/2.jpg" alt="">
-                    <div class="bg-[#A60303] relative p-3 rounded-b-[10px]">
-                        <p class="text-white uppercase text-[24px]">Nguyễn Vy Khanh</p>
-                        <p class="text-white text-[16px]">Lớp 11, THPT...</p>
-                        <div
-                            class="absolute top-[-45px] right-4 lg:scale-[1] md:right-0 md:scale-[0.7]  sm:scale-[0.6]">
-                            <img class="w-[100px] h-[90px]" src="/images/star.png" alt="">
-                            <p
-                                class="text-[#E5920E] text-[14px] absolute top-[25px] right-[35px] w-[30px] text-center items-center justify-center font-semibold">
-                                8.0 IELTS</p>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="rounded-[10px] my-6" >
-                    <img class="rounded-t-[10px] w-full" src="/images/2.jpg" alt="">
-                    <div class="bg-[#A60303] relative p-3 rounded-b-[10px]">
-                        <p class="text-white uppercase text-[24px]">Nguyễn Vy Khanh</p>
-                        <p class="text-white text-[16px]">Lớp 11, THPT...</p>
-                        <div
-                            class="absolute top-[-45px] right-4 lg:scale-[1] md:right-0 md:scale-[0.7]  sm:scale-[0.6]">
-                            <img class="w-[100px] h-[90px]" src="/images/star.png" alt="">
-                            <p
-                                class="text-[#E5920E] text-[14px] absolute top-[25px] right-[35px] w-[30px] text-center items-center justify-center font-semibold">
-                                8.0 IELTS</p>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="rounded-[10px] my-6" >
-                    <img class="rounded-t-[10px] w-full" src="/images/2.jpg" alt="">
-                    <div class="bg-[#A60303] relative p-3 rounded-b-[10px]">
-                        <p class="text-white uppercase text-[24px]">Nguyễn Vy Khanh</p>
-                        <p class="text-white text-[16px]">Lớp 11, THPT...</p>
-                        <div
-                            class="absolute top-[-45px] right-4 lg:scale-[1] md:right-0 md:scale-[0.7]  sm:scale-[0.6]">
-                            <img class="w-[100px] h-[90px]" src="/images/star.png" alt="">
-                            <p
-                                class="text-[#E5920E] text-[14px] absolute top-[25px] right-[35px] w-[30px] text-center items-center justify-center font-semibold">
-
-                                8.0 IELTS</p>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="rounded-[10px] my-6" >
-                    <img class="rounded-t-[10px] w-full" src="/images/2.jpg" alt="">
-                    <div class="bg-[#A60303] relative p-3 rounded-b-[10px]">
-                        <p class="text-white uppercase text-[24px]">Nguyễn Vy Khanh</p>
-                        <p class="text-white text-[16px]">Lớp 11, THPT...</p>
-                        <div
-                            class="absolute top-[-45px] right-4 lg:scale-[1] md:right-0 md:scale-[0.7]  sm:scale-[0.6]">
-                            <img class="w-[100px] h-[90px]" src="/images/star.png" alt="">
-                            <p
-                                class="text-[#E5920E] text-[14px] absolute top-[25px] right-[35px] w-[30px] text-center items-center justify-center font-semibold">
-                                8.0 IELTS</p>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="rounded-[10px] my-6" >
-                    <img class="rounded-t-[10px] w-full" src="/images/2.jpg" alt="">
-                    <div class="bg-[#A60303] relative p-3 rounded-b-[10px]">
-                        <p class="text-white uppercase text-[24px]">Nguyễn Vy Khanh</p>
-                        <p class="text-white text-[16px]">Lớp 11, THPT...</p>
-                        <div
-                            class="absolute top-[-45px] right-4 lg:scale-[1] md:right-0 md:scale-[0.7]  sm:scale-[0.6]">
-                            <img class="w-[100px] h-[90px]" src="/images/star.png" alt="">
-                            <p
-                                class="text-[#E5920E] text-[14px] absolute top-[25px] right-[35px] w-[30px] text-center items-center justify-center font-semibold">
-                                8.0 IELTS</p>
-                        </div>
-
-                    </div>
-                </div> --}}
+                
             </div>
 
         </div>
-        <div class="w-full flex justify-center items-center ">
+        {{-- <div class="w-full flex justify-center items-center ">
             <button type="submit"
                 class="text-white  flex justify-center items-center  bg-[#A60303] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
                                 __('xemthemkhoahoc') }}
             </button>
-        </div>
+        </div> --}}
 
     </div>
 </div>

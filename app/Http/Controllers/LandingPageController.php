@@ -109,11 +109,38 @@ class LandingPageController extends Controller
             $q->where('active', 1);
         }])->where('title', 'about_cammbridge')->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
-
-        $last_new  = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(2)->get();
         $courses = Course::all();
-        $teachers = Persons::where('type','teacher')->take(10)->get();
-        $students = Persons::where('type','student')->take(6)->get();
-        return view('page.about_cammbridge', compact('page', 'pages', 'last_new','courses','teachers','students'));
+
+        return view('page.about_cammbridge', compact('page', 'pages', 'last_new','courses'));
+    }
+    public function teacher_cammbridge(){
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
+        }])->where('title', 'teacher_cammbridge')->first();
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        $courses = Course::all();
+        $teachers = Persons::where('type','teacher')->paginate(8);
+        return view('page.teacher_cammbridge', compact('page', 'pages','courses','teachers'));
+    }
+    public function student_cammbridge(){
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
+        }])->where('title', 'student')->first();
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        $courses = Course::all();
+        $students = Persons::where('type','student')->paginate(8);
+        return view('page.student_cammbridge', compact('page', 'pages','courses','students'));
+    }
+    public function activity()
+    {
+        $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
+        }])->where('title', 'activity')->first();
+
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        $activity = News::whereHas('category', function ($q){
+            $q->where('name','activity');
+        })->paginate(8);
+        return view('page.student_cammbridge', compact('page', 'pages','activity'));
     }
 }

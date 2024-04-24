@@ -20,7 +20,7 @@
                             </a>
                     </div>
                     @foreach ($section->contents as $content)
-                        <div class="w-1/2">
+                        <div class="w-1/2 flex justify-center items-center">
                             @if (count($content->images) > 0)
                                 <img class="h-[400px] w-[600px] object-cover rounded-[20px]"
                                     src="{{ $content->images[0]->image }}" alt="">

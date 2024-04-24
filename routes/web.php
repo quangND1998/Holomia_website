@@ -41,7 +41,7 @@ Route::get('/', function () {
 Route::get('homepage', [LandingPageController::class, 'homepage']);
 Route::get('about_cammbridge', [LandingPageController::class, 'about_cammbridge']);
 Route::get('teacher_cammbridge', [LandingPageController::class, 'teacher_cammbridge']);
-Route::get('student', [LandingPageController::class, 'student']);
+Route::get('student', [LandingPageController::class, 'student_cammbridge']);
 Route::get('activity', [LandingPageController::class, 'activity']);
 Route::get('course', [LandingPageController::class, 'course']);
 

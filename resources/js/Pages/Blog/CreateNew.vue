@@ -1,7 +1,7 @@
 <template>
   <div class="mt-10 sm:mt-0 overflow-auto">
      
-    <h1 class="mt-2"><i class="fa fa-newspaper-o"></i></i>   {{__('create')}} {{__('news')}}</h1>
+    <h1 class="mt-2"><i class="fa fa-newspaper-o"></i> {{__('create')}} {{__('news')}}</h1>
 
 
     <div class="md:mt-0 md:col-span-3 mt-8">
@@ -124,6 +124,34 @@
                 </div>
                 <div class="text-red-500" v-if="errors.outstanding">{{ errors.outstanding }}</div>
               </div>
+              <div class="col-span-6 sm:col-span-2" >
+                <label
+                  for="street_address"
+                  class="block text-sm font-medium text-gray-700"
+                >{{__('content_slug')}} {{__('en')}}</label>
+                <div class="mt-1">
+                   <ckeditor
+                      v-model="form.content_slug_en"
+                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                    placeholder="Description VietNamese"
+                  ></ckeditor>
+                </div>
+                <div class="text-red-500" v-if="errors.content_slug_en">{{ errors.content_slug_en }}</div>
+              </div>
+              <div class="col-span-6 sm:col-span-2" >
+                <label
+                  for="street_address"
+                  class="block text-sm font-medium text-gray-700"
+                >{{__('content_slug')}} {{__('vn')}}</label>
+                <div class="mt-1">
+                  <ckeditor
+                    v-model="form.content_slug_vn"
+                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                    placeholder="Description VietNamese"
+                  ></ckeditor>
+                </div>
+                <div class="text-red-500" v-if="errors.content_slug_vn">{{ errors.content_slug_vn }}</div>
+              </div>
 
               <div class="col-span-6 sm:col-span-2" >
                 <label
@@ -214,6 +242,8 @@ export default {
         title_vn: null,
         content_en: null,
         content_vn: null,
+        content_slug_vn: null,
+        content_slug_en: null,
         image: null,
         outstanding:0,
         tags:null,
@@ -247,6 +277,8 @@ export default {
         title_vn: null,
         content_en: null,
         content_vn: null,
+        content_slug_vn: null,
+        content_slug_en: null,
         image: null,
         outstanding:0,
         tags:null,

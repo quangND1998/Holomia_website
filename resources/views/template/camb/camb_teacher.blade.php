@@ -20,47 +20,6 @@
 
                 </div>
                 @endforeach
-
-                {{-- <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
-                    <img class="w-full h-[368px] object-cover " src="images/teacher.jpg" alt="">
-                    <div class="absolute w-full bottom-0 items-center text-center p-4 bg-gradient-to-b from-[#00000000] to-[#000000]">
-                        <p class="text-[#FFFFFF] uppercase text-[24px]">Trung học</p>
-                        <p class="text-[#FFFFFF] text-[16px]">Khóa học A2 nâng cao</p>
-                    </div>
-
-                </div>
-                <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
-                    <img class="w-full h-[368px] object-cover " src="images/teacher.jpg" alt="">
-                    <div class="absolute w-full bottom-0 items-center text-center p-4 bg-gradient-to-b from-[#00000000] to-[#000000]">
-                        <p class="text-[#FFFFFF] uppercase text-[24px]">Trung học</p>
-                        <p class="text-[#FFFFFF] text-[16px]">Khóa học A2 nâng cao</p>
-                    </div>
-
-                </div>
-                <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
-                    <img class="w-full h-[368px] object-cover " src="images/teacher.jpg" alt="">
-                    <div class="absolute w-full bottom-0 items-center text-center p-4 bg-gradient-to-b from-[#00000000] to-[#000000]">
-                        <p class="text-[#FFFFFF] uppercase text-[24px]">Trung học</p>
-                        <p class="text-[#FFFFFF] text-[16px]">Khóa học A2 nâng cao</p>
-                    </div>
-
-                </div>
-                <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
-                    <img class="w-full h-[368px] object-cover " src="images/teacher.jpg" alt="">
-                    <div class="absolute w-full bottom-0 items-center text-center p-4 bg-gradient-to-b from-[#00000000] to-[#000000]">
-                        <p class="text-[#FFFFFF] uppercase text-[24px]">Trung học</p>
-                        <p class="text-[#FFFFFF] text-[16px]">Khóa học A2 nâng cao</p>
-                    </div>
-
-                </div>
-                <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
-                    <img class="w-full h-[368px] object-cover " src="images/teacher.jpg" alt="">
-                    <div class="absolute w-full bottom-0 items-center text-center p-4 bg-gradient-to-b from-[#00000000] to-[#000000]">
-                        <p class="text-[#FFFFFF] uppercase text-[24px]">Trung học</p>
-                        <p class="text-[#FFFFFF] text-[16px]">Khóa học A2 nâng cao</p>
-                    </div>
-
-                </div> --}}
             </div>
 
 
