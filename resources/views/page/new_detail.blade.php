@@ -10,7 +10,7 @@
         <div class="w-full flex">
             @foreach ($tintuc_lienquan as $tintuc)
                 <a class="w-1/4 pr-3" href="{{ route('new.detail', __($tintuc->slug)) }}">
-                    <div class="border rounded-[20px] h-[400px]">
+                    <div class="border rounded-[20px] h-[420px]">
                         <img src="{{ $tintuc->image }}" class="h-[220px] w-full object-cover " alt="">
                         <div class="p-3">
                             <h5 class="my-3 text-[#101828] text-[24px] font-semibold">{{ __($tintuc->title) }}</h5>

@@ -7,15 +7,18 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Controllers\Traits\FileUploadTrait;
 use App\Http\Controllers\Traits\LanguageTrait;
+use App\Models\CategoryCourese;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 class CourseController extends Controller
 {
     use FileUploadTrait,LanguageTrait;
     public function index()
     {
-        $courses = Course::with('languages')->paginate(10);
+        $courses = Course::with('languages','category')->paginate(10);
+        $category_courses = CategoryCourese::get();
         // return $courses;
-        return Inertia::render('Course', compact('courses'));
+        return Inertia::render('Course', compact('courses','category_courses'));
     }
     public function save(Request $request)
     {
@@ -34,6 +37,7 @@ class CourseController extends Controller
             $name = time();
             $course = Course::create([
                 'title' => 'title' . $name,
+                'slug' => 'slug' . $name,
                 'sub_title' => 'sub_title' . $name,
                 'info' => 'info' . $name,
                 'roadmap' => 'roadmap' . $name,
@@ -41,7 +45,8 @@ class CourseController extends Controller
                 'image' => $request->hasFile('image') ? $this->image($request->file('image'), $destinationpath) : null,
                 'time' => $request->time,
                 'number_student' => $request->number_student,
-                'price' => $request->price
+                'price' => $request->price,
+                'category_id' => $request->category_id,
 
             ]);
             $this->CreateLanguage($course->title, $request->title_en, $request->title_vn, $course);
@@ -49,7 +54,7 @@ class CourseController extends Controller
             $this->CreateLanguage($course->info, $request->info_en, $request->info_vn, $course);
             $this->CreateLanguage($course->roadmap, $request->roadmap_en, $request->roadmap_vn, $course);
             $this->CreateLanguage($course->open_schedule, $request->open_schedule_en, $request->open_schedule_vn, $course);
-
+            $this->CreateLanguage($course->slug, Str::slug($request->title_en), Str::slug($request->title_vn), $course);
             $course->save();
 
         return back()->with('success', 'Create successfully');
@@ -68,9 +73,11 @@ class CourseController extends Controller
                 'image' =>  $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $destinationpath, $course->image) : $course->image,
                 'time' => $request->time,
                 'number_student' => $request->number_student,
-                'price' => $request->price
+                'price' => $request->price,
+                'category_id' => $request->category_id,
 
             ]);
+            $this->updateLanguage($course->slug, Str::slug($request->title_en), Str::slug($request->title_vn), $course);
             $this->updateLanguage($course->title, $request->title_en, $request->title_vn, $course);
             $this->updateLanguage($course->sub_title, $request->sub_title_en, $request->sub_title_vn, $course);
             $this->updateLanguage($course->info, $request->info_en, $request->info_vn, $course);

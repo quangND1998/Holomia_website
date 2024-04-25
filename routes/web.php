@@ -11,6 +11,7 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\CategoryContentController;
+use App\Http\Controllers\CategoryCourseController;
 use App\Http\Controllers\CategoryHolo360Controller;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
@@ -39,11 +40,12 @@ Route::get('/', function () {
 });
 
 Route::get('homepage', [LandingPageController::class, 'homepage']);
-Route::get('about_cammbridge', [LandingPageController::class, 'about_cammbridge']);
-Route::get('teacher_cammbridge', [LandingPageController::class, 'teacher_cammbridge']);
-Route::get('student', [LandingPageController::class, 'student_cammbridge']);
-Route::get('activity', [LandingPageController::class, 'activity']);
-Route::get('course', [LandingPageController::class, 'course']);
+Route::get('about/about_cammbridge', [LandingPageController::class, 'about_cammbridge']);
+Route::get('about/teacher_cammbridge', [LandingPageController::class, 'teacher_cammbridge']);
+Route::get('about/student', [LandingPageController::class, 'student_cammbridge']);
+Route::get('about/activity', [LandingPageController::class, 'activity']);
+Route::get('list_course', [LandingPageController::class, 'course']);
+Route::get('list_course/{name}', [LandingPageController::class, 'course_detail']);
 
 
 Route::get('/{name}.html', [ProjectController::class, 'preview_project']);
@@ -91,6 +93,12 @@ Route::middleware(['auth', 'verified'])->group(
             Route::post('save', [CourseController::class, 'save'])->name('course.save');
             Route::put('update/{id}', [CourseController::class, 'update'])->name('course.update');
             Route::delete('delete/{id}', [CourseController::class, 'delete'])->name('course.delete');
+        });
+        Route::group(['prefix' => 'category_course'], function () {
+            Route::get('', [CategoryCourseController::class, 'index'])->name('category_course.index');
+            Route::post('', [CategoryCourseController::class, 'store'])->name('category_course.store');
+            Route::put('update/{id}', [CategoryCourseController::class, 'update'])->name('category_course.update');
+            Route::delete('delete/{id}', [CategoryCourseController::class, 'delete'])->name('category_course.delete');
         });
         Route::group(['prefix' => 'person'], function () {
             Route::get('', [PersonController::class, 'index'])->name('person.index');

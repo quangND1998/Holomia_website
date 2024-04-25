@@ -134,7 +134,7 @@
           </Link>
            <Link   :class="[$page.component === 'Blog/Tintuc' ? 'opacity-75 text-blue-300 bg-coolGray-900' : '']"  :href="route('tintuc.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="new" class="mr-1 text-blueGray-300 text-base"></icon>
-              News
+              News & Activity
           </Link>
           <Link   :class="[$page.component === 'settings' ? 'opacity-75 text-blue-300 bg-coolGray-900' : '']"  :href="route('setting.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="setting" class="mr-1 text-blueGray-300 text-base"></icon>

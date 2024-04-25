@@ -52,6 +52,15 @@
     <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .crop-content {
+        max-width: 120px;
+        overflow-x: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+    </style>
 </head>
 
 <body>
@@ -111,12 +120,12 @@
                                     class="flex font-roboto flex-col font-semibold p-4 md:p-0 mt-4 text-[#21272A] border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
                                     <li>
                                         <a href="#"
-                                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
-                                            aria-current="page">{{ __('Home') }}</a>
+                                            class="block py-2 px-3  rounded md:bg-transparent hover:text-blue-700  md:p-0  {{ Request::path() === 'index' ? 'text-blue-700' : 'text-[#101828]'  }}"
+                                            aria-current="page">{{ __('nav_home') }}</a>
                                     </li>
                                     <li>
                                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                            class="flex items-center justify-between font-semibold py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
+                                            class="flex items-center justify-between font-semibold py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  {{ Request::is('about/*') == 1 ? 'text-blue-700' : 'text-[#101828]'  }}">
                                             {{ __('introduce') }}
                                             <svg class="w-2.5 h-2.5 ms-2.5 mx-2" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -126,25 +135,25 @@
                                         </button>
                                         <!-- Dropdown menu -->
                                         <div id="dropdownNavbar"
-                                            class="z-10 hidden font-bold bg-[#D9DFE8] divide-y divide-gray-100 rounded-lg shadow w-54 justify-start text-left">
-                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                            class="z-10 hidden font-bold bg-white divide-y divide-gray-100 rounded-lg shadow w-54 justify-start text-left">
+                                            <ul class="py-2 text-sm text-[#101828] dark:text-gray-400"
                                                 aria-labelledby="dropdownLargeButton">
                                                 <li>
-                                                    <a href="about_cammbridge"
+                                                    <a href="about/about_cammbridge"
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-60">{{ __('about') }}
                                                         {{ __('Cambridge IEC') }}</a>
                                                 </li>
                                                 <li>
-                                                    <a href="teacher_cammbridge"
+                                                    <a href="about/teacher_cammbridge"
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">{{ __('teacher') }}
                                                         {{ __('Cambridge IEC') }}</a>
                                                 </li>
                                                 <li>
-                                                    <a href="student"
+                                                    <a href="about/student"
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">{{ __('excellent_student') }}</a>
                                                 </li>
                                                 <li>
-                                                    <a href="activity"
+                                                    <a href="about/activity"
                                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">{{ __('experiential_activities') }}</a>
                                                 </li>
                                             </ul>
@@ -152,8 +161,10 @@
                                     </li>
                                     <li>
                                         <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
-                                            class="flex items-center justify-between font-semibold py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
-                                            {{ __('course') }}
+                                            class="flex items-center justify-between font-semibold py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto
+                                            {{ Request::is('list_course') == 1 ? 'text-blue-700' : 'text-[#101828]'  }}
+                                            ">
+                                            {{ __('nav_course') }}
                                             <svg class="w-2.5 h-2.5 ms-2.5 mx-2" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                                 <path stroke="currentColor" stroke-linecap="round"
@@ -162,24 +173,27 @@
                                         </button>
                                         <!-- Dropdown menu -->
                                         <div id="dropdownNavbar2"
-                                            class="z-10 hidden font-bold bg-[#D9DFE8] divide-y divide-gray-100 rounded-lg shadow w-54 justify-start text-left">
-                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                            class="z-10 hidden font-bold bg-white divide-y divide-gray-100 rounded-lg shadow w-54 justify-start text-left">
+                                            <ul class="py-2 text-sm text-[#101828] dark:text-gray-400"
                                                 aria-labelledby="dropdownLargeButton">
-                                                <li>
-                                                    <a href="course"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-60">{{ __('about') }}
-                                                        {{ __('Cambridge IEC') }}</a>
+                                                @foreach ($category_courses as $category)
+                                                <li class="w-[200px] {{ Request::get('category_name') == $category->slug ? 'text-white bg-[#101F73] rounded-[4px]' : 'border-r-[1px] border-[#101f7380]' }}">
+                                                    <a href="list_course?category_name={{$category->slug}}"
+                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-60">
+                                                        {{ __($category->slug) }}</a>
                                                 </li>
+                                                @endforeach
+
                                             </ul>
                                         </div>
                                     </li>
                                     <li>
                                         <a href="news"
-                                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white">{{ __('News') }}</a>
+                                            class="{{ Request::is('news') == 1 ? 'text-blue-700' : 'text-[#101828]'  }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white">{{ __('nav_news') }}</a>
                                     </li>
                                     <li>
                                         <a href="contact"
-                                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{ __('Contact') }}</a>
+                                            class="{{ Request::is('contact') == 1 ? 'text-blue-700' : 'text-[#101828]'  }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{ __('nav_contact') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -197,7 +211,7 @@
                                     </svg>
                                 </div>
                                 <input type="search" id="default-search"
-                                    class="pl-10 block w-[260px] p-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                                    class="pl-16 block w-[260px] p-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                                     placeholder="Tra cứu thông tin khóa học" required />
                                 <button type="submit"
                                     class="text-white ml-4 end-2.5 bottom-2.5 bg-[#AD0101] font-medium rounded-lg text-sm px-8 py-2 ">{{ __('search') }}</button>
@@ -211,6 +225,7 @@
     </header>
 
     @yield('content')
+    @include('landingpage.form')
     @include('landingpage.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
