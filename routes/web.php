@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdviseController;
 use App\Http\Controllers\CategoryNewController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LanguageController;
@@ -73,6 +74,7 @@ Route::get('holo360', [LandingPageController::class, 'holo360']);
 Route::get('/dashboard', function () {
     return Inertia::render('DashBoard');
 })->middleware(['auth'])->name('dashboard');
+Route::post('advise/store', [AdviseController::class, 'store'])->name('advise.store');
 
 Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
 Route::get('contact/success', [ContactController::class, 'success']);
@@ -88,11 +90,13 @@ Route::middleware(['auth', 'verified'])->group(
                 Route::post('priorityPage', [PageController::class, 'priorityPage'])->name('pages.priority');
             }
         );
+        
         Route::group(['prefix' => 'contacts'], function () {
             Route::get('', [ContactController::class, 'index'])->name('contact.index');
         });
-        Route::group(['prefix' => 'contacts'], function () {
-            Route::get('', [ContactController::class, 'index'])->name('contact.index');
+
+        Route::group(['prefix' => 'advises'], function () {
+            Route::get('', [AdviseController::class, 'index'])->name('advise.index');
         });
         Route::group(['prefix' => 'settings'], function () {
             Route::get('', [SettingController::class, 'index'])->name('setting.index');

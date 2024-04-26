@@ -178,6 +178,10 @@
             <icon name="contact" class="mr-1 text-blueGray-300 text-base"></icon>
               Contact
           </Link>
+            <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Advise' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('advise.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
+            <icon name="contact" class="mr-1 text-blueGray-300 text-base"></icon>
+              Register Advise
+          </Link>
               <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Project/Index' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('project.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="project" class="mr-1 text-blueGray-300 text-base"></icon>
               Project

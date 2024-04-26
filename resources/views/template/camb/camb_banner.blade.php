@@ -16,15 +16,15 @@
                         </p>
 
                         <div class="flex mt-10">
-                            <button type="submit"
+                            <a type="submit" href="#form_advise"
                                 class="text-white  flex justify-center items-center end-2.5 bottom-2.5 bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">{{
                                                 __('dangkytuvan') }}
                                     {{-- <i class="uil uil-arrow-right text-white mx-2 text-[14px]"></i> --}}
                                     <img class="mx-2 fill-white" src="images/Vector.svg" alt="">
-                            </button>
-                            <button type="submit"
+                            </a>
+                            <a type="submit" href="#form_advise"
                                 class="text-[#0F197A] ml-4 end-2.5 bottom-2.5 border border-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">{{
-                                                __('kiemtratrinhdo') }} </button>
+                                                __('kiemtratrinhdo') }} </a>
                         </div>
                         <div class="icon mt-20 flex">
                             <div class="flex mx-3">
