@@ -11,7 +11,7 @@
             <div class=" w-[80%] mx-auto">
 
                 @foreach ($activity as $content)
-                    <a href="new/{{ __($content->slug) }}">
+                    <a href="about/activity/{{ __($content->slug) }}">
                         <div class="w-full flex shadow-xl rounded-[20px] my-6">
                             {{-- <div class="w-1/3"> --}}
                                 @if ($content->image != null)

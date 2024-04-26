@@ -51,6 +51,24 @@ class LandingPageController extends Controller
         return view('page.contact', compact('page','category_courses' , 'pages'));
     }
 
+    public function news(){
+        $page = Page::with(['sections.contents.images','sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
+        }])->where('title', 'news')->first();
+
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        $category_courses = CategoryCourese::all();
+        $news_feature = News::whereHas('category', function ($q){
+            $q->where('name','tin tuc');
+        })->where('outstanding',1)->orderBy('created_at','desc')->paginate(3);
+
+
+        $news= News::whereHas('category', function ($q){
+            $q->where('name','tin tuc');
+        })->orderBy('created_at','desc')->paginate(10);
+
+        return view('page.default', compact('page', 'pages','news_feature','news','category_courses'));
+    }
 
     public function chitiet_tintuc(Request $request, $slug)
     {
@@ -60,13 +78,18 @@ class LandingPageController extends Controller
         $theloais = CategoryNew::withCount('news')->get();
         $category_courses = CategoryCourese::all();
 
+        $news_feature = News::whereHas('category', function ($q){
+            $q->where('name','tin tuc');
+        })->where('outstanding',1)->orderBy('created_at','desc')->paginate(3);
+
+
+
         $language = Languages::where('en', $slug)->orWhere('vn', $slug)->first();
         if ($language) {
             $tintuc = News::with('category', 'tags')->findOrFail($language->languageable->id);
-
             $tintuc_lienquan =  News::with('category', 'tags')->where('category_id', $tintuc->category->id)->where('title', '!=', $tintuc->title)->take(3)->get();
             if ($tintuc) {
-                return view('page.new_detail', compact('pages', 'category_courses' ,'tintuc', 'tintuc_lienquan', 'number_all', 'theloais', 'header'));
+                return view('page.new_detail', compact('pages', 'category_courses' ,'tintuc', 'tintuc_lienquan', 'news_feature','number_all', 'theloais', 'header'));
             }
         } else {
             return view('landingpage.not-found', compact('pages', 'header'));
@@ -155,7 +178,25 @@ class LandingPageController extends Controller
         })->paginate(8);
         return view('page.student_cammbridge', compact('page', 'pages','activity','category_courses'));
     }
+    public function activity_detail(Request $request,$slug){
+        $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
+        $pages = Page::get();
+        $number_all = News::count();
+        $theloais = CategoryNew::withCount('news')->get();
+        $category_courses = CategoryCourese::all();
 
+        $language = Languages::where('en', $slug)->orWhere('vn', $slug)->first();
+        if ($language) {
+            $tintuc = News::with('category', 'tags')->findOrFail($language->languageable->id);
+
+            $tintuc_lienquan =  News::with('category', 'tags')->where('category_id', $tintuc->category->id)->where('title', '!=', $tintuc->title)->take(3)->get();
+            if ($tintuc) {
+                return view('page.activity_detail', compact('pages', 'category_courses' ,'tintuc', 'tintuc_lienquan', 'number_all', 'theloais', 'header'));
+            }
+        } else {
+            return view('landingpage.not-found', compact('pages', 'header'));
+        }
+    }
     public function course(Request $request)
     {
         $page = Page::with(['sections.contents.images','sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
@@ -186,9 +227,56 @@ class LandingPageController extends Controller
         if ($language) {
             $course = Course::with('category')->findOrFail($language->languageable->id);
 
-            $course_lienquan =  Course::with('category')->where('category_id', $course->category->id)->where('title', '!=', $course->title)->take(3)->get();
+            $course_lienquan =  Course::with('category')->where('title', '!=', $course->title)->take(3)->get();
             if ($course) {
                 return view('page.course_detail', compact('pages', 'category_courses' ,'course', 'course_lienquan'));
+            }
+        } else {
+            return view('landingpage.not-found', compact('pages', 'header'));
+        }
+    }
+
+    public function study_abroad(){
+        $page = Page::with(['sections.contents.images','sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
+        }])->where('title', 'page_tuyensinhduhoc')->first();
+
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        $category_courses = CategoryCourese::all();
+        $news_feature = News::whereHas('category', function ($q){
+            $q->where('slug', 'du-hoc');
+        })->where('outstanding',1)->orderBy('created_at','desc')->paginate(3);
+
+
+        $activity = News::whereHas('category', function ($q){
+            $q->where('slug', 'du-hoc');
+        })->orderBy('created_at','desc')->paginate(10);
+
+        // dd($activity);
+
+        return view('page.default', compact('page', 'pages','news_feature','activity','category_courses'));
+    }
+
+    public function study_abroad_detail(Request $request, $slug)
+    {
+        $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
+        $pages = Page::get();
+        $number_all = News::count();
+        $theloais = CategoryNew::withCount('news')->get();
+        $category_courses = CategoryCourese::all();
+
+        $news_feature = News::whereHas('category', function ($q){
+            $q->where('slug', 'du-hoc');
+        })->where('outstanding',1)->orderBy('created_at','desc')->paginate(3);
+
+
+
+        $language = Languages::where('en', $slug)->orWhere('vn', $slug)->first();
+        if ($language) {
+            $tintuc = News::with('category', 'tags')->findOrFail($language->languageable->id);
+            $tintuc_lienquan =  News::with('category', 'tags')->where('category_id', $tintuc->category->id)->where('title', '!=', $tintuc->title)->take(3)->get();
+            if ($tintuc) {
+                return view('page.new_detail', compact('pages', 'category_courses' ,'tintuc', 'tintuc_lienquan', 'news_feature','number_all', 'theloais', 'header'));
             }
         } else {
             return view('landingpage.not-found', compact('pages', 'header'));

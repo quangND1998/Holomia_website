@@ -1,6 +1,6 @@
 <template>
   <div class="mt-10 sm:mt-0 overflow-auto">
-     
+
     <h1 class="mt-2"><i class="fa fa-newspaper-o"></i> {{__('create')}} {{__('news')}}</h1>
 
 
@@ -47,10 +47,10 @@
                 <div class="text-red-500" v-if="errors.image">{{ errors.image }}</div>
               </div>
           </div>
-           
+
 
             <div class="grid grid-cols-6 gap-6 mt-4">
-           
+
 
               <div class="col-span-6 sm:col-span-2" >
                 <label
@@ -116,7 +116,7 @@
                       />
                          <div class="ml-2 text-sm">
                         <span
-                         
+
                           for="helper-checkbox"
                           class="font-medium text-gray-900 dark:text-gray-300"
                         >Yes</span>
@@ -124,17 +124,19 @@
                 </div>
                 <div class="text-red-500" v-if="errors.outstanding">{{ errors.outstanding }}</div>
               </div>
-              <div class="col-span-6 sm:col-span-2" >
+
+            </div>
+            <div class="col-span-6 sm:col-span-2" >
                 <label
                   for="street_address"
                   class="block text-sm font-medium text-gray-700"
                 >{{__('content_slug')}} {{__('en')}}</label>
                 <div class="mt-1">
-                   <ckeditor
+                   <input type="text"
                       v-model="form.content_slug_en"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Description VietNamese"
-                  ></ckeditor>
+                  />
                 </div>
                 <div class="text-red-500" v-if="errors.content_slug_en">{{ errors.content_slug_en }}</div>
               </div>
@@ -144,11 +146,11 @@
                   class="block text-sm font-medium text-gray-700"
                 >{{__('content_slug')}} {{__('vn')}}</label>
                 <div class="mt-1">
-                  <ckeditor
+                  <input type="text"
                     v-model="form.content_slug_vn"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Description VietNamese"
-                  ></ckeditor>
+                  />
                 </div>
                 <div class="text-red-500" v-if="errors.content_slug_vn">{{ errors.content_slug_vn }}</div>
               </div>
@@ -183,22 +185,16 @@
                 </div>
                 <div class="text-red-500" v-if="errors.content_vn">{{ errors.content_vn }}</div>
               </div>
-
-          
-              
-            
-              
-            </div>
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-          
+
             <Link
-              
+
               :href="route('tintuc.index')"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             >Back</Link>
             <button
-            
+
               type="submit"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >Save</button>
@@ -253,7 +249,7 @@ export default {
     };
   },
   computed: {
-   
+
   },
 
   methods: {

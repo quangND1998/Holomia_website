@@ -44,8 +44,21 @@ Route::get('about/about_cammbridge', [LandingPageController::class, 'about_cammb
 Route::get('about/teacher_cammbridge', [LandingPageController::class, 'teacher_cammbridge']);
 Route::get('about/student', [LandingPageController::class, 'student_cammbridge']);
 Route::get('about/activity', [LandingPageController::class, 'activity']);
+Route::get('about/activity/{slug}', [LandingPageController::class, 'activity_detail']);
 Route::get('list_course', [LandingPageController::class, 'course']);
 Route::get('list_course/{name}', [LandingPageController::class, 'course_detail']);
+
+Route::get('news', [LandingPageController::class, 'news']);
+Route::get(
+    'new/{slug}',
+    [LandingPageController::class, 'chitiet_tintuc']
+)->name('new.detail');
+
+Route::get('study_abroad', [LandingPageController::class, 'study_abroad']);
+Route::get(
+    'study_abroad/{slug}',
+    [LandingPageController::class, 'study_abroad_detail']
+)->name('study_abroad.detail');
 
 
 Route::get('/{name}.html', [ProjectController::class, 'preview_project']);
@@ -56,10 +69,7 @@ Route::get('contact', [LandingPageController::class, 'contact']);
 Route::get('projects', [LandingPageController::class, 'project']);
 Route::get('holo360', [LandingPageController::class, 'holo360']);
 // Route::get('holo360/{type}', [LandingPageController::class, 'holo360']);
-Route::get(
-    'new/{slug}',
-    [LandingPageController::class, 'chitiet_tintuc']
-)->name('new.detail');
+
 Route::get('/dashboard', function () {
     return Inertia::render('DashBoard');
 })->middleware(['auth'])->name('dashboard');

@@ -2,7 +2,7 @@
   <div class="mt-10 sm:mt-0 overflow-auto">
     <h1 class="mt-2">
       <i class="fa fa-newspaper-o"></i>
-      {{__('update')}} {{__('news')}}
+      {{ __("update") }} {{ __("news") }}
     </h1>
 
     <div class="md:mt-0 md:col-span-3 mt-8">
@@ -11,7 +11,11 @@
           <div class="px-4 py-5 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-2">
-                <label for="country" class="block text-sm font-medium text-gray-700">Tags</label>
+                <label
+                  for="country"
+                  class="block text-sm font-medium text-gray-700"
+                  >Tags</label
+                >
                 <Multiselect
                   v-model="form.tags"
                   mode="tags"
@@ -25,10 +29,16 @@
                   class="multiselect-blue"
                 />
 
-                <div class="text-red-500" v-if="errors.tags">{{ errors.tags }}</div>
+                <div class="text-red-500" v-if="errors.tags">
+                  {{ errors.tags }}
+                </div>
               </div>
               <div class="col-span-6 sm:col-span-2">
-                <label for="country" class="block text-sm font-medium text-gray-700">Thể Loại</label>
+                <label
+                  for="country"
+                  class="block text-sm font-medium text-gray-700"
+                  >Thể Loại</label
+                >
                 <select
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   id="grid-state"
@@ -38,14 +48,22 @@
                     v-for="(category, index) in category_news"
                     :key="index"
                     :value="category.id"
-                  >{{ category.name }}</option>
+                  >
+                    {{ category.name }}
+                  </option>
                 </select>
-                <div class="text-red-500" v-if="errors.category_id">{{ errors.category_id }}</div>
+                <div class="text-red-500" v-if="errors.category_id">
+                  {{ errors.category_id }}
+                </div>
               </div>
               <div class="col-span-6 sm:col-span-2">
-                <label for="country" class="block text-sm font-medium text-gray-700">Image</label>
+                <label
+                  for="country"
+                  class="block text-sm font-medium text-gray-700"
+                  >Image</label
+                >
                 <input
-                  @input="form.image  = $event.target.files[0]"
+                  @input="form.image = $event.target.files[0]"
                   type="file"
                   name="email_address"
                   id="email_address"
@@ -54,7 +72,9 @@
                   accept=".png, .jpeg, .jpg"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
-                <div class="text-red-500" v-if="errors.image">{{ errors.image }}</div>
+                <div class="text-red-500" v-if="errors.image">
+                  {{ errors.image }}
+                </div>
               </div>
             </div>
 
@@ -63,7 +83,8 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >{{__('title')}} {{__('en')}}</label>
+                  >{{ __("title") }} {{ __("en") }}</label
+                >
                 <input
                   v-model="form.title_en"
                   type="text"
@@ -73,14 +94,17 @@
                   placeholder="Title English"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
-                <div class="text-red-500" v-if="errors.title_en">{{ errors.title_en }}</div>
+                <div class="text-red-500" v-if="errors.title_en">
+                  {{ errors.title_en }}
+                </div>
               </div>
 
               <div class="col-span-6 sm:col-span-2">
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >Tiêu Đề Tiếng Việt</label>
+                  >Tiêu Đề Tiếng Việt</label
+                >
                 <input
                   v-model="form.title_vn"
                   type="text"
@@ -90,10 +114,16 @@
                   autocomplete="email"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
-                <div class="text-red-500" v-if="errors.title_vn">{{ errors.title_vn }}</div>
+                <div class="text-red-500" v-if="errors.title_vn">
+                  {{ errors.title_vn }}
+                </div>
               </div>
               <div class="col-span-6 sm:col-span-2">
-                <label for="street_address" class="block text-sm font-medium text-gray-700">Nổi Bật</label>
+                <label
+                  for="street_address"
+                  class="block text-sm font-medium text-gray-700"
+                  >Nổi Bật</label
+                >
                 <div class="mt-1">
                   <input
                     type="radio"
@@ -108,7 +138,8 @@
                       value="0"
                       for="helper-checkbox"
                       class="font-medium text-gray-900 dark:text-gray-300"
-                    >Không</span>
+                      >Không</span
+                    >
                   </div>
                   <input
                     type="radio"
@@ -122,68 +153,85 @@
                     <span
                       for="helper-checkbox"
                       class="font-medium text-gray-900 dark:text-gray-300"
-                    >Có</span>
+                      >Có</span
+                    >
                   </div>
                 </div>
-                <div class="text-red-500" v-if="errors.outstanding">{{ errors.outstanding }}</div>
-              </div>
-              <div class="col-span-6 sm:col-span-2">
-                <label
-                  for="street_address"
-                  class="block text-sm font-medium text-gray-700"
-                >{{__('content_slug')}} {{__('en')}}</label>
-                <div class="mt-1">
-                  <ckeditor
-                    v-model="form.content_slug_en"
-                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
+                <div class="text-red-500" v-if="errors.outstanding">
+                  {{ errors.outstanding }}
                 </div>
-                <div class="text-red-500" v-if="errors.content_slug_en">{{ errors.content_slug_en }}</div>
               </div>
-              <div class="col-span-6 sm:col-span-2">
-                <label
-                  for="street_address"
-                  class="block text-sm font-medium text-gray-700"
-                >content_slug {{__('vn')}}</label>
-                <div class="mt-1">
-                  <ckeditor
-                    v-model="form.content_slug_vn"
-                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
-                </div>
-                <div class="text-red-500" v-if="errors.content_slug_vn">{{ errors.content_slug_vn }}</div>
+            </div>
+            <div class="my-2 col-span-6 sm:col-span-2">
+              <label
+                for="street_address"
+                class="block text-sm font-medium text-gray-700"
+                >{{ __("content_slug") }} {{ __("en") }}</label
+              >
+              <div class="mt-1">
+                <input
+                  type="text"
+                  v-model="form.content_slug_en"
+                  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                  placeholder="Description VietNamese"
+                />
               </div>
-              <div class="col-span-6 sm:col-span-2">
-                <label
-                  for="street_address"
-                  class="block text-sm font-medium text-gray-700"
-                >{{__('content')}} {{__('en')}}</label>
-                <div class="mt-1">
-                  <ckeditor
-                    v-model="form.content_en"
-                    :config="editorConfig"
-                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
-                </div>
-                <div class="text-red-500" v-if="errors.content_en">{{ errors.content_en }}</div>
+              <div class="text-red-500" v-if="errors.content_slug_en">
+                {{ errors.content_slug_en }}
               </div>
-              <div class="col-span-6 sm:col-span-2">
-                <label
-                  for="street_address"
-                  class="block text-sm font-medium text-gray-700"
-                >Content {{__('vn')}}</label>
-                <div class="mt-1">
-                  <ckeditor
-                    v-model="form.content_vn"
-                    :config="editorConfig2"
-                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
-                </div>
-                <div class="text-red-500" v-if="errors.content_vn">{{ errors.content_vn }}</div>
+            </div>
+            <div class="my-2 col-span-6 sm:col-span-2">
+              <label
+                for="street_address"
+                class="block text-sm font-medium text-gray-700"
+                >content_slug {{ __("vn") }}</label
+              >
+              <div class="mt-1">
+                <input
+                  type="text"
+                  v-model="form.content_slug_vn"
+                  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                  placeholder="Description VietNamese"
+                />
+              </div>
+              <div class="text-red-500" v-if="errors.content_slug_vn">
+                {{ errors.content_slug_vn }}
+              </div>
+            </div>
+            <div class="my-2 col-span-6 sm:col-span-2">
+              <label
+                for="street_address"
+                class="block text-sm font-medium text-gray-700"
+                >{{ __("content") }} {{ __("en") }}</label
+              >
+              <div class="mt-1">
+                <ckeditor
+                  v-model="form.content_en"
+                  :config="editorConfig"
+                  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                  placeholder="Description VietNamese"
+                ></ckeditor>
+              </div>
+              <div class="text-red-500" v-if="errors.content_en">
+                {{ errors.content_en }}
+              </div>
+            </div>
+            <div class="my-2 col-span-6 sm:col-span-2">
+              <label
+                for="street_address"
+                class="block text-sm font-medium text-gray-700"
+                >Content {{ __("vn") }}</label
+              >
+              <div class="mt-1">
+                <ckeditor
+                  v-model="form.content_vn"
+                  :config="editorConfig2"
+                  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                  placeholder="Description VietNamese"
+                ></ckeditor>
+              </div>
+              <div class="text-red-500" v-if="errors.content_vn">
+                {{ errors.content_vn }}
               </div>
             </div>
           </div>
@@ -191,11 +239,14 @@
             <Link
               :href="route('tintuc.index')"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-            >Back</Link>
+              >Back</Link
+            >
             <button
               type="submit"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >Save</button>
+            >
+              Save
+            </button>
           </div>
         </div>
       </form>
@@ -215,12 +266,12 @@ export default {
     tags: Array,
     new: Object,
     category_news: Array,
-    errors: Object
+    errors: Object,
   },
   components: {
     Link,
     Icon,
-    Multiselect
+    Multiselect,
   },
   data() {
     return {
@@ -245,8 +296,8 @@ export default {
         image: null,
         outstanding: 0,
         tags: this.getData(),
-        category_id: null
-      })
+        category_id: null,
+      }),
     };
   },
   mounted() {
@@ -254,19 +305,19 @@ export default {
     this.form.title = this.new.title;
     this.form.content = this.new.content;
     const result = this.new.languages.find(
-      element => element.key == this.form.title
+      (element) => element.key == this.form.title
     );
     this.form.title_en = result == undefined ? null : result.en;
     this.form.title_vn = result == undefined ? null : result.vn;
 
     const result2 = this.new.languages.find(
-      element => element.key == this.new.content
+      (element) => element.key == this.new.content
     );
     this.form.content_en = result2 == undefined ? null : result2.en;
     this.form.content_vn = result2 == undefined ? null : result2.vn;
 
     const result3 = this.new.languages.find(
-      element => element.key == this.new.content_slug
+      (element) => element.key == this.new.content_slug
     );
     // console.log(result3);
     this.form.content_slug_en = result3 == undefined ? null : result3.en;
@@ -281,7 +332,7 @@ export default {
     getData() {
       let array = [];
       if (this.new.tags.length > 0) {
-        this.new.tags.map(function(value, key) {
+        this.new.tags.map(function (value, key) {
           array.push(parseInt(value.id));
         });
       }
@@ -293,43 +344,41 @@ export default {
       this.form.post(this.route("tintuc.update", this.new.id), {
         preserveState: true,
 
-        onError: errors => {
+        onError: (errors) => {
           if (Object.keys(errors).length > 0) {
           }
         },
-        onSuccess: page => {
+        onSuccess: (page) => {
           this.reset();
-        }
+        },
       });
     },
-    reset: function() {
+    reset: function () {
       this.form.title = this.new.title;
       this.form.content = this.new.content;
       const result = this.new.languages.find(
-        element => element.key == this.form.title
+        (element) => element.key == this.form.title
       );
       this.form.title_en = result == undefined ? null : result.en;
       this.form.title_vn = result == undefined ? null : result.en;
 
       const result2 = this.new.languages.find(
-        element => element.key == this.new.content
+        (element) => element.key == this.new.content
       );
       this.form.content_en = result2 == undefined ? null : result2.en;
       this.form.content_vn = result2 == undefined ? null : result2.en;
 
-      
       const result3 = this.new.languages.find(
-        element => element.key == this.new.content_slug
+        (element) => element.key == this.new.content_slug
       );
       this.form.content_slug_en = result3 == undefined ? null : result3.en;
       this.form.content_slug_vn = result3 == undefined ? null : result3.vn;
 
-
       this.form.outstanding = this.new.outstanding;
       this.form.category_id = this.new.category_id;
       let object = Object.assign({}, this.new.tags);
-    }
-  }
+    },
+  },
 };
 </script>
 <style src="@vueform/multiselect/themes/default.css">

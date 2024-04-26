@@ -25,79 +25,7 @@
 
                 </div>
                 @endforeach
-                {{-- <div class="transition ease-in-out border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110  duration-300 h-[400px]">
-                    <img class="w-full h-[200px] object-cover" src="images/picture.png" alt="">
-                    <div class="m-4">
-                        <div class="my-2">
-                            <p class="text-[#0F197A] text-[16px]">Trung học</p>
-                            <p class="text-[#101828] text-[24px]">Khóa học A2 nâng cao</p>
-                            <p class="text-[#667085] text-[16px]">Tham gia khóa học tiếng anh A2 nâng cao của
-                                Cambridge IEC, học viên sẽ được...</p>
-                        </div>
-                        <a class="text-[#0F62FE] mt-10" href="">Tìm hiểu thêm
-                            <i class="uil uil-arrow-right text-[#0F62FE] mx-2 text-[14px]"></i> </a>
-                    </div>
-
-                </div>
-                <div class="transition ease-in-out border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110  duration-300 h-[400px]">
-                    <img class="w-full h-[200px] object-cover" src="images/picture.png" alt="">
-                    <div class="m-4">
-                        <div class="my-2">
-                            <p class="text-[#0F197A] text-[16px]">Trung học</p>
-                            <p class="text-[#101828] text-[24px]">Khóa học A2 nâng cao</p>
-                            <p class="text-[#667085] text-[16px]">Tham gia khóa học tiếng anh A2 nâng cao của
-                                Cambridge IEC, học viên sẽ được...</p>
-                        </div>
-                        <a class="text-[#0F62FE] mt-10" href="">Tìm hiểu thêm
-                            <i class="uil uil-arrow-right text-[#0F62FE] mx-2 text-[14px]"></i> </a>
-                    </div>
-
-                </div>
-                <div class="transition ease-in-out border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110  duration-300 h-[400px]">
-                    <img class="w-full h-[200px] object-cover" src="images/picture.png" alt="">
-                    <div class="m-4">
-                        <div class="my-2">
-                            <p class="text-[#0F197A] text-[16px]">Trung học</p>
-                            <p class="text-[#101828] text-[24px]">Khóa học A2 nâng cao</p>
-                            <p class="text-[#667085] text-[16px]">Tham gia khóa học tiếng anh A2 nâng cao của
-                                Cambridge IEC, học viên sẽ được...</p>
-                        </div>
-                        <a class="text-[#0F62FE] mt-10" href="">Tìm hiểu thêm
-                            <i class="uil uil-arrow-right text-[#0F62FE] mx-2 text-[14px]"></i> </a>
-                    </div>
-
-                </div>
-                <div class="transition ease-in-out border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110  duration-300 h-[400px]">
-                    <img class="w-full h-[200px] object-cover" src="images/picture.png" alt="">
-                    <div class="m-4">
-                        <div class="my-2">
-                            <p class="text-[#0F197A] text-[16px]">Trung học</p>
-                            <p class="text-[#101828] text-[24px]">Khóa học A2 nâng cao</p>
-                            <p class="text-[#667085] text-[16px]">Tham gia khóa học tiếng anh A2 nâng cao của
-                                Cambridge IEC, học viên sẽ được...</p>
-                        </div>
-                        <a class="text-[#0F62FE] mt-10" href="">Tìm hiểu thêm
-                            <i class="uil uil-arrow-right text-[#0F62FE] mx-2 text-[14px]"></i> </a>
-                    </div>
-
-                </div>
-                <div class="transition ease-in-out border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110  duration-300 h-[400px]">
-                    <img class="w-full h-[200px] object-cover" src="images/picture.png" alt="">
-                    <div class="m-4">
-                        <div class="my-2">
-                            <p class="text-[#0F197A] text-[16px]">Trung học</p>
-                            <p class="text-[#101828] text-[24px]">Khóa học A2 nâng cao</p>
-                            <p class="text-[#667085] text-[16px]">Tham gia khóa học tiếng anh A2 nâng cao của
-                                Cambridge IEC, học viên sẽ được...</p>
-                        </div>
-                        <a class="text-[#0F62FE] mt-10" href="">Tìm hiểu thêm
-                            <i class="uil uil-arrow-right text-[#0F62FE] mx-2 text-[14px]"></i> </a>
-                    </div>
-
-                </div>  --}}
             </div>
-
-
         </div>
         <div class="w-full flex justify-center items-center mt-[100px]">
             <button type="submit"
