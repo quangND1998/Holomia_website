@@ -221,11 +221,11 @@
                                     </li>
                                     <li>
                                         <a href="news"
-                                            class="{{ Request::is('news') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white">{{ __('nav_news') }}</a>
+                                            class="{{ Request::is('news') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">{{ __('nav_news') }}</a>
                                     </li>
                                     <li>
                                         <a href="study_abroad"
-                                            class="{{ Request::is('study_abroad') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white">{{ __('tuyensinhduhoc') }}</a>
+                                            class="{{ Request::is('study_abroad') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">{{ __('tuyensinhduhoc') }}</a>
                                     </li>
 
                                     <li>
