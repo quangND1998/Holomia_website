@@ -11,10 +11,10 @@
         @if (View::hasSection('title'))
             @yield('title')
         @else
-            Holomia
+        Cambridge IEC
         @endif
     </title>
-    <meta property="og:image" content="@if (View::hasSection('image')) @yield('image') @else img/thumb1.jpg @endif" />
+    <meta property="og:image" content="@if (View::hasSection('image')) @yield('image') @else images/thumb.jpg @endif" />
     {{-- <meta property="og:image" content="@if (View::hasSection('image')) @yield('image') @else img/thumb1.jpg @endif"  /> --}}
     <meta name="copyright" content="Holomia">
     <meta name="generator" content="holomia.com">
