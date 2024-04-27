@@ -205,7 +205,7 @@ class LandingPageController extends Controller
 
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $category_courses = CategoryCourese::all();
-        if($request->category_name == 'all'){
+        if($request->category_name == 'all' || $request->category_name == null ){
             $courses = Course::with('category')->paginate(8);
         }else{
             $courses = Course::whereHas('category', function ($q) use($request){

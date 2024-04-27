@@ -2,7 +2,7 @@
     <div class="category w-[80%] mx-auto">
         <ul class="w-full flex">
             <li
-                class="w-[135px]  py-3  text-center {{ Request::get('category_name') == 'all' ? 'text-white bg-[#101F73] rounded-[4px]' : 'border-r-[1px] border-[#101f7380]' }}">
+                class="w-[135px] font-semibold  py-3  text-center {{ Request::get('category_name') == 'all' || Request::get('category_name') == '' ? 'text-white bg-[#101F73] rounded-[4px]' : 'text-[#667085] border-r-[1px] border-[#101f7380]' }}">
                 <a href="list_course?category_name=all">{{ __('all') }}</a>
             </li>
             @foreach ($category_courses as $category)

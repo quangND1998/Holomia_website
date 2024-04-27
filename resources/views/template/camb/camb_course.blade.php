@@ -9,15 +9,15 @@
             <div class="slider_course w-[80%] mx-auto">
 
                 @foreach ($courses as  $course)
-                <div class="transition ease-in-out border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110  duration-300 h-[400px]">
+                <div class="transition shadow-lg ease-in-out border rounded-[10px] mx-5  hover:scale-110 transition-transform duration-300 h-[400px]">
                     @if($course->image != null)
-                    <img class="w-full h-[200px] object-cover" src="{{$course->image}}" alt="">
+                    <img class="w-full h-[200px] object-cover rounded-t-[10px] " src="{{$course->image}}" alt="">
                     @endif
                     <div class="m-4">
                         <div class="my-2 ">
-                            <p class="text-[#0F197A] text-[16px]">{{ __($course->title) }}</p>
-                            <p class="text-[#101828] text-[24px] truncate  line-clamp-3">{!! __($course->sub_title) !!}</p>
-                            <p class="text-[#667085] text-[16px] truncate  line-clamp-3">{!! __($course->info) !!}</p>
+                            <p class="text-[#0F197A] font-semibold text-[16px]">{{ __($course->category->name) }}</p>
+                            <p class="text-[#101828] font-semibold text-[24px] my-1  line-clamp-1">{!! __($course->title) !!}</p>
+                            <p class="text-[#667085] text-[16px] my-2  line-clamp-2">{!! __($course->sub_title) !!}</p>
                         </div>
                         <a class="text-[#0F62FE] mt-10" href="">{{ __('more') }}
                             <i class="uil uil-arrow-right text-[#0F62FE] mx-2 text-[14px]"></i> </a>

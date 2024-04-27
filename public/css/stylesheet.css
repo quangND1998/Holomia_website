@@ -1,13 +1,13 @@
 .slick-prev:before {
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 22px;
     content: url(../images/icon/arrow_blue.svg) !important;
 }
 
  .slick-next:before {
     position: absolute;
-    top: 30%;
+    top: 35%;
     right: 45px;
     content: url(../images/icon/arrow_right.svg) !important;
 }

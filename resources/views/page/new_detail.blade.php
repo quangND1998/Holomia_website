@@ -41,7 +41,11 @@
 
 
         </div>
-        <h2 class="text-[#101828] font-semibold text-[32px] mt-[60px] mb-6">{{ __('news_other') }}</h2>
+        <div class="flex justify-between items-center  mt-[60px] mb-6">
+            <h2 class="text-[#101828] text-[32px]">{{ __('news_other') }}</h2>
+
+            <a href="/news" class="text-[#101F73] font-semibold">{{ __('see_more') }}</a>
+        </div>
         <div class="w-full flex">
             @foreach ($tintuc_lienquan as $tintuc)
                 <a class="w-1/4 pr-3" href="{{ route('new.detail', __($tintuc->slug)) }}">

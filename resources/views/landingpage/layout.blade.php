@@ -11,7 +11,7 @@
         @if (View::hasSection('title'))
             @yield('title')
         @else
-        Cambridge IEC
+            Cambridge IEC
         @endif
     </title>
     <meta property="og:image" content="@if (View::hasSection('image')) @yield('image') @else images/thumb.jpg @endif" />
@@ -54,11 +54,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .crop-content {
-        max-width: 120px;
-        overflow-x: auto;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+            max-width: 120px;
+            overflow-x: auto;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
 </head>
@@ -68,34 +68,64 @@
         <div class="nav_header border-b-[1px] border-[#D0D5DD] ">
             <div class="menu-pc">
                 <div
-                    class="top_header bg-[#0F197A] h-[48px] text-white py-2 flex flex-wrap justify-end text-center content-center">
-                    <div class="flex mx-4 items-center justify-center ">
-                        <i class="uil uil-clock text-white mx-2 text-[14px]"></i>
-                        <p>08:00 - 21:00</p>
+                    class="px-[2%]
+                    top_header bg-[#0F197A] h-[48px] text-white py-2 flex flex-wrap justify-between text-center content-center">
+                    <div class="flex">
+                        
+
+                        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover"
+                            data-dropdown-trigger="hover"
+                            class="flex items-center justify-center"
+                            type="button">
+                            <i class="uil uil-map-marker text-white mx-2 font-bold text-[24px]"></i>
+                            <p class="text-white">{{ __('location') }}</p>
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdownHover"
+                            class="!left-[30px] text-left hidden  bg-white   rounded-lg shadow-xl px-3 py-1">
+                            <ul class="py-2 text-sm text-black font-semibold "
+                                aria-labelledby="dropdownHoverButton">
+                                <li class="">
+                                    CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội 
+                                </li>
+                                <li class="pt-3">
+                                    CS2: 195 Đội Cấn, Ba Đình, Hà Nội 
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
-                    <div class="border-r-2 border-[#D0D5DD]"></div>
-                    <div class="flex mx-4 items-center justify-center">
-                        <i class="uil uil-envelope-alt text-white mx-2 text-[14px]"></i>
-                        <a href=""> Email </a>
+                    <div class="flex flex-wrap justify-end text-center content-center">
+                        <div class="flex mx-4 items-center justify-center ">
+                            <i class="uil uil-clock text-white mx-2 font-bold text-[24px]"></i>
+                            <p>08:00 - 21:00</p>
+                        </div>
+                        <div class="border-r-2 border-[#D0D5DD]"></div>
+                        <div class="flex mx-4 items-center justify-center">
+                            <i class="uil uil-envelope-alt text-white mx-2 font-bold text-[24px]"></i>
+                            <a href=""> Email </a>
+                        </div>
+                        <div class="border-r-2 border-[#D0D5DD]"></div>
+                        <div class="flex mx-4 items-center justify-center">
+                            <i class="uil uil-phone-alt text-white mx-2 font-bold text-[24px]"></i>
+                            <p>0336 555 876 / 0359 719 595</p>
+                        </div>
+                        <div class="border-r-2 border-[#D0D5DD] "></div>
+                        <ul class="list-language flex mx-4 items-center justify-center">
+                            <li class="menu__item to-left menu-language">
+                                <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
+                                        class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
+                                </a>
+                            </li>
+                            <li class="menu__item to-left menu-language">
+                                <a href="/language/vn" class="menu__link menu_news"><img src="images/vn.png"
+                                        class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="border-r-2 border-[#D0D5DD]"></div>
-                    <div class="flex mx-4 items-center justify-center">
-                        <i class="uil uil-phone-alt text-white mx-2 text-[14px]"></i>
-                        <p>0336 555 876 / 0359 719 595</p>
-                    </div>
-                    <div class="border-r-2 border-[#D0D5DD]"></div>
-                    <ul class="list-language flex mx-4 items-center justify-center">
-                        <li class="menu__item to-left menu-language">
-                            <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
-                                    class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
-                            </a>
-                        </li>
-                        <li class="menu__item to-left menu-language">
-                            <a href="/language/vn" class="menu__link menu_news"><img src="images/vn.png"
-                                    class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
-                            </a>
-                        </li>
-                    </ul>
+
                 </div>
                 <div id="nav_sticky"
                     class="menu-content  overlay flex content-center text-center justify-between w-[96%] mx-auto">
@@ -115,17 +145,17 @@
                                         stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
                                 </svg>
                             </button>
-                            <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+                            <div class="hidden w-full  md:block md:w-auto" id="navbar-dropdown">
                                 <ul
                                     class="flex font-roboto flex-col font-semibold p-4 md:p-0 mt-4 text-[#21272A] border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
                                     <li>
                                         <a href="#"
-                                            class="block py-2 px-3  rounded md:bg-transparent hover:text-blue-700  md:p-0  {{ Request::path() === 'index' ? 'text-blue-700' : 'text-[#101828]'  }}"
+                                            class="block py-2 px-3  rounded md:bg-transparent hover:text-blue-700  md:p-0  {{ Request::path() === 'index' ? 'text-blue-700' : 'text-[#101828]' }}"
                                             aria-current="page">{{ __('nav_home') }}</a>
                                     </li>
                                     <li>
                                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                            class="flex items-center justify-between font-semibold py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  {{ Request::is('about/*') == 1 ? 'text-blue-700' : 'text-[#101828]'  }}">
+                                            class="flex items-center justify-between font-semibold py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  {{ Request::is('about/*') == 1 ? 'text-blue-700' : 'text-[#101828]' }}">
                                             {{ __('introduce') }}
                                             <svg class="w-2.5 h-2.5 ms-2.5 mx-2" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -135,26 +165,26 @@
                                         </button>
                                         <!-- Dropdown menu -->
                                         <div id="dropdownNavbar"
-                                            class="z-10 hidden font-bold bg-white divide-y divide-gray-100 rounded-lg shadow w-54 justify-start text-left">
-                                            <ul class="py-2 text-sm text-[#101828] dark:text-gray-400"
+                                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-54 justify-start text-left">
+                                            <ul class=" text-sm text-[#101828]  shadow-md"
                                                 aria-labelledby="dropdownLargeButton">
-                                                <li>
+                                                <li class="hover:bg-[#101F73] hover:text-white py-2 {{ Request::is('about/about_cammbridge') == 1 ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
                                                     <a href="about/about_cammbridge"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-60">{{ __('about') }}
+                                                        class="block px-4 py-2 ">{{ __('about') }}
                                                         {{ __('Cambridge IEC') }}</a>
                                                 </li>
-                                                <li>
+                                                <li class=" hover:bg-[#101F73] hover:text-white py-2 {{ Request::is('about/teacher_cammbridge') == 1 ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
                                                     <a href="about/teacher_cammbridge"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">{{ __('teacher') }}
+                                                        class="block px-4 py-2 0">{{ __('teacher') }}
                                                         {{ __('Cambridge IEC') }}</a>
                                                 </li>
-                                                <li>
+                                                <li class=" hover:bg-[#101F73] hover:text-white py-2 {{ Request::is('about/student') == 1 ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
                                                     <a href="about/student"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">{{ __('excellent_student') }}</a>
+                                                        class="block px-4 py-2 0">{{ __('excellent_student') }}</a>
                                                 </li>
-                                                <li>
+                                                <li class="hover:bg-[#101F73] hover:text-white py-2 {{ Request::is('about/activity') == 1 ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
                                                     <a href="about/activity"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">{{ __('experiential_activities') }}</a>
+                                                        class="block px-4 py-2 0">{{ __('experiential_activities') }}</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -162,7 +192,7 @@
                                     <li>
                                         <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
                                             class="flex items-center justify-between font-semibold py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto
-                                            {{ Request::is('list_course') == 1 ? 'text-blue-700' : 'text-[#101828]'  }}
+                                            {{ Request::is('list_course') == 1 ? 'text-blue-700' : 'text-[#101828]' }}
                                             ">
                                             {{ __('nav_course') }}
                                             <svg class="w-2.5 h-2.5 ms-2.5 mx-2" aria-hidden="true"
@@ -173,15 +203,16 @@
                                         </button>
                                         <!-- Dropdown menu -->
                                         <div id="dropdownNavbar2"
-                                            class="z-10 hidden font-bold bg-white divide-y divide-gray-100 rounded-lg shadow w-54 justify-start text-left">
-                                            <ul class="py-2 text-sm text-[#101828] dark:text-gray-400"
+                                            class="z-10 hidden  bg-white divide-y divide-gray-100 rounded-lg shadow w-54 justify-start text-left">
+                                            <ul class=" text-sm text-[#101828]  shadow-md"
                                                 aria-labelledby="dropdownLargeButton">
                                                 @foreach ($category_courses as $category)
-                                                <li class="w-[200px] {{ Request::get('category_name') == $category->slug ? 'text-white bg-[#101F73] rounded-[4px]' : 'border-r-[1px] border-[#101f7380]' }}">
-                                                    <a href="list_course?category_name={{$category->slug}}"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-60">
-                                                        {{ __($category->slug) }}</a>
-                                                </li>
+                                                    <li
+                                                        class="w-[200px] py-2 hover:bg-[#101F73] hover:text-white {{ Request::get('category_name') == $category->slug ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
+                                                        <a href="list_course?category_name={{ $category->slug }}"
+                                                            class="block px-4 py-2">
+                                                            {{ __($category->slug) }}</a>
+                                                    </li>
                                                 @endforeach
 
                                             </ul>
@@ -189,16 +220,16 @@
                                     </li>
                                     <li>
                                         <a href="news"
-                                            class="{{ Request::is('news') == 1 ? 'text-blue-700' : 'text-[#101828]'  }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white">{{ __('nav_news') }}</a>
+                                            class="{{ Request::is('news') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white">{{ __('nav_news') }}</a>
                                     </li>
                                     <li>
                                         <a href="study_abroad"
-                                            class="{{ Request::is('study_abroad') == 1 ? 'text-blue-700' : 'text-[#101828]'  }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white">{{ __('tuyensinhduhoc') }}</a>
+                                            class="{{ Request::is('study_abroad') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white">{{ __('tuyensinhduhoc') }}</a>
                                     </li>
 
                                     <li>
                                         <a href="contact"
-                                            class="{{ Request::is('contact') == 1 ? 'text-blue-700' : 'text-[#101828]'  }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{ __('nav_contact') }}</a>
+                                            class="{{ Request::is('contact') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{ __('nav_contact') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -216,7 +247,7 @@
                                     </svg>
                                 </div>
                                 <input type="search" id="default-search"
-                                    class="pl-16 block w-[260px] p-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                                    class="pl-14 block w-[260px] p-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                                     placeholder="Tra cứu thông tin khóa học" required />
                                 <button type="submit"
                                     class="text-white ml-4 end-2.5 bottom-2.5 bg-[#AD0101] font-medium rounded-lg text-sm px-8 py-2 ">{{ __('search') }}</button>

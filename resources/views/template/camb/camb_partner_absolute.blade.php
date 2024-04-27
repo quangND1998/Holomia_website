@@ -4,9 +4,9 @@
 
 
         @foreach ($section->contents as $content)
-            <div>
+            <div class="mx-2">
                 <p class="text-[#A60303] uppercase text-[40px] font-bold">{{ __($content->title) }}</p>
-                <p class="text-[#101828] text-[40px] font-semibold w-full ">{{ __($content->sub_title) }}</p>
+                <p class="text-[#101828] text-[30px] font-semibold w-full ">{{ __($content->sub_title) }}</p>
             </div>
             @foreach ($content->images as $image)
                 <div class="h-[80px] flex justify-center items-center mx-2">

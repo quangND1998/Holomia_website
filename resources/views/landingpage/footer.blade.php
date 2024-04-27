@@ -80,10 +80,10 @@
                 <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('social_network') }}</p>
 
                 <div class="icon flex">
-                    <a href="about_cammbridge" class="mr-[16px]">
+                    <a href="https://www.facebook.com/cambridgeiec" class="mr-[16px]">
                         <img class="h-[24px] w-[24px]" src="images/facebook.png">
                     </a>
-                    <a href="about_cammbridge" class="mr-[16px]">
+                    <a href="https://www.tiktok.com/@cambridgeiec" class="mr-[16px]">
                         <img class="h-[24px] w-[24px]" src="images/tiktok.png">
                     </a>
                     <a href="about_cammbridge" class="mr-[16px]">

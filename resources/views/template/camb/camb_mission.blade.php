@@ -9,7 +9,7 @@
             <div class="slider_auto w-[80%] mx-auto">
 
                 @foreach ($section->contents as  $content)
-                <div class="slick-slide border bg-white border-[#BF344D] transition ease-in-out  rounded-[10px] mx-2 hover:-translate-y-1 hover:scale-110  duration-300 py-[50px]">
+                <div class="slick-slide border bg-white border-[#BF344D] transition ease-in-out  rounded-[10px] mx-2   duration-300 py-[50px]">
                     <div class="flex justify-center items-center">
                         @if(count($content->images) >0)
                         <img class="w-[48px] h-[48px] object-cover mx-3" src="{{$content->images[0]->image}}" alt="">

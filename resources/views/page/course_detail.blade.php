@@ -37,7 +37,7 @@
                     </div>
 
                 </div>
-                <h2 class="text-[#101828] text-[32px] mt-[60px] mb-6">{{ __('course_other') }}</h2>
+               
             </div>
             <div class="w-1/3">
                 <div class="shadow-md rounded-[12px] px-[44px] py-[30px]">
@@ -65,7 +65,12 @@
                 </div>
             </div>
         </div>
+        <div class="flex justify-between items-center  mt-[60px] mb-6">
+            <h2 class="text-[#101828] text-[32px]">{{ __('course_other') }}</h2>
 
+            <a href="/list_course" class="text-[#101F73] font-semibold">{{ __('see_more') }}</a>
+        </div>
+       
         <div class="slider_auto w-full mx-auto h-[450px]">
 
             @foreach ($course_lienquan as $course)

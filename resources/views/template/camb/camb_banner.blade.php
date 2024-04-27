@@ -5,11 +5,9 @@
             <img class="w-full h-[780px] object-cover " src="{{$content->images[0]->image}}" alt="">
             @endif
         <div class=" absolute top-[10%] w-full ">
-            <div class="content ml-[15%] w-[70%] md:ml-[10%] md:w-[80%]  flex">
-
-
-                    <div class="w-1/2 mr-20">
-                        <h1 class="mt-10 font-semibold xl:text-[64px]  lg:text-[54px] md:text-[44px] font-roboto">{{__($content->title)}} <br> <span
+            <div class="content ml-[15%] lg:w-[70%] md:ml-[10%] md:w-[80%]  flex ">
+                    <div class="lg:w-1/2 sm:w-full mr-20">
+                        <h1 class="mt-10 font-semibold xl:text-[54px]  lg:text-[44px] md:text-[44px] font-roboto">{{__($content->title)}} <br> <span
                                 class="text-[#AD0101]">{!! __($content->sub_title) !!}</span></h1>
                         <p class="my-2">
                             {!! __($content->description) !!}
@@ -41,9 +39,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-1/2 relative">
+                    <div class="lg:w-1/2 sm:w-full relative">
                         <div
-                            class="border border-[#A60303] rounded-[12px] bg-white  flex  items-center px-4 w-[320px] ml-20">
+                            class="border shadow-xl border-[#A60303] rounded-[12px] bg-white  flex  items-center px-4 w-[360px] ml-20">
                             <img class="w-[48px] h-[48px] my-4" src="/images/camket.png" alt="">
                             <div class="mx-4">
                                 <p class="text-[#101828] text-[24px] font-semibold">{{ __('camket') }}</p>
@@ -51,7 +49,7 @@
                             </div>
                         </div>
                         <div
-                            class="mt-40 border border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[287px] ml-40">
+                            class="mt-40 border shadow-xl border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[287px] ml-40">
                             <img class="w-[48px] h-[48px] my-4" src="/images/giaotrinh.png" alt="">
                             <div class="mx-4">
                                 <p class="text-[#101828] text-[24px] font-semibold">{{ __('giaotrinh') }}</p>
@@ -59,7 +57,7 @@
                             </div>
                         </div>
                         <div
-                            class=" mt-40 border border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[340px]">
+                            class=" mt-40 border shadow-xl border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[340px]">
                             <img class="w-[48px] h-[48px] my-4" src="/images/doingu.png" alt="">
                             <div class="mx-4">
                                 <p class="text-[#101828] text-[24px] font-semibold">{{ __('doingu') }}</p>
@@ -67,8 +65,6 @@
                             </div>
                         </div>
                     </div>
-
-
             </div>
 
         </div>
@@ -77,7 +73,7 @@
     <div class="absolute bottom-[-80px] w-[90%] mx-[5%]  bg-white rounded-[20px] flex drop-shadow-md">
         @foreach ($section->contents as  $content)
             @if($loop->index > 0)
-            <div class="flex mx-10 my-6 items-center w-1/3 border-r-[1px] ">
+            <div class="flex mx-10 my-6 items-center w-1/3 {{  $loop->last == true ?  '' : 'border-r-[1px]'  }}  ">
                 @if(count($content->images) >0)
                     <img class="w-[120px] h-[120px] object-cover rounded-full" src="{{$content->images[0]->image}}" alt="">
                 @endif

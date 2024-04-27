@@ -19,9 +19,9 @@
                         <div class="w-1/2">
                             <div class="flex">
                                 @if($content->image != null)
-                                <img class="w-[48px] h-[48px] object-cover mx-3" src="{{$content->image}}" alt="">
+                                <img class="w-[48px] h-[48px] object-cover " src="{{$content->image}}" alt="">
                                 @endif
-                                <p class="text-[#101828] text-[24px] my-3 font-roboto font-semibold">{{ __($content->title) }}</p>
+                                <p class="text-[#101828] text-[24px] my-3 mx-3 font-roboto font-semibold">{{ __($content->title) }}</p>
                             </div>
                             <p class="text-[#667085] text-[16px]">{!! __($content->description) !!}</p>
                         </div>
@@ -33,9 +33,9 @@
                         <div class="w-1/2 mr-3">
                             <div class="flex">
                                 @if($content->image != null)
-                                <img class="w-[48px] h-[48px] object-cover mx-3" src="{{$content->image}}" alt="">
+                                <img class="w-[48px] h-[48px] object-cover" src="{{$content->image}}" alt="">
                                 @endif
-                                <p class="text-[#101828] text-[24px] my-3 font-roboto font-semibold">{{ __($content->title) }}</p>
+                                <p class="text-[#101828] text-[24px] my-3 mx-3 font-roboto font-semibold">{{ __($content->title) }}</p>
                             </div>
                             <p class="text-[#667085] text-[16px]">{!! __($content->description) !!}</p>
                         </div>
