@@ -45,7 +45,7 @@ Route::get('about/about_cammbridge', [LandingPageController::class, 'about_cammb
 Route::get('about/teacher_cammbridge', [LandingPageController::class, 'teacher_cammbridge']);
 Route::get('about/student', [LandingPageController::class, 'student_cammbridge']);
 Route::get('about/activity', [LandingPageController::class, 'activity']);
-Route::get('about/activity/{slug}', [LandingPageController::class, 'activity_detail']);
+Route::get('about/activity/{slug}', [LandingPageController::class, 'activity_detail'])->name('activity.detail');
 Route::get('list_course', [LandingPageController::class, 'course']);
 Route::get('list_course/{name}', [LandingPageController::class, 'course_detail']);
 

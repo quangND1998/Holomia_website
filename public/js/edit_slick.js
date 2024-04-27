@@ -75,7 +75,7 @@ $('.slider_course').slick({
        ]
   });
   $('.slider_partner').slick({
-    slidesToShow: 9,
+    slidesToShow: 8,
     slidesToScroll: 1,
     arrows: true,
     autoplay: false,

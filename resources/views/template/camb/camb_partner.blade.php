@@ -22,10 +22,12 @@
 
         </div>
         <div class="w-full flex justify-center items-center mt-[100px]">
-            <button type="submit"
-                class="text-white  flex justify-center items-center  bg-[#A60303] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
-                                __('tuyensinhduhoc') }}
-            </button>
+            <a href="#form_advise">
+                <button type="submit"
+                    class="text-white  flex justify-center items-center  bg-[#A60303] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
+                                    __('tuyensinhduhoc') }}
+                </button>
+            </a>
         </div>
 
     </div>

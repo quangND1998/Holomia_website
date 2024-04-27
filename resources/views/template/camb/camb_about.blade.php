@@ -18,12 +18,14 @@
                     {!! __($content->description) !!}
                 </p>
 
-                <button
-                    class="text-[#A60303] flex justify-center items-center my-3 end-2.5 bottom-2.5 border-[2px] border-[#A60303] font-semibold rounded-lg text-sm px-8 py-3.5 ">
-                    {{ __('more') }}
-                    {{-- <i class="uil uil-arrow-right text-[#A60303] mx-2 text-[14px]"></i> --}}
-                    <img class="mx-3 fill-[#A60303]" src="images/Vector_red.svg" alt="">
-                </button>
+                <a href="about/about_cammbridge">
+                    <button
+                        class="text-[#A60303] flex justify-center items-center my-3 end-2.5 bottom-2.5 border-[2px] border-[#A60303] font-semibold rounded-lg text-sm px-8 py-3.5 ">
+                        {{ __('more') }}
+                        {{-- <i class="uil uil-arrow-right text-[#A60303] mx-2 text-[14px]"></i> --}}
+                        <img class="mx-3 fill-[#A60303]" src="images/Vector_red.svg" alt="">
+                    </button>
+                </a>
             @endif
             @endforeach
 

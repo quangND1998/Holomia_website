@@ -69,22 +69,22 @@
             <div class="menu-pc">
                 <div
                     class="top_header bg-[#0F197A] h-[48px] text-white py-2 flex flex-wrap justify-end text-center content-center">
-                    <div class="flex mx-4">
+                    <div class="flex mx-4 items-center justify-center ">
                         <i class="uil uil-clock text-white mx-2 text-[14px]"></i>
                         <p>08:00 - 21:00</p>
                     </div>
                     <div class="border-r-2 border-[#D0D5DD]"></div>
-                    <div class="flex mx-4">
+                    <div class="flex mx-4 items-center justify-center">
                         <i class="uil uil-envelope-alt text-white mx-2 text-[14px]"></i>
                         <a href=""> Email </a>
                     </div>
                     <div class="border-r-2 border-[#D0D5DD]"></div>
-                    <div class="flex mx-4">
+                    <div class="flex mx-4 items-center justify-center">
                         <i class="uil uil-phone-alt text-white mx-2 text-[14px]"></i>
                         <p>0336 555 876 / 0359 719 595</p>
                     </div>
                     <div class="border-r-2 border-[#D0D5DD]"></div>
-                    <ul class="list-language flex mx-4">
+                    <ul class="list-language flex mx-4 items-center justify-center">
                         <li class="menu__item to-left menu-language">
                             <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
                                     class="img-fluid logo_language w-6 h-6 mx-2" alt="" />

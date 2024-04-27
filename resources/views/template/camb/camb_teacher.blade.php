@@ -24,12 +24,12 @@
 
 
         </div>
-        <div class="w-full flex justify-center items-center mt-[100px]">
+        {{-- <div class="w-full flex justify-center items-center mt-[100px]">
             <button type="submit"
                 class="text-white  flex justify-center items-center  bg-[#A60303] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
                                 __('xemthemkhoahoc') }}
             </button>
-        </div>
+        </div> --}}
 
     </div>
 </div>
