@@ -81,6 +81,7 @@ module.exports = {
             backgroundSize: {
                 full: "100%",
             },
+            
         },
     },
     variants: [

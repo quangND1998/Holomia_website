@@ -68,8 +68,8 @@
         <div class="nav_header border-b-[1px] border-[#D0D5DD] ">
             <div class="menu-pc">
                 <div
-                    class="px-[2%]
-                    top_header bg-[#0F197A] h-[48px] text-white py-2 flex flex-wrap justify-between text-center content-center">
+                    class="px-[2%] md:flex
+                    top_header bg-[#0F197A] h-[48px] text-white py-2  flex-wrap justify-between text-center content-center">
                     <div class="flex">
                         
 
@@ -131,11 +131,11 @@
                     class="menu-content  overlay flex content-center text-center justify-between w-[96%] mx-auto">
                     <div class="logo-menu-pc">
                         <a href="/index"><img src="images/logo.png"
-                                class="logo-holo logo-pc img-fluid w-[240px] xs:w-[120px]" alt="" /></a>
+                                class="logo-holo logo-pc img-fluid sm:w-[120px] lg:w-[240px] " alt="" /></a>
                     </div>
-                    <nav class="bg-white border-gray-200 flex content-center text-center">
-                        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                            <button data-collapse-toggle="navbar-dropdown" type="button"
+                    <nav class="bg-white navbar_full border-gray-200 flex content-center text-center">
+                        <div class="button_tab max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                            <button class="button_menu  bg-[#A60303] p-3 text-white border-[#a6030382]   rounded-[8px]" data-collapse-toggle="navbar-dropdown" type="button"
                                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                                 aria-controls="navbar-dropdown" aria-expanded="false">
                                 <span class="sr-only">Open main menu</span>
@@ -145,9 +145,10 @@
                                         stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
                                 </svg>
                             </button>
-                            <div class="hidden w-full  md:block md:w-auto" id="navbar-dropdown">
+                            <div class="hidden w-full  md:block md:w-auto " id="navbar-dropdown">
                                 <ul
-                                    class="flex font-roboto flex-col font-semibold p-4 md:p-0 mt-4 text-[#21272A] border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+                                    class="navbar_dad flex font-roboto flex-col font-semibold px-4 md:p-0 sm:mt-0 lg:mt-4 text-[#21272A] border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+                                   
                                     <li>
                                         <a href="#"
                                             class="block py-2 px-3  rounded md:bg-transparent hover:text-blue-700  md:p-0  {{ Request::path() === 'index' ? 'text-blue-700' : 'text-[#101828]' }}"
@@ -155,7 +156,7 @@
                                     </li>
                                     <li>
                                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                            class="flex items-center justify-between font-semibold py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  {{ Request::is('about/*') == 1 ? 'text-blue-700' : 'text-[#101828]' }}">
+                                            class="flex w-full items-center justify-between font-semibold py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  {{ Request::is('about/*') == 1 ? 'text-blue-700' : 'text-[#101828]' }}">
                                             {{ __('introduce') }}
                                             <svg class="w-2.5 h-2.5 ms-2.5 mx-2" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -191,7 +192,7 @@
                                     </li>
                                     <li>
                                         <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
-                                            class="flex items-center justify-between font-semibold py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto
+                                            class="flex w-full items-center justify-between font-semibold py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto
                                             {{ Request::is('list_course') == 1 ? 'text-blue-700' : 'text-[#101828]' }}
                                             ">
                                             {{ __('nav_course') }}
@@ -231,11 +232,58 @@
                                         <a href="contact"
                                             class="{{ Request::is('contact') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{ __('nav_contact') }}</a>
                                     </li>
+
+                                    <div class="show_mobile  info border-b-[1px] border-[#D9D9D9] mt-[40px]">
+                                        <div class="flex">
+                                            <i class="uil uil-map-marker text-[#667085] mx-2 font-bold text-[20px]"></i>
+                                            <div class="mx-2">
+                                                <p class="text-[#667085]">{{ __('location') }}</p>
+                                                <p class="pt-1 text-[#667085]">
+                                                    CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội 
+                                                </p>
+                                                <p class="pt-1 text-[#667085]">
+                                                    CS2: 195 Đội Cấn, Ba Đình, Hà Nội 
+                                                </p>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="flex items-center my-2">
+                                            <i class="uil uil-clock text-[#667085] mx-2 font-bold text-[20px]"></i>
+                                            <p class="text-[#667085] mx-2">08:00 - 21:00</p>
+                                            
+                                        </div>
+                                        
+                                        <div class="flex items-center my-2">
+                                            <i class="uil uil-envelope-alt text-[#667085] mx-2 font-bold text-[20px]"></i>
+                                            <p class="text-[#667085] mx-2">Email</p>
+                                            
+                                        </div>
+                                        <div class="flex items-center my-2">
+                                            <i class="uil uil-phone-alt text-[#667085] mx-2 font-bold text-[20px]"></i>
+                                            <p class="text-[#667085] mx-2">0336 555 876 / 0359 719 595</p>
+                                            
+                                        </div>
+                                    </div>
+                                   
+
+                                    <div class="show_mobile mobile_lang mt-2">
+                                        <li class="menu__item to-left menu-language">
+                                            <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
+                                                    class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
+                                            </a>
+                                        </li>
+                                        <li class="menu__item to-left menu-language">
+                                            <a href="/language/vn" class="menu__link menu_news"><img src="images/vn.png"
+                                                    class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
+                                            </a>
+                                        </li>
+                                    </div>
                                 </ul>
+
                             </div>
                         </div>
                     </nav>
-                    <div class="search content-center">
+                    <div class="search_pc content-center">
                         <form class="max-w-md mx-auto">
                             <div class="relative flex">
                                 <div

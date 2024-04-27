@@ -1,7 +1,7 @@
 <div id="content" class="">
     <div class="py-[80px] min-h-[800px]">
-        <div class="w-full">
-            <div class="w-full flex flex-wrap justify-center mb-[40px]">
+        <div class="w-full h-full list_reason">
+            <div class="w-[90%] title_center mx-auto flex flex-wrap justify-center mb-[40px]">
                 <p class="text-[#101F73] uppercase text-[18px] font-semibold w-full text-center">
                     {{ __($section->title) }}</p>
                 <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center">

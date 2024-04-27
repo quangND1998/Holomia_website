@@ -1,10 +1,10 @@
 <div id="form_advise" class="containt6 bg-[#FDF7F7] {{ Request::path() === 'contact' ? 'hidden' : ''  }}">
-    <div class="w-[80%]  mx-auto flex py-[60px]">
-        <div class="w-1/2 mx-10 flex justify-center items-center ">
+    <div class="lg:w-[80%] title_center  mx-auto lg:flex py-[60px]">
+        <div class="lg:w-1/2 lg:mx-10 flex justify-center items-center ">
             <img class="w-full rounded-[10px]" src="images/img.jpg" alt="">
         </div>
-        <div class="w-1/2 mx-12 relative my-auto ">
-            <p class="text-[#101828] uppercase font-semibold text-[30px] my-2"> {{ __('tuvanvakiemtra') }}</p>
+        <div class="lg:w-1/2 mx-12 relative my-auto ">
+            <p class="text-[#101828] uppercase font-semibold text-[30px] my-2 text-center lg:text-left"> {{ __('tuvanvakiemtra') }}</p>
             <p class="content">
                 {!! __('tuvan_description') !!}
             </p>
@@ -12,15 +12,15 @@
             enctype="multipart/form-data">
             {{ csrf_field() }}  
                 <div class="my-3">
-                    <p class="font-semibold">{{ __('hoten') }}</p>
+                    <p class="font-semibold !text-left">{{ __('hoten') }}</p>
                     <input type="text" name="name" class="w-full border border-[#CBD5E0] bg-[#FDF7F7] rounded-[10px]">
                 </div>
                 <div class="my-3">
-                    <p class="font-semibold">{{ __('tuoi') }}</p>
+                    <p class="font-semibold !text-left">{{ __('tuoi') }}</p>
                     <input type="text" name="old" class="w-full border border-[#CBD5E0] bg-[#FDF7F7] rounded-[10px]">
                 </div>
                 <div class="my-3">
-                    <p class="font-semibold">{{ __('phone') }}</p>
+                    <p class="font-semibold !text-left">{{ __('phone') }}</p>
                     <input type="text" name="phone" class="w-full border border-[#CBD5E0] bg-[#FDF7F7] rounded-[10px]">
                 </div>
                 <button

@@ -84,12 +84,12 @@
 }
 
 
-.slider_reason, .slider_partner .slick-prev {
+ .slider_partner .slick-prev {
     left: -80px;
     position: absolute;
 }
 
-.slider_reason, .slider_partner .slick-next {
+ .slider_partner .slick-next {
     right: -80px;
     position: absolute;
 }

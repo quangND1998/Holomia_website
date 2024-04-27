@@ -1,7 +1,7 @@
 <div id="course"  >
-    <div class="my-[120px]">
+    <div class="my-[40px] lg:my-[120px]">
         <div class="w-full">
-            <div class="w-full flex flex-wrap   justify-center my-[60px]">
+            <div class="w-[90%] mx-auto title_center flex flex-wrap   justify-center my-[60px]">
                 <p class="text-[#101F73] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
                 <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center">{{ __($section->sub_title) }}</p>
                 <p class="text-[#667085] text-[16px] w-full text-center"> {!! __($section->description) !!} </p>

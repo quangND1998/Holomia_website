@@ -32,3 +32,93 @@
     border-radius: 30px;
 
 }
+
+
+@media (min-width: 430px) {
+    .top_header{
+        display: none;
+    }
+    .search_pc{
+        display: none;
+    }
+    .button_menu{
+        display: block;
+    }
+    .logo-pc{
+        width: 160px;
+    }
+    .navbar-dropdown{
+        background-color: #A60303;
+    }
+    .navbar_dad {
+        position: fixed;
+        right: 0px;
+        z-index: 20;
+        height: 100%;
+        text-align: left;
+    }
+    .navbar_dad li{
+        padding:  4px 0;
+    }
+    .show_mobile{
+        display: block;
+        font-size: 10px;
+    }
+    .mobile_lang{
+        display: flex;
+        justify-content: end;
+    }
+    .banner_info{
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+    .line{
+        display: block;
+        width: 80%;
+        height: 1px;
+    }
+    .banner_center{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .text_title{
+        font-size: 36px;
+    }
+    .content_camket{
+        position: absolute;
+        top: 10%;
+    }
+    .title_center p{
+        text-align: center;
+    }
+    .list_reason{
+        height: fit-content;
+    }
+}
+@media (min-width: 800px) {
+    .show_mobile{
+        display: none;
+    }
+    .navbar_dad {
+       position: relative;
+    }
+    .button_menu{
+        display: none;
+    }
+    .search_pc{
+        display: block;
+    }
+    .line{
+        /* display: none; */
+        width: 1px;
+        height: 80%;
+    }
+    .banner_info{
+        position: absolute;
+    }
+    .banner_center{
+        display: flex;
+        flex-wrap:nowrap;
+    }
+}

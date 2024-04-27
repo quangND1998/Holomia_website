@@ -1,8 +1,8 @@
-    <footer class="bg-[#101F73] px-[80px]">
+    <footer class="bg-[#101F73] px-3 lg:px-[80px]">
 
-        <div class="w-full flex justify-between pt-[48px]">
-            <div class="bg-white m-3">
-                <img class="h-[80px]" src="images/logo.png" alt="">
+        <div class="w-full lg:flex justify-between pt-[48px]">
+            <div class=" pb-[48px] lg:pb-2 lg:m-3">
+                <img class="h-[80px] bg-white" src="images/logo.png" alt="">
             </div>
 
             <div class="search content-center">
@@ -26,13 +26,13 @@
                 </form>
             </div>
         </div>
-        <div class="w-full flex mx-2  my-[40px] py-[60px] border-t-[1px] border-b-[1px]">
-            <div class="w-1/4">
+        <div class="w-full lg:flex mx-2  my-[40px] py-[60px] border-t-[1px] border-b-[1px]">
+            <div class="lg:w-1/4 py-6">
                 <p class="text-[#FFFFFF] text-[24px] my-3">Cambridge IEC Engpsh Centre</p>
                 <p class="text-[#FFFFFF] text-[16px] my-2">CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội </p>
                 <p class="text-[#FFFFFF] text-[16px]">CS2: 195 Đội Cấn, Ba Đình, Hà Nội </p>
             </div>
-            <div class="w-1/4">
+            <div class="lg:w-1/4 py-6">
                 <a href="about/about_cammbridge">
                     <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('aboutus') }}</p>
                 </a>
@@ -50,22 +50,10 @@
                 </a>
 
             </div>
-            <div class="w-1/4">
+            <div class="lg:w-1/4 py-6">
                 <a href="about/about_cammbridge">
                     <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('course') }}</p>
                 </a>
-                {{-- <a href="about_cammbridge">
-                    <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('mamnon') }} </p>
-                </a>
-                <a href="teacher_cammbridge">
-                    <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('tieuhoc') }}</p>
-                </a>
-                <a href="student">
-                    <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('trunghoc') }} </p>
-                </a>
-                <a href="activity">
-                    <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('ielts') }}</p>
-                </a>  --}}
                 @foreach ($category_courses as $category)
                     <p
                         class="w-[200px]  my-2 {{ Request::get('category_name') == $category->slug ? 'text-white bg-[#101F73] rounded-[4px]' : 'border-r-[1px] border-[#101f7380]' }}">
@@ -76,7 +64,7 @@
                 @endforeach
 
             </div>
-            <div class="w-1/4">
+            <div class="lg:w-1/4 py-6">
                 <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('social_network') }}</p>
 
                 <div class="icon flex">

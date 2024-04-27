@@ -30,7 +30,7 @@ $('.slider_course').slick({
          {
            breakpoint: 481,
            settings: {
-             slidesToShow: 2,
+             slidesToShow: 1,
              arrows: false,
            }
          }
@@ -69,7 +69,7 @@ $('.slider_course').slick({
          {
            breakpoint: 481,
            settings: {
-             slidesToShow: 2,
+             slidesToShow: 1,
              arrows: false,
            }
          }
@@ -146,7 +146,7 @@ $('.slider_course').slick({
          {
            breakpoint: 481,
            settings: {
-             slidesToShow: 2,
+             slidesToShow: 1,
              arrows: false,
            }
          }
@@ -184,7 +184,7 @@ $('.slider_course').slick({
          {
            breakpoint: 481,
            settings: {
-             slidesToShow: 2,
+             slidesToShow: 1,
              arrows: false,
            }
          }
@@ -422,7 +422,7 @@ $('.slider_course').slick({
          {
            breakpoint: 481,
            settings: {
-             slidesToShow: 2,
+             slidesToShow: 1,
              arrows: false,
            }
          }
@@ -474,7 +474,7 @@ $('.slider_course').slick({
            {
              breakpoint: 481,
              settings: {
-               slidesToShow: 2,
+               slidesToShow: 1,
                arrows: false,
              }
            }
