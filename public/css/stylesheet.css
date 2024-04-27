@@ -34,7 +34,7 @@
 }
 
 
-@media (min-width: 430px) {
+@media (min-width: 390px) {
     .top_header{
         display: none;
     }
