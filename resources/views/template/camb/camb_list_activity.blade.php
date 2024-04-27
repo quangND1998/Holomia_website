@@ -2,7 +2,7 @@
     <div class="py-[80px]">
         <div class="w-full ">
             <div class="w-[80%] mx-auto flex flex-wrap justify-center mb-[40px]">
-                <p class="text-[#101828] uppercase text-[40px] font-semibold w-full text-center my-3">
+                <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center my-3">
                     {{ __($section->title) }}</p>
                 <p class="text-[#101828] uppercase text-[18px] font-semibold w-full text-center">
                     {{ __($section->sub_title) }}</p>

@@ -6,7 +6,7 @@
 
                 <div class="flex w-full justify-center items-center my-[64px] ">
                     <div class="w-1/2 mr-[20px]">
-                        <p class="text-[#101F73] uppercase text-[40px] font-semibold w-full text-left my-3">
+                        <p class="text-[#101F73] uppercase text-[30px] font-semibold w-full text-left my-3">
                             {{ __($section->title) }}</p>
                         <p class="text-[#101828] uppercase text-[18px] font-semibold w-full text-left">
                             {{ __($section->sub_title) }}</p>

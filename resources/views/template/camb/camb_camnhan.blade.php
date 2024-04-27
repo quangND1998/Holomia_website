@@ -4,7 +4,7 @@
             <div class="w-full flex flex-wrap justify-center mb-[40px]">
                 <p class="text-[#101F73] uppercase text-[18px] font-semibold w-full text-center">
                     {{ __($section->title) }}</p>
-                <p class="text-[#101828] uppercase text-[40px] font-semibold w-full text-center">
+                <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center">
                     {{ __($section->sub_title) }}</p>
                 <p class="text-[#667085] text-[16px] w-full text-center"> {!! __($section->description) !!} </p>
             </div>
@@ -12,7 +12,7 @@
 
                 @foreach ($section->contents as $content)
                     <div
-                        class="bg-[#FCF5F6] min-h-[500px] border border-[#BF344D] transition ease-in-out  rounded-[10px] mx-2 hover:-translate-y-1 hover:scale-110  duration-300 p-[32px]">
+                        class="bg-[#FCF5F6] min-h-[520px] border border-[#BF344D] transition ease-in-out  rounded-[10px] mx-2 hover:-translate-y-1 hover:scale-110  duration-300 p-[32px]">
                         <div class="rounded-[20px] bg-[#FFFFFF] px-[32px] py-[20px] relative">
                             <img class="w-[19px] absolute left-0 top-0" src="/images/dau_left.png" alt="">
                             <div class="">

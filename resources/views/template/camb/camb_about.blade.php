@@ -13,7 +13,7 @@
             @foreach ($section->contents as  $content)
             @if($loop->index == 0)
                 <p class="text-[#0F197A] uppercase font-semibold text-[18px]">{{ __($content->title) }}</p>
-                <p class="text-[#101828] uppercase font-semibold text-[40px] my-2">{{ __($content->sub_title) }}</p>
+                <p class="text-[#101828] uppercase font-semibold text-[30px] my-2">{{ __($content->sub_title) }}</p>
                 <p class="content">
                     {!! __($content->description) !!}
                 </p>

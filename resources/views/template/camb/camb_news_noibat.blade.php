@@ -1,5 +1,5 @@
 <div class="content w-[70%] mx-auto my-[60px]">
-    <p class="uppercase text-[#101828] font-semibold text-[40px]"> {{ __($section->title) }}</p>
+    <p class="uppercase text-[#101828] font-semibold text-[30px]"> {{ __($section->title) }}</p>
     <div class="content grid grid-cols-3 grid-rows-2 grid-flow-row-dense gap-4 w-full mt-[30px] h-[500px]">
         @foreach ($news_feature as $feature)
             @if ($loop->index == 0)

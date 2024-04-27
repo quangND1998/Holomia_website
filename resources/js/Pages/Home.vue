@@ -358,7 +358,7 @@
                         <img class="w-full rounded-[10px]" src="images/img.jpg" alt="">
                     </div>
                     <div class="w-1/2 mx-16 relative my-auto ">
-                        <p class="text-[#101828] uppercase font-semibold text-[40px] my-2"> TƯ VẤN VÀ KIỂM TRA MIỄN PHÍ </p>
+                        <p class="text-[#101828] uppercase font-semibold text-[30px] my-2"> TƯ VẤN VÀ KIỂM TRA MIỄN PHÍ </p>
                         <p class="content">
                             Bạn còn thắc mắc và băn khoăn về các khóa học tại Cambridge IEC? Nhận tư vấn trực tiếp miễn
                             phí từ đội

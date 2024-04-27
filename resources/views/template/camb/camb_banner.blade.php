@@ -7,7 +7,7 @@
         <div class=" absolute top-[10%] w-full ">
             <div class="content ml-[15%] lg:w-[70%] md:ml-[10%] md:w-[80%]  flex ">
                     <div class="lg:w-1/2 sm:w-full mr-20">
-                        <h1 class="mt-10 font-semibold xl:text-[54px]  lg:text-[44px] md:text-[44px] font-roboto">{{__($content->title)}} <br> <span
+                        <h1 class="mt-10 font-semibold xl:text-[50px]  lg:text-[44px] md:text-[44px] font-roboto">{{__($content->title)}} <br> <span
                                 class="text-[#AD0101]">{!! __($content->sub_title) !!}</span></h1>
                         <p class="my-2">
                             {!! __($content->description) !!}

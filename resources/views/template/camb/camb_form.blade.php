@@ -8,7 +8,7 @@
             @endforeach
         </div>
         <div class="w-1/2 mx-16 relative my-auto ">
-            <p class="text-[#101828] uppercase font-semibold text-[40px] my-2"> {{ __($section->title) }}</p>
+            <p class="text-[#101828] uppercase font-semibold text-[30px] my-2"> {{ __($section->title) }}</p>
             <p class="content">
                 {!! __($section->description) !!}
             </p>

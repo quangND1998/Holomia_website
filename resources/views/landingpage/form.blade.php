@@ -4,7 +4,7 @@
             <img class="w-full rounded-[10px]" src="images/img.jpg" alt="">
         </div>
         <div class="w-1/2 mx-16 relative my-auto ">
-            <p class="text-[#101828] uppercase font-semibold text-[40px] my-2"> {{ __('tuvanvakiemtra') }}</p>
+            <p class="text-[#101828] uppercase font-semibold text-[30px] my-2"> {{ __('tuvanvakiemtra') }}</p>
             <p class="content">
                 {!! __('tuvan_description') !!}
             </p>

@@ -1,6 +1,6 @@
 <div class="content w-[80%] mx-auto my-[120px]">
     <p class="uppercase text-[#101F73] font-semibold text-[18px] text-center"> {{ __($section->title) }}</p>
-    <p class="uppercase text-[#101828] font-semibold text-[40px] text-center"> {{ __($section->sub_title) }}</p>
+    <p class="uppercase text-[#101828] font-semibold text-[30px] text-center"> {{ __($section->sub_title) }}</p>
     <div class="content grid grid-cols-3 gap-4 mt-[30px]">
         @foreach ($news as $feature)
         <a href="new/{{ __($feature->slug) }}">

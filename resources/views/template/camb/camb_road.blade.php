@@ -2,7 +2,7 @@
     <div class="py-[80px]">
         <div class="w-full">
             <div class="w-full flex flex-wrap justify-center mb-[40px]">
-                <p class="text-[#101F73] uppercase text-[40px] font-semibold w-full text-center">{{ __($section->title) }}</p>
+                <p class="text-[#101F73] uppercase text-[30px] font-semibold w-full text-center">{{ __($section->title) }}</p>
             </div>
             <div class=" w-[60%] mx-auto flex flex-wrap">
  

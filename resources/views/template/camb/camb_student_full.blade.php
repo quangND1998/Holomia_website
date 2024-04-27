@@ -3,7 +3,7 @@
         <div class="w-full">
             <div class="flex flex-wrap  w-[70%] text-center mx-auto justify-center">
                 <p class="text-[#101F73] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
-                <p class="text-[#101828] uppercase text-[40px] font-semibold w-full text-center">{{ __($section->sub_title) }}</p>
+                <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center">{{ __($section->sub_title) }}</p>
                 <p class="text-[#667085] text-[16px] text-center"> {!! __($section->description) !!} </p>
             </div>
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 w-[80%] mx-auto my-[10px]">
