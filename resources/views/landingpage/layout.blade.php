@@ -98,7 +98,7 @@
                     </ul>
                 </div>
                 <div id="nav_sticky"
-                    class="menu-content  overlay flex content-center text-center justify-between w-[90%] mx-auto">
+                    class="menu-content  overlay flex content-center text-center justify-between w-[96%] mx-auto">
                     <div class="logo-menu-pc">
                         <a href="/index"><img src="images/logo.png"
                                 class="logo-holo logo-pc img-fluid w-[240px] xs:w-[120px]" alt="" /></a>
