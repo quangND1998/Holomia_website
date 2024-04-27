@@ -13,7 +13,7 @@
                     <div class="flex w-full justify-center items-center my-[64px] ">
                         <div class="w-1/2 mr-3">
                             @if(count($content->images) >0)
-                            <img class="h-[400px] w-[600px] object-cover rounded-[20px]" src="{{$content->images[0]->image}}" alt="">
+                            <img class="h-[400px] w-[500px] object-cover rounded-[20px]" src="{{$content->images[0]->image}}" alt="">
                             @endif
                         </div>
                         <div class="w-1/2">
