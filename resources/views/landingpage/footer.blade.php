@@ -1,6 +1,6 @@
     <footer class="bg-[#101F73] px-3 lg:px-[80px]">
 
-        <div class="w-full lg:flex justify-between pt-[48px]">
+        <div class="lg:flex justify-between pt-[48px]">
             <div class=" pb-[48px] lg:pb-2 lg:m-3">
                 <img class="h-[80px] bg-white" src="images/logo.png" alt="">
             </div>
@@ -17,16 +17,19 @@
                             </svg>
                         </div>
                         <input type="search" id="default-search"
-                            class="pl-14 block w-[fit-content] p-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                            class="pl-14 block w-[400px] px-6 py-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                             placeholder="Nhập email của bạn để nhận tin tức mới nhất" required />
                         <button type="submit"
-                            class="text-white ml-4 end-2.5 bottom-2.5 bg-[#AD0101] font-medium rounded-lg text-sm px-8 py-2 ">{{ __('dangkytuvan') }}</button>
+                            class="show_pc w-[400px] text-white ml-4  bg-[#AD0101] font-medium rounded-lg text-sm  py-2 ">{{ __('dangkytuvan') }}</button>
+                        
+                            <button type="submit"
+                            class="show_mobile text-white ml-4  bg-[#AD0101] font-medium rounded-lg text-sm p-3 "><i class="uil uil-envelope-download text-white text-[20px]"></i></button>
                     </div>
 
                 </form>
             </div>
         </div>
-        <div class="w-full lg:flex mx-2  my-[40px] py-[60px] border-t-[1px] border-b-[1px]">
+        <div class="lg:flex mx-2  my-[40px] py-[60px] border-t-[1px] border-b-[1px]">
             <div class="lg:w-1/4 py-6">
                 <p class="text-[#FFFFFF] text-[24px] my-3">Cambridge IEC Engpsh Centre</p>
                 <p class="text-[#FFFFFF] text-[16px] my-2">CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội </p>
@@ -52,7 +55,7 @@
             </div>
             <div class="lg:w-1/4 py-6">
                 <a href="about/about_cammbridge">
-                    <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('course') }}</p>
+                    <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('Course') }}</p>
                 </a>
                 @foreach ($category_courses as $category)
                     <p
@@ -81,7 +84,7 @@
 
             </div>
         </div>
-        <div class="w-full pb-[40px] ">
+        <div class=" pb-[40px] ">
             <p class="text-[#FFFFFF] text-[16px] my-2">{{ __('copyright') }}</p>
         </div>
     </footer>

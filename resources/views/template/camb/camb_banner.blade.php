@@ -26,15 +26,15 @@
                         <div class="icon md:mt-6 lg:mt-20 lg:flex">
                             <div class="flex mx-3 my-6">
                                 <img class="w-[32px] h-[32px]" src="images/Speak.png" alt="">
-                                <p class="mx-2 text-center content-center ">{{ __('tutingiaotiep') }}</p>
+                                <p class="mx-2 text-center content-center ">{!! __('tutingiaotiep') !!}</p>
                             </div>
                             <div class="flex mx-3 my-6">
                                 <img class="w-[32px] h-[32px]" src="images/Briefcase.png" alt="">
-                                <p class="mx-2 text-center content-center ">{{ __('namvungkienthuc') }}</p>
+                                <p class="mx-2 text-center content-center ">{!! __('namvungkienthuc') !!}</p>
                             </div>
                             <div class="flex mx-3 my-6">
                                 <img class="w-[32px] h-[32px]" src="images/idea.png" alt="">
-                                <p class="mx-2 text-center content-center ">{{ __('morongtrithuc') }}</p>
+                                <p class="mx-2 text-center content-center ">{!! __('morongtrithuc') !!}</p>
                             </div>
                         </div>
                     </div>

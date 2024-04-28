@@ -13,10 +13,10 @@
             @endforeach
         </ul>
         <div class="show_mobile">
-            <select id="catogory" onchange="location = this.value;" class="bg-white border-[2px] border-[#101F73] font-semibold text-[#101F73] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+            <select id="catogory" onchange="location = this.value;" class="bg-white border-[2px] border-[#101F73] font-semibold text-[#101F73] text-sm rounded-lg  block w-full p-2.5 ">
                 <option  {{ Request::get('category_name') == 'all' || Request::get('category_name') == '' ? 'selected' : ''}}  value="list_course?category_name=all"><a href="list_course?category_name=all">{{ __('all') }}</a></option>
                 @foreach ($category_courses as $category)
-                <option {{ Request::get('category_name') == $category->slug  ? 'selected' : ''}} value="list_course?category_name={{ $category->slug }}"><a href="list_course?category_name={{ $category->slug }}">{{ __($category->slug) }}</a> </option>
+                <option class="{{ Request::get('category_name') == $category->slug  ? 'bg-[#101F73] text-white' : ''}}" {{ Request::get('category_name') == $category->slug  ? 'selected' : ''}} value="list_course?category_name={{ $category->slug }}"><a href="list_course?category_name={{ $category->slug }}">{{ __($category->slug) }}</a> </option>
                 @endforeach
             </select>
         </div>

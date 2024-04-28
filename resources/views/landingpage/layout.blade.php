@@ -233,51 +233,54 @@
                                             class="{{ Request::is('contact') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{ __('nav_contact') }}</a>
                                     </li>
 
-                                    <div class="show_mobile  info border-b-[1px] border-[#D9D9D9] mt-[40px]">
-                                        <div class="flex">
-                                            <i class="uil uil-map-marker text-[#667085] mx-2 font-bold text-[20px]"></i>
-                                            <div class="mx-2">
-                                                <p class="text-[#667085]">{{ __('location') }}</p>
-                                                <p class="pt-1 text-[#667085]">
-                                                    CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội 
-                                                </p>
-                                                <p class="pt-1 text-[#667085]">
-                                                    CS2: 195 Đội Cấn, Ba Đình, Hà Nội 
-                                                </p>
+                                    <div class="show_mobile absolute bottom-[10px]">
+                                        <div class="show_mobile  info border-b-[1px] border-[#D9D9D9] mt-[40px]">
+                                            <div class="flex">
+                                                <i class="uil uil-map-marker text-[#667085] mx-2 font-bold text-[20px]"></i>
+                                                <div class="mx-2">
+                                                    <p class="text-[#667085]">{{ __('location') }}</p>
+                                                    <p class="pt-1 text-[#667085]">
+                                                        CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội 
+                                                    </p>
+                                                    <p class="pt-1 text-[#667085]">
+                                                        CS2: 195 Đội Cấn, Ba Đình, Hà Nội 
+                                                    </p>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="flex items-center my-2">
+                                                <i class="uil uil-clock text-[#667085] mx-2 font-bold text-[20px]"></i>
+                                                <p class="text-[#667085] mx-2">08:00 - 21:00</p>
+                                                
                                             </div>
                                             
+                                            <div class="flex items-center my-2">
+                                                <i class="uil uil-envelope-alt text-[#667085] mx-2 font-bold text-[20px]"></i>
+                                                <p class="text-[#667085] mx-2">Email</p>
+                                                
+                                            </div>
+                                            <div class="flex items-center my-2">
+                                                <i class="uil uil-phone-alt text-[#667085] mx-2 font-bold text-[20px]"></i>
+                                                <p class="text-[#667085] mx-2">0336 555 876 / 0359 719 595</p>
+                                                
+                                            </div>
                                         </div>
-                                        <div class="flex items-center my-2">
-                                            <i class="uil uil-clock text-[#667085] mx-2 font-bold text-[20px]"></i>
-                                            <p class="text-[#667085] mx-2">08:00 - 21:00</p>
-                                            
-                                        </div>
-                                        
-                                        <div class="flex items-center my-2">
-                                            <i class="uil uil-envelope-alt text-[#667085] mx-2 font-bold text-[20px]"></i>
-                                            <p class="text-[#667085] mx-2">Email</p>
-                                            
-                                        </div>
-                                        <div class="flex items-center my-2">
-                                            <i class="uil uil-phone-alt text-[#667085] mx-2 font-bold text-[20px]"></i>
-                                            <p class="text-[#667085] mx-2">0336 555 876 / 0359 719 595</p>
-                                            
+                                       
+    
+                                        <div class="show_mobile mobile_lang mt-2 mx-3">
+                                            <li class="menu__item to-left menu-language">
+                                                <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
+                                                        class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
+                                                </a>
+                                            </li>
+                                            <li class="menu__item to-left menu-language">
+                                                <a href="/language/vn" class="menu__link menu_news"><img src="images/vn.png"
+                                                        class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
+                                                </a>
+                                            </li>
                                         </div>
                                     </div>
-                                   
-
-                                    <div class="show_mobile mobile_lang mt-2">
-                                        <li class="menu__item to-left menu-language">
-                                            <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
-                                                    class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
-                                            </a>
-                                        </li>
-                                        <li class="menu__item to-left menu-language">
-                                            <a href="/language/vn" class="menu__link menu_news"><img src="images/vn.png"
-                                                    class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
-                                            </a>
-                                        </li>
-                                    </div>
+                                    
                                 </ul>
 
                             </div>

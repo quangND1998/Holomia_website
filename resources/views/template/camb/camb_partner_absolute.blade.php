@@ -1,5 +1,5 @@
 <div id="content"
-    class="w-[90%] lg:absolute lg:w-[80%] left-[10%] lg:bottom-[0px] mx-auto rounded-[20px] shadow-xl bg-[#ffffff] lg:my-[60px]">
+    class="w-[90%]  lg:w-[80%] left-[10%] lg:absolute lg:mt-[-60px] mx-auto rounded-[20px] shadow-xl bg-[#ffffff] lg:my-[120px]">
     <div class="show_pc h-full mx-12  lg:grid grid-cols-1  lg:grid-cols-9 gap-4  justify-center items-center my-[30px]">
         @foreach ($section->contents as $content)
             <div class="mx-2">
@@ -13,7 +13,7 @@
             @endforeach
         @endforeach
     </div>
-    <div class=" h-full mx-12  justify-center items-center my-[30px]">
+    <div class="show_mobile h-full mx-12  justify-center items-center my-[30px]">
         @foreach ($section->contents as $content)
             <div class="mx-2 flex items-center justify-center">
                 <p class="text-[#A60303] uppercase text-[30px] font-bold">{{ __($content->title) }}</p>

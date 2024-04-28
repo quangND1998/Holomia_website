@@ -25,7 +25,7 @@
                 </div>
                 <button
                     class="absolute right-0   justify-end items-end text-white my-3 end-2.5  border bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">
-                    {{ __('register') }}
+                    {{ __('btn_register') }}
                     <i class="uil uil-arrow-right text-white mx-2 text-[14px]"></i>
                 </button>
             </form>

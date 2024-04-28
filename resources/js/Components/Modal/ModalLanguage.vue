@@ -68,21 +68,21 @@
                     class="block text-sm font-medium text-gray-700"
                   >{{__('en')}}</label>
                   <div class="mt-1">
-                    <ckeditor
+                    <input type="text"
                       v-if="showCkeditor"
                       v-model="form.en"
                       :config="editorConfig"
                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                       placeholder="Description VietNamese"
-                    ></ckeditor>
-                    <textarea
+                    />
+                    <input type="text"
                       v-else
                       name="ev"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       v-model="form.en"
                       cols="20"
                       rows="5"
-                    ></textarea>
+                    />
                   </div>
                   <div class="text-red-500" v-if="errors.en">{{ errors.en }}</div>
                 </div>
@@ -92,21 +92,21 @@
                     class="block text-sm font-medium text-gray-700"
                   >{{__('vn')}}</label>
                   <div class="mt-1">
-                    <ckeditor
+                    <input type="text"
                       v-if="showCkeditor"
                       v-model="form.vn"
                       :config="editorConfig2"
                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                       placeholder="Description VietNamese"
-                    ></ckeditor>
-                    <textarea
+                    />
+                    <input
                       v-else
                       name="ev"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       v-model="form.vn"
                       cols="20"
                       rows="5"
-                    ></textarea>
+                    />
                   </div>
                   <div class="text-red-500" v-if="errors.vn">{{ errors.vn }}</div>
                 </div>
@@ -148,15 +148,19 @@
 
 <script>
 import Icon from "@/Components/Icon";
+import Input from '../Input.vue';
+import Index from '../../Pages/CategoryHolo360/Index.vue';
 export default {
   props: {
     errors: Object
   },
   components: {
     Icon,
-    Notification
+    Notification,
+    Input
   },
-  data() {
+ 
+    data() {
     return {
       editorData: "<p>Content of the editor.</p>",
       editorConfig: {

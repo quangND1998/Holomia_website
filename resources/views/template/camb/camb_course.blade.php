@@ -15,7 +15,7 @@
                     @endif
                     <div class="m-4">
                         <div class="my-2 ">
-                            <p class="text-[#0F197A] font-semibold text-[16px]">{{ __($course->category->name) }}</p>
+                            <p class="text-[#0F197A] font-semibold text-[16px]">{{ __($course->category->slug) }}</p>
                             <p class="text-[#101828] font-semibold text-[24px] my-1  line-clamp-1">{!! __($course->title) !!}</p>
                             <p class="text-[#667085] text-[16px] my-2  line-clamp-2">{!! __($course->sub_title) !!}</p>
                         </div>

@@ -1,4 +1,4 @@
-<div class="px-6 mt-6 lg:w-[80%] lg:mt-[200px] mb-[60px] mx-auto lg:flex">
+<div class="px-6 mt-6 lg:w-[90%] lg:mt-[200px] mb-[60px] mx-auto lg:flex">
     @foreach ($section->contents as  $content)
         @if($loop->index == 0)
         <div class="lg:w-1/2 lg:mr-10 ">
