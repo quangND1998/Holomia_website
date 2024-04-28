@@ -32,7 +32,9 @@
     border-radius: 30px;
 
 }
-
+.bg_cover{
+    display:inline;
+}
 
 @media (min-width: 390px) {
     .top_header{
@@ -95,6 +97,21 @@
     .list_reason{
         height: fit-content;
     }
+    .bg_cover{
+        display: none;
+    }
+    .content_clamp p{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+    .show_pc{
+        display: none;
+    }
+    #tab_roadmap table{
+        width: 100% !important;
+    }
 }
 @media (min-width: 800px) {
     .show_mobile{
@@ -120,5 +137,8 @@
     .banner_center{
         display: flex;
         flex-wrap:nowrap;
+    }
+    .bg_cover{
+        display: inline;
     }
 }

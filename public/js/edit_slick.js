@@ -113,6 +113,82 @@ $('.slider_course').slick({
          }
        ]
   });
+  $('.slider_partner2').slick({
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    infinite: true,
+    dots: true,
+    responsive: [
+         {
+           breakpoint: 1025,
+           settings: {
+             arrows: false,
+           }
+         },
+         {
+           breakpoint: 801,
+           settings: {
+             slidesToShow: 3,
+             arrows: false,
+           }
+         },
+         {
+           breakpoint: 600,
+           settings: {
+             slidesToShow: 2,
+             arrows: false,
+           }
+         },
+         {
+           breakpoint: 481,
+           settings: {
+             slidesToShow: 1,
+             arrows: false,
+           }
+         }
+       ]
+  });
+  $('.slider_mission').slick({
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    infinite: true,
+    dots: true,
+    responsive: [
+         {
+           breakpoint: 1025,
+           settings: {
+             arrows: false,
+           }
+         },
+         {
+           breakpoint: 801,
+           settings: {
+             slidesToShow: 2,
+             arrows: false,
+           }
+         },
+         {
+           breakpoint: 600,
+           settings: {
+             slidesToShow: 2,
+             arrows: false,
+           }
+         },
+         {
+           breakpoint: 481,
+           settings: {
+             slidesToShow: 1,
+             arrows: false,
+           }
+         }
+       ]
+  });
   
   $('.slider_activity').slick({
     slidesToShow: 3,

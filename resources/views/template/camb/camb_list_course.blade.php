@@ -1,6 +1,6 @@
 <div class="content my-[60px]">
-    <div class="category w-[80%] mx-auto">
-        <ul class="w-full flex">
+    <div class="category w-[90%] lg:w-[80%] mx-auto">
+        <ul class="show_pc w-full lg:flex">
             <li
                 class="w-[135px] font-semibold  py-3  text-center {{ Request::get('category_name') == 'all' || Request::get('category_name') == '' ? 'text-white bg-[#101F73] rounded-[4px]' : 'text-[#667085] border-r-[1px] border-[#101f7380]' }}">
                 <a href="list_course?category_name=all">{{ __('all') }}</a>
@@ -12,7 +12,15 @@
                 </li>
             @endforeach
         </ul>
-        <div class="w-full grid grid-cols-4 gap-4 my-[60px]">
+        <div class="show_mobile">
+            <select id="catogory" onchange="location = this.value;" class="bg-white border-[2px] border-[#101F73] font-semibold text-[#101F73] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                <option  {{ Request::get('category_name') == 'all' || Request::get('category_name') == '' ? 'selected' : ''}}  value="list_course?category_name=all"><a href="list_course?category_name=all">{{ __('all') }}</a></option>
+                @foreach ($category_courses as $category)
+                <option {{ Request::get('category_name') == $category->slug  ? 'selected' : ''}} value="list_course?category_name={{ $category->slug }}"><a href="list_course?category_name={{ $category->slug }}">{{ __($category->slug) }}</a> </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="w-full grid grid-cols-1 lg:grid-cols-4 gap-4 my-[60px]">
             @foreach ($courses as $course)
                 <div
                     class="  transition ease-in-out border rounded-[10px]  hover:-translate-y-1 hover:scale-110  duration-300 min-h-[430px]">

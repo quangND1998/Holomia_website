@@ -1,15 +1,20 @@
 @extends('landingpage.layout')
 @section('content')
-    <div class="page_item_news my-[30px] w-[80%] mx-auto">
+    <div class="page_item_news my-[30px] w-[90%] lg:w-[80%] mx-auto">
         <div class=" flex flex-col justify-center items-center">
-            <h1 class="text-[#101828] text-[32px] font-semibold my-[30px]">{{ __($tintuc->title) }}</h1>
+            <h1 class="text-[#101828] text-[32px] font-semibold my-[30px] text-center">{{ __($tintuc->title) }}</h1>
             <p>{!! __($tintuc->content) !!}</p>
 
         </div>
-        <h2 class="text-[#101828] text-[32px] mt-[60px] mb-6">{{ __('activity_other') }}</h2>
-        <div class="w-full flex">
+       
+        <div class="flex justify-between items-center  mt-[60px] mb-6">
+            <h2 class="text-[#101828] text-[32px] lg:mt-[60px] ">{{ __('activity_other') }}</h2>
+
+            <a href="about/activity" class="text-[#101F73] font-semibold">{{ __('see_more') }}</a>
+        </div>
+        <div class="lg:flex">
             @foreach ($tintuc_lienquan as $tintuc)
-                <a class="w-1/4 pr-3" href="{{ route('activity.detail', __($tintuc->slug)) }}">
+                <a class="w-2/3 lg:w-1/4 pr-3" href="{{ route('activity.detail', __($tintuc->slug)) }}">
                     <div class="border rounded-[20px] h-[420px]">
                         <img src="{{ $tintuc->image }}" class="h-[220px] w-full object-cover " alt="">
                         <div class="p-3">

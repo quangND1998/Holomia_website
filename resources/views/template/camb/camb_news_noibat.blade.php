@@ -1,9 +1,9 @@
-<div class="content w-[70%] mx-auto my-[60px]">
+<div class="content w-[90%] lg:w-[70%] mx-auto my-[60px]">
     <p class="uppercase text-[#101828] font-semibold text-[30px]"> {{ __($section->title) }}</p>
-    <div class="content grid grid-cols-3 grid-rows-2 grid-flow-row-dense gap-4 w-full mt-[30px] h-[500px]">
+    <div class="content grid grid-cols-1 grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 grid-flow-row-dense gap-4 w-full mt-[30px] lg:h-[500px]">
         @foreach ($news_feature as $feature)
             @if ($loop->index == 0)
-                <div  class="col-span-2 row-span-2  relative ">
+                <div  class=" lg:col-span-2 lg:row-span-2  relative ">
 
                     <img class="h-full w-full object-cover" src="{{ $feature->image }}" alt="">
                     <div

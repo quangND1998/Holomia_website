@@ -1,8 +1,8 @@
 @extends('landingpage.layout')
 @section('content')
-    <div class="page_item_news my-[30px] w-[80%] mx-auto ">
-        <div class="flex">
-            <div class="w-2/3">
+    <div class="page_item_news my-[30px] w-[90%] lg:w-[80%] mx-auto ">
+        <div class="lg:flex">
+            <div class="w-ful lg:w-2/3">
                 <div class=" w-full">
                     <p class="text-[#101F73] text-[16px] font-semibold ">{{ __($course->category->slug) }}
                     </p>
@@ -11,20 +11,20 @@
 
                     <ul class="w-full flex my-8">
                         <li onclick="openTab(event, 'tab_info')"
-                            class="tablinks w-[160px] py-2 text-center font-semibold text-[16px] active">
+                            class="tablinks w-[160px] py-2 text-center font-semibold text-[14px] lg:text-[16px] active">
                             {{ __('thongtintchung') }}
                         </li>
                         <li onclick="openTab(event, 'tab_roadmap')"
-                            class="tablinks w-[160px] py-2 text-center font-semibold text-[16px] ">
+                            class="tablinks w-[160px] py-2 text-center font-semibold text-[14px] lg:text-[16px] ">
                             {{ __('learning_roadmap') }}
                         </li>
                         <li onclick="openTab(event, 'tab_opening')"
-                            class="tablinks w-[160px] py-2 text-center font-semibold text-[16px] ">
+                            class="tablinks w-[160px] py-2 text-center font-semibold text-[14px] lg:text-[16px] ">
                             {{ __('opening_schedule') }}
                         </li>
                     </ul>
                     <!-- Tab content -->
-                    <div id="tab_info" class="tabcontent mb-8 pr-[60px]" style="display:block">
+                    <div id="tab_info" class="tabcontent mb-8 lg:pr-[60px]" style="display:block">
                         <p>{!! __($course->info) !!}</p>
                     </div>
 
@@ -39,7 +39,7 @@
                 </div>
                
             </div>
-            <div class="w-1/3">
+            <div class="w-full lg:w-1/3">
                 <div class="shadow-md rounded-[12px] px-[44px] py-[30px]">
                     <p class="text-[#101828] text-[24px] font-semibold my-2">{{ __($course->title) }}</p>
                     <div class="flex">
@@ -71,11 +71,11 @@
             <a href="/list_course" class="text-[#101F73] font-semibold">{{ __('see_more') }}</a>
         </div>
        
-        <div class="slider_auto w-full mx-auto h-[450px]">
+        <div class="lg:flex w-full my-4 mx-auto lg:h-[450px]">
 
             @foreach ($course_lienquan as $course)
             <div
-            class="mx-3 slick-slide transition ease-in-out border rounded-[10px]  hover:-translate-y-1 hover:scale-110  duration-300 min-h-[430px]">
+            class="mx-3 my-4 lg:w-1/3 transition ease-in-out border rounded-[10px]  hover:-translate-y-1 hover:scale-110  duration-300 min-h-[430px]">
             <a href="list_course/{{ __($course->slug) }}">
                 @if ($course->image != null)
                     <img class="w-full h-[200px] rounded-t-[10px] object-cover" src="{{ $course->image }}"
