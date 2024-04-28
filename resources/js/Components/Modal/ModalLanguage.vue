@@ -6,7 +6,7 @@
           v-if="showModal"
           class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
         >
-          <div class="relative w-auto my-6 mx-auto max-w-3xl">
+          <div class="relative w-auto my-6 mx-auto min-w-4xl">
             <!--content-->
             <div
               class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
@@ -68,14 +68,14 @@
                     class="block text-sm font-medium text-gray-700"
                   >{{__('en')}}</label>
                   <div class="mt-1">
-                    <input type="text"
+                    <textarea type="text"
                       v-if="showCkeditor"
                       v-model="form.en"
                       :config="editorConfig"
                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                       placeholder="Description VietNamese"
                     />
-                    <input type="text"
+                    <textarea type="text"
                       v-else
                       name="ev"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -92,14 +92,14 @@
                     class="block text-sm font-medium text-gray-700"
                   >{{__('vn')}}</label>
                   <div class="mt-1">
-                    <input type="text"
+                    <textarea type="text"
                       v-if="showCkeditor"
                       v-model="form.vn"
                       :config="editorConfig2"
                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                       placeholder="Description VietNamese"
                     />
-                    <input
+                    <textarea
                       v-else
                       name="ev"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"

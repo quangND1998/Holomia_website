@@ -130,6 +130,10 @@
     }
     .navbar_dad {
        position: relative;
+       top: 0px;
+       right: 0px;
+       z-index: 20;
+       text-align: center;
     }
     .button_menu{
         display: none;
