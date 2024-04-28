@@ -148,7 +148,7 @@
             <icon name="page" class="mr-1 text-blueGray-300 text-base"></icon>
               Course
           </Link>
-          <li class="ml-4 menu_dropdown">
+          <!-- <li class="ml-4 menu_dropdown">
             <a  class="text-white flex"><icon name="page" class="mr-1 text-blueGray-300  text-sm"></icon>Holo360</a>
             <ul class="sub_menu ml-6">
               <li class="my-3">
@@ -158,7 +158,7 @@
                 <Link  :href="route('project_holo360.index')"  class="italic text-white text-blueGray-300 hover:text-blueGray-400 text-sm">Project</Link>
               </li>
             </ul>
-          </li>
+          </li> -->
 
 
           <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.url.startsWith('/admin/themes') ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('themes.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
@@ -170,10 +170,10 @@
               Languages
           </Link>
 
-          <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Mail/Mail' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('mail.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
+          <!-- <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Mail/Mail' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('mail.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="mail" class="mr-1 text-blueGray-300 text-base"></icon>
               Mail
-          </Link>
+          </Link> -->
             <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Contact' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('contact.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="contact" class="mr-1 text-blueGray-300 text-base"></icon>
               Contact
@@ -182,10 +182,10 @@
             <icon name="contact" class="mr-1 text-blueGray-300 text-base"></icon>
               Register Advise
           </Link>
-              <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Project/Index' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('project.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
+              <!-- <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Project/Index' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('project.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="project" class="mr-1 text-blueGray-300 text-base"></icon>
               Project
-          </Link>
+          </Link> -->
 
           <li class="inline-flex" v-if="hasAnyPermission(['users_manage'])"></li>
 
