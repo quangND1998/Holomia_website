@@ -13,7 +13,7 @@
                     <div class="lg:flex w-full justify-center items-center my-[64px] ">
                         <div class="w-full lg:w-1/2 lg:mr-3 my-6">
                             @if(count($content->images) >0)
-                            <img class="h-[400px] w-[500px] object-cover rounded-[20px]" src="{{$content->images[0]->image}}" alt="">
+                            <img class="h-[400px] w-[600px] object-cover rounded-[20px]" src="{{$content->images[0]->image}}" alt="">
                             @endif
                         </div>
                         <div class="lg:w-1/2">
@@ -25,8 +25,6 @@
                             </div>
                             <p class="text-[#667085] text-[16px]">{!! __($content->description) !!}</p>
                         </div>
-                        
-                        
                     </div>
                   @else
                     <div class="flex-wrap flex lg:flex-nowrap  w-full justify-center items-center my-[64px] ">
@@ -44,7 +42,7 @@
                             <img class="h-[400px] w-[600px] object-cover rounded-[20px]" src="{{$content->images[0]->image}}" alt="">
                             @endif
                         </div>
-                        
+
                     </div>
                   @endif
                 @endforeach
