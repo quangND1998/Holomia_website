@@ -48,6 +48,7 @@ Route::get('about/activity', [LandingPageController::class, 'activity']);
 Route::get('about/activity/{slug}', [LandingPageController::class, 'activity_detail'])->name('activity.detail');
 Route::get('list_course', [LandingPageController::class, 'course']);
 Route::get('list_course/{name}', [LandingPageController::class, 'course_detail']);
+Route::post('list_course/search', [LandingPageController::class, 'course_search'])->name('course.search');
 
 Route::get('news', [LandingPageController::class, 'news']);
 Route::get(
@@ -90,7 +91,7 @@ Route::middleware(['auth', 'verified'])->group(
                 Route::post('priorityPage', [PageController::class, 'priorityPage'])->name('pages.priority');
             }
         );
-        
+
         Route::group(['prefix' => 'contacts'], function () {
             Route::get('', [ContactController::class, 'index'])->name('contact.index');
         });
@@ -107,6 +108,7 @@ Route::middleware(['auth', 'verified'])->group(
             Route::post('save', [CourseController::class, 'save'])->name('course.save');
             Route::put('update/{id}', [CourseController::class, 'update'])->name('course.update');
             Route::delete('delete/{id}', [CourseController::class, 'delete'])->name('course.delete');
+
         });
         Route::group(['prefix' => 'category_course'], function () {
             Route::get('', [CategoryCourseController::class, 'index'])->name('category_course.index');

@@ -224,7 +224,7 @@ class LandingPageController extends Controller
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $category_courses = CategoryCourese::all();
         $language = Languages::where('en', $name)->orWhere('vn', $name)->first();
-        if ($language) {
+        if ($language && $language->languageable != null) {
             $course = Course::with('category')->findOrFail($language->languageable->id);
 
             $course_lienquan =  Course::with('category')->where('title', '!=', $course->title)->take(3)->get();
@@ -232,7 +232,7 @@ class LandingPageController extends Controller
                 return view('page.course_detail', compact('pages', 'category_courses' ,'course', 'course_lienquan'));
             }
         } else {
-            return view('landingpage.not-found', compact('pages', 'header'));
+            return view('landingpage.not-found', compact('pages'));
         }
     }
 
@@ -281,5 +281,24 @@ class LandingPageController extends Controller
         } else {
             return view('landingpage.not-found', compact('pages', 'header'));
         }
+    }
+    //
+    public function course_search(Request $request){
+
+        $keyword = $request->value;
+        $page = Page::with(['sections.contents.images','sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
+            $q->where('active', 1);
+        }])->where('title', 'course')->first();
+
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        $category_courses = CategoryCourese::all();
+        $courses = Course::with('languages')->whereHas('languages', function ($q) use ($keyword){
+            $q->where('en', 'LIKE', '%' . $keyword . '%')->orWhere('vn', 'LIKE', '%' . $keyword . '%');
+        })->paginate(20);
+
+        // dd($courses);
+
+
+        return view('page.default', compact('page', 'pages','courses','category_courses','keyword'));
     }
 }

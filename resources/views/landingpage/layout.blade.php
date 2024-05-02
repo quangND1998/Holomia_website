@@ -71,7 +71,7 @@
                     class="px-[2%] md:flex
                     top_header bg-[#0F197A] h-[48px] text-white py-2  flex-wrap justify-between text-center content-center">
                     <div class="flex">
-                        
+
 
                         <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover"
                             data-dropdown-trigger="hover"
@@ -87,10 +87,10 @@
                             <ul class="py-2 text-sm text-black font-semibold "
                                 aria-labelledby="dropdownHoverButton">
                                 <li class="">
-                                    CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội 
+                                    CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội
                                 </li>
                                 <li class="pt-3">
-                                    CS2: 195 Đội Cấn, Ba Đình, Hà Nội 
+                                    CS2: 195 Đội Cấn, Ba Đình, Hà Nội
                                 </li>
                             </ul>
                         </div>
@@ -148,7 +148,7 @@
                             <div class="hidden w-full  md:block md:w-auto " id="navbar-dropdown">
                                 <ul
                                     class="navbar_dad flex font-roboto flex-col font-semibold px-4 md:p-0 sm:mt-0 lg:mt-4 text-[#21272A] border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
-                                   
+
                                     <li>
                                         <a href="#"
                                             class="block py-2 px-3  rounded md:bg-transparent hover:text-blue-700  md:p-0  {{ Request::path() === 'index' ? 'text-blue-700' : 'text-[#101828]' }}"
@@ -240,33 +240,33 @@
                                                 <div class="mx-2">
                                                     <p class="text-[#667085]">{{ __('location') }}</p>
                                                     <p class="pt-1 text-[#667085]">
-                                                        CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội 
+                                                        CS1: Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội
                                                     </p>
                                                     <p class="pt-1 text-[#667085]">
-                                                        CS2: 195 Đội Cấn, Ba Đình, Hà Nội 
+                                                        CS2: 195 Đội Cấn, Ba Đình, Hà Nội
                                                     </p>
                                                 </div>
-                                                
+
                                             </div>
                                             <div class="flex items-center my-2">
                                                 <i class="uil uil-clock text-[#667085] mx-2 font-bold text-[20px]"></i>
                                                 <p class="text-[#667085] mx-2">08:00 - 21:00</p>
-                                                
+
                                             </div>
-                                            
+
                                             <div class="flex items-center my-2">
                                                 <i class="uil uil-envelope-alt text-[#667085] mx-2 font-bold text-[20px]"></i>
                                                 <p class="text-[#667085] mx-2">Email</p>
-                                                
+
                                             </div>
                                             <div class="flex items-center my-2">
                                                 <i class="uil uil-phone-alt text-[#667085] mx-2 font-bold text-[20px]"></i>
                                                 <p class="text-[#667085] mx-2">0336 555 876 / 0359 719 595</p>
-                                                
+
                                             </div>
                                         </div>
-                                       
-    
+
+
                                         <div class="show_mobile mobile_lang mt-2 mx-3">
                                             <li class="menu__item to-left menu-language">
                                                 <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
@@ -280,14 +280,15 @@
                                             </li>
                                         </div>
                                     </div>
-                                    
+
                                 </ul>
 
                             </div>
                         </div>
                     </nav>
                     <div class="search_pc content-center">
-                        <form class="max-w-md mx-auto">
+                        <form method="POST" action="{{ route('course.search') }}" class="max-w-md mx-auto">
+                            @csrf
                             <div class="relative flex">
                                 <div
                                     class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none ml-4">
@@ -297,7 +298,7 @@
                                             stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                     </svg>
                                 </div>
-                                <input type="search" id="default-search"
+                                <input type="search" id="default-search" name="value"
                                     class="pl-14 block w-[260px] p-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                                     placeholder="Tra cứu thông tin khóa học" required />
                                 <button type="submit"
@@ -326,10 +327,14 @@
     </script>
     {{-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
+    <script src="/js/slick.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script type="text/javascript" src="/js/edit_slick.js"></script>
+
+    {{-- chat live --}}
+    <script src="//code.tidio.co/2zu01nijhqfakkirbbumitwvdm2gapzm.js" async></script>
 </body>
 
 </html>

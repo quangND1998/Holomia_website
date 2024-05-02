@@ -8,6 +8,8 @@ use Inertia\Inertia;
 use App\Http\Controllers\Traits\FileUploadTrait;
 use App\Http\Controllers\Traits\LanguageTrait;
 use App\Models\CategoryCourese;
+use App\Models\Languages;
+use Carbon\Language;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 class CourseController extends Controller
@@ -88,16 +90,17 @@ class CourseController extends Controller
         return back()->with('success', 'Create successfully');
     }
     public function delete($id){
-        $person = Course::findOrFail($id);
+        $course = Course::findOrFail($id);
         // dd($person);
-        $imagePath = public_path($person->image);
+        $imagePath = public_path($course->image);
 
         if (File::exists($imagePath)) {
             // Delete the image file
             File::delete($imagePath);
             // return "Image deleted successfully.";
         }
-        $person->delete();
+        $course->delete();
         return back()->with('success', 'Delete successfully');
     }
+
 }
