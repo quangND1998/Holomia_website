@@ -66,6 +66,7 @@ Route::get(
 Route::get('/{name}.html', [ProjectController::class, 'preview_project']);
 Route::post('/item/save/{id}', [ProjectController::class, 'saveView']);
 Route::get('index', [LandingPageController::class, 'index']);
+Route::get('thanks_register', [LandingPageController::class, 'thanks_register']);
 Route::get('immersive', [LandingPageController::class, 'immersive']);
 Route::get('contact', [LandingPageController::class, 'contact']);
 Route::get('projects', [LandingPageController::class, 'project']);

@@ -57,7 +57,8 @@ class AdviseController extends Controller
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
         $pages = Page::get();
 
-        return back()->with('success', 'Thank for send contact with us');
+        return redirect('/thanks_register')->with('success', 'Thank for send contact with us');
+        // return back()->with('success', 'Thank for send contact with us');
     }
 
     public function success()

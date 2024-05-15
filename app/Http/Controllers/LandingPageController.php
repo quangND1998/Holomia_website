@@ -301,4 +301,8 @@ class LandingPageController extends Controller
 
         return view('page.default', compact('page', 'pages','courses','category_courses','keyword'));
     }
+    public function thanks_register(){
+        $category_courses = CategoryCourese::all();
+        return view('landingpage.thanks', compact('category_courses'));
+    }
 }

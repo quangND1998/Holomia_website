@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="vn">
 
 <head>
 
@@ -51,6 +51,7 @@
     <link rel="stylesheet" type="text/css" href="css/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="https://kit.fontawesome.com/d4a744ac4e.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .crop-content {
@@ -59,6 +60,17 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+        html {
+        scroll-behavior: smooth;
+        }
+        .phone-icon {
+            animation: run-phone 1s infinite;
+        }
+        @keyframes run-phone {
+            0% { scale: 1; }
+            50% { scale: 1.5; }
+            100% { scale: 1; }
         }
     </style>
 </head>
@@ -316,6 +328,15 @@
     @include('landingpage.form')
     @include('landingpage.footer')
 
+    <button id="myBtn" title="Lên đầu trang" class="hidden hover:opacity-0.5 fixed bottom-[190px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#101f73b4] hover:bg-[#101F73]">
+        <i class="fa-solid fa-arrow-up-from-bracket text-white"></i>
+    </button>
+
+    <a class="flex items-center justify-center  hover:opacity-0.5 fixed bottom-[120px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#A60303]"
+        href="tel:+0336555876" target="_blank" title="Call Now">
+        <i class="fas fa-phone-alt text-white phone-icon"></i>
+    </a>
+
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     {{--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  --}}
     <script src="/js/bootstrap-notify.min.js"></script>
@@ -335,6 +356,23 @@
 
     {{-- chat live --}}
     <script src="//code.tidio.co/2zu01nijhqfakkirbbumitwvdm2gapzm.js" async></script>
+    <script>
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+        }
+
+        document.getElementById('myBtn').addEventListener("click", function(){
+            // document.body.scrollTop = 0;
+            // document.documentElement.scrollTop = 0;
+            window.scrollTo(0, 0);
+        });
+        </script>
 </body>
 
 </html>

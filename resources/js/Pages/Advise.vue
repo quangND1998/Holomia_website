@@ -32,6 +32,7 @@
             <th scope="col" class="px-6 py-3">Name</th>
             <th scope="col" class="px-6 py-3">Old</th>
             <th scope="col" class="px-6 py-3">Phone</th>
+            <th scope="col" class="px-6 py-3">Date</th>
             <th scope="col" class="px-6 py-3">Message</th>
           </tr>
         </thead>
@@ -48,6 +49,7 @@
           <td class="px-6 py-4">{{element.name}}</td>
           <td class="px-6 py-4">{{element.old}}</td>
           <td class="px-6 py-4">{{element.phone}}</td>
+          <td class="px-6 py-4">{{element.created_at}}</td>
           <td class="px-6 py-4 crop-content">{{element.message}}</td>
         </tr>
       </table>

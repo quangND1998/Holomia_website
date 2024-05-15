@@ -1,9 +1,15 @@
 <div class="content1 relative ">
     @foreach ($section->contents as $content)
         @if ($loop->index == 0)
-            @if (count($content->images) > 0)
-                <img class="w-full h-[780px] object-cover " src="{{ $content->images[0]->image }}" alt="">
-            @endif
+            <div class="slider_banner">
+                @if (count($content->images) > 0)
+                    @foreach ($content->images as $image)
+                        <img class="w-full h-[780px] object-cover " src="{{ $image->image }}" alt="">
+                    @endforeach
+
+                @endif
+            </div>
+
             <div class="lg:absolute top-[10%] w-full ">
                 <div class="banner_center lg:ml-[10%] lg:w-[80%] md:ml-[10%] md:w-[80%]  flex lg:flex-row  ">
                     <div class="lg:w-1/2 sm:w-full lg:mr-20 order-2 lg:order-1 px-3 ">

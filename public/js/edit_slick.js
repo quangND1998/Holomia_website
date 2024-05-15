@@ -1,3 +1,12 @@
+$('.slider_banner').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    infinite: true,
+    dots: true
+  });
 $('.slider_course').slick({
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -189,7 +198,7 @@ $('.slider_course').slick({
          }
        ]
   });
-  
+
   $('.slider_activity').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
