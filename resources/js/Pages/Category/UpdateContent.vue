@@ -232,7 +232,7 @@
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
                 <div class="text-red-500" v-if="errors.title_vn">{{ errors.title_vn }}</div>
-                <img
+                <img loading="lazy"
                   v-if="content.image"
                   class="w-50 h-20"
                   :src="content.image"
@@ -270,7 +270,7 @@
                           v-else-if="theme.type ==1"
                           class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-purple-600 text-white rounded"
                         >Category Content</span>
-                        <img
+                        <img loading="lazy"
                           :src="theme.image_template"
                           width="200px"
                           id="helper-checkbox-text"

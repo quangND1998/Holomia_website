@@ -5,7 +5,7 @@
         @foreach ($section->contents as $content )
                 <div class="item-team " data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
                     <div class="row img-team">
-                        <img src="{{$content->images[0]->image}}" class="avt-team" alt="">
+                        <img loading="lazy" src="{{$content->images[0]->image}}" class="avt-team" alt="">
                     </div>
 
                     <div class="name-team">
@@ -14,11 +14,11 @@
                     </div>
 
                 </div>
-     
+
         @endforeach
     </div>
 
 </div>
-   
-    
+
+
 </div>

@@ -6,7 +6,7 @@
             <p>{!! __($tintuc->content) !!}</p>
 
         </div>
-       
+
         <div class="flex justify-between items-center  mt-[60px] mb-6">
             <h2 class="text-[#101828] text-[32px] lg:mt-[60px] ">{{ __('activity_other') }}</h2>
 
@@ -16,7 +16,7 @@
             @foreach ($tintuc_lienquan as $tintuc)
                 <a class="w-2/3 lg:w-1/4 pr-3" href="{{ route('activity.detail', __($tintuc->slug)) }}">
                     <div class="border rounded-[20px] h-[420px]">
-                        <img src="{{ $tintuc->image }}" class="h-[220px] w-full object-cover " alt="">
+                        <img loading="lazy" src="{{ $tintuc->image }}" class="h-[220px] w-full object-cover " alt="">
                         <div class="p-3">
                             <h5 class="my-3 text-[#101828] text-[24px] font-semibold line-clamp-1">{{ __($tintuc->title) }}</h5>
                             <div class="text-[#667085] text-[16px] line-clamp-2">{!! Str::words(strip_tags(__($tintuc->content_slug)), 20, '...') !!}

@@ -10,7 +10,7 @@
         <span
           class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"
         >
-          <img
+          <img loading="lazy"
             v-if="$page.props.auth.user"
             alt="..."
             class="w-full rounded-full align-middle border-none shadow-lg"
@@ -38,7 +38,7 @@
         class="flex items-center text-sm py-2 px-4 font-normal w-full whitespace-nowrap bg-transparent text-blueGray-700"
         :href="route('logout')"
         as="button"
-        
+
         method="post"
       >
         <icon name="logout" class="w-4 h-4 mr-2" />

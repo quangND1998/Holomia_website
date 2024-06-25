@@ -9,24 +9,24 @@
                     <div class="slider-for">
                         @foreach ($section->contents as  $content)
                             @if(count($content->images) >0)
-                                <img src="{{$content->images[0]->image}}" alt="">
+                                <img loading="lazy" src="{{$content->images[0]->image}}" alt="">
                             @endif
-                            
+
                         @endforeach
-                       
-                   
+
+
                     </div>
                     <div class="slider-nav">
                         @foreach ($section->contents as  $content)
                             @if(count($content->images) >0)
-                                <img src="{{$content->images[0]->image}}" alt="">
+                                <img loading="lazy" src="{{$content->images[0]->image}}" alt="">
                             @endif
                         @endforeach
-                        
+
                     </div>
                 </div>
-            </div> 
-            
+            </div>
+
         </div>
-        
+
     </div>

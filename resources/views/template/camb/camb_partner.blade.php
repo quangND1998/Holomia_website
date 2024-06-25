@@ -12,7 +12,7 @@
 
                         @if(count($content->images) >0)
                         <div class="h-[80px] !flex justify-center items-center">
-                            <img class="w-auto max-h-[80px]  mx-1" src="{{$content->images[0]->image}}" alt="">
+                            <img loading="lazy" class="w-auto max-h-[80px]  mx-1" src="{{$content->images[0]->image}}" alt="">
                         </div>
 
                         @endif

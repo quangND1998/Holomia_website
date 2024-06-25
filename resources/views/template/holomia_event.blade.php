@@ -6,7 +6,7 @@
             @foreach ($section->contents[0]->images as $image)
             <div class="gallery__item {{$image->element ==null ?'' :$image->element }}">
                 <div class="embed {{$image->embed ==null ?'' :$image->embed }}" ">
-                    <a href=" {{$image->image}}" data-fancybox="gallery" data-caption="{{$image->name}}"><img
+                    <a href=" {{$image->image}}" data-fancybox="gallery" data-caption="{{$image->name}}"><img loading="lazy"
                         src="{{$image->image}}" /></a>
                 </div>
             </div>

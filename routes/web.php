@@ -107,7 +107,7 @@ Route::middleware(['auth', 'verified'])->group(
         Route::group(['prefix' => 'course'], function () {
             Route::get('', [CourseController::class, 'index'])->name('course.index');
             Route::post('save', [CourseController::class, 'save'])->name('course.save');
-            Route::put('update/{id}', [CourseController::class, 'update'])->name('course.update');
+            Route::post('update/{id}', [CourseController::class, 'update'])->name('course.update');
             Route::delete('delete/{id}', [CourseController::class, 'delete'])->name('course.delete');
 
         });
@@ -120,7 +120,7 @@ Route::middleware(['auth', 'verified'])->group(
         Route::group(['prefix' => 'person'], function () {
             Route::get('', [PersonController::class, 'index'])->name('person.index');
             Route::post('save', [PersonController::class, 'save'])->name('person.save');
-            Route::put('update/{id}', [PersonController::class, 'update'])->name('person.update');
+            Route::post('update/{id}', [PersonController::class, 'update'])->name('person.update');
             Route::delete('delete/{id}', [PersonController::class, 'delete'])->name('person.delete');
         });
 

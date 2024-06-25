@@ -73,7 +73,7 @@
                     <div class="menu-pc">
                         <div id="nav_sticky" class="menu-content overlay">
                             <div class="logo-menu-pc">
-                                <a href="/index"><img src="img/logoxanh.png" class="logo-holo logo-pc img-fluid"
+                                <a href="/index"><img loading="lazy" src="img/logoxanh.png" class="logo-holo logo-pc img-fluid"
                                         alt=""></a>
                             </div>
                             <nav class="menu-demo">
@@ -127,11 +127,11 @@
                                 </ul>
                                 <ul class="list-language">
                                     <li class="menu__item to-left menu-language">
-                                        <a href="/language/en" class="menu__link menu_news "><img src="/img/en.png"
+                                        <a href="/language/en" class="menu__link menu_news "><img loading="lazy" src="/img/en.png"
                                                 class="img-fluid logo_language" alt=""> </a>
                                     </li>
                                     <li class="menu__item to-left menu-language">
-                                        <a href="/language/vn" class="menu__link menu_news "><img src="/img/vn.png"
+                                        <a href="/language/vn" class="menu__link menu_news "><img loading="lazy" src="/img/vn.png"
                                                 class="img-fluid logo_language" alt=""> </a>
                                     </li>
 
@@ -147,7 +147,7 @@
                         <div class="mean-bar">
                             <div class=" logo-mobile">
                                 <div class="logo-menu">
-                                    <a href="index.html"><img src="img/logoxanhh.png" class="logo-holo img-fluid"
+                                    <a href="index.html"><img loading="lazy" src="img/logoxanhh.png" class="logo-holo img-fluid"
                                             alt=""></a>
                                 </div>
                                 <!-- <div class="open-menu">
@@ -192,9 +192,9 @@
                                             @endif
                                         @endforeach
                                         <li class="language">
-                                            <a href="/language/en" class="link-language"><img src="img/en.png"
+                                            <a href="/language/en" class="link-language"><img loading="lazy" src="img/en.png"
                                                     class="img-fluid" alt=""></a>
-                                            <a href="/language/vn" class="link-language"><img src="img/vn.png"
+                                            <a href="/language/vn" class="link-language"><img loading="lazy" src="img/vn.png"
                                                     class="img-fluid" alt=""></a>
                                         </li>
                                     </ul>

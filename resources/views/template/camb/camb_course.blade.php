@@ -11,7 +11,7 @@
                 @foreach ($courses as  $course)
                 <div class="transition shadow-lg ease-in-out border rounded-[10px] mx-5  hover:scale-110 transition-transform duration-300 h-[400px]">
                     @if($course->image != null)
-                    <img class="w-full h-[200px] object-cover rounded-t-[10px] " src="{{$course->image}}" alt="">
+                    <img loading="lazy" class="w-full h-[200px] object-cover rounded-t-[10px] " src="{{$course->image}}" alt="">
                     @endif
                     <div class="m-4">
                         <div class="my-2 ">

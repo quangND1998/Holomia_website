@@ -165,7 +165,7 @@
                             {{ category.content }}
                         </td>
                         <td class="px-6 py-4">
-                            <img :src="category.image" class="w-16"  alt="">
+                            <img loading="lazy" :src="category.image" class="w-16"  alt="">
                         </td>
                         <td class="px-6 py-4">
                             <button

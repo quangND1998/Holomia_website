@@ -9,7 +9,7 @@
 
             </div>
         </div>
-       <img src="{{$project ? $project->image: ''}}" alt="">
+       <img loading="lazy" src="{{$project ? $project->image: ''}}" alt="">
     </div>
 
     <!-- section3 -->
@@ -26,9 +26,9 @@
                         <div class="overview">
                             <a href="{{ $item->link }}" class="item_preview imgage_holo360"  id="{{ $item->id }}" target="_blank">
                                 <div class="image_overview">
-                                    <img src="{{$item->thumb}}" class=" img_fluid imgage_holo360 " alt="">
+                                    <img loading="lazy" src="{{$item->thumb}}" class=" img_fluid imgage_holo360 " alt="">
                                 </div>
-                                
+
                                 <div class="d-flex content_holo360">
                                     <h4 class="text-title title_holo360">{{$item->name}} </h4>
                                     <p class="count_eye"><i class="far fa-eye mr-2"></i><span class="text_view">{{ $item->view }}</span></p>
@@ -79,7 +79,7 @@
         @media   (min-width: 1600px){
             .section3{
                 padding: 3rem 17rem !important;
-                
+
             }
         }
         @media   (min-width: 1300px && max-width:1599px){
@@ -87,9 +87,9 @@
                 padding: 2rem 10rem !important;
             }
         }
-       
 
-           
+
+
 </style>
 <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"

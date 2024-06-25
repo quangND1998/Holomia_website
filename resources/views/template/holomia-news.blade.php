@@ -11,14 +11,14 @@
 
                     <div class="item-event-join {{$key >2 ? 'collapse': ''}}"  id="{{$key >2 ? 'hidden': ''}}">
                         <div class="item-img">
-                            <img src="{{$new->image}}" class="img-fluid img-event" alt="">
+                            <img loading="lazy" src="{{$new->image}}" class="img-fluid img-event" alt="">
                         </div>
 
                         <div class="content-item">
                             <span class="d-block time-event">{{
                                 \Carbon\Carbon::parse($new->created_at)->isoFormat('MMMM, D,YYYY').' '.'-'.'
                                 '.\Carbon\Carbon::parse($new->created_at)->diffForHumans()}}</span>
-                            <a href="{{route('new.detail',__($new->slug))}}" 
+                            <a href="{{route('new.detail',__($new->slug))}}"
                                 class="title-event"><span
                                     class="d-block text-font ">{{__($new->title)}}</span></a>
 
@@ -51,7 +51,7 @@
 
         </div>
         <!-- <div class="row">
-                
+
             </div> -->
     </div>
 </div>

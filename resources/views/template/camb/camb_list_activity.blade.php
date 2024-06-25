@@ -14,7 +14,7 @@
                     <a href="about/activity/{{ __($content->slug) }}">
                         <div class="w-full flex shadow-xl rounded-[20px] my-6 items-center">
                                 @if ($content->image != null)
-                                    <img class="h-full w-[130px] lg:h-[320px] lg:w-[520px] object-cover rounded-l-[20px]"
+                                    <img loading="lazy" class="h-full w-[130px] lg:h-[320px] lg:w-[520px] object-cover rounded-l-[20px]"
                                         src="{{ $content->image }}" alt="">
                                 @endif
                             <div class="w-2/3 flex flex-col justify-center m-6 text-left content_clamp">

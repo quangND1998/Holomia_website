@@ -21,13 +21,13 @@ class LandingPageController extends Controller
         $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
             $q->where('active', 1);
         }])->first();
-        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        // $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $last_new  = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(2)->get();
-        $courses = Course::all();
-        $teachers = Persons::where('type','teacher')->take(10)->get();
-        $students = Persons::where('type','student')->take(6)->get();
+        $courses = Course::take(4)->get();
+        $teachers = Persons::where('type','teacher')->take(6)->get();
+        $students = Persons::where('type','student')->take(3)->get();
         $category_courses = CategoryCourese::all();
-        return view('page.home', compact('page', 'pages', 'category_courses' ,'last_new','courses','teachers','students','category_courses'));
+        return view('page.home', compact('page', 'category_courses' ,'last_new','courses','teachers','students','category_courses'));
     }
 
     public function immersive()

@@ -11,7 +11,7 @@
 
                 <div class=" border rounded-[10px] mx-5 hover:-translate-y-1 hover:scale-110 relative">
                     @if($teacher->image != null)
-                    <img class="w-full h-[368px] object-cover " src="{{ $teacher->image }}" alt="">
+                    <img loading="lazy" class="w-full h-[368px] object-cover " src="{{ $teacher->image }}" alt="">
                     @endif
                     <div class="absolute w-full bottom-0 items-center text-center p-4 bg-gradient-to-b from-[#00000000] to-[#000000]">
                         <p class="text-[#FFFFFF] uppercase text-[24px]">{{ $teacher->name }}</p>

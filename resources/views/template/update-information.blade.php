@@ -11,7 +11,7 @@
                             <div class="box_news"  style="height: 180px">
                                 <div class="news_is">
                                     <a href="page/item_news.html" >
-                                        <img data-src="{{$new->Hinh}}" class="img_news lazyload">
+                                        <img loading="lazy" data-src="{{$new->Hinh}}" class="img_news lazyload">
 
                                     </a>
                                 </div>
@@ -21,8 +21,8 @@
                                         {!!Str::words(strip_tags(__($new->NoiDung)), 10, '...')!!}</div>
                                     <div class="box_duoi">
                                         <div class="left_news">
-                                            <img data-src="images/lich.svg" class="lazyload"> {{ \Carbon\Carbon::parse($new->created_at)->format('d/m/Y')}} </div>
-                                        <a href="{{route('new.detail',__($new->TieuDeKhongDau))}}"  class="read_view_2">{{__('see_more')}} <img
+                                            <img loading="lazy" data-src="images/lich.svg" class="lazyload"> {{ \Carbon\Carbon::parse($new->created_at)->format('d/m/Y')}} </div>
+                                        <a href="{{route('new.detail',__($new->TieuDeKhongDau))}}"  class="read_view_2">{{__('see_more')}} <img loading="lazy"
                                                 src="images/right.svg"></a>
                                     </div>
                                 </div>

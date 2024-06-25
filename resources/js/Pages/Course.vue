@@ -75,7 +75,7 @@
             <td class="px-6 py-4">{{ __(course.time) }} month</td>
             <td class="px-6 py-4">{{ __(course.number_student) }} đã học</td>
             <td class="px-6 py-4 max-w-2">
-              <img class="w-20" :src="course.image" alt="" />
+              <img loading="lazy" class="w-20" :src="course.image" alt="" />
             </td>
             <td class="px-6 py-4">{{ __(course.price) }}</td>
             <td class="px-6 py-4 crop-content">
@@ -562,7 +562,7 @@ export default {
       });
     },
     update: function () {
-      this.form.put(this.route("course.update", this.form.id), {
+      this.form.post(this.route("course.update", this.form.id), {
         preserveState: true,
         onError: (errors) => {
           if (Object.keys(errors).length > 0) {

@@ -9,14 +9,14 @@
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 w-[80%] mx-auto my-[10px]">
                 @foreach ($students as $student)
                 <div class="rounded-[10px] my-6" >
-                    <img class="rounded-t-[10px] w-full h-[400px]  object-cover" src="{{ $student->image }}" alt="">
+                    <img loading="lazy" class="rounded-t-[10px] w-full h-[400px]  object-cover" src="{{ $student->image }}" alt="">
                     <div class="bg-[#A60303] relative h-[110px] p-4 rounded-b-[10px]">
                         <p class="text-white uppercase text-[24px] font-roboto">{{ $student->name }}</p>
                         <p class="text-white text-[16px] line-clamp-2">{{ __($student->description) }}</p>
                         @if($student->score != null)
                         <div
                             class="absolute top-[-45px] right-4 lg:scale-[1] md:right-4 md:scale-[0.7]  sm:scale-[0.6]">
-                            <img class="w-[100px] h-[90px]" src="/images/star.png" alt="">
+                            <img loading="lazy" class="w-[100px] h-[90px]" src="/images/star.png" alt="">
                             <p
                                 class="text-[#E5920E] text-[14px] absolute top-[25px] right-[35px] w-[30px] text-center items-center justify-center font-semibold">
                                 {{ $student->score }} IELTS</p>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 @endforeach
-                
+
             </div>
 
         </div>

@@ -90,7 +90,7 @@
                             <button type="submit"
                                 class="text-white btn-sub  flex justify-center items-center bg-[#0F197A] font-medium rounded-lg text-sm px-10 py-3 ">{{
                                                 __('send') }}
-                                    <img class="mx-2 fill-white" src="images/Vector.svg" alt="">
+                                    <img loading="lazy" class="mx-2 fill-white" src="images/Vector.svg" alt="">
                             </button>
                         </div>
 

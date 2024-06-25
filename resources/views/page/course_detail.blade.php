@@ -37,7 +37,7 @@
                     </div>
 
                 </div>
-               
+
             </div>
             <div class="w-full lg:w-1/3">
                 <div class="shadow-md rounded-[12px] px-[44px] py-[30px]">
@@ -59,7 +59,7 @@
                     <div class="w-full mt-10 flex justify-center items-center">
                         <button type="submit"
                             class="text-white  flex justify-center items-center end-2.5 bottom-2.5 bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">{{ __('dangkykhoahoc') }}
-                            <img class="mx-2 fill-white" src="images/Vector.svg" alt="">
+                            <img loading="lazy" class="mx-2 fill-white" src="images/Vector.svg" alt="">
                         </button>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
 
             <a href="/list_course" class="text-[#101F73] font-semibold">{{ __('see_more') }}</a>
         </div>
-       
+
         <div class="lg:flex w-full my-4 mx-auto lg:h-[450px]">
 
             @foreach ($course_lienquan as $course)
@@ -78,7 +78,7 @@
             class="mx-3 my-4 lg:w-1/3 transition ease-in-out border rounded-[10px]  hover:-translate-y-1 hover:scale-110  duration-300 min-h-[430px]">
             <a href="list_course/{{ __($course->slug) }}">
                 @if ($course->image != null)
-                    <img class="w-full h-[200px] rounded-t-[10px] object-cover" src="{{ $course->image }}"
+                    <img loading="lazy" class="w-full h-[200px] rounded-t-[10px] object-cover" src="{{ $course->image }}"
                         alt="">
                 @endif
                 <div class="m-4">

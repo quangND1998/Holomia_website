@@ -61,7 +61,7 @@
             </td>
 
             <td class="px-6 py-4">
-              <img v-if="element.image" class="w-50 h-20" :src="element.image" alt="Card image cap" />
+              <img loading="lazy" v-if="element.image" class="w-50 h-20" :src="element.image" alt="Card image cap" />
             </td>
 
             <td class="px-6 py-4">

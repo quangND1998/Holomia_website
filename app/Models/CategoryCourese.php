@@ -12,9 +12,9 @@ class CategoryCourese extends Model
     protected $fillable = [
         "id",
         "name",
-        "slug",
-        "created_at",
-        "updated_at"
+        // "slug",
+        // "created_at",
+        // "updated_at"
     ];
 
     public function course()

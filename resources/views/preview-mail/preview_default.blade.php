@@ -14,7 +14,7 @@
                                     <td align="left" valign="middle" style="width:auto;height:60px">
                                         <a href="#" style="border:0"  height="30"
                                             style="display:block;border:0px">
-                                            <img src="http://nemoviz.com/assets/langdingpage/images/vni/Nemoviz_logo_crop.png" height="30"
+                                            <img loading="lazy" src="http://nemoviz.com/assets/langdingpage/images/vni/Nemoviz_logo_crop.png" height="30"
                                                 style="display:block;border:0px;float: left;"> <b
                                                 style="float: left;line-height: 100px;color: red;font-size: 20px;"></b>
                                         </a>

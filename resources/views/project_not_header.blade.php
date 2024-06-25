@@ -9,7 +9,7 @@
 
             </div>
         </div>
-       <img src="{{$project ? $project->image: ''}}" alt="">
+       <img loading="lazy" src="{{$project ? $project->image: ''}}" alt="">
     </div>
 
     <!-- section3 -->
@@ -26,7 +26,7 @@
                         <div class="overview">
                             <a href="{{ $item->link }}" class="item_preview imgage_holo360"  id="{{ $item->id }}" target="_blank">
                                 <div class="image_overview">
-                                    <img src="{{$item->thumb}}" class=" img_fluid imgage_holo360 " alt="">
+                                    <img loading="lazy" src="{{$item->thumb}}" class=" img_fluid imgage_holo360 " alt="">
                                 </div>
 
                                 <div class="d-flex content_holo360">

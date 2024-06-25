@@ -7,7 +7,7 @@
         <div class="shadow overflow-hidden sm:rounded-md">
           <div class="px-4 py-5 bg-white sm:p-6">
              <div class="grid gap-4 ">
-            
+
 
               <div class="col-span-6 sm:col-span-3">
                 <label
@@ -43,7 +43,7 @@
                 <div class="text-red-500" v-if="errors.title_vn">{{ errors.title_vn }}</div>
               </div>
 
-              
+
 
               <div class="col-span-6 sm:col-span-3">
                 <label
@@ -162,7 +162,7 @@
                           v-else-if="theme.type ==3"
                           class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-purple-600 text-white rounded"
                         >Blog (Category )</span>
-                        <img
+                        <img loading="lazy"
                           :src="theme.image_template"
                           width="200px"
                           id="helper-checkbox-text"
@@ -177,7 +177,7 @@
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
             <Link
-              
+
               :href="route('section.index',page.id)"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             >Back</Link>

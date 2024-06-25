@@ -13,13 +13,13 @@
                         <a href=""
                                 class="text-white  my-[20px] lg:my-[100px] w-[260px] flex justify-center items-center end-2.5 bottom-2.5 bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-4 ">{{
                                                 __('khamphakhoahoc') }}
-                                    <img class="mx-2 fill-white" src="images/Vector.svg" alt="">
+                                    <img loading="lazy" class="mx-2 fill-white" src="images/Vector.svg" alt="">
                             </a>
                     </div>
                     @foreach ($section->contents as $content)
                         <div class="w-full lg:w-1/2 flex justify-center items-center">
                             @if (count($content->images) > 0)
-                                <img class="h-[400px] w-[600px] object-cover rounded-[20px]"
+                                <img loading="lazy" class="h-[400px] w-[600px] object-cover rounded-[20px]"
                                     src="{{ $content->images[0]->image }}" alt="">
                             @endif
                         </div>

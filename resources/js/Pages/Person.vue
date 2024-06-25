@@ -37,7 +37,7 @@
                                 class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">{{ index + 1 }}</th>
                         <td class="px-6 py-4">{{ __(person.name) }}</td>
                         <td class="px-6 py-4">
-                            <img class="w-20" :src="person.image" alt="">
+                            <img loading="lazy" class="w-20" :src="person.image" alt="">
                         </td>
                         <td class="px-6 py-4">{{ __(person.type) }}</td>
                         <td class="px-6 py-4">{{ __(person.description) }}</td>
@@ -269,7 +269,7 @@ export default {
             });
         },
         update: function() {
-            this.form.put(this.route("person.update", this.form.id), {
+            this.form.post(this.route("person.update", this.form.id), {
                 preserveState: true,
                 onError: errors => {
                 if (Object.keys(errors).length > 0) {

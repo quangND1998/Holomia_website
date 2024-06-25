@@ -1,162 +1,144 @@
+.slick-next,
+.slick-prev {
+    position: relative;
+    top: 50%;
+    background-color: rgb(255 255 255 / 50%) !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
 .slick-prev:before {
     position: absolute;
     top: 35%;
     left: 22px;
     content: url(../images/icon/arrow_blue.svg) !important;
 }
-
- .slick-next:before {
+.slick-next:before {
     position: absolute;
     top: 35%;
     right: 45px;
     content: url(../images/icon/arrow_right.svg) !important;
 }
-.slick-prev{
-    position: relative;
+.slick-prev {
     left: -10px;
-    top: 50%;
-    background-color: rgb(255 255 255 / 50%) !important;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-
 }
-.slick-next
-{
-    position: relative;
+.slick-next {
     right: -10px;
-    top: 50%;
-    background-color: rgb(255 255 255 / 50%) !important;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-
 }
-.bg_cover{
-    display:inline;
+.bg_cover {
+    display: inline;
 }
-.show_pc{
+.show_pc {
     display: block;
 }
 @media (min-width: 330px) {
-    .top_header{
+    .bg_cover,
+    .search_pc,
+    .show_pc,
+    .top_header {
         display: none;
     }
-    .search_pc{
-        display: none;
-    }
-    .button_menu{
+    .button_menu,
+    .show_mobile {
         display: block;
     }
-    .logo-pc{
+    .logo-pc {
         width: 160px;
     }
-    .navbar-dropdown{
-        background-color: #A60303;
+    .navbar-dropdown {
+        background-color: #a60303;
     }
     .navbar_dad {
         position: fixed;
         top: 100px;
-        right: 0px;
+        right: 0;
         z-index: 20;
         height: 88%;
         text-align: left;
     }
-    .navbar_dad li{
-        padding:  4px 0;
+    .navbar_dad li {
+        padding: 4px 0;
     }
-    .show_mobile{
-        display: block;
+    .show_mobile {
         font-size: 10px;
     }
-    .mobile_lang{
+    .mobile_lang {
         display: flex;
         justify-content: end;
     }
-    .banner_info{
+    .banner_info {
         display: block;
         position: relative;
         width: 100%;
     }
-    .line{
+    .line {
         display: block;
         width: 80%;
         height: 1px;
     }
-    .banner_center{
+    .banner_center {
         display: flex;
         flex-wrap: wrap;
     }
-    .text_title{
+    .text_title {
         font-size: 36px;
     }
-    .content_camket{
+    .content_camket {
         position: absolute;
         top: 10%;
     }
-    .title_center p{
+    .title_center p {
         text-align: center;
     }
-    .list_reason{
+    .list_reason {
         height: fit-content;
     }
-    .bg_cover{
-        display: none;
-    }
-    .content_clamp p{
+    .content_clamp p {
         overflow: hidden;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
     }
-    .show_pc{
-        display: none;
-    }
-    #tab_roadmap table{
+    #tab_roadmap table {
         width: 100% !important;
     }
     select option:hover {
-        background-color: #101F73 !important;
-        color: white;
-      }
+        background-color: #101f73 !important;
+        color: #fff;
+    }
     select option:selected {
-        background-color: #101F73 !important;
-        color: white;
-      }
+        background-color: #101f73 !important;
+        color: #fff;
+    }
 }
 @media (min-width: 800px) {
-    .show_mobile{
+    .button_menu,
+    .show_mobile {
         display: none;
     }
     .navbar_dad {
-       position: relative;
-       top: 0px;
-       right: 0px;
-       z-index: 20;
-       text-align: center;
+        position: relative;
+        top: 0;
+        right: 0;
+        z-index: 20;
+        text-align: center;
     }
-    .button_menu{
-        display: none;
-    }
-    .search_pc{
+    .search_pc,
+    .show_pc {
         display: block;
     }
-    .line{
-        /* display: none; */
+    .line {
         width: 1px;
         height: 80%;
     }
-    .banner_info{
+    .banner_info {
         position: absolute;
     }
-    .banner_center{
+    .banner_center {
         display: flex;
-        flex-wrap:nowrap;
+        flex-wrap: nowrap;
     }
-    .bg_cover{
+    .bg_cover {
         display: inline;
-    }
-    .show_pc{
-        display: block;
     }
 }

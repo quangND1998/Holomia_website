@@ -123,7 +123,7 @@
             >Preview</a>
           </td>
           <td class="px-6 py-4 crop-content">
-            <img width="300" height="150" :src="element.image" alt="Card image cap" />
+            <img loading="lazy" width="300" height="150" :src="element.image" alt="Card image cap" />
           </td>
 
           <td class="px-6 py-4">

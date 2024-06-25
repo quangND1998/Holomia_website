@@ -3,7 +3,7 @@
         <div class="w-1/2 mx-10 flex justify-center items-center ">
             @foreach ($section->contents as $content)
                 @if (count($content->images) > 0)
-                    <img class="w-full rounded-[10px]" src="{{$content->images[0]->image}}" alt="">
+                    <img loading="lazy" class="w-full rounded-[10px]" src="{{$content->images[0]->image}}" alt="">
                 @endif
             @endforeach
         </div>

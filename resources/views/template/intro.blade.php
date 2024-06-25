@@ -14,7 +14,7 @@
                 <div class="w-1/2">
                     @foreach ($section->contents as $content )
                             <div class="section2-img" data-aos="fade-left">
-                        <img src="{{count($content->images) >0 ? $content->images[0]->image : ''}}" class="img-fluid" alt="">
+                        <img loading="lazy" src="{{count($content->images) >0 ? $content->images[0]->image : ''}}" class="img-fluid" alt="">
                     </div>
                     @endforeach
                 </div>

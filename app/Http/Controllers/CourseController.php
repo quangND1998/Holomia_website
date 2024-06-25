@@ -63,7 +63,6 @@ class CourseController extends Controller
     }
     public function update(Request $request,$id)
     {
-        // dd($request);
         $course = Course::findOrFail($id);
         if($course){
             $destinationpath = 'images/course/';
@@ -71,6 +70,7 @@ class CourseController extends Controller
                 mkdir($destinationpath, 777, true);
             }
             $name = time();
+
             $course->update([
                 'image' =>  $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $destinationpath, $course->image) : $course->image,
                 'time' => $request->time,
@@ -79,12 +79,14 @@ class CourseController extends Controller
                 'category_id' => $request->category_id,
 
             ]);
+            if($request->title){
             $this->updateLanguage($course->slug, Str::slug($request->title_en), Str::slug($request->title_vn), $course);
             $this->updateLanguage($course->title, $request->title_en, $request->title_vn, $course);
             $this->updateLanguage($course->sub_title, $request->sub_title_en, $request->sub_title_vn, $course);
             $this->updateLanguage($course->info, $request->info_en, $request->info_vn, $course);
             $this->updateLanguage($course->roadmap, $request->roadmap_en, $request->roadmap_vn, $course);
             $this->updateLanguage($course->open_schedule, $request->open_schedule_en, $request->open_schedule_vn, $course);
+            }
             $course->save();
         }
         return back()->with('success', 'Create successfully');

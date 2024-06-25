@@ -1,9 +1,9 @@
 <template>
     <div class="mt-10 sm:mt-0 overflow-auto">
     <BreadCrumbVue :page="page" :section="section" :category="category" name="Create"/>
-    
+
     <div class="mt-5 md:mt-0 md:col-span-3">
-     
+
       <form @submit.prevent="save">
         <div class="shadow overflow-hidden sm:rounded-md">
               <div class="flex justify-center">
@@ -28,10 +28,10 @@
                     <input class="form-check-input form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" name="inlineRadioOptions" id="inlineRadio2"   @change="onChangeEventImage($event)"  :checked="showImage ? true : false">
                     <label class="form-check-label inline-block text-gray-800" for="inlineRadio20">Icon</label>
                 </div>
-                
+
                 </div>
           <div class="px-4 py-5 bg-white sm:p-6">
-                 
+
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-2" v-if="showTitle">
                 <label for="first_name" class="block text-sm font-medium text-gray-700">Title Key</label>
@@ -80,7 +80,7 @@
                 />
                 <div class="text-red-500" v-if="errors.title_vn">{{ errors.title_vn }}</div>
               </div>
-              
+
 
 
               <div class="col-span-6 sm:col-span-2" v-if="showDes">
@@ -228,7 +228,7 @@
                           v-else-if="theme.type ==1"
                           class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-purple-600 text-white rounded"
                         >Category Content</span>
-                        <img
+                        <img loading="lazy"
                           :src="theme.image_template"
                           width="200px"
                           id="helper-checkbox-text"
@@ -251,14 +251,14 @@
                     <span
                       class="text-xs py-1 px-1.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded-full"
                     >
-                      
+
                       <button
                         class="bg-transparent hover focus:outline-none"
                       >Must Have input value content</button>
                     </span>
                   </div>
              <Link
-              
+
                  :href="route('category.contents',category.title)"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             >Back</Link>
@@ -285,7 +285,7 @@ export default {
         section:Object,
         category:Object,
         errors:Object
-        
+
     },
     components:{
         Link,

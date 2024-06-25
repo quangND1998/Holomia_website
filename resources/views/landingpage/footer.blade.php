@@ -2,7 +2,7 @@
 
         <div class="lg:flex justify-between pt-[48px]">
             <div class=" pb-[48px] lg:pb-2 lg:m-3">
-                <img class="h-[80px] bg-white" src="images/logo.png" alt="">
+                <img loading="lazy" class="h-[80px] w-[120px] bg-white" src="images/logo.png" alt="">
             </div>
 
             <div class="search content-center">
@@ -66,14 +66,14 @@
                 <p class="text-[#FFFFFF] text-[24px] my-3">{{ __('social_network') }}</p>
 
                 <div class="icon flex">
-                    <a href="https://www.facebook.com/cambridgeiec" class="mr-[16px]">
-                        <img class="h-[24px] w-[24px]" src="images/facebook.png">
+                    <a href="https://www.facebook.com/cambridgeiec" class="mr-[16px]" aria-label="linkk facebook">
+                        <img loading="lazy" class="h-[24px] w-[24px]" src="images/facebook.png" alt="facebook">
                     </a>
-                    <a href="https://www.tiktok.com/@cambridgeiec" class="mr-[16px]">
-                        <img class="h-[24px] w-[24px]" src="images/tiktok.png">
+                    <a href="https://www.tiktok.com/@cambridgeiec" class="mr-[16px]" aria-label="linkk tiktok">
+                        <img loading="lazy" class="h-[24px] w-[24px]" src="images/tiktok.png" alt="tiktok">
                     </a>
-                    <a href="about_cammbridge" class="mr-[16px]">
-                        <img class="h-[24px] w-[24px]" src="images/youtube.png">
+                    <a href="about_cammbridge" class="mr-[16px]" aria-label="linkk youtube">
+                        <img loading="lazy" class="h-[24px] w-[24px]" src="images/youtube.png" alt="youtube">
                     </a>
                 </div>
 

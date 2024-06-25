@@ -85,7 +85,7 @@
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
             >
-              <img
+              <img loading="lazy"
                 :src="bootstrap"
                 class="h-12 w-12 bg-white rounded-full border"
                 alt="..."
@@ -113,22 +113,22 @@
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
               <div class="flex">
-                <img
+                <img loading="lazy"
                   :src="team1"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                 />
-                <img
+                <img loading="lazy"
                   :src="team2"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team3"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team4"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
@@ -162,7 +162,7 @@
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
             >
-              <img
+              <img loading="lazy"
                 :src="angular"
                 class="h-12 w-12 bg-white rounded-full border"
                 alt="..."
@@ -191,22 +191,22 @@
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
               <div class="flex">
-                <img
+                <img loading="lazy"
                   :src="team1"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                 />
-                <img
+                <img loading="lazy"
                   :src="team2"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team3"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team4"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
@@ -240,7 +240,7 @@
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
             >
-              <img
+              <img loading="lazy"
                 :src="sketch"
                 class="h-12 w-12 bg-white rounded-full border"
                 alt="..."
@@ -268,22 +268,22 @@
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
               <div class="flex">
-                <img
+                <img loading="lazy"
                   :src="team1"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                 />
-                <img
+                <img loading="lazy"
                   :src="team2"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team3"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team4"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
@@ -317,7 +317,7 @@
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
             >
-              <img
+              <img loading="lazy"
                 :src="react"
                 class="h-12 w-12 bg-white rounded-full border"
                 alt="..."
@@ -345,22 +345,22 @@
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
               <div class="flex">
-                <img
+                <img loading="lazy"
                   :src="team1"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                 />
-                <img
+                <img loading="lazy"
                   :src="team2"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team3"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team4"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
@@ -394,7 +394,7 @@
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
             >
-              <img
+              <img loading="lazy"
                 :src="vue"
                 class="h-12 w-12 bg-white rounded-full border"
                 alt="..."
@@ -423,22 +423,22 @@
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
             >
               <div class="flex">
-                <img
+                <img loading="lazy"
                   :src="team1"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                 />
-                <img
+                <img loading="lazy"
                   :src="team2"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team3"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                 />
-                <img
+                <img loading="lazy"
                   :src="team4"
                   alt="..."
                   class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"

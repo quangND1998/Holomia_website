@@ -1,13 +1,13 @@
 <template>
   <div class="mt-10 sm:mt-0">
     <BreadCrumb :page="page" :name="null" />
-   
+
     <div class="mb-1 mt-4 flex justify-between items-center">
       <div class="flex items-center justify-end">
         <Link
           :href="route('section.create', page.id)"
           class="flex items-center bg-gray-500 text-white active:bg-pink-600 font-sans text-sm px-4 py-1.5 rounded shadow-md hover:bg-gray-700 hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          
+
         >
           <icon class="w-6 h-6" name="create" />Add
         </Link>
@@ -61,7 +61,7 @@
               </td>
               <td v-else class="px-6 py-4 crop-content"></td>
               <td class="px-6 py-4 crop-content">
-                <img
+                <img loading="lazy"
                   v-if="element.theme.image_template"
                   class="w-50 h-20"
                   :src="element.theme.image_template"
@@ -79,7 +79,7 @@
               <td class="px-6 py-4">
                 <Link
                   v-if="element.theme.type ==0 "
-                  
+
                   data-toggle="tooltip"
                   data-placement="bottom"
                   title="Contents"
@@ -91,7 +91,7 @@
 
               <Link
                   v-if="element.theme.type ==2 "
-                  
+
                   data-toggle="tooltip"
                   data-placement="bottom"
                   title="Contents"
@@ -103,7 +103,7 @@
 
                 <Link
                   v-if="element.theme.type ==1 ||element.theme.type ==3"
-                  
+
                   data-toggle="tooltip"
                   data-placement="bottom"
                   title="Categrory Content"
@@ -113,7 +113,7 @@
                   <icon name="content" />
                 </Link>
                 <Link
-                  
+
                   :href="route('section.edit',element.id)"
                   class="inline-block px-4 py-1.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                 >
@@ -121,7 +121,7 @@
                 </Link>
 
                 <a
-                  
+
                   @click="onDelete(element.id)"
                   class="inline-block px-4 py-1.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                 >

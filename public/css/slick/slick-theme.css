@@ -1,49 +1,47 @@
 @charset 'UTF-8';
+.slick-dots li button,
+.slick-next,
+.slick-prev {
+    font-size: 0;
+    line-height: 0;
+    cursor: pointer;
+    color: transparent;
+    outline: 0;
+}
 .slick-dots,
 .slick-next,
 .slick-prev {
     position: absolute;
     display: block;
-    padding: 0
+    padding: 0;
 }
-
 .slick-dots li button:before,
 .slick-next:before,
 .slick-prev:before {
     font-family: slick;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
+    -moz-osx-font-smoothing: grayscale;
 }
-
-.slick-loading .slick-list {
-    background: url(ajax-loader.html) center center no-repeat #fff
-}
-
+/* .slick-loading .slick-list {
+    background: url(ajax-loader.html) center center no-repeat #fff;
+} */
 @font-face {
     font-family: slick;
     font-weight: 400;
     font-style: normal;
 }
-
 .slick-next,
 .slick-prev {
-    font-size: 0;
-    line-height: 0;
     bottom: 5px;
     z-index: 9;
-    margin-top: -10px\9;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
-    cursor: pointer;
-    color: transparent;
     border: none;
-    outline: 0;
     background: 0 0;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2px);
 }
-
 .slick-next:focus,
 .slick-next:hover,
 .slick-prev:focus,
@@ -53,90 +51,74 @@
     background: 0 0;
     opacity: 0.8;
 }
-
 .slick-next:focus:before,
 .slick-next:hover:before,
 .slick-prev:focus:before,
 .slick-prev:hover:before {
-    opacity: 1
+    opacity: 1;
 }
-
 .slick-next.slick-disabled:before,
 .slick-prev.slick-disabled:before {
-    opacity: .25
+    opacity: 0.25;
 }
-
 .slick-next:before,
 .slick-prev:before {
     font-size: 20px;
     line-height: 1;
-    color: #fff
+    color: #fff;
 }
-
 .slick-prev {
     left: -10px;
     position: absolute;
 }
-
 .slick-next {
     right: -10px;
     position: absolute;
 }
-
-
- .slider_partner .slick-prev {
+.slider_partner .slick-prev {
     left: -80px;
     position: absolute;
 }
-
- .slider_partner .slick-next {
+.slider_partner .slick-next {
     right: -80px;
     position: absolute;
 }
-[dir=rtl] .slick-prev {
+[dir="rtl"] .slick-prev {
     right: -25px;
-    left: auto
+    left: auto;
 }
-
 .slick-prev:before {
     content: url(../../images/slide/prev.svg);
     background-repeat: no-repeat;
     width: 25px;
     height: 25px;
 }
-
 .slick-next:before,
-[dir=rtl] .slick-prev:before {
+[dir="rtl"] .slick-prev:before {
     content: url(../../images/slide/next.svg);
     background-repeat: no-repeat;
     width: 25px;
     height: 25px;
 }
-
-[dir=rtl] .slick-next {
-    right: auto;
-    left: -25px
-}
-
-[dir=rtl] .slick-next:before {
-    content: '>'
-}
-
-.slick-dots {
-   margin-top: 20px;
+.slick-dots,
+.slider_partner .slick-dots {
     width: 100%;
     list-style: none;
-    text-align: center
-
+    text-align: center;
+}
+[dir="rtl"] .slick-next {
+    right: auto;
+    left: -25px;
+}
+[dir="rtl"] .slick-next:before {
+    content: ">";
+}
+.slick-dots {
+    margin-top: 20px;
 }
 .slider_partner .slick-dots {
     margin-top: 140px;
-     width: 100%;
-     list-style: none;
-     text-align: center
- 
- }
-
+}
 .slick-dots li {
     position: relative;
     display: inline-block;
@@ -144,34 +126,24 @@
     height: 20px;
     margin: 0 2px;
     padding: 0;
-    cursor: pointer
+    cursor: pointer;
 }
-
 .slick-dots li button {
-    font-size: 0;
-    line-height: 0;
     display: block;
     width: 8px;
     height: 8px;
-    cursor: pointer;
-    color: transparent;
     border-radius: 4px;
-    outline: 0;
-    background: #D0D5DD;
+    background: #d0d5dd;
 }
-
 .slick-dots li button:focus,
 .slick-dots li button:hover {
-    outline: 0
+    outline: 0;
 }
-
 .slick-dots li button:focus:before,
 .slick-dots li button:hover:before {
     opacity: 1;
-    background-color: #0F197A;
-
+    background-color: #0f197a;
 }
-
 .slick-dots li button:before {
     font-size: 35px;
     line-height: 20px;
@@ -181,17 +153,14 @@
     width: 15px;
     height: 15px;
     border-radius: 7px;
-    /* content: 'X'; */
     text-align: center;
-    color: #D0D5DD;
-    background-color: #D0D5DD;
+    color: #d0d5dd;
+    background-color: #d0d5dd;
 }
-.slick-dots .slick-active{
+.slick-dots .slick-active {
     width: 28px !important;
 }
-.slick-dots .slick-active button{
+.slick-dots .slick-active button {
     width: 28px !important;
-    background-color: #0F197A !important;
+    background-color: #0f197a !important;
 }
-
-/* center */

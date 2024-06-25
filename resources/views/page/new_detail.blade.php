@@ -20,7 +20,7 @@
                         <div class="w-full   py-4 h-[120px] rounded-[12px]">
                             <a class="w-full h-full flex" href="{{ route('new.detail', __($feature->slug)) }}">
                                 <div class="w-1/3 lg:w-1/4">
-                                    <img class="h-full w-full object-cover rounded-l-[12px]" src="{{ $feature->image }}"
+                                    <img loading="lazy" class="h-full w-full object-cover rounded-l-[12px]" src="{{ $feature->image }}"
                                         alt="">
                                 </div>
                                 <div class=" w-4/5 px-3 flex flex-wrap items-center">
@@ -50,7 +50,7 @@
             @foreach ($tintuc_lienquan as $tintuc)
                 <a class="lg:w-1/4 lg:pr-3" href="{{ route('new.detail', __($tintuc->slug)) }}">
                     <div class="border rounded-[20px] h-[380px]">
-                        <img src="{{ $tintuc->image }}" class="h-[220px] w-full object-cover rounded-t-[12px]"
+                        <img loading="lazy" src="{{ $tintuc->image }}" class="h-[220px] w-full object-cover rounded-t-[12px]"
                             alt="">
                         <div class="p-3">
                             <h5 class="my-3 text-[#101828] text-[24px] font-semibold line-clamp-1">{{ __($tintuc->title) }}

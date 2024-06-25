@@ -22,12 +22,12 @@
                         <div class="border-r-2 border-[#D0D5DD]"></div>
                         <ul class="list-language flex mx-4">
                             <li class="menu__item to-left menu-language">
-                                <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
+                                <a href="/language/en" class="menu__link menu_news"><img loading="lazy" src="images/uk.png"
                                         class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
                                 </a>
                             </li>
                             <li class="menu__item to-left menu-language">
-                                <a href="/language/vn" class="menu__link menu_news"><img src="images/vn.png"
+                                <a href="/language/vn" class="menu__link menu_news"><img loading="lazy" src="images/vn.png"
                                         class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
                                 </a>
                             </li>
@@ -36,7 +36,7 @@
                     <div id="nav_sticky"
                         class="menu-content  overlay flex content-center text-center justify-between w-[90%] mx-auto">
                         <div class="logo-menu-pc">
-                            <a href="/index"><img src="images/logo.png"
+                            <a href="/index"><img loading="lazy" src="images/logo.png"
                                     class="logo-holo logo-pc img-fluid w-[240px] xs:w-[120px]" alt="" /></a>
                         </div>
                         <nav class="bg-white border-gray-200 flex content-center text-center">
@@ -162,7 +162,7 @@
         </header>
         <div class="content w-full mx-auto">
             <div class="content1 relative ">
-                <img class="w-full" src="/images/contents/banner.jpg" alt="">
+                <img loading="lazy" class="w-full" src="/images/contents/banner.jpg" alt="">
                 <div class=" absolute top-[10%] ">
                     <div class="content ml-[15%] w-[70%] md:ml-[10%] md:w-[80%]  flex">
 
@@ -188,15 +188,15 @@
                             </div>
                             <div class="icon mt-20 flex">
                                 <div class="flex mx-3">
-                                    <img class="w-[32px] h-[32px]" src="images/Speak.png" alt="">
+                                    <img loading="lazy" class="w-[32px] h-[32px]" src="images/Speak.png" alt="">
                                     <p class="mx-2 text-center content-center ">{{ __('tutingiaotiep') }}</p>
                                 </div>
                                 <div class="flex mx-3">
-                                    <img class="w-[32px] h-[32px]" src="images/Briefcase.png" alt="">
+                                    <img loading="lazy" class="w-[32px] h-[32px]" src="images/Briefcase.png" alt="">
                                     <p class="mx-2 text-center content-center ">{{ __('namvungkienthuc') }}</p>
                                 </div>
                                 <div class="flex mx-3">
-                                    <img class="w-[32px] h-[32px]" src="images/idea.png" alt="">
+                                    <img loading="lazy" class="w-[32px] h-[32px]" src="images/idea.png" alt="">
                                     <p class="mx-2 text-center content-center ">{{ __('morongtrithuc') }}</p>
                                 </div>
                             </div>
@@ -204,7 +204,7 @@
                         <div class="w-1/2 relative">
                             <div
                                 class="border border-[#A60303] rounded-[12px] bg-white  flex  items-center px-4 w-[247px] ml-20">
-                                <img class="w-[48px] h-[48px] my-4" src="/images/camket.png" alt="">
+                                <img loading="lazy" class="w-[48px] h-[48px] my-4" src="/images/camket.png" alt="">
                                 <div class="mx-4">
                                     <p class="text-[#101828] text-[24px] font-semibold">{{ __('camket') }}</p>
                                     <p class="text-[#667085] text-[16px]">{{ __('ketquadaura') }}</p>
@@ -212,7 +212,7 @@
                             </div>
                             <div
                                 class="mt-40 border border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[267px] ml-40">
-                                <img class="w-[48px] h-[48px] my-4" src="/images/giaotrinh.png" alt="">
+                                <img loading="lazy" class="w-[48px] h-[48px] my-4" src="/images/giaotrinh.png" alt="">
                                 <div class="mx-4">
                                     <p class="text-[#101828] text-[24px] font-semibold">{{ __('giaotrinh') }}</p>
                                     <p class="text-[#667085] text-[16px]">{{ __('chuanquocte') }}</p>
@@ -220,7 +220,7 @@
                             </div>
                             <div
                                 class=" mt-40 border border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[340px]">
-                                <img class="w-[48px] h-[48px] my-4" src="/images/doingu.png" alt="">
+                                <img loading="lazy" class="w-[48px] h-[48px] my-4" src="/images/doingu.png" alt="">
                                 <div class="mx-4">
                                     <p class="text-[#101828] text-[24px] font-semibold">{{ __('doingu') }}</p>
                                     <p class="text-[#667085] text-[16px]">{{ __('chuyenmon') }}</p>
@@ -234,21 +234,21 @@
                 </div>
                 <div class="absolute bottom-[-80px] w-[90%] mx-[5%]  bg-white rounded-[20px] flex drop-shadow-md">
                     <div class="flex mx-10 my-6 items-center w-1/3 border-r-[1px] ">
-                        <img class="w-[120px] h-[120px] object-cover rounded-full" src="/images/1.jpg" alt="">
+                        <img loading="lazy" class="w-[120px] h-[120px] object-cover rounded-full" src="/images/1.jpg" alt="">
                         <div class="mx-4">
                             <p class="text-[#101828] text-[24px] font-semibold">{{ __('doingu') }}</p>
                             <p class="text-[#667085] text-[16px]">{{ __('chuyenmon') }}</p>
                         </div>
                     </div>
                     <div class="flex mx-10 my-6 items-center w-1/3 border-r-[1px] ">
-                        <img class="w-[120px] h-[120px] object-cover rounded-full" src="/images/1.jpg" alt="">
+                        <img loading="lazy" class="w-[120px] h-[120px] object-cover rounded-full" src="/images/1.jpg" alt="">
                         <div class="mx-4">
                             <p class="text-[#101828] text-[24px] font-semibold">{{ __('doingu') }}</p>
                             <p class="text-[#667085] text-[16px]">{{ __('chuyenmon') }}</p>
                         </div>
                     </div>
                     <div class="flex mx-10 my-6 items-center w-1/3 border-r-[1px] ">
-                        <img class="w-[120px] h-[120px] object-cover rounded-full" src="/images/1.jpg" alt="">
+                        <img loading="lazy" class="w-[120px] h-[120px] object-cover rounded-full" src="/images/1.jpg" alt="">
                         <div class="mx-4">
                             <p class="text-[#101828] text-[24px] font-semibold">{{ __('doingu') }}</p>
                             <p class="text-[#667085] text-[16px]">{{ __('chuyenmon') }}</p>
@@ -260,7 +260,7 @@
             <div class="containt2">
                 <div class="w-[80%] mt-[200px] mb-[60px] mx-auto flex">
                     <div class="w-1/2 mr-10">
-                        <img class="w-full rounded-[10px]" src="images/2.jpg" alt="">
+                        <img loading="lazy" class="w-full rounded-[10px]" src="images/2.jpg" alt="">
                     </div>
                     <div class="w-1/2">
                         <p class="text-[#0F197A] uppercase font-semibold text-[18px]"> Về chúng tôi </p>
@@ -279,28 +279,28 @@
                         <div class="w-full  flex flex-wrap">
                             <div class="w-1/2 mt-10">
                                 <div class="flex items-center my-2">
-                                    <img class="w-[48px] h-[48px]" src="/images/light-bulb.png" alt="">
+                                    <img loading="lazy" class="w-[48px] h-[48px]" src="/images/light-bulb.png" alt="">
                                     <p class="mx-2 font-semibold text-[24px]">{{ __('tamnhin') }}</p>
                                 </div>
                                 <p class="text-[#667085] text-[16px]">{{ __("text_tamnhin") }}</p>
                             </div>
                             <div class="w-1/2 mt-10">
                                 <div class="flex items-center my-2">
-                                    <img class="w-[48px] h-[48px]" src="/images/mission.png" alt="">
+                                    <img loading="lazy" class="w-[48px] h-[48px]" src="/images/mission.png" alt="">
                                     <p class="mx-2 font-semibold text-[24px]">{{ __('sumenh') }}</p>
                                 </div>
                                 <p class="text-[#667085] text-[16px]">{{ __("text_sumenh") }}</p>
                             </div>
                             <div class="w-1/2 mt-10">
                                 <div class="flex items-center my-2">
-                                    <img class="w-[48px] h-[48px]" src="/images/diamond.png" alt="">
+                                    <img loading="lazy" class="w-[48px] h-[48px]" src="/images/diamond.png" alt="">
                                     <p class="mx-2 font-semibold text-[24px]">{{ __('giatri') }}</p>
                                 </div>
                                 <p class="text-[#667085] text-[16px]">{{ __("text_giatri") }}</p>
                             </div>
                             <div class="w-1/2 mt-10">
                                 <div class="flex items-center my-2">
-                                    <img class="w-[48px] h-[48px]" src="/images/road.png" alt="">
+                                    <img loading="lazy" class="w-[48px] h-[48px]" src="/images/road.png" alt="">
                                     <p class="mx-2 font-semibold text-[24px]">{{ __('road') }}</p>
                                 </div>
                                 <p class="text-[#667085] text-[16px]">{{ __("text_road") }}</p>
@@ -313,7 +313,7 @@
                 <vue-glide :perView="4" class="">
                     <vue-glide-slide v-for="i in 10" :key="i">
                         <div class="border rounded-[10px]">
-                            <img class="w-full" src="images/picture.png" alt="">
+                            <img loading="lazy" class="w-full" src="images/picture.png" alt="">
                             <div class="m-4">
                                 <div class="my-2">
                                     <p class="text-[#0F197A] text-[16px]">Trung học</p>
@@ -336,13 +336,13 @@
             <div class="containt5">
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 w-[80%] mx-auto my-[120px]">
                     <div class="rounded-[10px] my-6" v-for="i in 6" :key="i">
-                        <img class="rounded-t-[10px] w-full" src="/images/2.jpg" alt="">
+                        <img loading="lazy" class="rounded-t-[10px] w-full" src="/images/2.jpg" alt="">
                         <div class="bg-[#A60303] relative p-3 rounded-b-[10px]">
                             <p class="text-white uppercase text-[24px]">Nguyễn Vy Khanh</p>
                             <p class="text-white text-[16px]">Lớp 11, THPT...</p>
                             <div
                                 class="absolute top-[-45px] right-4 lg:scale-[1] md:right-0 md:scale-[0.7]  sm:scale-[0.6]">
-                                <img class="w-[100px] h-[90px]" src="/images/star.png" alt="">
+                                <img loading="lazy" class="w-[100px] h-[90px]" src="/images/star.png" alt="">
                                 <p
                                     class="text-[#E5920E] text-[14px] absolute top-[25px] right-[35px] w-[30px] text-center items-center justify-center font-semibold">
                                     8.0 IELTS</p>
@@ -355,7 +355,7 @@
             <div class="containt6 bg-[#FDF7F7]">
                 <div class="w-[80%]  mx-auto flex py-[60px]">
                     <div class="w-1/2 mx-10 flex justify-center items-center ">
-                        <img class="w-full rounded-[10px]" src="images/img.jpg" alt="">
+                        <img loading="lazy" class="w-full rounded-[10px]" src="images/img.jpg" alt="">
                     </div>
                     <div class="w-1/2 mx-16 relative my-auto ">
                         <p class="text-[#101828] uppercase font-semibold text-[30px] my-2"> TƯ VẤN VÀ KIỂM TRA MIỄN PHÍ </p>

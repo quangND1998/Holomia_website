@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="vn">
+<html lang="en">
 
 <head>
 
@@ -21,39 +21,30 @@
     <meta name="author" content="holomia.com">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/stylesheet.css">
-    {{-- <link rel="stylesheet" href="css/reponsive.css"> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <meta property="og:image" content="img/thumb1.jpg">
+    <meta name=description content="Website Combridge">
 
+    {{-- <link rel="stylesheet" href="css/reponsive.css"> --}}
+
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    {{-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
+    <meta property="og:image" content="img/thumb1.jpg">
+    {{-- <script  type="text/javascript" src="https://cdn.tailwindcss.com"></script> --}}
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400;1,900&family=Montserrat:wght@200&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400;1,900&family=Montserrat:wght@200&family=Oxanium&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Metrophobic&family=Oxanium:wght@200&family=Podkova&family=Poppins&display=swap"
-        rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+        rel="preload" >
+
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" /> --}}
+    <link  rel="preload"  href="css/stylesheet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link  rel="preload" type="text/css" href="css/slick/slick.css"  as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link  rel="preload" type="text/css" href="css/slick/slick-theme.css"  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
     {{-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"> --}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <script src="https://kit.fontawesome.com/d4a744ac4e.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"  as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" /> --}}
+   <style>
         .crop-content {
             max-width: 120px;
             overflow-x: auto;
@@ -72,6 +63,10 @@
             50% { scale: 1.5; }
             100% { scale: 1; }
         }
+        .object-right{
+            object-position: right;
+        }
+
     </style>
 </head>
 
@@ -83,8 +78,6 @@
                     class="px-[2%] md:flex
                     top_header bg-[#0F197A] h-[48px] text-white py-2  flex-wrap justify-between text-center content-center">
                     <div class="flex">
-
-
                         <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover"
                             data-dropdown-trigger="hover"
                             class="flex items-center justify-center"
@@ -126,12 +119,12 @@
                         <div class="border-r-2 border-[#D0D5DD] "></div>
                         <ul class="list-language flex mx-4 items-center justify-center">
                             <li class="menu__item to-left menu-language">
-                                <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
+                                <a href="/language/en" class="menu__link menu_news" aria-label="change language english"><img loading="lazy" src="images/uk.png"
                                         class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
                                 </a>
                             </li>
                             <li class="menu__item to-left menu-language">
-                                <a href="/language/vn" class="menu__link menu_news"><img src="images/vn.png"
+                                <a href="/language/vn" class="menu__link menu_news" aria-label="change language vietnamesse"><img loading="lazy" src="images/vn.png"
                                         class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
                                 </a>
                             </li>
@@ -142,8 +135,8 @@
                 <div id="nav_sticky"
                     class="menu-content  overlay flex content-center text-center justify-between w-[96%] mx-auto">
                     <div class="logo-menu-pc">
-                        <a href="/index"><img src="images/logo.png"
-                                class="logo-holo logo-pc img-fluid sm:w-[120px] lg:w-[240px] " alt="" /></a>
+                        <a href="/index" aria-label="logo"><img loading="lazy" src="images/logo.png"
+                                class="logo-holo logo-pc img-fluid sm:w-[120px] lg:w-[240px] sm:h-[120px] lg:h-[240px]" alt="" loading="lazy"/></a>
                     </div>
                     <nav class="bg-white navbar_full border-gray-200 flex content-center text-center">
                         <div class="button_tab max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -281,12 +274,12 @@
 
                                         <div class="show_mobile mobile_lang mt-2 mx-3">
                                             <li class="menu__item to-left menu-language">
-                                                <a href="/language/en" class="menu__link menu_news"><img src="images/uk.png"
+                                                <a href="/language/en" class="menu__link menu_news"><img loading="lazy" src="images/uk.png"
                                                         class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
                                                 </a>
                                             </li>
                                             <li class="menu__item to-left menu-language">
-                                                <a href="/language/vn" class="menu__link menu_news"><img src="images/vn.png"
+                                                <a href="/language/vn" class="menu__link menu_news"><img loading="lazy" src="images/vn.png"
                                                         class="img-fluid logo_language w-6 h-6 mx-2" alt="" />
                                                 </a>
                                             </li>
@@ -328,32 +321,31 @@
     @include('landingpage.form')
     @include('landingpage.footer')
 
-    <button id="myBtn" title="Lên đầu trang" class="hidden hover:opacity-0.5 fixed bottom-[190px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#101f73b4] hover:bg-[#101F73]">
-        <i class="fa-solid fa-arrow-up-from-bracket text-white"></i>
-    </button>
+    {{-- <button id="myBtn" title="Lên đầu trang" class="hidden hover:opacity-0.5 fixed bottom-[190px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#101f73b4] hover:bg-[#101F73]">
+        <img src="images/arrow-up-solid.png" class=" w-[20px] h-[20px]" alt="">
+    </button> --}}
 
+    <div class="hidden  hover:opacity-0.5 fixed bottom-[190px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#101f73b4] hover:bg-[#101F73]"
+     id="myBtn" target="_blank" title="Call Now">
+        <div  class="w-full h-full flex items-center justify-center">
+            <img src="images/arrow-up-solid.png" class=" w-[20px] h-[20px]" alt="">
+        </div>
+
+    </div>
     <a class="flex items-center justify-center  hover:opacity-0.5 fixed bottom-[120px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#A60303]"
         href="tel:+0336555876" target="_blank" title="Call Now">
-        <i class="fas fa-phone-alt text-white phone-icon"></i>
+        {{-- <i class="fas fa-phone-alt text-white phone-icon"></i> --}}
+        <img src="images/phone-call.png" class="phone-icon w-[20px] h-[20px]" alt="">
     </a>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-    {{--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  --}}
-    <script src="/js/bootstrap-notify.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-    {{-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
+
     <script src="/js/slick.min.js"></script>
     <script src="/js/main.js"></script>
+    {{-- <script  src="/js/edit_slick.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script type="text/javascript" src="/js/edit_slick.js"></script>
-
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> --}}
     {{-- chat live --}}
     <script src="//code.tidio.co/2zu01nijhqfakkirbbumitwvdm2gapzm.js" async></script>
     <script>
@@ -372,7 +364,115 @@
             // document.documentElement.scrollTop = 0;
             window.scrollTo(0, 0);
         });
-        </script>
+        if (window.innerWidth < 768) {
+            // Ẩn hình ảnh trên thiết bị di động
+            document.getElementById('image_show_pc').removeAttribute('src');
+        }
+
+    </script>
+    <script>
+        $(".slider_banner").slick({ slidesToShow: 1, slidesToScroll: 1, arrows: !0, autoplay: !0, autoplaySpeed: 5e3, infinite: !0, dots: !0 }),
+    $(".slider_course, .slider_introduce").slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: !0,
+        autoplay: !0,
+        autoplaySpeed: 2500,
+        infinite: !0,
+        dots: !0,
+        responsive: [
+            { breakpoint: 1025, settings: { arrows: !1 } },
+            { breakpoint: 801, settings: { slidesToShow: 3, arrows: !1 } },
+            { breakpoint: 600, settings: { slidesToShow: 2, arrows: !1 } },
+            { breakpoint: 481, settings: { slidesToShow: 1, arrows: !1 } },
+        ],
+    }),
+    $(".slider_reason,.slider_activity,.slider_product,.slider-nav").slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: !0,
+        autoplay: !0,
+        autoplaySpeed: 2500,
+        infinite: !0,
+        dots: !0,
+        responsive: [
+            { breakpoint: 1025, settings: { slidesToShow: 2, arrows: !1 } },
+            { breakpoint: 801, settings: { slidesToShow: 2, arrows: !1 } },
+            { breakpoint: 600, settings: { slidesToShow: 2, arrows: !1 } },
+            { breakpoint: 481, settings: { slidesToShow: 1, arrows: !1 } },
+        ],
+    }),
+    $(".slider_partner").slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        arrows: !0,
+        autoplay: !0,
+        autoplaySpeed: 2500,
+        infinite: !0,
+        dots: !0,
+        responsive: [
+            { breakpoint: 1025, settings: { arrows: !1 } },
+            { breakpoint: 801, settings: { slidesToShow: 3, arrows: !1 } },
+            { breakpoint: 600, settings: { slidesToShow: 2, arrows: !1 } },
+            { breakpoint: 481, settings: { slidesToShow: 2, arrows: !1 } },
+        ],
+    }),
+    $(".slider_partner2").slick({
+        slidesToShow: 8,
+        slidesToScroll: 1,
+        arrows: !0,
+        autoplay: !0,
+        autoplaySpeed: 2500,
+        infinite: !0,
+        dots: !0,
+        responsive: [
+            { breakpoint: 1025, settings: { arrows: !1 } },
+            { breakpoint: 801, settings: { slidesToShow: 3, arrows: !1 } },
+            { breakpoint: 600, settings: { slidesToShow: 2, arrows: !1 } },
+            { breakpoint: 481, settings: { slidesToShow: 1, arrows: !1 } },
+        ],
+    }),
+    $(".slider_mission,.slider_news").slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        arrows: !0,
+        autoplay: !0,
+        autoplaySpeed: 2500,
+        infinite: !0,
+        dots: !0,
+        responsive: [
+            { breakpoint: 1025, settings: { arrows: !1 } },
+            { breakpoint: 801, settings: { slidesToShow: 2, arrows: !1 } },
+            { breakpoint: 600, settings: { slidesToShow: 2, arrows: !1 } },
+            { breakpoint: 481, settings: { slidesToShow: 1, arrows: !1 } },
+        ],
+    }),
+    $(document).ready(function () {
+        $(".slider-gallery").slick({ slidesToShow: 1, slidesToScroll: 1, arrows: !1, fade: !0, autoplay: !0, autoplaySpeed: 2500, asNavFor: ".slider-icon" }),
+            setTimeout(function () {
+                $(".box_gallery").show();
+            }, 100),
+            $(".slider-icon").slick({
+                slidesToShow: 4,
+                asNavFor: ".slider-gallery",
+                arrows: !0,
+                focusOnSelect: !0,
+                responsive: [
+                    { breakpoint: 1025, settings: { arrows: !1 } },
+                    { breakpoint: 801, settings: { slidesToShow: 3, arrows: !1 } },
+                    { breakpoint: 600, settings: { slidesToShow: 2, arrows: !1 } },
+                    { breakpoint: 481, settings: { slidesToShow: 1, arrows: !1 } },
+                ],
+            });
+    }),
+    $(document).ready(function () {
+        var s,
+            o = $(".slider_auto");
+        o.slick({ slidesToShow: ((s = o.find(".slick-slide").length), (console.log("slideCount", s), s >= 3) ? 3 : 2 === s ? 2 : 1) });
+    });
+
+    </script>
+
 </body>
 
 </html>

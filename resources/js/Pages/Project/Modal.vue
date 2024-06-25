@@ -114,7 +114,7 @@
                     </span>
                   </div>
                   <div class="file-upload-image w-20 h-20">
-                    <img v-if="thumb" :src="thumb" />
+                    <img loading="lazy" v-if="thumb" :src="thumb" />
                   </div>
                 </div>
               </div>

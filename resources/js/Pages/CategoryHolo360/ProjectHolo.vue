@@ -148,7 +148,7 @@
                                 {{ project.link }}
                             </td>
                             <td class="py-2">
-                                <img :src="project.image" class="w-16" alt="" />
+                                <img loading="lazy" :src="project.image" class="w-16" alt="" />
                             </td>
                             <td class="">
                                 <span

@@ -14,19 +14,19 @@
                     <div
                         class="bg-[#FCF5F6] min-h-[520px] border border-[#BF344D] transition ease-in-out  rounded-[10px] mx-2 hover:-translate-y-1 hover:scale-110  duration-300 p-[32px]">
                         <div class="rounded-[20px] bg-[#FFFFFF] px-[32px] py-[20px] relative">
-                            <img class="w-[19px] absolute left-0 top-0" src="/images/dau_left.png" alt="">
+                            <img loading="lazy" class="w-[19px] absolute left-0 top-0" src="/images/dau_left.png" alt="">
                             <div class="">
                                 <p class="text-[#667085] text-[14px]">{!! __($content->description) !!}</p>
                             </div>
 
-                            <img class="w-[19px] absolute right-0 bottom-0" src="/images/dau_right.png" alt="">
+                            <img loading="lazy" class="w-[19px] absolute right-0 bottom-0" src="/images/dau_right.png" alt="">
                         </div>
 
                         <div class="flex  mt-[32px]">
                             @if (count($content->images) > 0)
                             <div class="w-[120px] mr-3">
 
-                                    <img class="w-[48px] h-[48px] object-cover   rounded-[24px]"
+                                    <img loading="lazy" class="w-[48px] h-[48px] object-cover   rounded-[24px]"
                                         src="{{ $content->images[0]->image }}" alt="">
                             </div>
                             @endif

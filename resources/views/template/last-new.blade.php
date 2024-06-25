@@ -14,7 +14,7 @@
         <div class="row col-12  list-news">
             @foreach ($last_new as $new )
             <div class="item-news" data-aos="zoom-in">
-                <img src="{{$new->image}}" class="img-fluid img-news" alt="">
+                <img loading="lazy" src="{{$new->image}}" class="img-fluid img-news" alt="">
                 <div class="content-news">
                     <span class="time">{{ \Carbon\Carbon::parse($new->created_at)->isoFormat('MMMM D, YYYY')}}</span>
                     <div class="title-news">
@@ -28,7 +28,7 @@
                 </div>
 
                 </div>
-               
+
             </div>
             @endforeach
 

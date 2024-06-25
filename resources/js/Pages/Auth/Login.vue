@@ -6,7 +6,7 @@
 
     <form @submit.prevent="submit">
       <div class="text-center mb-3">
-        <img class="image-logo" src="asset/img/HolomiaExpo.svg" alt />
+        <img loading="lazy" class="image-logo" src="asset/img/HolomiaExpo.svg" alt />
       </div>
       <h1 class="text-center">Login</h1>
       <div>

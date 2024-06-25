@@ -97,7 +97,6 @@ class NewController extends InertiaController
 
     public function update(Request $request, $id)
     {
-        
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
             $tintuc = News::with('languages')->findOrFail($id);
             $language_title = Languages::where('key', $tintuc->title)->first();

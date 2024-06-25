@@ -26,7 +26,7 @@
                     class="  transition ease-in-out border rounded-[10px]  hover:-translate-y-1 hover:scale-110  duration-300 min-h-[430px]">
                     <a href="list_course/{{ __($course->slug) }}">
                         @if ($course->image != null)
-                            <img class="w-full h-[200px] rounded-t-[10px] object-cover" src="{{ $course->image }}"
+                            <img loading="lazy" class="w-full h-[200px] rounded-t-[10px] object-cover" src="{{ $course->image }}"
                                 alt="">
                         @endif
                         <div class="m-4">

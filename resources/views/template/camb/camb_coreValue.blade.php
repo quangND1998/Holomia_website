@@ -13,13 +13,13 @@
                     <div class="lg:flex w-full justify-center items-center my-[64px] ">
                         <div class="w-full lg:w-1/2 lg:mr-3 my-6">
                             @if(count($content->images) >0)
-                            <img class="h-[400px] w-[600px] object-cover rounded-[20px]" src="{{$content->images[0]->image}}" alt="">
+                            <img loading="lazy" class="h-[400px] w-[600px] object-cover rounded-[20px]" src="{{$content->images[0]->image}}" alt="">
                             @endif
                         </div>
                         <div class="lg:w-1/2">
                             <div class="flex">
                                 @if($content->image != null)
-                                <img class="w-[48px] h-[48px] object-cover " src="{{$content->image}}" alt="">
+                                <img loading="lazy" class="w-[48px] h-[48px] object-cover " src="{{$content->image}}" alt="">
                                 @endif
                                 <p class="text-[#101828] text-[24px] my-3 mx-3 font-roboto font-semibold">{{ __($content->title) }}</p>
                             </div>
@@ -31,7 +31,7 @@
                         <div class="w-full order-2 lg:order-1  lg:w-1/2 lg:mr-3 my-6  ">
                             <div class="flex">
                                 @if($content->image != null)
-                                <img class="w-[48px] h-[48px] object-cover" src="{{$content->image}}" alt="">
+                                <img loading="lazy" class="w-[48px] h-[48px] object-cover" src="{{$content->image}}" alt="">
                                 @endif
                                 <p class="text-[#101828] text-[24px] my-3 mx-3 font-roboto font-semibold">{{ __($content->title) }}</p>
                             </div>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="w-full order-1 lg:order-2 lg:w-1/2 ">
                             @if(count($content->images) >0)
-                            <img class="h-[400px] w-[600px] object-cover rounded-[20px]" src="{{$content->images[0]->image}}" alt="">
+                            <img loading="lazy" class="h-[400px] w-[600px] object-cover rounded-[20px]" src="{{$content->images[0]->image}}" alt="">
                             @endif
                         </div>
 

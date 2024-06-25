@@ -51,12 +51,12 @@
               class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
             >{{index +1}}</th>
             <td class="px-6 py-4">
-         
+
               {{element.name}}
             </td>
 
             <td class="px-6 py-4">
-              <img
+              <img loading="lazy"
                 v-if="element.thumb"
                 class="w-50 h-20"
                 :src="element.thumb"
@@ -64,7 +64,7 @@
               />
             </td>
             <td class="px-6 py-4">{{element.link}}</td>
-           
+
               <!-- <span
                 v-else-if="element.type==3"
                 class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-gray-800 text-white rounded-full"

@@ -5,7 +5,7 @@
         <div class="your-class">
             @foreach ($categories as $category)
             <div class="item_slide">
-                <img src="{{$category->image}}" class="image_slide" alt="">
+                <img loading="lazy" src="{{$category->image}}" class="image_slide" alt="">
                 <div class="text_slide">
                     <div class="center_text">
                         <div class="container">
@@ -57,7 +57,7 @@
                                         <a href="{{$project->link}}"
                                             target="_blank">
                                             <div class="img_product">
-                                                <img src="{{$project->image}}" alt="">
+                                                <img loading="lazy" src="{{$project->image}}" alt="">
                                             </div>
                                             <h5 class="text-dark pt-2 title_product">{{$project->title}}</h5>
                                         </a>
@@ -92,7 +92,7 @@
                                         <a href="{{$holo_project->link}}"
                                             target="_blank">
                                             <div class="img_product">
-                                                <img src="{{$holo_project->image}}" alt="">
+                                                <img loading="lazy" src="{{$holo_project->image}}" alt="">
                                             </div>
                                             <h5 class="text-dark pt-2 title_product">{{$holo_project->title}}</h5>
                                         </a>

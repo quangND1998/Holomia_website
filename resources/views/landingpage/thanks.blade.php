@@ -1,7 +1,7 @@
 @extends('landingpage.layout')
 @section('content')
     <div class="contain flex justify-center items-center flex-col my-3">
-        <img class="max-h-[500px]" src="images/illustration.png" alt="">
+        <img loading="lazy" class="max-h-[500px]" src="images/illustration.png" alt="">
         <p class="text-[#667085] text-[24px] my-4 text-center">
             {{ __('thanks_register') }} <br>
             {{ __('thanks_contact') }}

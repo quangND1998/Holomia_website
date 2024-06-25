@@ -2,7 +2,7 @@
   <div>
     <breeze-validation-errors class="mb-4" />
     <div class="text-center mb-3">
-      <img class="image-logo" src="asset/img/HolomiaExpo.svg" alt />
+      <img loading="lazy" class="image-logo" src="asset/img/HolomiaExpo.svg" alt />
     </div>
     <h1 class="text-center">Register</h1>
     <form @submit.prevent="submit">

@@ -8,7 +8,7 @@
             </div>
             @foreach ($content->images as $image)
                 <div class="h-[80px] flex justify-center items-center mx-2">
-                    <img class="w-auto max-h-[80px]  mx-1" src="{{ $image->image }}" alt="">
+                    <img loading="lazy" class="w-auto max-h-[80px]  mx-1" src="{{ $image->image }}" alt="">
                 </div>
             @endforeach
         @endforeach
