@@ -46,7 +46,7 @@
                 <label
                   for="email_address"
                   class="block text-sm font-medium text-gray-700"
-                >{{_('sub_title')}} {{__('en')}}</label>
+                >{{__('sub_title')}} {{__('en')}}</label>
                 <input
                   v-model="form.sub_title_en"
                   type="text"
@@ -63,7 +63,7 @@
                 <label
                   for="country"
                   class="block text-sm font-medium text-gray-700"
-                >{{_('sub_title')}} {{__('vn')}}</label>
+                >{{__('sub_title')}} {{__('vn')}}</label>
                 <input
                   v-model="form.sub_title_vn"
                   type="text"
