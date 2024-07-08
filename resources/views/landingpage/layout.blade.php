@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    @vite('resources/css/app.css')
     <meta property="og:image" content="img/thumb1.jpg">
 
     <link
@@ -68,21 +67,15 @@
             <div class="container">
                 <div class="nav_header">
                     <div class="menu-pc">
-                        <div class="topheader flex justify-between">
-                            <div class="left">
-
-                                <p>Số 21, ngõ 12, Đào Tấn, Ba Đình, Hà Nội</p>
-                            </div>
-                        </div>
                         <div id="nav_sticky" class="menu-content overlay">
                             <div class="logo-menu-pc">
-                                <a href="/index"><img src="images/logo.png" class="logo-holo logo-pc img-fluid"
+                                <a href="/index"><img src="img/logoxanhh.png" class="logo-holo logo-pc img-fluid"
                                         alt=""></a>
                             </div>
                             <nav class="menu-demo">
                                 <ul class="list-menu">
                                     @foreach ($pages as $page)
-                                        @if ($page->title == 'home')
+                                        @if ($page->title == 'home' || $page->title == 'Home')
                                             <li class="menu__item">
 
                                                 <a href="/index"
@@ -90,8 +83,10 @@
                                             </li>
                                         @elseif($page->title == 'project')
                                             <li class="menu__item to-left dropdown">
+                                                
                                                 <a href="" class="menu__link  ">{{ __($page->title) }} </a>
                                                 <div class="dropdown-content">
+                                                    
                                                     <a href="https://missionxvr.com/"  target="_blank" class="drop_link">VR Laser Tag Mission X </a>
                                                     <a href="https://zone.holomia.com"  target="_blank" class="drop_link">Holomia VR Zone</a>
                                                     <a href="https://xr.holomia.com" target="_blank" class="drop_link">Holomia XR</a>
@@ -100,12 +95,12 @@
                                             </li>
                                             @elseif($page->title == 'holo360')
                                             <li class="menu__item to-left dropdown">
-
+                                                
                                                 <a href="/holo360" class="menu__link {{ Request::segment(1) === 'holo360' ? 'active' : '' }}">{{ __($page->title) }} </a>
                                                 <div class="dropdown-content">
                                                     @foreach (App\Models\CategoryHolo360::get() as $category)
                                                     <a href="/holo360?category={{$category->slug}}" class="drop_link link_holo360" target="_self">{{$category->name}}</a>
-                                                    @endforeach
+                                                    @endforeach                                                               
                                                 </div>
 
                                             </li>
@@ -165,7 +160,7 @@
                                             @elseif($page->title == 'project')
                                                 <li class="dropdown-mobile">
                                                     <!-- <a target="_blank" href="https://missionxvr.com/index">Project</a> -->
-                                                    <a class="">Products </a>
+                                                    <a class="">Product </a>
                                                     <div class="dropdown-content-mobile">
                                                         {{-- <a href="/holo360" class="drop_link" target="_self">Holo
                                                             360</a> --}}
@@ -216,7 +211,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/js/main.js"></script>
-
     <style>
         .menuHolo_sub {
             position: absolute;
