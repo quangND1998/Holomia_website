@@ -773,7 +773,7 @@ li {
     bottom: 0;
     opacity: 1;
     filter: brightness(80%);
-    z-index: -1;
+    /* z-index: -1; */
 }
 
 .content-aboutus {
@@ -1714,8 +1714,8 @@ img {
 .gallery {
     display: grid;
     margin-top: 2%;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 }
 
 .gallery__item--h-2 {

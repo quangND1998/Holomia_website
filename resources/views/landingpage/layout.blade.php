@@ -75,7 +75,7 @@
                             <nav class="menu-demo">
                                 <ul class="list-menu">
                                     @foreach ($pages as $page)
-                                        @if ($page->title == 'home')
+                                        @if ($page->title == 'home' || $page->title == 'Home')
                                             <li class="menu__item">
 
                                                 <a href="/index"
