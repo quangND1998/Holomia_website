@@ -83,24 +83,27 @@
                                             </li>
                                         @elseif($page->title == 'project')
                                             <li class="menu__item to-left dropdown">
-                                                
+
                                                 <a href="" class="menu__link  ">{{ __($page->title) }} </a>
                                                 <div class="dropdown-content">
-                                                    
-                                                    <a href="https://missionxvr.com/"  target="_blank" class="drop_link">VR Laser Tag Mission X </a>
-                                                    <a href="https://zone.holomia.com"  target="_blank" class="drop_link">Holomia VR Zone</a>
-                                                    <a href="https://xr.holomia.com" target="_blank" class="drop_link">Holomia XR</a>
+
+                                                    {{-- <a href="https://missionxvr.com/"   class="drop_link">VR Laser Tag Mission X </a>
+                                                    <a href="https://zone.holomia.com"   class="drop_link">Holomia VR Zone</a>
+                                                    <a href="https://xr.holomia.com"  class="drop_link">Holomia XR</a> --}}
+                                                    @foreach ($projects as $project)
+                                                        <a href="/product/{{ $project->slug }}"  class="drop_link">{{ $project->name }}</a>
+                                                    @endforeach
                                                 </div>
 
                                             </li>
                                             @elseif($page->title == 'holo360')
                                             <li class="menu__item to-left dropdown">
-                                                
+
                                                 <a href="/holo360" class="menu__link {{ Request::segment(1) === 'holo360' ? 'active' : '' }}">{{ __($page->title) }} </a>
                                                 <div class="dropdown-content">
                                                     @foreach (App\Models\CategoryHolo360::get() as $category)
                                                     <a href="/holo360?category={{$category->slug}}" class="drop_link link_holo360" target="_self">{{$category->name}}</a>
-                                                    @endforeach                                                               
+                                                    @endforeach
                                                 </div>
 
                                             </li>
