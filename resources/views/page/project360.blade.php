@@ -48,7 +48,7 @@
                         </div>
                         @endif
                         <div class="row">
-                            @foreach ($projects as $project )
+                            @foreach ($projects360 as $project )
                             <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4 my-2">
                                 <div class="item-slide">
                                     @if ($project->type==='Link')
@@ -72,7 +72,7 @@
 
                         </div>
                         {{-- <div class=""> --}}
-                            {{ $projects->links() }}
+                            {{ $projects360->links() }}
                         {{-- </div>  --}}
                     </div>
                 </div>

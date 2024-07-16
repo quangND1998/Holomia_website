@@ -34,6 +34,7 @@ use App\Http\Controllers\ProjectHolo360Controller;
 Route::get('/', function () {
     return redirect('/index');
 });
+Route::get('/product/{name}', [ProjectController::class, 'preview_project_html']);
 Route::get('/{name}.html', [ProjectController::class, 'preview_project']);
 Route::post('/item/save/{id}', [ProjectController::class, 'saveView']);
 Route::get('index', [LandingPageController::class, 'index']);
