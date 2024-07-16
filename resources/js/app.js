@@ -1,5 +1,5 @@
 require('./bootstrap');
-
+require('../css/app.css');
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 import { InertiaProgress } from '@inertiajs/progress'
@@ -7,6 +7,12 @@ import CKEditor from 'ckeditor4-vue';
 import VueCompositionAPI from '@vue/composition-api'
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+import Unicon from 'vue-unicons/dist/vue-unicons-vue2.umd'
+import { uniLayerGroupMonochrome, uniCarWash } from 'vue-unicons/dist/icons'
+import "../css/app.css";
+
+Unicon.add([uniLayerGroupMonochrome, uniCarWash])
+Vue.use(Unicon)
 
 Vue.use(VueToast);
 createInertiaApp({

@@ -50,6 +50,23 @@
                   </div>
                   <p class="text-red-500 text-xs italic" v-if="errors.name">{{ errors.name }}</p>
                 </div>
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="company_website" class="block text-sm font-medium text-gray-700">Link product</label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <span
+                      class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                    >Link</span>
+                    <input
+                      type="text"
+                      v-model="form.link"
+                      name="link"
+                      :class="errors.link ? 'border-red-500' :'' "
+                      id="link"
+                      class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                    />
+                  </div>
+                  <p class="text-red-500 text-xs italic" v-if="errors.link">{{ errors.link }}</p>
+                </div>
 
                 <div>
                   <label class="block text-sm font-medium text-gray-700">Image Theme</label>
@@ -144,7 +161,8 @@ export default {
       form: this.$inertia.form({
         id: null,
         name: null,
-        image: null
+        image: null,
+        link: null
       })
     };
   },
@@ -173,6 +191,7 @@ export default {
       this.editMode = true;
       this.form.id = data.id;
       this.form.name = data.name;
+      this.form.link = data.link;
       this.toggleModal();
     },
 
@@ -198,7 +217,8 @@ export default {
       this.form = this.$inertia.form({
         id: null,
         name: null,
-        image: null
+        image: null,
+        link:null
         // audio360: null
       });
     },

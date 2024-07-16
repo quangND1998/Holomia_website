@@ -25,16 +25,29 @@ class ProjectController extends InertiaController
     }
     public function preview_project($slug, Request $request)
     {
-
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        $projects = Project::all();
         $project = Project::with('items')->where('slug', $slug)->first();
         if ($project) {
             $items = $project->items()->paginate(12);
         } else {
             $items = null;
         }
-        return view('project', compact('project', 'items', 'pages'));
+        return view('project', compact('project', 'items', 'pages','projects'));
     }
+    public function preview_project_html($slug, Request $request)
+    {
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
+        $project = Project::with('items')->where('slug', $slug)->first();
+        $projects = Project::all();
+        if ($project) {
+            $items = $project->items()->paginate(12);
+        } else {
+            $items = null;
+        }
+        return view('project_iframe', compact('project', 'items', 'pages','projects'));
+    }
+
     public function saveView( Request $request){
         $item = Item::findOrfail($request->id);
         $item->view += 1;
@@ -58,6 +71,7 @@ class ProjectController extends InertiaController
             }
             $project = Project::create([
                 'name' => $request->name,
+                'link' => $request->link,
                 'slug' => Str::slug($request->name),
 
             ]);
@@ -95,6 +109,7 @@ class ProjectController extends InertiaController
             $name = time();
             $project->update([
                 'name' => $request->name,
+                'link' => $request->link,
                 'slug' => Str::slug($request->name),
                 'image' => $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $project_path, $project->image) : $project->image
 
