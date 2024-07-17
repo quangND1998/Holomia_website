@@ -26,10 +26,10 @@ class ProjectController extends InertiaController
     public function preview_project($slug, Request $request)
     {
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
-        $projects = Project::all();
+        $projects = Project::where('link','!=',null)->get();
         $project = Project::with('items')->where('slug', $slug)->first();
         if ($project) {
-            $items = $project->items()->paginate(12);
+            $items = $project->items()->orderBy('id_priority','asc')->paginate(12);
         } else {
             $items = null;
         }

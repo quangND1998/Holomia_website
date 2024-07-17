@@ -21,7 +21,7 @@ class LandingPageController extends Controller
         }])->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $last_new  = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(2)->get();
-        $projects = Project::all();
+        $projects = Project::where('link','!=',null)->get();
         return view('page.home', compact('page', 'pages', 'last_new','projects'));
     }
 
@@ -30,7 +30,7 @@ class LandingPageController extends Controller
         $page = Page::with(['sections.contents.images', 'sections.category_contents.contents.images', 'sections.theme', 'sections' => function ($q) {
             $q->where('active', 1);
         }])->where('title', 'immersive')->first();
-        $projects = Project::all();
+        $projects = Project::where('link','!=',null)->get();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $news = News::with('languages', 'category', 'tags')->orderBy('created_at', 'desc')->take(9)->get();
         return view('page.immersive', compact('page', 'pages', 'news','projects'));
@@ -42,7 +42,7 @@ class LandingPageController extends Controller
             $q->where('active', 1);
         }])->where('title', 'contact')->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
-        $projects = Project::all();
+        $projects = Project::where('link','!=',null)->get();
         return view('page.contact', compact('page', 'pages','projects'));
     }
 
@@ -53,7 +53,7 @@ class LandingPageController extends Controller
         $pages = Page::get();
         $number_all = News::count();
         $theloais = CategoryNew::withCount('news')->get();
-        $projects = Project::all();
+        $projects = Project::where('link','!=',null)->get();
         $language = Languages::where('en', $slug)->orWhere('vn', $slug)->first();
         if ($language) {
             $tintuc = News::with('category', 'tags')->findOrFail($language->languageable->id);
@@ -70,7 +70,7 @@ class LandingPageController extends Controller
 
     public function project()
     {
-        $projects = Project::all();
+        $projects = Project::where('link','!=',null)->get();
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         return view('page.project', compact('pages', 'header','projects'));
@@ -80,7 +80,7 @@ class LandingPageController extends Controller
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $categories = CategoryHolo360::with('holo_projects')->orderBy('id_priority','asc')->get();
-        $projects = Project::all();
+        $projects = Project::where('link','!=',null)->get();
         $category_current = CategoryHolo360::where('slug',$request->category)->first();
         if($category_current == null){
             // $projects= Holo360Project::get();

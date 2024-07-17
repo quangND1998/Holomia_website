@@ -86,11 +86,6 @@
 
                                                 <a href="" class="menu__link  ">{{ __($page->title) }} </a>
                                                 <div class="dropdown-content">
-<<<<<<< HEAD
-                                                    <a href="https://missionxvr.com/"   class="drop_link">VR Laser Tag Mission X </a>
-                                                    <a href="https://zone.holomia.com"   class="drop_link">Holomia VR Zone</a>
-                                                    <a href="https://xr.holomia.com"  class="drop_link">Holomia XR</a>
-=======
 
                                                     {{-- <a href="https://missionxvr.com/"   class="drop_link">VR Laser Tag Mission X </a>
                                                     <a href="https://zone.holomia.com"   class="drop_link">Holomia VR Zone</a>
@@ -98,7 +93,6 @@
                                                     @foreach ($projects as $project)
                                                         <a href="/product/{{ $project->slug }}"  class="drop_link">{{ $project->name }}</a>
                                                     @endforeach
->>>>>>> origin/main
                                                 </div>
 
                                             </li>

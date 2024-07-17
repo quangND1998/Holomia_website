@@ -37,7 +37,16 @@
             </th>
           </tr>
         </thead>
-        <tbody>
+        <draggable
+          v-model="items"
+          tag="tbody"
+          @change="onUnpublishedChange"
+          v-bind="dragOptions"
+          @start="isDragging = true"
+          @end="isDragging = false"
+          item-key="id_priority"
+        >
+        <template>
           <tr
             v-for="(element, index) in items"
             :key="index"
@@ -48,7 +57,7 @@
               class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
             >{{index +1}}</th>
             <td class="px-6 py-4">
-         
+
               {{element.name}}
             </td>
 
@@ -61,7 +70,7 @@
               />
             </td>
             <td class="px-6 py-4">{{element.link}}</td>
-           
+
               <!-- <span
                 v-else-if="element.type==3"
                 class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-gray-800 text-white rounded-full"
@@ -83,7 +92,8 @@
               </a>
             </td>
           </tr>
-        </tbody>
+        </template>
+        </draggable>
       </table>
     </div>
   </div>
@@ -95,13 +105,15 @@ import Modal from "./Modal";
 import Layout from "@/Components/Layout";
 import { Link } from "@inertiajs/inertia-vue";
 import BreadCrumb from "./BreadCrumb";
+import draggable from "vuedraggable";
 export default {
   layout: Layout,
   components: {
     Modal,
-      Icon,
+    Icon,
     BreadCrumb,
-    Link
+    Link,
+    draggable
   },
   props: {
     items: Array,
@@ -110,6 +122,16 @@ export default {
   },
   data() {
     return {};
+  },
+  computed: {
+    dragOptions() {
+      return {
+        animation: 100,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost"
+      };
+    }
   },
   methods: {
     onDelete(id) {
@@ -123,6 +145,21 @@ export default {
     },
     onEdit(element) {
       Bus.$emit("onEditItem", element);
+    },
+    onUnpublishedChange() {
+      let query = {
+        data: this.pages
+      };
+      this.$inertia.post(this.route("item.priority"), query, {
+        preserveState: true,
+        onError: errors => {
+            console.log('fail');
+            console.log(errors);
+        },
+        onSuccess: page => {
+           console.log('success');
+        }
+      });
     }
   }
 };

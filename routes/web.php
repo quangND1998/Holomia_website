@@ -200,7 +200,12 @@ Route::middleware(['auth', 'verified'])->group(
                 Route::post('', [ItemController::class, 'store'])->name('item.store');
                 Route::post('update', [ItemController::class, 'update'])->name('item.update');
                 Route::delete('delete', [ItemController::class, 'delete'])->name('item.delete');
+
             });
+            Route::post(
+                'item/priority',
+                [ItemController::class, 'priority']
+            )->name('item.priority');
         });
         Route::group(['prefix' => 'admin/category_holo360'], function () {
             Route::get('', [CategoryHolo360Controller::class, 'index'])->name('category_holo360.index');
