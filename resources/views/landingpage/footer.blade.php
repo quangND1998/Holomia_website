@@ -1,8 +1,8 @@
-    <footer class="bg-[#101F73] px-3 lg:px-[80px]">
+    <footer class="bg-[#00A952] px-3 lg:px-[80px]">
 
         <div class="lg:flex justify-between pt-[48px]">
             <div class=" pb-[48px] lg:pb-2 lg:m-3">
-                <img loading="lazy" class="h-[80px] w-[120px] bg-white" src="images/logo.png" alt="">
+                <img loading="lazy" class="h-[80px]  bg-white" src="images/logo.jpg" alt="">
             </div>
 
             <div class="search content-center">
@@ -15,10 +15,10 @@
                             class="pl-10 block w-[480px] px-6 py-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                             placeholder="Nhập số điện thoại của bạn" required />
                         <button type="submit"
-                            class="show_pc w-[400px] text-white ml-4  bg-[#AD0101] font-medium rounded-lg text-sm  py-2 ">{{ __('dangkytuvan') }}</button>
+                            class="show_pc w-[400px] text-white ml-4  bg-[#016532] font-medium rounded-lg text-sm  py-2 ">{{ __('dangkytuvan') }}</button>
 
                             <button type="submit"
-                            class="show_mobile text-white ml-4  bg-[#AD0101] font-medium rounded-lg text-sm p-3 "><i class="uil uil-envelope-download text-white text-[20px]"></i></button>
+                            class="show_mobile text-white ml-4  bg-[#016532] font-medium rounded-lg text-sm p-3 "><i class="uil uil-envelope-download text-white text-[20px]"></i></button>
                     </div>
 
                 </form>
@@ -54,7 +54,7 @@
                 </a>
                 @foreach ($category_courses as $category)
                     <p
-                        class="w-[200px]  my-2 {{ Request::get('category_name') == $category->slug ? 'text-white bg-[#101F73] rounded-[4px]' : 'border-r-[1px] border-[#101f7380]' }}">
+                        class="w-[200px]  my-2 {{ Request::get('category_name') == $category->slug ? 'text-white bg-[#016532] rounded-[4px]' : 'border-r-[1px] border-[#01653280]' }}">
                         <a href="list_course?category_name={{ $category->slug }}"
                             class="text-[#FFFFFF] text-[16px]">
                             {{ __($category->slug) }}</a>

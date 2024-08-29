@@ -12,7 +12,7 @@
         <div class="my-4 lg:w-1/2 lg:my-0">
             @foreach ($section->contents as  $content)
             @if($loop->index == 0)
-                <p class="text-[#0F197A] uppercase font-semibold text-[18px]">{{ __($content->title) }}</p>
+                <p class="text-[#016532] uppercase font-semibold text-[18px]">{{ __($content->title) }}</p>
                 <p class="text-[#101828] uppercase font-semibold text-[30px] my-2">{{ __($content->sub_title) }}</p>
                 <p class="content">
                     {!! __($content->description) !!}
@@ -20,9 +20,9 @@
 
                 <a href="about/about_cammbridge">
                     <button
-                        class="text-[#A60303] flex justify-center items-center my-3 end-2.5 bottom-2.5 border-[2px] border-[#A60303] font-semibold rounded-lg text-sm px-8 py-3.5 ">
+                        class="text-[#00A95A] flex justify-center items-center my-3 end-2.5 bottom-2.5 border-[2px] border-[#00A95A] font-semibold rounded-lg text-sm px-8 py-3.5 ">
                         {{ __('more') }}
-                        <img loading="lazy"  class="mx-3 fill-[#A60303]" src="images/Vector_red.svg" alt="">
+                        <img loading="lazy"  class="mx-3 fill-[#00A95A]" src="images/Vector_red.svg" alt="">
                     </button>
                 </a>
             @endif

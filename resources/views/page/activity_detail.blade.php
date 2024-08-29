@@ -10,7 +10,7 @@
         <div class="flex justify-between items-center  mt-[60px] mb-6">
             <h2 class="text-[#101828] text-[32px] lg:mt-[60px] ">{{ __('activity_other') }}</h2>
 
-            <a href="about/activity" class="text-[#101F73] font-semibold">{{ __('see_more') }}</a>
+            <a href="about/activity" class="text-[#016532] font-semibold">{{ __('see_more') }}</a>
         </div>
         <div class="lg:flex">
             @foreach ($tintuc_lienquan as $tintuc)

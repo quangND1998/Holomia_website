@@ -1,4 +1,4 @@
-<div class="bg-[#FCF5F6] py-[80px]">
+<div class="bg-[#d7ecd5] py-[80px]">
     <div class="w-[90%] lg:w-[80%] mx-auto">
         <div class="w-full flex flex-wrap justify-center mb-[60px] ">
             <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center my-[20px]">{{ __($section->title) }}
@@ -11,8 +11,8 @@
             <div class="w-full lg:w-1/2">
                 <div class="w-full lg:w-[90%]">
                     <div class="bg-white shadow-md rounded-[12px] px-6 py-4 flex  mb-4">
-                        <div class="bg-[#a6030325] rounded-full w-[30px] h-[30px] lg:w-[60px] lg:h-[60px] flex items-center justify-center">
-                            <i class="uil uil-phone-alt text-[#A60303]  text-[16px] lg:text-[24px]"></i>
+                        <div class="bg-[#00A95A25] rounded-full w-[30px] h-[30px] lg:w-[60px] lg:h-[60px] flex items-center justify-center">
+                            <i class="uil uil-phone-alt text-[#00A95A]  text-[16px] lg:text-[24px]"></i>
                         </div>
                         <div class="mx-2 lg:mx-6">
                             <p class="text-[#101828] text-[16px] lg:text-[24px] font-semibold">{{ __('phone') }}</p>
@@ -21,8 +21,8 @@
                         </div>
                     </div>
                     <div class="bg-white shadow-md rounded-[12px] px-6 py-4 flex  my-4">
-                        <div class="bg-[#a6030325] rounded-full w-[30px] h-[30px] lg:w-[60px] lg:h-[60px] flex items-center justify-center">
-                            <i class="uil uil-envelope-alt text-[#A60303]  text-[16px] lg:text-[24px]"></i>
+                        <div class="bg-[#00A95A25] rounded-full w-[30px] h-[30px] lg:w-[60px] lg:h-[60px] flex items-center justify-center">
+                            <i class="uil uil-envelope-alt text-[#00A95A]  text-[16px] lg:text-[24px]"></i>
                         </div>
                         <div class="mx-2 lg:mx-6">
                             <p class="text-[#101828] text-[16px] lg:text-[24px] font-semibold">{{ __('Email') }}</p>
@@ -30,8 +30,8 @@
                         </div>
                     </div>
                     <div class="bg-white shadow-md rounded-[12px] px-6 py-4 flex  my-4">
-                        <div class="bg-[#a6030325] rounded-full w-[30px] h-[30px] lg:w-[60px] lg:h-[60px] flex items-center justify-center">
-                            <i class="uil uil-map-marker text-[#A60303]  text-[16px] lg:text-[24px]"></i>
+                        <div class="bg-[#00A95A25] rounded-full w-[30px] h-[30px] lg:w-[60px] lg:h-[60px] flex items-center justify-center">
+                            <i class="uil uil-map-marker text-[#00A95A]  text-[16px] lg:text-[24px]"></i>
                         </div>
                         <div class="mx-2 lg:mx-6">
                             <p class="text-[#101828] text-[16px] lg:text-[24px] font-semibold">{{ __('list_location') }}</p>
@@ -88,7 +88,7 @@
                         </div>
                         <div class="flex justify-center items-center">
                             <button type="submit"
-                                class="text-white btn-sub  flex justify-center items-center bg-[#0F197A] font-medium rounded-lg text-sm px-10 py-3 ">{{
+                                class="text-white btn-sub  flex justify-center items-center bg-[#016532] font-medium rounded-lg text-sm px-10 py-3 ">{{
                                                 __('send') }}
                                     <img loading="lazy" class="mx-2 fill-white" src="images/Vector.svg" alt="">
                             </button>

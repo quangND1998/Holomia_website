@@ -96227,7 +96227,7 @@ var render = function () {
                         "button",
                         {
                           staticClass:
-                            "text-white ml-4 end-2.5 bottom-2.5 bg-[#A60303] font-medium rounded-lg text-sm px-8 py-2 ",
+                            "text-white ml-4 end-2.5 bottom-2.5 bg-[#016532] font-medium rounded-lg text-sm px-8 py-2 ",
                           attrs: { type: "submit" },
                         },
                         [_vm._v(_vm._s(_vm.__("search")))]
@@ -96275,7 +96275,7 @@ var render = function () {
                     "button",
                     {
                       staticClass:
-                        "text-white  end-2.5 bottom-2.5 bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ",
+                        "text-white  end-2.5 bottom-2.5 bg-[#016532] font-medium rounded-lg text-sm px-8 py-3 ",
                       attrs: { type: "submit" },
                     },
                     [
@@ -96291,7 +96291,7 @@ var render = function () {
                     "button",
                     {
                       staticClass:
-                        "text-[#0F197A] ml-4 end-2.5 bottom-2.5 border border-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ",
+                        "text-[#016532] ml-4 end-2.5 bottom-2.5 border border-[#016532] font-medium rounded-lg text-sm px-8 py-3 ",
                       attrs: { type: "submit" },
                     },
                     [_vm._v(_vm._s(_vm.__("kiemtratrinhdo")) + " ")]
@@ -96357,7 +96357,7 @@ var render = function () {
                   "div",
                   {
                     staticClass:
-                      "border border-[#A60303] rounded-[12px] bg-white  flex  items-center px-4 w-[247px] ml-20",
+                      "border border-[#016532] rounded-[12px] bg-white  flex  items-center px-4 w-[247px] ml-20",
                   },
                   [
                     _c("img", {
@@ -96390,7 +96390,7 @@ var render = function () {
                   "div",
                   {
                     staticClass:
-                      "mt-40 border border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[267px] ml-40",
+                      "mt-40 border border-[#016532] rounded-[12px] bg-white flex  items-center px-4 w-[267px] ml-40",
                   },
                   [
                     _c("img", {
@@ -96423,7 +96423,7 @@ var render = function () {
                   "div",
                   {
                     staticClass:
-                      " mt-40 border border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[340px]",
+                      " mt-40 border border-[#016532] rounded-[12px] bg-white flex  items-center px-4 w-[340px]",
                   },
                   [
                     _c("img", {
@@ -96556,7 +96556,7 @@ var render = function () {
                 "p",
                 {
                   staticClass:
-                    "text-[#0F197A] uppercase font-semibold text-[18px]",
+                    "text-[#016532] uppercase font-semibold text-[18px]",
                 },
                 [_vm._v(" Về chúng tôi ")]
               ),
@@ -96571,7 +96571,7 @@ var render = function () {
                 "button",
                 {
                   staticClass:
-                    "text-[#A60303] my-3 end-2.5 bottom-2.5 border border-[#A60303] font-medium rounded-lg text-sm px-8 py-3 ",
+                    "text-[#016532] my-3 end-2.5 bottom-2.5 border border-[#016532] font-medium rounded-lg text-sm px-8 py-3 ",
                 },
                 [
                   _vm._v(
@@ -96581,7 +96581,7 @@ var render = function () {
                   ),
                   _c("i", {
                     staticClass:
-                      "uil uil-arrow-right text-[#A60303] mx-2 text-[14px]",
+                      "uil uil-arrow-right text-[#016532] mx-2 text-[14px]",
                   }),
                 ]
               ),
@@ -96698,7 +96698,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "m-4" }, [
                       _c("div", { staticClass: "my-2" }, [
-                        _c("p", { staticClass: "text-[#0F197A] text-[16px]" }, [
+                        _c("p", { staticClass: "text-[#016532] text-[16px]" }, [
                           _vm._v("Trung học"),
                         ]),
                         _vm._v(" "),
@@ -96802,7 +96802,7 @@ var render = function () {
                 "button",
                 {
                   staticClass:
-                    "absolute right-0   justify-end items-end text-white my-3 end-2.5  border bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ",
+                    "absolute right-0   justify-end items-end text-white my-3 end-2.5  border bg-[#016532] font-medium rounded-lg text-sm px-8 py-3 ",
                 },
                 [
                   _vm._v(
@@ -96832,7 +96832,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "top_header bg-[#0F197A] h-[48px] text-white py-2 flex flex-wrap justify-end text-center content-center",
+          "top_header bg-[#016532] h-[48px] text-white py-2 flex flex-wrap justify-end text-center content-center",
       },
       [
         _c("div", { staticClass: "flex mx-4" }, [
@@ -96923,7 +96923,7 @@ var staticRenderFns = [
         _vm._v("Học Tiếng Anh cùng "),
         _c("br"),
         _vm._v(" "),
-        _c("span", { staticClass: "text-[#A60303]" }, [
+        _c("span", { staticClass: "text-[#016532]" }, [
           _vm._v("Cambridge IEC"),
         ]),
       ]
@@ -96946,7 +96946,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "bg-[#A60303] relative p-3 rounded-b-[10px]" },
+      { staticClass: "bg-[#016532] relative p-3 rounded-b-[10px]" },
       [
         _c("p", { staticClass: "text-white uppercase text-[24px]" }, [
           _vm._v("Nguyễn Vy Khanh"),

@@ -2,7 +2,7 @@
     <div class="my-[30px] lg:my-[120px]">
         <div class="w-[90%] lg:w-full mx-auto">
             <div class="w-full flex flex-wrap   justify-center my-[60px]">
-                <p class="text-[#101F73] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
+                <p class="text-[#016532] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
                 <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center">{{ __($section->sub_title) }}</p>
                 <p class="text-[#667085] text-[16px] w-full text-center"> {!! __($section->description) !!} </p>
             </div>
@@ -26,7 +26,7 @@
         </div>
         {{-- <div class="w-full flex justify-center items-center mt-[100px]">
             <button type="submit"
-                class="text-white  flex justify-center items-center  bg-[#A60303] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
+                class="text-white  flex justify-center items-center  bg-[#00A95A] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
                                 __('xemthemkhoahoc') }}
             </button>
         </div> --}}

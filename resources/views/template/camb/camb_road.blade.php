@@ -1,4 +1,4 @@
-<div id="content"  class="bg-[#FCF5F6]">
+<div id="content"  class="bg-[#d7ecd5]">
     <div class="py-[80px]">
         <div class="w-full">
             <div class="w-[80%] lg:w-full mx-auto flex flex-wrap justify-center mb-[40px]">
@@ -10,7 +10,7 @@
                     @foreach ($section->contents as  $content)
                     <div class="w-1/2 transition ease-in-out  rounded-[10px] px-2 hover:-translate-y-1 hover:scale-110  duration-300 py-[20px] lg:py-[50px]">
                         <div class="flex flex-col justify-center items-center">
-                            <p class="text-[#A60303] text-[40px] lg:text-[64px] mb-4 font-bold">{!! __($content->sub_title) !!}</p>
+                            <p class="text-[#00A95A] text-[40px] lg:text-[64px] mb-4 font-bold">{!! __($content->sub_title) !!}</p>
                             <p class="text-[#101828] text-[18px] lg:text-[24px] font-semibold">{{ __($content->title) }}</p>
                             
                         </div>

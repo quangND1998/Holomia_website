@@ -2,7 +2,7 @@
     <div class="py-[80px] min-h-[800px]">
         <div class="w-full h-full list_reason">
             <div class="w-[90%] title_center mx-auto flex flex-wrap justify-center mb-[40px]">
-                <p class="text-[#101F73] uppercase text-[18px] font-semibold w-full text-center">
+                <p class="text-[#016532] uppercase text-[18px] font-semibold w-full text-center">
                     {{ __($section->title) }}</p>
                 <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center">
                     {{ __($section->sub_title) }}</p>
@@ -12,7 +12,7 @@
 
                 @foreach ($section->contents as $content)
                     <div
-                        class="bg-[#FCF5F6] min-h-[520px] border border-[#BF344D] transition ease-in-out  rounded-[10px] mx-2 hover:-translate-y-1 hover:scale-110  duration-300 p-[32px]">
+                        class="bg-[#d7ecd5] min-h-[520px] border border-[#00A95A] transition ease-in-out  rounded-[10px] mx-2 hover:-translate-y-1 hover:scale-110  duration-300 p-[32px]">
                         <div class="rounded-[20px] bg-[#FFFFFF] px-[32px] py-[20px] relative">
                             <img loading="lazy" class="w-[19px] absolute left-0 top-0" src="/images/dau_left.png" alt="">
                             <div class="">
@@ -47,7 +47,7 @@
         </div>
         <div class="w-full flex justify-center items-center mt-[100px]">
             <a type="submit" href="#form_advise"
-                class="text-white  flex justify-center items-center  bg-[#A60303] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{ __('kiemtratrinhdo') }}
+                class="text-white  flex justify-center items-center  bg-[#00A95A] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{ __('kiemtratrinhdo') }}
             </a>
         </div>
 

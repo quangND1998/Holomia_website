@@ -2,7 +2,7 @@
     <div class="my-[40px] lg:my-[120px]">
         <div class="w-full">
             <div class="w-[90%] mx-auto title_center flex flex-wrap   justify-center my-[60px]">
-                <p class="text-[#101F73] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
+                <p class="text-[#016532] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
                 <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center">{{ __($section->sub_title) }}</p>
                 <p class="text-[#667085] text-[16px] w-full text-center"> {!! __($section->description) !!} </p>
             </div>
@@ -15,7 +15,7 @@
                     @endif
                     <div class="m-4">
                         <div class="my-2 ">
-                            <p class="text-[#0F197A] font-semibold text-[16px]">{{ __($course->category->slug) }}</p>
+                            <p class="text-[#016532] font-semibold text-[16px]">{{ __($course->category->slug) }}</p>
                             <p class="text-[#101828] font-semibold text-[24px] my-1  line-clamp-1">{!! __($course->title) !!}</p>
                             <p class="text-[#667085] text-[16px] my-2  line-clamp-2">{!! __($course->sub_title) !!}</p>
                         </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="w-full flex justify-center items-center mt-[100px]">
             <a type="submit" href="/list_course"
-                class="text-white  flex justify-center items-center  bg-[#A60303] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
+                class="text-white  flex justify-center items-center  bg-[#00A95A] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
                                 __('xemthemkhoahoc') }}
             </a>
         </div>

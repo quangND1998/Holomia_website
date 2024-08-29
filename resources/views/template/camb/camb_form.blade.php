@@ -26,7 +26,7 @@
                     <input type="text" class="w-full border border-[#CBD5E0] bg-[#FDF7F7] rounded-[10px]">
                 </div>
                 <button
-                    class="absolute right-0   justify-end items-end text-white my-3 end-2.5  border bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">
+                    class="absolute right-0   justify-end items-end text-white my-3 end-2.5  border bg-[#016532] font-medium rounded-lg text-sm px-8 py-3 ">
                     {{ __('register') }}
                     <i class="uil uil-arrow-right text-white mx-2 text-[14px]"></i>
                 </button>

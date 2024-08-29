@@ -4,7 +4,7 @@
             <div class="nav_header border-b-[1px] border-[#D0D5DD] ">
                 <div class="menu-pc">
                     <div
-                        class="top_header bg-[#0F197A] h-[48px] text-white py-2 flex flex-wrap justify-end text-center content-center">
+                        class="top_header bg-[#016532] h-[48px] text-white py-2 flex flex-wrap justify-end text-center content-center">
                         <div class="flex mx-4">
                             <i class="uil uil-clock text-white mx-2 text-[14px]"></i>
                             <p>08:00 - 21:00</p>
@@ -150,7 +150,7 @@
                                         class="pl-10 block w-[260px] p-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                                         placeholder="Tra cứu thông tin khóa học" required />
                                     <button type="submit"
-                                        class="text-white ml-4 end-2.5 bottom-2.5 bg-[#A60303] font-medium rounded-lg text-sm px-8 py-2 ">{{
+                                        class="text-white ml-4 end-2.5 bottom-2.5 bg-[#016532] font-medium rounded-lg text-sm px-8 py-2 ">{{
                                                     __('search') }}</button>
                                 </div>
 
@@ -168,7 +168,7 @@
 
                         <div class="w-1/2 mr-20">
                             <h1 class="mt-10 font-semibold text-[64px] font-roboto">Học Tiếng Anh cùng <br> <span
-                                    class="text-[#A60303]">Cambridge IEC</span></h1>
+                                    class="text-[#016532]">Cambridge IEC</span></h1>
                             <p>
                                 Bạn sẵn sàng chinh phục Tiếng Anh cùng Cambridge IEC chưa?
                                 Bạn sẵn sàng chinh phục Tiếng Anh cùng Cambridge IEC chưa?
@@ -179,11 +179,11 @@
 
                             <div class="flex mt-10">
                                 <button type="submit"
-                                    class="text-white  end-2.5 bottom-2.5 bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">{{
+                                    class="text-white  end-2.5 bottom-2.5 bg-[#016532] font-medium rounded-lg text-sm px-8 py-3 ">{{
                                                     __('dangkytuvan') }} <i
                                         class="uil uil-arrow-right text-white mx-2 text-[14px]"></i></button>
                                 <button type="submit"
-                                    class="text-[#0F197A] ml-4 end-2.5 bottom-2.5 border border-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">{{
+                                    class="text-[#016532] ml-4 end-2.5 bottom-2.5 border border-[#016532] font-medium rounded-lg text-sm px-8 py-3 ">{{
                                                     __('kiemtratrinhdo') }} </button>
                             </div>
                             <div class="icon mt-20 flex">
@@ -203,7 +203,7 @@
                         </div>
                         <div class="w-1/2 relative">
                             <div
-                                class="border border-[#A60303] rounded-[12px] bg-white  flex  items-center px-4 w-[247px] ml-20">
+                                class="border border-[#016532] rounded-[12px] bg-white  flex  items-center px-4 w-[247px] ml-20">
                                 <img loading="lazy" class="w-[48px] h-[48px] my-4" src="/images/camket.png" alt="">
                                 <div class="mx-4">
                                     <p class="text-[#101828] text-[24px] font-semibold">{{ __('camket') }}</p>
@@ -211,7 +211,7 @@
                                 </div>
                             </div>
                             <div
-                                class="mt-40 border border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[267px] ml-40">
+                                class="mt-40 border border-[#016532] rounded-[12px] bg-white flex  items-center px-4 w-[267px] ml-40">
                                 <img loading="lazy" class="w-[48px] h-[48px] my-4" src="/images/giaotrinh.png" alt="">
                                 <div class="mx-4">
                                     <p class="text-[#101828] text-[24px] font-semibold">{{ __('giaotrinh') }}</p>
@@ -219,7 +219,7 @@
                                 </div>
                             </div>
                             <div
-                                class=" mt-40 border border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[340px]">
+                                class=" mt-40 border border-[#016532] rounded-[12px] bg-white flex  items-center px-4 w-[340px]">
                                 <img loading="lazy" class="w-[48px] h-[48px] my-4" src="/images/doingu.png" alt="">
                                 <div class="mx-4">
                                     <p class="text-[#101828] text-[24px] font-semibold">{{ __('doingu') }}</p>
@@ -263,7 +263,7 @@
                         <img loading="lazy" class="w-full rounded-[10px]" src="images/2.jpg" alt="">
                     </div>
                     <div class="w-1/2">
-                        <p class="text-[#0F197A] uppercase font-semibold text-[18px]"> Về chúng tôi </p>
+                        <p class="text-[#016532] uppercase font-semibold text-[18px]"> Về chúng tôi </p>
                         <p class="content">
                             CAMBRIDGE IEC ENGLISH CENTRE
                             Thành lập từ năm 2009, Trung tâm đào tạo Tiếng Anh các cấp độ Mầm non - Tiểu học - Trung học
@@ -272,9 +272,9 @@
                             thi IELTS trên toàn quốc, đặc biệt là khu vực Hà Nội.
                         </p>
                         <button
-                            class="text-[#A60303] my-3 end-2.5 bottom-2.5 border border-[#A60303] font-medium rounded-lg text-sm px-8 py-3 ">
+                            class="text-[#016532] my-3 end-2.5 bottom-2.5 border border-[#016532] font-medium rounded-lg text-sm px-8 py-3 ">
                             {{ __('more') }}
-                            <i class="uil uil-arrow-right text-[#A60303] mx-2 text-[14px]"></i>
+                            <i class="uil uil-arrow-right text-[#016532] mx-2 text-[14px]"></i>
                         </button>
                         <div class="w-full  flex flex-wrap">
                             <div class="w-1/2 mt-10">
@@ -316,7 +316,7 @@
                             <img loading="lazy" class="w-full" src="images/picture.png" alt="">
                             <div class="m-4">
                                 <div class="my-2">
-                                    <p class="text-[#0F197A] text-[16px]">Trung học</p>
+                                    <p class="text-[#016532] text-[16px]">Trung học</p>
                                     <p class="text-[#101828] text-[24px]">Khóa học A2 nâng cao</p>
                                     <p class="text-[#667085] text-[16px]">Tham gia khóa học tiếng anh A2 nâng cao của
                                         Cambridge IEC, học viên sẽ được...</p>
@@ -337,7 +337,7 @@
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 w-[80%] mx-auto my-[120px]">
                     <div class="rounded-[10px] my-6" v-for="i in 6" :key="i">
                         <img loading="lazy" class="rounded-t-[10px] w-full" src="/images/2.jpg" alt="">
-                        <div class="bg-[#A60303] relative p-3 rounded-b-[10px]">
+                        <div class="bg-[#016532] relative p-3 rounded-b-[10px]">
                             <p class="text-white uppercase text-[24px]">Nguyễn Vy Khanh</p>
                             <p class="text-white text-[16px]">Lớp 11, THPT...</p>
                             <div
@@ -380,7 +380,7 @@
                                 <input type="text" class="w-full border border-[#CBD5E0] bg-[#FDF7F7] rounded-[10px]">
                             </div>
                             <button
-                                class="absolute right-0   justify-end items-end text-white my-3 end-2.5  border bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">
+                                class="absolute right-0   justify-end items-end text-white my-3 end-2.5  border bg-[#016532] font-medium rounded-lg text-sm px-8 py-3 ">
                                 {{ __('register') }}
                                 <i class="uil uil-arrow-right text-white mx-2 text-[14px]"></i>
                             </button>

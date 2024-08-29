@@ -3,7 +3,7 @@
     <div class="show_pc h-full mx-12  lg:grid grid-cols-1  lg:grid-cols-9 gap-4  justify-center items-center my-[30px]">
         @foreach ($section->contents as $content)
             <div class="mx-2">
-                <p class="text-[#A60303] uppercase text-[30px] font-bold">{{ __($content->title) }}</p>
+                <p class="text-[#00A95A] uppercase text-[30px] font-bold">{{ __($content->title) }}</p>
                 <p class="text-[#101828] text-[30px] font-semibold w-full ">{{ __($content->sub_title) }}</p>
             </div>
             @foreach ($content->images as $image)
@@ -16,7 +16,7 @@
     <div class="show_mobile h-full mx-12  justify-center items-center my-[30px]">
         @foreach ($section->contents as $content)
             <div class="mx-2 flex items-center justify-center">
-                <p class="text-[#A60303] uppercase text-[30px] font-bold">{{ __($content->title) }}</p>
+                <p class="text-[#00A95A] uppercase text-[30px] font-bold">{{ __($content->title) }}</p>
                 <p class="text-[#101828] text-[30px] font-semibold  mx-3">{{ __($content->sub_title) }}</p>
             </div>
             <div class="slider_partner py-3">

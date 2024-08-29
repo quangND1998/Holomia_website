@@ -2,7 +2,7 @@
     <div class="py-[80px]">
         <div class="w-full">
             <div class="w-[90%] mx-auto title_center flex flex-wrap justify-center mb-[40px]">
-                <p class="text-[#101F73] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
+                <p class="text-[#016532] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
                 <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center">{{ __($section->sub_title) }}</p>
                 <p class="text-[#667085] text-[16px] w-full text-center"> {!! __($section->description) !!} </p>
             </div>
@@ -24,7 +24,7 @@
         <div class="w-full flex justify-center items-center mt-[100px]">
             <a href="#form_advise">
                 <button type="submit"
-                    class="text-white  flex justify-center items-center  bg-[#A60303] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
+                    class="text-white  flex justify-center items-center  bg-[#00A95A] font-medium rounded-lg text-sm px-[28px] py-[16px] w-[240px] ">{{
                                     __('tuyensinhduhoc') }}
                 </button>
             </a>

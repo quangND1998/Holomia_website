@@ -46,7 +46,7 @@
         width: 160px;
     }
     .navbar-dropdown {
-        background-color: #a60303;
+        background-color: #016532;
     }
     .navbar_dad {
         position: fixed;
@@ -103,11 +103,11 @@
         width: 100% !important;
     }
     select option:hover {
-        background-color: #101f73 !important;
+        background-color: #016532 !important;
         color: #fff;
     }
     select option:selected {
-        background-color: #101f73 !important;
+        background-color: #016532 !important;
         color: #fff;
     }
 }

@@ -4,7 +4,7 @@
         <div class="lg:flex">
             <div class="w-ful lg:w-2/3">
                 <div class=" w-full">
-                    <p class="text-[#101F73] text-[16px] font-semibold ">{{ __($course->category->slug) }}
+                    <p class="text-[#016532] text-[16px] font-semibold ">{{ __($course->category->slug) }}
                     </p>
                     <p class="text-[#101828] text-[24px] font-semibold my-2">{{ __($course->title) }}</p>
 
@@ -53,12 +53,12 @@
                     </div>
                     <div class="mt-5 flex justify-between border-b-[1px] border-[#667085]">
                         <p class="text-[#101828] text-[16px] my-2 font-semibold">{{ __('hocphi') }}</p>
-                        <p class="text-[#A60303] text-[16px] my-2 font-semibold">{{ number_format($course->price) }}
+                        <p class="text-[#016532] text-[16px] my-2 font-semibold">{{ number_format($course->price) }}
                             VNĐ</p>
                     </div>
                     <div class="w-full mt-10 flex justify-center items-center">
                         <button type="submit"
-                            class="text-white  flex justify-center items-center end-2.5 bottom-2.5 bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">{{ __('dangkykhoahoc') }}
+                            class="text-white  flex justify-center items-center end-2.5 bottom-2.5 bg-[#016532] font-medium rounded-lg text-sm px-8 py-3 ">{{ __('dangkykhoahoc') }}
                             <img loading="lazy" class="mx-2 fill-white" src="images/Vector.svg" alt="">
                         </button>
                     </div>
@@ -68,7 +68,7 @@
         <div class="flex justify-between items-center  mt-[60px] mb-6">
             <h2 class="text-[#101828] text-[32px]">{{ __('course_other') }}</h2>
 
-            <a href="/list_course" class="text-[#101F73] font-semibold">{{ __('see_more') }}</a>
+            <a href="/list_course" class="text-[#016532] font-semibold">{{ __('see_more') }}</a>
         </div>
 
         <div class="lg:flex w-full my-4 mx-auto lg:h-[450px]">
@@ -83,7 +83,7 @@
                 @endif
                 <div class="m-4">
                     <div class="my-2 ">
-                        <p class="text-[#101F73] text-[16px] font-semibold ">{{ __($course->category->slug) }}
+                        <p class="text-[#016532] text-[16px] font-semibold ">{{ __($course->category->slug) }}
                         </p>
                         <p class="text-[#101828] text-[24px] font-semibold my-2">{{ __($course->title) }}</p>
                         <p class="text-[#667085] text-[16px]  line-clamp-2">{!! __($course->sub_title) !!}</p>
@@ -115,7 +115,7 @@
 
     .active {
         color: #101828;
-        border-bottom: 3px solid #A60303;
+        border-bottom: 3px solid #016532;
     }
 </style>
 <script>

@@ -10,7 +10,7 @@
                 <div class="banner_center lg:ml-[10%] lg:w-[80%] md:ml-[10%] md:w-[80%]  flex lg:flex-row  ">
                     <div class="lg:w-1/2 sm:w-full lg:mr-20 order-2 lg:order-1 px-3 ">
                         <h1 class="text_title mt-10 font-semibold sm:text-[44px] md:text-[44px] lg:text-[44px]   xl:text-[50px]   font-roboto">
-                            {{ __($content->title) }} <br> <span class="text-[#AD0101]">{!! __($content->sub_title) !!}</span>
+                            {{ __($content->title) }} <br> <span class="text-green-600">{!! __($content->sub_title) !!}</span>
                         </h1>
                         <p class="my-2 lg:block">
                             {!! __($content->description) !!}
@@ -18,11 +18,11 @@
 
                         <div class="flex mt-10">
                             <a type="submit" href="#form_advise"
-                                class="text-white  flex justify-center items-center end-2.5 bottom-2.5 bg-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">{{ __('dangkytuvan') }}
+                                class="text-white  flex justify-center items-center end-2.5 bottom-2.5 bg-[#016532] font-medium rounded-lg text-sm px-8 py-3 ">{{ __('dangkytuvan') }}
                                 <img  class="mx-2 fill-white" src="images/Vector.svg" alt="">
                             </a>
                             <a type="submit" href="#form_advise"
-                                class="text-[#0F197A] ml-4 end-2.5 bottom-2.5 border border-[#0F197A] font-medium rounded-lg text-sm px-8 py-3 ">{{ __('kiemtratrinhdo') }}
+                                class="text-[#016532] ml-4 end-2.5 bottom-2.5 border border-[#016532] font-medium rounded-lg text-sm px-8 py-3 ">{{ __('kiemtratrinhdo') }}
                             </a>
                         </div>
                         <div class="icon md:mt-6 lg:mt-20 hidden lg:flex ">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="content_camket lg:w-1/2 sm:w-full lg:relative order-1 lg:order-2 px-3 hidden lg:block">
                         <div
-                            class="border shadow-xl border-[#A60303] rounded-[12px] bg-white  flex  items-center px-4 lg:w-[360px] ml-20">
+                            class="border shadow-xl border-[#00A95A] rounded-[12px] bg-white  flex  items-center px-4 lg:w-[360px] ml-20">
                             <img loading="lazy" class="w-[48px] h-[48px] my-4" src="/images/camket.png" alt="">
                             <div class="mx-4">
                                 <p class="text-[#101828] text-[24px] font-semibold">{{ __('camket') }}</p>
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div
-                            class="mt-40 border shadow-xl border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 lg:w-[287px] ml-40">
+                            class="mt-40 border shadow-xl border-[#00A95A] rounded-[12px] bg-white flex  items-center px-4 lg:w-[287px] ml-40">
                             <img loading="lazy" class="w-[48px] h-[48px] my-4" src="/images/giaotrinh.png" alt="">
                             <div class="mx-4">
                                 <p class="text-[#101828] text-[24px] font-semibold">{{ __('giaotrinh') }}</p>
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <div
-                            class=" mt-40 border shadow-xl border-[#A60303] rounded-[12px] bg-white flex  items-center px-4 w-[340px]">
+                            class=" mt-40 border shadow-xl border-[#00A95A] rounded-[12px] bg-white flex  items-center px-4 w-[340px]">
                             <img loading="lazy" class="w-[48px] h-[48px] my-4" src="/images/doingu.png" alt="">
                             <div class="mx-4">
                                 <p class="text-[#101828] text-[24px] font-semibold">{{ __('doingu') }}</p>

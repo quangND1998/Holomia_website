@@ -1,4 +1,4 @@
-<div id="content"  class="bg-[#FCF5F6]">
+<div id="content"  class="bg-[#d7ecd5]">
     <div class="py-[80px]">
         <div class="w-full">
             <div class="w-full flex flex-wrap justify-center mb-[40px]">
@@ -9,7 +9,7 @@
             <div class=" w-[90%] lg:flex lg:w-[80%] mx-auto">
 
                 @foreach ($section->contents as  $content)
-                <div class="my-6 border bg-white border-[#BF344D] transition ease-in-out  rounded-[10px] mx-2   duration-300 py-[50px]">
+                <div class="my-6 border bg-white border-[#016532] transition ease-in-out  rounded-[10px] mx-2   duration-300 py-[50px]">
                     <div class="flex justify-center items-center">
                         @if(count($content->images) >0)
                         <img loading="lazy" class="w-[48px] h-[48px] object-cover mx-3" src="{{$content->images[0]->image}}" alt="">

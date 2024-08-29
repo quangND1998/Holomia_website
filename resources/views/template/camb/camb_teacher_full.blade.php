@@ -2,7 +2,7 @@
     <div class="my-[30px] lg:my-[120px]">
         <div class="w-ful mx-3">
             <div class="w-full flex flex-wrap   justify-center my-[60px]">
-                <p class="text-[#101F73] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
+                <p class="text-[#016532] uppercase text-[18px] font-semibold w-full text-center">{{ __($section->title) }}</p>
                 <p class="text-[#101828] uppercase text-[30px] font-semibold w-full text-center">{{ __($section->sub_title) }}</p>
                 <p class="text-[#667085] text-[16px] w-full text-center"> {!! __($section->description) !!} </p>
             </div>

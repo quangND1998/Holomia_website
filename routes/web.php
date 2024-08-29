@@ -17,6 +17,7 @@ use App\Http\Controllers\CategoryHolo360Controller;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\Facebook\FacebookController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MailController;
@@ -293,6 +294,9 @@ Route::middleware(['auth', 'verified'])->group(
 
     }
 );
+Route::get('getAllPage',[FacebookController::class, 'getAllPage'])->name('getAllPage');
+
+Route::get('getfacebook',[FacebookController::class, 'fetchPagePosts'])->name('fetchPagePosts');
 Route::get('language/{language}', function ($language) {
     Session()->put('locale', $language);
 

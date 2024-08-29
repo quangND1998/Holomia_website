@@ -13,7 +13,7 @@
                 @foreach ($section->contents as $content)
                     @if ($loop->index % 2 != 0)
                     <div class="w-full  lg:h-[680px]">
-                        <div class="w-full lg:w-1/3 mx-auto rounded-[20px] border border-[#101F73] bg-[#FFFFFF] px-[40px] py-[32px] relative">
+                        <div class="w-full lg:w-1/3 mx-auto rounded-[20px] border border-[#016532] bg-[#FFFFFF] px-[40px] py-[32px] relative">
                             <img loading="lazy" class="w-[19px]  left-3 top-3" src="/images/dau_left.png" alt="">
                             <div class="">
                                 <p class="text-[#667085] text-[14px]">{!! __($content->sub_title) !!}</p>
@@ -29,7 +29,7 @@
                                 @endif
                             </div>
                             <div class="w-full lg:w-1/2 mr-3">
-                                <p class="text-[#101F73] text-[18px] font-semibold">{{ __('teacher') }}</p>
+                                <p class="text-[#016532] text-[18px] font-semibold">{{ __('teacher') }}</p>
                                 <p class="text-[#101828] text-[24px] my-1 font-semibold">{{ __('fullname_teacher') }}</p>
                                 <p class="text-[#667085] text-[16px]">{!! __($content->description) !!}</p>
                             </div>
@@ -40,7 +40,7 @@
                     </div>
                     @else
                     <div class="w-full lg:h-[680px]">
-                        <div class="w-full lg:w-1/3 mx-auto rounded-[20px] border border-[#101F73] bg-[#FFFFFF] px-[40px] py-[32px] relative">
+                        <div class="w-full lg:w-1/3 mx-auto rounded-[20px] border border-[#016532] bg-[#FFFFFF] px-[40px] py-[32px] relative">
                             <img loading="lazy" class="w-[19px] absolute left-3 top-3" src="/images/dau_left.png" alt="">
                             <div class="">
                                 <p class="text-[#667085] text-[14px]">{!! __($content->sub_title) !!}</p>
@@ -51,7 +51,7 @@
                         <div class="flex-wrap flex lg:flex-nowrap w-full justify-center items-center my-[64px] ">
 
                             <div class="w-full lg:w-1/2 lg:mr-3 order-2 lg:order-1">
-                                <p class="text-[#101F73] text-[18px] font-semibold">{{ __('teacher') }}</p>
+                                <p class="text-[#016532] text-[18px] font-semibold">{{ __('teacher') }}</p>
                                 <p class="text-[#101828] text-[24px] my-1 font-semibold">{{ __('fullname_teacher') }}</p>
                                 <p class="text-[#667085] text-[16px]">{!! __($content->description) !!}</p>
                             </div>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4e491dd251b702883875387a1f4ca79",
+    "content-hash": "01404af37c84d8f55dc10c852ec5c70c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -464,6 +464,69 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
+        },
+        {
+            "name": "facebook/graph-sdk",
+            "version": "5.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/php-graph-sdk.git",
+                "reference": "2d8250638b33d73e7a87add65f47fabf91f8ad9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/2d8250638b33d73e7a87add65f47fabf91f8ad9b",
+                "reference": "2d8250638b33d73e7a87add65f47fabf91f8ad9b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|^7.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "mockery/mockery": "~0.8",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client",
+                "paragonie/random_compat": "Provides a better CSPRNG option in PHP 5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Facebook/polyfills.php"
+                ],
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Facebook Platform"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/php-graph-sdk/contributors"
+                }
+            ],
+            "description": "Facebook SDK for PHP",
+            "homepage": "https://github.com/facebook/php-graph-sdk",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/facebook/php-graph-sdk/issues",
+                "source": "https://github.com/facebook/php-graph-sdk/tree/5.7.0"
+            },
+            "abandoned": true,
+            "time": "2018-12-11T22:56:31+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -2226,6 +2289,75 @@
                 }
             ],
             "time": "2022-08-04T09:53:51+00:00"
+        },
+        {
+            "name": "nazmulhasan/laravel-facebook-post",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nazmul7989/laravel-facebook-post.git",
+                "reference": "4afd99f5093f5d542db6358532ba9e0ecb008955"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nazmul7989/laravel-facebook-post/zipball/4afd99f5093f5d542db6358532ba9e0ecb008955",
+                "reference": "4afd99f5093f5d542db6358532ba9e0ecb008955",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.2|^7.4|^8.0|^8.1|^8.2|^8.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NazmulHasan\\LaravelFacebookPost\\FacebookPostServiceProvider"
+                    ],
+                    "aliases": {
+                        "FacebookPost": "NazmulHasan\\LaravelFacebookPost\\Facades\\FacebookPost"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NazmulHasan\\LaravelFacebookPost\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Md Nazmul Hasan",
+                    "email": "nazmul.ns7989@gmail.com",
+                    "homepage": "https://github.com/Nazmul7989",
+                    "role": "Developer, Maintainer"
+                }
+            ],
+            "description": "This package allow to create, update, delete and get posts from facebook page in laravel application",
+            "homepage": "https://github.com/Nazmul7989/laravel-facebook-post",
+            "keywords": [
+                "fabook-api",
+                "facebook-graph-api",
+                "facebook-page-api",
+                "facebook-page-feed",
+                "facebook-page-post",
+                "facebook-page-poster",
+                "fb-page-feed",
+                "graph-api",
+                "laravel-facebook-automatic-post",
+                "laravel-facebook-page-api",
+                "laravel-facebook-page-post",
+                "laravel-facebook-post"
+            ],
+            "support": {
+                "email": "nazmul.ns7989@gmail.com",
+                "issues": "https://github.com/Nazmul7989/laravel-facebook-post/issues",
+                "source": "https://github.com/Nazmul7989/laravel-facebook-post/tree/v1.0.2"
+            },
+            "time": "2024-03-28T14:41:53+00:00"
         },
         {
             "name": "nesbot/carbon",

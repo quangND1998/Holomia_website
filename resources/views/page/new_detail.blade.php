@@ -44,7 +44,7 @@
         <div class="flex justify-between items-center  mt-[60px] mb-6">
             <h2 class="text-[#101828] text-[32px]">{{ __('news_other') }}</h2>
 
-            <a href="/news" class="text-[#101F73] font-semibold">{{ __('see_more') }}</a>
+            <a href="/news" class="text-[#016532] font-semibold">{{ __('see_more') }}</a>
         </div>
         <div class="w-full lg:flex">
             @foreach ($tintuc_lienquan as $tintuc)

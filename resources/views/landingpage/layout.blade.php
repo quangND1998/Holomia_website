@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     {{-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
     <meta property="og:image" content="img/thumb1.jpg">
-    {{-- <script  type="text/javascript" src="https://cdn.tailwindcss.com"></script> --}}
+    <script  type="text/javascript" src="https://cdn.tailwindcss.com"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400;1,900&family=Montserrat:wght@200&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap"
         rel="preload" >
@@ -76,7 +76,7 @@
             <div class="menu-pc">
                 <div
                     class="px-[2%] md:flex
-                    top_header bg-[#0F197A] h-[48px] text-white py-2  flex-wrap justify-between text-center content-center">
+                    top_header bg-[#016532] h-[48px] text-white py-2  flex-wrap justify-between text-center content-center">
                     <div class="flex">
                         <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover"
                             data-dropdown-trigger="hover"
@@ -135,12 +135,12 @@
                 <div id="nav_sticky"
                     class="menu-content  overlay flex content-center text-center justify-between w-[96%] mx-auto">
                     <div class="logo-menu-pc">
-                        <a href="/index" aria-label="logo"><img loading="lazy" src="images/logo.png"
-                                class="logo-holo logo-pc img-fluid sm:w-[120px] lg:w-[240px] sm:h-[120px] lg:h-[240px]" alt="" loading="lazy"/></a>
+                        <a href="/index" aria-label="logo"><img loading="lazy" src="images/logo.jpg"
+                                class="logo-holo logo-pc img-fluid sm:w-[120px] lg:w-[140px] sm:h-[120px] lg:h-[140px]" alt="" loading="lazy"/></a>
                     </div>
                     <nav class="bg-white navbar_full border-gray-200 flex content-center text-center">
                         <div class="button_tab max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                            <button class="button_menu  bg-[#A60303] p-3 text-white border-[#a6030382]   rounded-[8px]" data-collapse-toggle="navbar-dropdown" type="button"
+                            <button class="button_menu  bg-[#016532] p-3 text-white border-[#01653282]   rounded-[8px]" data-collapse-toggle="navbar-dropdown" type="button"
                                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                                 aria-controls="navbar-dropdown" aria-expanded="false">
                                 <span class="sr-only">Open main menu</span>
@@ -156,12 +156,12 @@
 
                                     <li>
                                         <a href="#"
-                                            class="block py-2 px-3  rounded md:bg-transparent hover:text-blue-700  md:p-0  {{ Request::path() === 'index' ? 'text-blue-700' : 'text-[#101828]' }}"
+                                            class="block py-2 px-3  rounded md:bg-transparent hover:text-[#00A95A]  md:p-0  {{ Request::path() === 'index' ? 'text-[#00A95A]' : 'text-[#101828]' }}"
                                             aria-current="page">{{ __('nav_home') }}</a>
                                     </li>
                                     <li>
                                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                            class="flex w-full items-center justify-between font-semibold py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  {{ Request::is('about/*') == 1 ? 'text-blue-700' : 'text-[#101828]' }}">
+                                            class="flex w-full items-center justify-between font-semibold py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A95A] md:p-0 md:w-auto  {{ Request::is('about/*') == 1 ? 'text-[#00A95A]' : 'text-[#101828]' }}">
                                             {{ __('introduce') }}
                                             <svg class="w-2.5 h-2.5 ms-2.5 mx-2" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -174,21 +174,21 @@
                                             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-54 justify-start text-left">
                                             <ul class=" text-sm text-[#101828]  shadow-md"
                                                 aria-labelledby="dropdownLargeButton">
-                                                <li class="hover:bg-[#101F73] hover:text-white py-2 {{ Request::is('about/about_cammbridge') == 1 ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
+                                                <li class="hover:bg-[#016532] hover:text-white py-2 {{ Request::is('about/about_cammbridge') == 1 ? 'text-white bg-[#016532] rounded-[4px]' : '' }}">
                                                     <a href="about/about_cammbridge"
                                                         class="block px-4 py-2 ">{{ __('about') }}
                                                         {{ __('Cambridge IEC') }}</a>
                                                 </li>
-                                                <li class=" hover:bg-[#101F73] hover:text-white py-2 {{ Request::is('about/teacher_cammbridge') == 1 ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
+                                                <li class=" hover:bg-[#016532] hover:text-white py-2 {{ Request::is('about/teacher_cammbridge') == 1 ? 'text-white bg-[#016532] rounded-[4px]' : '' }}">
                                                     <a href="about/teacher_cammbridge"
                                                         class="block px-4 py-2 0">{{ __('teacher') }}
                                                         {{ __('Cambridge IEC') }}</a>
                                                 </li>
-                                                <li class=" hover:bg-[#101F73] hover:text-white py-2 {{ Request::is('about/student') == 1 ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
+                                                <li class=" hover:bg-[#016532] hover:text-white py-2 {{ Request::is('about/student') == 1 ? 'text-white bg-[#016532] rounded-[4px]' : '' }}">
                                                     <a href="about/student"
                                                         class="block px-4 py-2 0">{{ __('excellent_student') }}</a>
                                                 </li>
-                                                <li class="hover:bg-[#101F73] hover:text-white py-2 {{ Request::is('about/activity') == 1 ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
+                                                <li class="hover:bg-[#016532] hover:text-white py-2 {{ Request::is('about/activity') == 1 ? 'text-white bg-[#016532] rounded-[4px]' : '' }}">
                                                     <a href="about/activity"
                                                         class="block px-4 py-2 0">{{ __('experiential_activities') }}</a>
                                                 </li>
@@ -197,8 +197,8 @@
                                     </li>
                                     <li>
                                         <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2"
-                                            class="flex w-full items-center justify-between font-semibold py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto
-                                            {{ Request::is('list_course') == 1 ? 'text-blue-700' : 'text-[#101828]' }}
+                                            class="flex w-full items-center justify-between font-semibold py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A95A] md:p-0 md:w-auto
+                                            {{ Request::is('list_course') == 1 ? 'text-[#00A95A]' : 'text-[#101828]' }}
                                             ">
                                             {{ __('nav_course') }}
                                             <svg class="w-2.5 h-2.5 ms-2.5 mx-2" aria-hidden="true"
@@ -214,7 +214,7 @@
                                                 aria-labelledby="dropdownLargeButton">
                                                 @foreach ($category_courses as $category)
                                                     <li
-                                                        class="w-[200px] py-2 hover:bg-[#101F73] hover:text-white {{ Request::get('category_name') == $category->slug ? 'text-white bg-[#101F73] rounded-[4px]' : '' }}">
+                                                        class="w-[200px] py-2 hover:bg-[#016532] hover:text-white {{ Request::get('category_name') == $category->slug ? 'text-white bg-[#016532] rounded-[4px]' : '' }}">
                                                         <a href="list_course?category_name={{ $category->slug }}"
                                                             class="block px-4 py-2">
                                                             {{ __($category->slug) }}</a>
@@ -226,16 +226,16 @@
                                     </li>
                                     <li>
                                         <a href="news"
-                                            class="{{ Request::is('news') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">{{ __('nav_news') }}</a>
+                                            class="{{ Request::is('news') == 1 ? 'text-[#00A95A]' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A95A] md:p-0 ">{{ __('nav_news') }}</a>
                                     </li>
                                     <li>
                                         <a href="study_abroad"
-                                            class="{{ Request::is('study_abroad') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">{{ __('tuyensinhduhoc') }}</a>
+                                            class="{{ Request::is('study_abroad') == 1 ? 'text-[#00A95A]' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A95A] md:p-0 ">{{ __('tuyensinhduhoc') }}</a>
                                     </li>
 
                                     <li>
                                         <a href="contact"
-                                            class="{{ Request::is('contact') == 1 ? 'text-blue-700' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{ __('nav_contact') }}</a>
+                                            class="{{ Request::is('contact') == 1 ? 'text-[#00A95A]' : 'text-[#101828]' }} block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A95A] md:p-0">{{ __('nav_contact') }}</a>
                                     </li>
 
                                     <div class="show_mobile absolute bottom-[10px]">
@@ -307,7 +307,7 @@
                                     class="pl-14 block w-[260px] p-3  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                                     placeholder="Tra cứu thông tin khóa học" required />
                                 <button type="submit"
-                                    class="text-white ml-4 end-2.5 bottom-2.5 bg-[#AD0101] font-medium rounded-lg text-sm px-8 py-2 ">{{ __('search') }}</button>
+                                    class="text-white ml-4 end-2.5 bottom-2.5 bg-green-600 bg-[#00A95A]  font-medium rounded-lg text-sm px-8 py-2 ">{{ __('search') }}</button>
                             </div>
 
                         </form>
@@ -321,18 +321,18 @@
     @include('landingpage.form')
     @include('landingpage.footer')
 
-    {{-- <button id="myBtn" title="Lên đầu trang" class="hidden hover:opacity-0.5 fixed bottom-[190px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#101f73b4] hover:bg-[#101F73]">
+    {{-- <button id="myBtn" title="Lên đầu trang" class="hidden hover:opacity-0.5 fixed bottom-[190px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#016532b4] hover:bg-[#016532]">
         <img src="images/arrow-up-solid.png" class=" w-[20px] h-[20px]" alt="">
     </button> --}}
 
-    <div class="hidden  hover:opacity-0.5 fixed bottom-[190px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#101f73b4] hover:bg-[#101F73]"
+    <div class="hidden  hover:opacity-0.5 fixed bottom-[190px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#016532b4] hover:bg-[#016532]"
      id="myBtn" target="_blank" title="Call Now">
         <div  class="w-full h-full flex items-center justify-center">
             <img src="images/arrow-up-solid.png" class=" w-[20px] h-[20px]" alt="">
         </div>
 
     </div>
-    <a class="flex items-center justify-center  hover:opacity-0.5 fixed bottom-[120px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#A60303]"
+    <a class="flex items-center justify-center  hover:opacity-0.5 fixed bottom-[120px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#016532]"
         href="tel:+0336555876" target="_blank" title="Call Now">
         {{-- <i class="fas fa-phone-alt text-white phone-icon"></i> --}}
         <img src="images/phone-call.png" class="phone-icon w-[20px] h-[20px]" alt="">

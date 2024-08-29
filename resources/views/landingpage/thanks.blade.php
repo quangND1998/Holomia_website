@@ -7,8 +7,8 @@
             {{ __('thanks_contact') }}
         </p>
 
-        <a href="/" class="w-[200px] rounded-[8px] bg-[#101F73] text-center
-         border-[2px] border-[#101F73] text-white px-[28px] py-[16px]">{{ __('back_home') }}</a>
+        <a href="/" class="w-[200px] rounded-[8px] bg-[#016532] text-center
+         border-[2px] border-[#016532] text-white px-[28px] py-[16px]">{{ __('back_home') }}</a>
     </div>
 @endsection
 

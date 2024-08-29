@@ -21,7 +21,7 @@
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <li class="active bg-[#ad010115] text-[#A60303] font-semibold px-3 "><span>{{ $page }}</span></li>
+                            <li class="active bg-[#ad010115] text-[#016532] font-semibold px-3 "><span>{{ $page }}</span></li>
                         @elseif (($page == $paginator->currentPage() + 1 || $page == $paginator->currentPage() + 2) || $page == $paginator->lastPage() || count( $paginator) == 1)
                             <li class="mx-3 text-[#667085]  font-semibold "><a href="{{ $url }}">{{ $page }}</a></li>
                         @elseif ($page == $paginator->lastPage() - 1 )
