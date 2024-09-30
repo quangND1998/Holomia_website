@@ -205,12 +205,12 @@
                 >{{ __("content") }} {{ __("en") }}</label
               >
               <div class="mt-1">
-                <ckeditor
+                <VueEditor
                   v-model="form.content_en"
                   :config="editorConfig"
                   class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                   placeholder="Description VietNamese"
-                ></ckeditor>
+                ></VueEditor>
               </div>
               <div class="text-red-500" v-if="errors.content_en">
                 {{ errors.content_en }}
@@ -223,12 +223,12 @@
                 >Content {{ __("vn") }}</label
               >
               <div class="mt-1">
-                <ckeditor
+                <VueEditor
                   v-model="form.content_vn"
                   :config="editorConfig2"
                   class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                   placeholder="Description VietNamese"
-                ></ckeditor>
+                ></VueEditor>
               </div>
               <div class="text-red-500" v-if="errors.content_vn">
                 {{ errors.content_vn }}

@@ -289,11 +289,11 @@
                   <div class="mb-4">
                     <label>{{ __("info") }} {{ __("en") }}</label>
                     <div class="mt-1">
-                      <ckeditor
+                      <VueEditor
                         v-model="form.info_en"
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="Description VietNamese"
-                      ></ckeditor>
+                      ></VueEditor>
                     </div>
                     <div class="text-red-500" v-if="errors.info_en">
                       {{ errors.info_en }}
@@ -304,11 +304,11 @@
                   <div class="mb-4">
                     <label>{{ __("info") }} {{ __("vn") }}</label>
                     <div class="mt-1">
-                      <ckeditor
+                      <VueEditor
                         v-model="form.info_vn"
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="Description VietNamese"
-                      ></ckeditor>
+                      ></VueEditor>
                     </div>
                     <div class="text-red-500" v-if="errors.info_vn">
                       {{ errors.info_vn }}
@@ -319,11 +319,11 @@
                   <div class="mb-4">
                     <label>{{ __("roadmap") }} {{ __("en") }}</label>
                     <div class="mt-1">
-                      <ckeditor
+                      <VueEditor
                         v-model="form.roadmap_en"
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="Description VietNamese"
-                      ></ckeditor>
+                      ></VueEditor>
                     </div>
                     <div class="text-red-500" v-if="errors.roadmap_en">
                       {{ errors.roadmap_en }}
@@ -334,11 +334,11 @@
                   <div class="mb-4">
                     <label>{{ __("roadmap") }} {{ __("vn") }}</label>
                     <div class="mt-1">
-                      <ckeditor
+                      <VueEditor
                         v-model="form.roadmap_vn"
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="Description VietNamese"
-                      ></ckeditor>
+                      ></VueEditor>
                     </div>
                     <div class="text-red-500" v-if="errors.roadmap_vn">
                       {{ errors.roadmap_vn }}
@@ -349,11 +349,11 @@
                   <div class="mb-4">
                     <label>{{ __("open_schedule") }} {{ __("en") }}</label>
                     <div class="mt-1">
-                      <ckeditor
+                      <VueEditor
                         v-model="form.open_schedule_en"
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="Description VietNamese"
-                      ></ckeditor>
+                      ></VueEditor>
                     </div>
                     <div class="text-red-500" v-if="errors.open_schedule_en">
                       {{ errors.open_schedule_en }}
@@ -364,12 +364,12 @@
                   <div class="mb-4">
                     <label>{{ __("open_schedule") }} {{ __("vn") }}</label>
                     <div class="mt-1">
-                      <ckeditor
+                      <VueEditor
                         v-model="form.open_schedule_vn"
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="Description VietNamese"
                       >
-                      </ckeditor>
+                      </VueEditor>
                     </div>
                     <div class="text-red-500" v-if="errors.open_schedule_vn">
                       {{ errors.open_schedule_vn }}

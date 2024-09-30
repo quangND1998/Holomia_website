@@ -85,12 +85,12 @@
                   class="block text-sm font-medium text-gray-700"
                 >{{__('description')}} {{__('en')}}</label>
                 <div class="mt-1">
-                        <ckeditor
+                        <VueEditor
                     v-model="form.description_en"
                     :config="editorConfig"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Description VietNamese"
-                  ></ckeditor>
+                  ></VueEditor>
                   <!-- <textarea
                     v-model="form.description_en"
                     id="about"
@@ -107,12 +107,12 @@
                   class="block text-sm font-medium text-gray-700"
                 >{{__('description')}} {{__('vn')}}</label>
                 <div class="mt-1">
-                     <ckeditor
+                     <VueEditor
                     v-model="form.description_vn"
                     :config="editorConfig2"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Description VietNamese"
-                  ></ckeditor>
+                  ></VueEditor>
                   <!-- <textarea
                     v-model="form.description_vn"
                     id="about"

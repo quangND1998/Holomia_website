@@ -4,13 +4,17 @@ import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 import { InertiaProgress } from '@inertiajs/progress'
 import CKEditor from 'ckeditor4-vue';
+import Vue2Editor from "vue2-editor";
+
 import VueCompositionAPI from '@vue/composition-api'
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 import VueGlide from 'vue-glide-js'
 import 'vue-glide-js/dist/vue-glide.css'
 
+
 Vue.use(VueToast);
+
 createInertiaApp({
     resolve: name => require(`./Pages/${name}`),
     setup({ el, App, props, plugin }) {
@@ -64,3 +68,5 @@ Vue.config.productionTip = true
 window.Bus = new Vue();
 Vue.use(VueCompositionAPI)
 Vue.use(CKEditor)
+Vue.use(Vue2Editor);
+

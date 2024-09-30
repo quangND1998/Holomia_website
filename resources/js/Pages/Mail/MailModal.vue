@@ -53,12 +53,12 @@
                     <span
                       class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
                     >Content</span>
-                    <ckeditor
+                    <VueEditor
                       v-model="form.content"
                       :config="editorConfig"
                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                       placeholder="Description VietNamese"
-                    ></ckeditor>
+                    ></VueEditor>
                   </div>
                   <p class="text-red-500 text-xs italic" v-if="errors.content">{{ errors.content }}</p>
                 </div>

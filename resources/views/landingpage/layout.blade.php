@@ -11,7 +11,7 @@
         @if (View::hasSection('title'))
             @yield('title')
         @else
-            Cambridge IEC
+        Anh Ngữ Việt Âu 
         @endif
     </title>
     <meta property="og:image" content="@if (View::hasSection('image')) @yield('image') @else images/thumb.jpg @endif" />
@@ -114,7 +114,7 @@
                         <div class="border-r-2 border-[#D0D5DD]"></div>
                         <div class="flex mx-4 items-center justify-center">
                             <i class="uil uil-phone-alt text-white mx-2 font-bold text-[24px]"></i>
-                            <p>0336 555 876 / 0359 719 595</p>
+                            <p>0964418439</p>
                         </div>
                         <div class="border-r-2 border-[#D0D5DD] "></div>
                         <ul class="list-language flex mx-4 items-center justify-center">
@@ -333,16 +333,19 @@
 
     </div>
     <a class="flex items-center justify-center  hover:opacity-0.5 fixed bottom-[120px] right-[25px] w-[60px] h-[60px] rounded-full bg-[#016532]"
-        href="tel:+0336555876" target="_blank" title="Call Now">
+        href="tel:+0964418439" target="_blank" title="Call Now">
         {{-- <i class="fas fa-phone-alt text-white phone-icon"></i> --}}
         <img src="images/phone-call.png" class="phone-icon w-[20px] h-[20px]" alt="">
     </a>
+
+    <div class="zalo-chat-widget" data-oaid="4326850797522938947" data-welcome-message="Anh Ngữ Việt Âu xin chào bạn !" data-autopopup="0" data-width="" data-height=""></div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
     <script src="/js/slick.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
     {{-- <script  src="/js/edit_slick.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> --}}
