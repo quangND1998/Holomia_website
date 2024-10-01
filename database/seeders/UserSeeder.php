@@ -24,13 +24,19 @@ class UserSeeder extends Seeder
         // ]);
         // $user1->assignRole('administrator');
 
+        // $user1 = User::create([
+        //     'name' => 'Admin',
+        //     'email' => 'iec@holomia.com',
+        //     'password' => bcrypt('iec@1234')
+        // ]);
+        // $user1->assignRole('administrator');
+
         $user1 = User::create([
             'name' => 'Admin',
-            'email' => 'iec@holomia.com',
-            'password' => bcrypt('iec@1234')
+            'email' => 'vietau@gmail.com',
+            'password' => bcrypt('vietau')
         ]);
         $user1->assignRole('administrator');
-
         
     }
 }
