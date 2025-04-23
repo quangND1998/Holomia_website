@@ -16,10 +16,11 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        Artisan::call('cache:clear');
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        // Artisan::call('cache:clear');
+        // app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        Permission::create(['name' => 'users_manage']);
-        Permission::create(['name' => 'create_project']);
+        // Permission::create(['name' => 'users_manage']);
+        // Permission::create(['name' => 'create_project']);
+        Permission::create(['name' => 'scan_manager']);
     }
 }

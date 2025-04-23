@@ -17,11 +17,19 @@ class UserSeeder extends Seeder
     public function run()
     {
 
+        // $user1 = User::create([
+        //     'name' => 'Admin',
+        //     'email' => 'admin@holomia.com',
+        //     'password' => bcrypt('Abcd1234')
+        // ]);
+        // $user1->assignRole('administrator');
+
         $user1 = User::create([
-            'name' => 'Admin',
-            'email' => 'admin@holomia.com',
+            'name' => '3DScan',
+            'email' => '3dscan@holomia.com',
             'password' => bcrypt('Abcd1234')
         ]);
-        $user1->assignRole('administrator');
+        $user1->assignRole('scan_manager');
     }
+
 }
