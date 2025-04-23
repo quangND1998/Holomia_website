@@ -10,7 +10,9 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 import Unicon from 'vue-unicons/dist/vue-unicons-vue2.umd'
 import { uniLayerGroupMonochrome, uniCarWash } from 'vue-unicons/dist/icons'
 import "../css/app.css";
-
+import $ from "jquery";
+window.$ = $;
+window.jQuery = $;
 Unicon.add([uniLayerGroupMonochrome, uniCarWash])
 Vue.use(Unicon)
 

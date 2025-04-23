@@ -19,6 +19,9 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectHolo360Controller;
+use App\Http\Controllers\Scan\CategoryScanController;
+use App\Http\Controllers\Scan\GroupScanController;
+use App\Http\Controllers\Scan\ScanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -231,6 +234,23 @@ Route::middleware(['auth', 'verified'])->group(
 
         });
 
+        Route::prefix('category-scan')->as('category-scan.')->group(function () {
+            Route::get('', [CategoryScanController::class, 'index'])->name('index');
+            Route::post('', [CategoryScanController::class, 'store'])->name('store');
+            Route::post('update/{id}', [CategoryScanController::class, 'update'])->name('update');
+            Route::delete('delete/{id}', [CategoryScanController::class, 'delete'])->name('delete');
+        });
+        Route::prefix('admin/scans')->as('scan.')->group(function () {
+            Route::get('', [ScanController::class, 'index'])->name('index');
+            Route::post('', [ScanController::class, 'store'])->name('store');
+            Route::post('removeProject', [ScanController::class, 'removeProject'])->name('removeProject');
+            Route::post('update/{id}', [ScanController::class, 'update'])->name('update');
+            Route::get('graph', [ScanController::class, 'getGraph']);
+        });
+        Route::prefix('admin/groupScans')->as('groupScans.')->group(function () {
+            Route::post('', [GroupScanController::class, 'store'])->name('store');
+            Route::post('update/{id}', [GroupScanController::class, 'update'])->name('update');
+        });
     }
 );
 Route::get('language/{language}', function ($language) {

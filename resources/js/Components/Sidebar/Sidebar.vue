@@ -7,13 +7,13 @@
     >
       <button
         class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-       
+
         v-on:click="toggleCollapseShow('bg-white m-2 py-3 px-6')"
       >
         <i class="fas fa-bars"></i>
       </button>
- 
-    
+
+
       <ul class="md:hidden items-center flex flex-wrap list-none">
         <li class="inline-block relative">
           <notification-dropdown />
@@ -33,16 +33,10 @@
         >
           <div class="flex flex-wrap">
             <div class="w-6/12">
-              <!-- <router-link
-                class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                to="/"
-              >
-                Vue Notus
-              </router-link> -->
             </div>
             <div class="w-6/12 flex justify-end">
               <button
-                
+
                 class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
                 v-on:click="toggleCollapseShow('hidden')"
               >
@@ -64,23 +58,23 @@
 
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
           <li class="items-center">
-           
+
           </li>
 
           <li class="items-center">
-           
+
           </li>
 
           <li class="items-center">
-          
+
           </li>
 
           <li class="items-center">
-          
+
           </li>
         </ul>
 
-        
+
         <hr class="my-4 md:min-w-full" />
 
         <h6
@@ -89,7 +83,7 @@
           Auth Layout Pages
         </h6>
           <LanguageSelector></LanguageSelector>
-      
+
 
         <ul v-if="$page.props.auth.user == null" class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
           <link class="items-center">
@@ -126,7 +120,7 @@
         </h6>
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-1 " lass="relative">
-    
+
 
           <Link   :class="[$page.url.startsWith('/admin/pages') ? 'opacity-75 text-blue-300 bg-coolGray-900' : '']"  :href="route('pages')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="page" class="mr-1 text-blueGray-300 text-base"></icon>
@@ -147,7 +141,18 @@
               </li>
             </ul>
           </li>
-          
+          <li class="ml-4 menu_dropdown">
+            <a  class="text-white flex"><icon name="page" class="mr-1 text-blueGray-300  text-sm"></icon>Scan Manager</a>
+            <ul class="sub_menu ml-6">
+                <li class="my-3">
+                <Link  :href="route('category-scan.index')"  class="italic text-white text-blueGray-300 hover:text-blueGray-400 text-sm">Category Scan</Link>
+              </li>
+              <li class="my-3">
+                <Link  :href="route('scan.index')"  class="italic text-white text-blueGray-300 hover:text-blueGray-400 text-sm"> Scan</Link>
+              </li>
+
+            </ul>
+          </li>
 
           <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.url.startsWith('/admin/themes') ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('themes.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="theme" class="mr-1 text-blueGray-300 text-base"></icon>
@@ -157,7 +162,7 @@
             <icon name="language" class="mr-1 text-blueGray-300 text-base"></icon>
               Languages
           </Link>
-       
+
           <Link  v-if="hasAnyPermission(['users_manage'])" :class="[$page.component === 'Mail/Mail' ? 'opacity-75 text-blue-300 bg-coolGray-900 ' : '']"  :href="route('mail.index')" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold">
             <icon name="mail" class="mr-1 text-blueGray-300 text-base"></icon>
               Mail
@@ -170,10 +175,10 @@
             <icon name="project" class="mr-1 text-blueGray-300 text-base"></icon>
               Project
           </Link>
-       
+
           <li class="inline-flex" v-if="hasAnyPermission(['users_manage'])"></li>
-        
-        
+
+
 
           <li class="inline-flex" v-if="$page.props.auth.user">
                 <Link   :href="route('logout')" method="post" class=" px-4 py-2.5 flex flex-wrap text-blueGray-300 hover:text-blueGray-400 text-sm  mb-1 no-underline font-semibold"  v-if="$page.props.auth.user">
@@ -181,12 +186,12 @@
             <icon name="logout" class="mr-1 text-blueGray-300 text-base"></icon>
             <div class="text-sm">Logout</div>
           </Link>
-           
+
           </li>
 
 
 
-         
+
         </ul>
       </div>
     </div>

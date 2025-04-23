@@ -6,10 +6,8 @@
 
             <div class="flex-1 overflow-hidden px-4 py-8 md:p-4 overflow-y-auto" scroll-region>
                 <slot />
-                
             </div>
         </div>
-        
     </div>
 </template>
 <script>
@@ -18,8 +16,6 @@ import AdminNavbar from "@/Components/Navbars/AdminNavbar.vue";
 import Sidebar from "@/Components/Sidebar/Sidebar.vue";
 import HeaderStats from "@/Components/Headers/HeaderStats.vue";
 import FooterAdmin from "@/Components/Footers/FooterAdmin.vue";
-
-
 
 export default {
     name: "admin-layout",
@@ -32,7 +28,7 @@ export default {
         Sidebar,
         HeaderStats,
         FooterAdmin,
-    
+
 
     },
 };
