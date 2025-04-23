@@ -45,6 +45,8 @@ Route::get('immersive', [LandingPageController::class, 'immersive']);
 Route::get('contact', [LandingPageController::class, 'contact']);
 Route::get('projects', [LandingPageController::class, 'project']);
 Route::get('holo360', [LandingPageController::class, 'holo360']);
+
+Route::get('scan/{code}', [ScanController::class, 'public']);
 // Route::get('holo360/{type}', [LandingPageController::class, 'holo360']);
 Route::get(
     'new/{slug}',

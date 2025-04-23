@@ -122,7 +122,7 @@
                         type="date"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         :class="errors.expired_date ? 'border-red-500' : ''"
-                        v-model="form.expired_date"
+                        v-model="form2.expired_date"
                         id="nameTour"
                       />
                       <div class="text-red-500" v-if="errors.expired_date">
@@ -220,6 +220,142 @@
       </div>
     </div>
 
+    <!-- group -->
+        <div
+      id="exampleModalGroup"
+      tabindex="-1"
+      v-if="showModelGroup"
+      class="fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full bg-[#00000069]"
+    >
+      <div class="relative w-full max-w-2xl max-h-full m-auto">
+        <div class="relative bg-white rounded-lg shadow">
+          <div class="flex items-start justify-between p-4 border-b rounded-t">
+            <h3
+              class="text-xl font-semibold text-gray-900"
+              v-if="editGroupMode == true"
+            >
+              Update Group Scan
+            </h3>
+            <h3 v-else class="text-xl font-semibold text-gray-900">
+              Create Group scan
+            </h3>
+            <button
+              type="button"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              data-modal-hide="exampleModalGroup"
+              @click="closeModelGroup()"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+
+          <div class="p-6 space-y-6">
+              <form @submit.prevent="save">
+                <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div
+                      class="form-group"
+                      :class="errors.name ? 'is-valid' : ''"
+                    >
+                      <label for="nameTour" class="col-form-label">Title:</label>
+                      <input
+                        type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        :class="errors.title ? 'border-red-500' : ''"
+                        v-model="form2.title"
+                        id="nameTour"
+                      />
+                      <div class="text-red-500" v-if="errors.title">
+                        {{ errors.title }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div
+                      class=""
+                      :class="errors.expired_date ? 'is-valid' : ''"
+                    >
+                      <label for="nameTour" class="col-form-label"
+                        >Expired_date:</label
+                      >
+                      <input
+                        type="date"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        :class="errors.expired_date ? 'border-red-500' : ''"
+                        v-model="form2.expired_date"
+                        id="nameTour"
+                      />
+                      <div class="text-red-500" v-if="errors.expired_date">
+                        {{ errors.expired_date }}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="w-full px-3 py-2 mb-6 md:mb-0">
+                    <Multiselect
+                        v-model="form2.scans_list"
+                        mode="tags"
+                        :appendNewTag="false"
+                        :createTag="false"
+                        :searchable="true"
+                        :loading="true"
+                        label="name"
+                        valueProp="id"
+                        trackBy="name"
+                        :options="listScanCurrent"
+                        class="multiselect-blue py-2 border-black"
+                      >
+                        <template v-slot:tag="{ option, handleTagRemove, disabled }">
+                          <div class="multiselect-tag is-user">
+                            {{ option.name}}
+                            <span
+                              v-if="!disabled"
+                              class="multiselect-tag-remove"
+                              @mousedown.prevent="handleTagRemove(option, $event)"
+                            >
+                              <span class="multiselect-tag-remove-icon"></span>
+                            </span>
+                          </div>
+                        </template>
+                      </Multiselect>
+                  </div>
+                </div>
+
+                <div class="modal-footer my-2">
+                  <button
+                    type="button"
+                    class="inline-block px-3 py-2.5 bg-gray-200 text-gray-700 font-black text-sm leading-tight  rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out"
+                    data-dismiss="modal"
+                    @click="resetGroup()"
+                  >
+                    Close
+                  </button>
+                  <button
+                    @click.prevent="saveGroup()"
+                    type="submit"
+                    class="inline-block px-3 py-2.5 bg-gray-800 text-white font-black text-sm leading-tight  rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <h2 class="text-3xl font-medium text-blue-600 mt-5">List scan</h2>
     <button
       type="button"
@@ -239,6 +375,8 @@
     >
       Create Group
     </button>
+
+    <GroupScan :groups="groupScans"></GroupScan>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table class="w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -282,10 +420,10 @@
               {{ scan.id }}
             </td>
             <td class="">
-              {{ project.name }}
+              {{ scan.name }}
             </td>
             <td class="">
-              <div class="text-xl text-gray-900">
+              <div class="text-sm text-gray-900">
                 {{ scan.group != null ? scan.group.title : null }}
               </div>
             </td>
@@ -293,7 +431,7 @@
               {{ scan.model_code }}
             </td>
             <td class="">
-              <div class="text-xl text-gray-900">
+              <div class="text-sm text-gray-900 flex">
                 <a
                   :href="'scan/' + scan.code"
                   class="text-blue-500"
@@ -304,23 +442,23 @@
               </div>
             </td>
             <td class="">
-              <div class="text-xl text-gray-900">
+              <div class="text-sm text-gray-900">
                 <span
-                  class="text-xl inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-600 text-white rounded-full"
+                  class=" inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-600 text-white rounded-full"
                   >{{ scan.user.name }}</span
                 >
               </div>
             </td>
             <td>
-              <div class="text-xl text-gray-900">
+              <div class="text-sm text-gray-900">
                 <span
-                  class="text-xl inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-gray-600 text-white rounded-full"
+                  class="text-sm inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-gray-600 text-white rounded-full"
                   >{{ scan.category_scan.name }}</span
                 >
               </div>
             </td>
             <td>
-              <div class="text-xl text-gray-900">
+              <div class="text-sm text-gray-900">
                 <input
                   :checked="scan.active == 1 ? true : false"
                   @change="onChangeActive(scan, $event)"
@@ -329,18 +467,18 @@
                 />
               </div>
             </td>
-            <td>
-              <div class="text-xl text-gray-900">
-                {{ formatDate(scan.expired_date) }}
+            <td class="">
+              <div class="text-sm text-gray-900">
+                {{ (scan.expired_date) }}
               </div>
               <span
                 v-if="scan.is_expired"
-                class="text-xl inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded-full"
+                class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded-full"
                 >Expired</span
               >
               <span
                 v-else
-                class="text-xl inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-600 text-white rounded-full"
+                class="text-sm inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-600 text-white rounded-full"
                 >Countinue</span
               >
             </td>
@@ -355,7 +493,7 @@
               <button
                 data-toggle="modal"
                 data-target="#exampleModal"
-                class="inline-block px-6 py-2.5 bg-gray-200 text-gray-700 font-black text-xl leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out"
+                class="inline-block px-2 py-2.5 text-sm bg-gray-200 text-gray-700 font-black  leading-tight  rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out"
                 @click="edit(scan)"
               >
                 Update
@@ -379,6 +517,8 @@ import Layout from "@/Components/Layout";
 import Pagination from "@/Components/Pagination";
 // sắp xếp
 import draggable from "vuedraggable";
+import GroupScan from './GroupScan.vue';
+import Multiselect from "@vueform/multiselect/dist/multiselect.vue2.js";
 export default {
   layout: Layout,
   props: {
@@ -392,6 +532,14 @@ export default {
     Pagination,
     Icon,
     draggable,
+    GroupScan,
+    Multiselect
+  },
+    mounted() {
+    var self = this;
+    Bus.$on("EditGroup", data => {
+      this.editGroup(data);
+    });
   },
   computed: {
     selectAll: {
@@ -413,13 +561,13 @@ export default {
     return {
       showModel: false,
       editMode: false,
+      showModelGroup: false,
+      editGroupMode: false,
       listScanDefault: this.listScans ? this.listScans : [],
       listScanCurrent: this.listScans ? this.listScans : [],
       selected: [],
       term: null,
       logo: null,
-      editMode: false,
-      editGroupMode: false,
       form: this.$inertia.form({
         id: null,
         name: null,
@@ -447,6 +595,7 @@ export default {
     closeModel() {
       this.showModel = false;
       this.editMode = false;
+
       this.reset();
     },
     reset() {
@@ -459,6 +608,12 @@ export default {
           expired_date: null,
           logo: null,
         }));
+    },
+    closeModelGroup() {
+      this.showModelGroup = false;
+      this.editGroupMode = false;
+
+      this.resetGroup();
     },
     resetGroup() {
       this.form2 = this.$inertia.form({
@@ -516,7 +671,8 @@ export default {
             }
           },
           onSuccess: (page) => {
-            $("#exampleModalGroup").modal("hide");
+            // $("#exampleModalGroup").modal("hide");
+            this.closeModelGroup();
             this.reset();
             console.log("success");
             this.listScanDefault = this.listScans ? this.listScans : [];
@@ -531,7 +687,8 @@ export default {
             }
           },
           onSuccess: (page) => {
-            $("#exampleModalGroup").modal("hide");
+            this.closeModelGroup();
+            // $("#exampleModalGroup").modal("hide");
             this.reset();
             this.listScanDefault = this.listScans ? this.listScans : [];
           },
@@ -547,6 +704,7 @@ export default {
       this.reset();
     },
     clickModalGroup() {
+      this.showModelGroup = true;
       this.listScanCurrent = this.listScanDefault ? this.listScanDefault : [];
       console.log(this.listScanCurrent, "listScanCurrent");
       this.editGroupMode = false;
@@ -568,6 +726,7 @@ export default {
       });
     },
     editGroup(data) {
+      this.showModelGroup = true;
       this.listScanCurrent = [];
       this.listScanDefault.forEach((item, index) => {
         this.listScanCurrent.push(item);

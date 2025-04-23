@@ -25,6 +25,8 @@ class CreateScansTable extends Migration
             $table->foreign('category_scan_id')->references('id')->on('category_scans');
             $table->unsignedBigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('logo')->nullable();
+            $table->date('expired_date')->nullable();
             $table->timestamps();
         });
     }

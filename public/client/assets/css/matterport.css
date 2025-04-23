@@ -1,0 +1,22 @@
+.show_action_camera
+{
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    width: 200px;
+    border-radius: 6px;
+    z-index: 3;
+    background-color: rgba(0,0,0,.6);
+    color: white;
+}
+.show_action_camera li{
+
+    padding: 2px;
+    text-align: left;
+    height: auto;
+
+}
+.show_action_camera li:hover{
+    color: antiquewhite;
+}

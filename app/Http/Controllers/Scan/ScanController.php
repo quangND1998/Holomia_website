@@ -171,6 +171,7 @@ class ScanController extends Controller
         if ($project && $project->active == 1) {
 
             if (strtotime($project->expired_date) - strtotime($now) > 0) {
+                // return $project;
                 return view('scan.public.index', compact('project'));
             } else {
 
