@@ -14,6 +14,7 @@ use App\Http\Controllers\CategoryContentController;
 use App\Http\Controllers\CategoryHolo360Controller;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\EditorController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MailController;
@@ -60,6 +61,8 @@ Route::post('contact/store', [ContactController::class, 'store'])->name('contact
 Route::get('contact/success', [ContactController::class, 'success']);
 Route::middleware(['auth', 'verified'])->group(
     function () {
+        Route::post('editor/upload-image', [EditorController::class, 'uploadImage'])->name('editor.upload-image');
+
         Route::group(
             ['prefix' => 'admin/pages'],
             function () {

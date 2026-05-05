@@ -69,7 +69,7 @@
                     <div class="menu-pc">
                         <div id="nav_sticky" class="menu-content overlay">
                             <div class="logo-menu-pc">
-                                <a href="/index"><img src="img/logoxanhh.png" class="logo-holo logo-pc img-fluid"
+                                <a href="/index"><img src="img/logo_new.png" class="logo-holo logo-pc img-fluid"
                                         alt=""></a>
                             </div>
                             <nav class="menu-demo">
@@ -139,7 +139,7 @@
                         <div class="mean-bar">
                             <div class=" logo-mobile">
                                 <div class="logo-menu">
-                                    <a href="index.html"><img src="img/logoxanhh.png" class="logo-holo img-fluid"
+                                    <a href="index.html"><img src="img/logo_new.png" class="logo-holo img-fluid"
                                             alt=""></a>
                                 </div>
                                 <!-- <div class="open-menu">

@@ -20,3 +20,9 @@
         </div>
 </div>
 @endforeach
+<style>
+    .main-about {
+    height: 80vh !important;
+    box-sizing: content-box;
+}
+</style>

@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row">
                     <div class="company-information">
-                        <img src="/img/logoxanhh.png" class="img-fluid logo_company" alt="">
+                        <img src="/img/logo_new.png" class="img-fluid logo_company" alt="">
                         <span class="title-company">{{__('company-infor')}}</span>
                         <div class="link-icon">
                             <a href="{{__('holomia_facebook')}}"><i class="fab fa-facebook"></i></a>
@@ -16,23 +16,23 @@
                         <div class="contact">
                             <span><i class="fas fa-map-marker-alt pr-3"></i>{{__('company-address')}}</span>
                             {{--  <span><i class="fas fa-map-marker-alt pr-3"></i>{{__('company-address1')}}</span>  --}}
-                            <span><a href="tel:{{__('company-phone')}}"><i class="fas fa-phone-alt pr-3"></i>{{__('company-phone')}}</a></span>
+                            {{-- <span><a href="tel:{{__('company-phone')}}"><i class="fas fa-phone-alt pr-3"></i>{{__('company-phone')}}</a></span> --}}
                             <span><a href="mailto:{{__('company-email')}}"><i class="fas fa-envelope pr-3"></i>{{__('company-email')}}</a></span>
                         </div>
                     </div>
                     <div class="company-project">
-                        <h4>{{__('company_project')}}</h4>
+                        <h4>{{__('legal')}}</h4>
                         <ul>
                             <li>
-                                <a href="/holo360">{{__('holomia')}}</a>
+                                <div href="/privacy.html">{{__('privacy')}}</div>
                             </li>
                             <li>
-                                <a href="/projects">{{__('missionxvr')}}</a>
+                                <div href="/term_of_use.html">{{__('term_of_use')}}</div>
                             </li>
                         </ul>
                     </div>
                 </div>
-               
+
             </div>
         </div>
         <div class="footer_copyright">
@@ -44,11 +44,11 @@
                         </div>
                         {{--  <div class="right_end">
                             <a href="index.html"> <span>About</span></a>
-                            <a href="page/immersive.html"><span>News</span></a>                           
+                            <a href="page/immersive.html"><span>News</span></a>
                         </div>  --}}
                     </div>
                 </div>
-            </div>       
+            </div>
         </div>
     </footer>
     <style>

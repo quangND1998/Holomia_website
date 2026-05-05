@@ -53,12 +53,12 @@
                     <span
                       class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
                     >Content</span>
-                    <ckeditor
+                    <tinymce-editor
                       v-model="form.content"
-                      :config="editorConfig"
+                      :init="editorInit"
+                      :tinymce-script-src="tinymceScriptSrc"
                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                      placeholder="Description VietNamese"
-                    ></ckeditor>
+                    />
                   </div>
                   <p class="text-red-500 text-xs italic" v-if="errors.content">{{ errors.content }}</p>
                 </div>
@@ -98,6 +98,7 @@
 </template>
 
 <script>
+import { tinymceScriptSrc, createTinyInit } from "@/config/tinymceDefaults";
 import Icon from "@/Components/Icon";
 export default {
   props: {
@@ -109,10 +110,8 @@ export default {
   },
   data() {
     return {
-      editorData: "<p>Content of the editor.</p>",
-      editorConfig: {
-        // The configuration of the editor.
-      },
+      tinymceScriptSrc,
+      editorInit: createTinyInit(),
       showCkeditor: false,
       editMode: false,
       showModal: false,

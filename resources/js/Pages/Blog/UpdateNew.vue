@@ -133,12 +133,12 @@
                   class="block text-sm font-medium text-gray-700"
                 >{{__('content')}} {{__('en')}}</label>
                 <div class="mt-1">
-                  <ckeditor
+                  <tinymce-editor
                     v-model="form.content_en"
-                    :config="editorConfig"
+                    :init="editorInit"
+                    :tinymce-script-src="tinymceScriptSrc"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
+                  />
                 </div>
                 <div class="text-red-500" v-if="errors.content_en">{{ errors.content_en }}</div>
               </div>
@@ -148,12 +148,12 @@
                   class="block text-sm font-medium text-gray-700"
                 >Content {{__('vn')}}</label>
                 <div class="mt-1">
-                  <ckeditor
+                  <tinymce-editor
                     v-model="form.content_vn"
-                    :config="editorConfig2"
+                    :init="editorInit"
+                    :tinymce-script-src="tinymceScriptSrc"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
+                  />
                 </div>
                 <div class="text-red-500" v-if="errors.content_vn">{{ errors.content_vn }}</div>
               </div>
@@ -176,6 +176,7 @@
 </template>
 
 <script>
+import { tinymceScriptSrc, createTinyInit } from "@/config/tinymceDefaults";
 import Multiselect from "@vueform/multiselect/dist/multiselect.vue2.js";
 import Icon from "@/Components/Icon";
 import Layout from "@/Components/Layout";
@@ -196,13 +197,8 @@ export default {
   },
   data() {
     return {
-      editorData: "<p>Content of the editor.</p>",
-      editorConfig: {
-        // The configuration of the editor.
-      },
-      editorConfig2: {
-        // The configuration of the editor.
-      },
+      tinymceScriptSrc,
+      editorInit: createTinyInit(),
       form: this.$inertia.form({
         id: null,
         title: null,

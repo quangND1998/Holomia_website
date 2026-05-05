@@ -82,12 +82,12 @@
                   class="block text-sm font-medium text-gray-700"
                 >{{__('description')}} {{__('en')}}</label>
                 <div class="mt-1">
-                  <ckeditor
+                  <tinymce-editor
                     v-model="form.description_en"
-                    :config="editorConfig"
+                    :init="editorInit"
+                    :tinymce-script-src="tinymceScriptSrc"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
+                  />
                   <!-- <textarea
                     v-model="form.description_en"
                     id="about"
@@ -105,12 +105,12 @@
                   class="block text-sm font-medium text-gray-700"
                 >{{__('description')}} {{__('vn')}}</label>
                 <div class="mt-1">
-                  <ckeditor
+                  <tinymce-editor
                     v-model="form.description_vn"
-                    :config="editorConfig2"
+                    :init="editorInit"
+                    :tinymce-script-src="tinymceScriptSrc"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
+                  />
                   <!-- <textarea
                     v-model="form.description_vn"
                     id="about"
@@ -192,6 +192,7 @@
 </template>
 
 <script>
+import { tinymceScriptSrc, createTinyInit } from "@/config/tinymceDefaults";
 import Icon from "@/Components/Icon";
 import Layout from "@/Components/Layout";
 import { Link } from "@inertiajs/inertia-vue";
@@ -212,13 +213,8 @@ export default {
   },
   data() {
     return {
-      editorData: "<p>Content of the editor.</p>",
-      editorConfig: {
-        // The configuration of the editor.
-      },
-      editorConfig2: {
-        // The configuration of the editor.
-      },
+      tinymceScriptSrc,
+      editorInit: createTinyInit(),
       form: this.$inertia.form({
         id: null,
         title: null,

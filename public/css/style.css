@@ -60,7 +60,7 @@ li {
 .count_eye{
     color:black;
     opacity: 0.6;
-    /* text-align: end; 
+    /* text-align: end;
     */
     margin-bottom: 0;
     margin-top:1.3rem;
@@ -1484,7 +1484,7 @@ hr {
 #nav_sticky {
     margin-top: 0%;
     display: flex;
-    padding: 1rem 0rem;
+    padding: 8px 0rem;
 }
 
 .menu__item a {

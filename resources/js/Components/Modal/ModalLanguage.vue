@@ -42,7 +42,7 @@
                     <label
                       class="form-check-label inline-block text-gray-800"
                       for="inlineRadio10"
-                    >ckeditor Mode</label>
+                    >TinyMCE (HTML)</label>
                   </div>
                 </div>
               </div>
@@ -68,13 +68,13 @@
                     class="block text-sm font-medium text-gray-700"
                   >{{__('en')}}</label>
                   <div class="mt-1">
-                    <ckeditor
+                    <tinymce-editor
                       v-if="showCkeditor"
                       v-model="form.en"
-                      :config="editorConfig"
+                      :init="editorInit"
+                      :tinymce-script-src="tinymceScriptSrc"
                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                      placeholder="Description VietNamese"
-                    ></ckeditor>
+                    />
                     <textarea
                       v-else
                       name="ev"
@@ -92,13 +92,13 @@
                     class="block text-sm font-medium text-gray-700"
                   >{{__('vn')}}</label>
                   <div class="mt-1">
-                    <ckeditor
+                    <tinymce-editor
                       v-if="showCkeditor"
                       v-model="form.vn"
-                      :config="editorConfig2"
+                      :init="editorInit"
+                      :tinymce-script-src="tinymceScriptSrc"
                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                      placeholder="Description VietNamese"
-                    ></ckeditor>
+                    />
                     <textarea
                       v-else
                       name="ev"
@@ -147,6 +147,7 @@
 </template>
 
 <script>
+import { tinymceScriptSrc, createTinyInit } from "@/config/tinymceDefaults";
 import Icon from "@/Components/Icon";
 export default {
   props: {
@@ -158,13 +159,8 @@ export default {
   },
   data() {
     return {
-      editorData: "<p>Content of the editor.</p>",
-      editorConfig: {
-        // The configuration of the editor.
-      },
-      editorConfig2: {
-        // The configuration of the editor.
-      },
+      tinymceScriptSrc,
+      editorInit: createTinyInit(),
       showCkeditor: false,
       editMode: false,
       showModal: false,

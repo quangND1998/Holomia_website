@@ -3,7 +3,7 @@ require('../css/app.css');
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 import { InertiaProgress } from '@inertiajs/progress'
-import CKEditor from 'ckeditor4-vue';
+import Editor from '@tinymce/tinymce-vue';
 import VueCompositionAPI from '@vue/composition-api'
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
@@ -69,4 +69,4 @@ Vue.config.devtools = true;
 Vue.config.productionTip = true
 window.Bus = new Vue();
 Vue.use(VueCompositionAPI)
-Vue.use(CKEditor)
+Vue.component('tinymce-editor', Editor)

@@ -7,7 +7,7 @@
         <div class="shadow overflow-hidden sm:rounded-md">
           <div class="px-4 py-5 bg-white sm:p-6">
              <div class="grid gap-4 ">
-            
+
 
               <div class="col-span-6 sm:col-span-3">
                 <label
@@ -43,7 +43,7 @@
                 <div class="text-red-500" v-if="errors.title_vn">{{ errors.title_vn }}</div>
               </div>
 
-              
+
 
               <div class="col-span-6 sm:col-span-3">
                 <label
@@ -85,12 +85,12 @@
                   class="block text-sm font-medium text-gray-700"
                 >{{__('description')}} {{__('en')}}</label>
                 <div class="mt-1">
-                        <ckeditor
+                        <tinymce-editor
                     v-model="form.description_en"
-                    :config="editorConfig"
+                    :init="editorInit"
+                    :tinymce-script-src="tinymceScriptSrc"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
+                  />
                   <!-- <textarea
                     v-model="form.description_en"
                     id="about"
@@ -107,12 +107,12 @@
                   class="block text-sm font-medium text-gray-700"
                 >{{__('description')}} {{__('vn')}}</label>
                 <div class="mt-1">
-                     <ckeditor
+                     <tinymce-editor
                     v-model="form.description_vn"
-                    :config="editorConfig2"
+                    :init="editorInit"
+                    :tinymce-script-src="tinymceScriptSrc"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                    placeholder="Description VietNamese"
-                  ></ckeditor>
+                  />
                   <!-- <textarea
                     v-model="form.description_vn"
                     id="about"
@@ -168,6 +168,7 @@
                           id="helper-checkbox-text"
                           class="max-w-full h-auto rounded-lg"
                         />
+                        <span>{{ theme.title }}</span>
                       </div>
                     </div>
                   </div>
@@ -177,7 +178,7 @@
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
             <Link
-              
+
               :href="route('section.index',page.id)"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             >Back</Link>
@@ -193,6 +194,7 @@
 </template>
 
 <script>
+import { tinymceScriptSrc, createTinyInit } from "@/config/tinymceDefaults";
 import Icon from "@/Components/Icon";
 import Layout from "@/Components/Layout";
 import { Link } from "@inertiajs/inertia-vue";
@@ -214,13 +216,8 @@ export default {
   },
   data() {
     return {
-      editorData: "<p>Content of the editor.</p>",
-      editorConfig: {
-        // The configuration of the editor.
-      },
-      editorConfig2: {
-        // The configuration of the editor.
-      },
+      tinymceScriptSrc,
+      editorInit: createTinyInit(),
       form: this.$inertia.form({
         id: null,
         title: null,
