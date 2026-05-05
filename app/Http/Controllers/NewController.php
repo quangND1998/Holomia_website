@@ -30,7 +30,6 @@ class NewController extends InertiaController
     public function index(Request $request)
     {
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
-
             $news = $this->new->query($request);
             $category_news = CategoryNew::get();
             $tags = Tag::get();

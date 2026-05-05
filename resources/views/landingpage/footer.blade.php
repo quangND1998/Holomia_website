@@ -24,10 +24,10 @@
                         <h4>{{__('legal')}}</h4>
                         <ul>
                             <li>
-                                <div href="/privacy.html">{{__('privacy')}}</div>
+                                <a href="/privacy.html" target="_blank">{{__('privacy')}}</a>
                             </li>
                             <li>
-                                <div href="/term_of_use.html">{{__('term_of_use')}}</div>
+                                <a href="/term_of_use.html" target="_blank">{{__('term_of_use')}}</a>
                             </li>
                         </ul>
                     </div>
