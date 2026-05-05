@@ -2,7 +2,7 @@
     <div class="about-us">
         <div class="container-fluid">
             <div class="main-about">
-                <div class="background-aboutus"  style="background-image: url({{count($content->images) >0 ? $content->images[0]->image : ''}})"></div>
+                {{-- <div class="background-aboutus"  style="background-image: url({{count($content->images) >0 ? $content->images[0]->image : ''}})"></div> --}}
                 {{-- <div class="row content-aboutus">
                     <div class="col-lg-12 single_page_contact">
                         <h1 class="title text-center">{{__($section->title)}}</h1>
@@ -16,13 +16,20 @@
                         </div>
                     </div>
                 </div> --}}
+                <img src="{{count($content->images) >0 ? $content->images[0]->image : ''}}" alt="">
             </div>
         </div>
 </div>
 @endforeach
 <style>
-    .main-about {
+    /* .main-about {
     height: 80vh !important;
     box-sizing: content-box;
+} */
+ @media (max-width: 800px) {
+    .main-about {
+        height: auto;
+        box-sizing: content-box;
+    }
 }
 </style>

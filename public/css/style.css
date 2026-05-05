@@ -756,7 +756,7 @@ li {
 }
 
 .main-about {
-    height: 60vh;
+    height: 70vh;
     box-sizing: content-box;
 }
 
@@ -976,7 +976,7 @@ li {
     position: relative;
     padding: 0rem 0rem 3rem;
     margin-top: 4rem;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     /* padding-bottom: 3rem; */
 }
 
@@ -1422,7 +1422,7 @@ hr {
 
 #header {
     background-color: #001C54;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     display: block;
@@ -1463,9 +1463,7 @@ hr {
 
 .list-language {
     display: flex;
-    padding-left: 0;
-    margin-bottom: 0;
-    padding-top: 0.3rem;
+    margin: auto;
 }
 
 .nav_header {}
@@ -1540,7 +1538,8 @@ hr {
 }
 
 .logo-menu {
-    width: 60%;
+        max-width: 80px;
+            margin-left: 10px;
 }
 
 .open-menu {
@@ -1552,8 +1551,10 @@ hr {
 }
 
 .logo-close {
+    display: flex;
     text-align: end;
     justify-content: end;
+        align-items: center;
     border: 1px solid #ffffff;
     padding: 0.3rem 1rem;
     margin-top: 4%;
