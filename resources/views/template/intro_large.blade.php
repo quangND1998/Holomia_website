@@ -21,7 +21,7 @@
         width: 94%;
         margin: auto;
         display: block;
-        background-color: black
+        /* background-color: black */
     }
 
     .text-intro {

@@ -6,7 +6,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <base href="{{ asset('') }}">
-    <link rel="icon" href="/img/favicon.png">
+    {{-- <link rel="icon" href="/img/favicon.png"> --}}
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo/Favicon.png">
     <title>
         @if (View::hasSection('title'))
             @yield('title')
@@ -90,16 +91,13 @@
                                                 <a href="" class="menu__link  ">{{ __($page->title) }} </a>
                                                 <div class="dropdown-content">
 
-                                                    {{-- <a href="https://missionxvr.com/"   class="drop_link">VR Laser Tag Mission X </a>
-                                                    <a href="https://zone.holomia.com"   class="drop_link">Holomia VR Zone</a>
-                                                    <a href="https://xr.holomia.com"  class="drop_link">Holomia XR</a> --}}
                                                     @foreach ($projects as $project)
-                                                        <a href="/product/{{ $project->slug }}"  class="drop_link">{{ $project->name }}</a>
+                                                        <a href="{{$project->link}}"  class="drop_link">{{ $project->name }}</a>
                                                     @endforeach
                                                 </div>
 
                                             </li>
-                                            @elseif($page->title == 'holo360')
+                                            {{-- @elseif($page->title == 'holo360')
                                             <li class="menu__item to-left dropdown">
 
                                                 <a href="/holo360" class="menu__link {{ Request::segment(1) === 'holo360' ? 'active' : '' }}">{{ __($page->title) }} </a>
@@ -109,7 +107,7 @@
                                                     @endforeach
                                                 </div>
 
-                                            </li>
+                                            </li> --}}
                                         @else
                                             <li class="menu__item to-left">
 

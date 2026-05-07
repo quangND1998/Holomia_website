@@ -17,10 +17,11 @@
                             <h4 class="text-black">{{__($content->title)}}</h4>
                             <span class="text-black text-font">{{__($content->sub_title)}}</span>
                         </div>
-                        {{-- <div class="learn-more" data-aos="fade-right">
-                            <a href=""><span class="text-black">learn more </span><i class="fas fa-angle-right icon_learnMore text-black"></i></a>
-                        </div> --}}
-
+                        @if($content->link)
+                        <div class="learn-more" data-aos="fade-right">
+                            <a href="{{$content->link}}" target="_blank"><span class="text-black">learn more </span><i class="fas fa-angle-right icon_learnMore text-black"></i></a>
+                        </div>
+                        @endif
                     </div>
                 @endforeach
 
