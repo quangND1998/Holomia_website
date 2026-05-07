@@ -60,8 +60,21 @@
     .nav-link {
         color: #fff !important;
     }
-    #header {
-    position: sticky;
+
+    /* Chiều cao header sync bằng JS → spacer, banner không bị che */
+    :root {
+        --site-header-height: 72px;
+    }
+
+    html {
+        scroll-padding-top: var(--site-header-height);
+    }
+
+    .header-spacer {
+        width: 100%;
+        height: var(--site-header-height);
+        flex-shrink: 0;
+        pointer-events: none;
     }
 </style>
 
@@ -92,22 +105,32 @@
                                                 <div class="dropdown-content">
 
                                                     @foreach ($projects as $project)
-                                                        <a href="{{$project->link}}"  class="drop_link">{{ $project->name }}</a>
+                                                        @if ($project->name == 'Contents')
+                                                            <div
+                                                                class="dropdown-content__row dropdown-content__row--content">
+                                                                <div class="dropdown-content__flyout-trigger">
+                                                                    <a href="/holo360"
+                                                                        class="drop_link drop_link--content-parent {{ Request::segment(1) === 'holo360' ? 'active' : '' }}">{{ $project->name }}</a>
+                                                                    <span class="dropdown-content__flyout-chevron"
+                                                                        aria-hidden="true"><i
+                                                                            class="fas fa-chevron-right"></i></span>
+                                                                </div>
+                                                                <div class="dropdown-content__flyout" role="menu">
+                                                                    @foreach (App\Models\CategoryHolo360::get() as $category)
+                                                                        <a href="/holo360?category={{ $category->slug }}"
+                                                                            class="drop_link drop_link--content-child link_holo360"
+                                                                            target="_self">{{ $category->name }}</a>
+                                                                    @endforeach
+                                                                </div>
+                                                            </div>
+                                                        @else
+                                                            <a href="#products"
+                                                                class="drop_link">{{ $project->name }}</a>
+                                                        @endif
                                                     @endforeach
                                                 </div>
 
                                             </li>
-                                            {{-- @elseif($page->title == 'holo360')
-                                            <li class="menu__item to-left dropdown">
-
-                                                <a href="/holo360" class="menu__link {{ Request::segment(1) === 'holo360' ? 'active' : '' }}">{{ __($page->title) }} </a>
-                                                <div class="dropdown-content">
-                                                    @foreach (App\Models\CategoryHolo360::get() as $category)
-                                                    <a href="/holo360?category={{$category->slug}}" class="drop_link link_holo360" target="_self">{{$category->name}}</a>
-                                                    @endforeach
-                                                </div>
-
-                                            </li> --}}
                                         @else
                                             <li class="menu__item to-left">
 
@@ -118,6 +141,11 @@
                                         @endif
                                     @endforeach
                                 </ul>
+
+
+
+                            </nav>
+                            <div class="menu-language-pc">
                                 <ul class="list-language">
                                     <li class="menu__item to-left menu-language">
                                         <a href="/language/en" class="menu__link menu_news "><img src="/img/en.png"
@@ -129,9 +157,7 @@
                                     </li>
 
                                 </ul>
-
-
-                            </nav>
+                            </div>
                         </div>
                     </div>
 
@@ -170,9 +196,12 @@
                                                             360</a> --}}
                                                         {{-- <a href="/projects"
                                                             class="drop_link">{{ __('missionxvr') }}</a> --}}
-                                                            <a href="https://missionxvr.com/" target="_blank" class="drop_link">VR Laser Tag Mission X </a>
-                                                            <a href="https://zone.holomia.com"  target="_blank" class="drop_link">Holomia VR Zone</a>
-                                                            <a href="https://xr.holomia.com" target="_blank" class="drop_link">Holomia XR</a>
+                                                        <a href="https://missionxvr.com/" target="_blank"
+                                                            class="drop_link">VR Laser Tag Mission X </a>
+                                                        <a href="https://zone.holomia.com" target="_blank"
+                                                            class="drop_link">Holomia VR Zone</a>
+                                                        <a href="https://xr.holomia.com" target="_blank"
+                                                            class="drop_link">Holomia XR</a>
                                                     </div>
                                                 </li>
                                             @else
@@ -198,6 +227,7 @@
         </div>
 
     </header>
+    <div id="header-spacer" class="header-spacer" aria-hidden="true"></div>
 
     @yield('content')
     @include('landingpage.footer')
@@ -215,6 +245,26 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="{{ asset('js/main.js') }}?v={{ @filemtime(public_path('js/main.js')) }}"></script>
+    <script>
+        (function() {
+            function syncHeaderSpacer() {
+                var header = document.getElementById('header');
+                if (!header) return;
+                var h = header.offsetHeight;
+                document.documentElement.style.setProperty('--site-header-height', h + 'px');
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', syncHeaderSpacer);
+            } else {
+                syncHeaderSpacer();
+            }
+            window.addEventListener('resize', syncHeaderSpacer);
+            var headerEl = document.getElementById('header');
+            if (headerEl && typeof ResizeObserver !== 'undefined') {
+                new ResizeObserver(syncHeaderSpacer).observe(headerEl);
+            }
+        })();
+    </script>
     <style>
         .menuHolo_sub {
             position: absolute;
@@ -250,6 +300,69 @@
 
         .active {
             color: rgb(214, 153, 20);
+        }
+
+        .menu-language-pc {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            min-width: 180px;
+        }
+
+        /* Contents: hover hàng → panel con trượt sang phải (fly-out) */
+        .dropdown-content__row--content {
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .dropdown-content__row--content:last-child {
+            border-bottom: 0;
+        }
+
+        .dropdown-content__flyout-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            min-width: 200px;
+        }
+
+        .dropdown-content__flyout-trigger .drop_link--content-parent {
+            flex: 1;
+            margin: 0;
+        }
+
+        .dropdown-content__flyout-chevron {
+            color: rgba(237, 234, 234, 0.75);
+            font-size: 11px;
+            padding-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .dropdown-content__row--content:hover .dropdown-content__flyout-chevron {
+            color: #f49b18;
+        }
+
+        .dropdown-content__flyout {
+            position: absolute;
+            left: calc(100% - 1px);
+            top: 0;
+            min-width: 200px;
+            background-color: #001C54;
+            box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.35);
+            z-index: 5;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(-12px);
+            transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+        }
+
+        .dropdown-content__row--content:hover .dropdown-content__flyout {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(0);
         }
     </style>
 </body>
