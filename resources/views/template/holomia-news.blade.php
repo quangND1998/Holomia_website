@@ -18,13 +18,13 @@
                             <span class="d-block time-event">{{
                                 \Carbon\Carbon::parse($new->created_at)->isoFormat('MMMM, D,YYYY').' '.'-'.'
                                 '.\Carbon\Carbon::parse($new->created_at)->diffForHumans()}}</span>
-                            <a href="{{route('new.detail',__($new->slug))}}" 
+                            <a href="{{route('new.detail',__($new->slug))}}"
                                 class="title-event"><span
                                     class="d-block text-font ">{{__($new->title)}}</span></a>
 
                         </div>
-                        <hr>
-                        <div class="icon-event d-flex">
+                        {{-- <hr> --}}
+                        {{-- <div class="icon-event d-flex">
                             <div class="w-50">
                                 <a href="{{route('new.detail',__($new->slug))}}"><i
                                         class="fas fa-eye pr-2"></i>4</a>
@@ -35,7 +35,7 @@
                                 <a href="{{route('new.detail',__($new->slug))}}">8<i
                                         class="fas fa-heart pl-2"></i></a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
 
@@ -51,7 +51,7 @@
 
         </div>
         <!-- <div class="row">
-                
+
             </div> -->
     </div>
 </div>

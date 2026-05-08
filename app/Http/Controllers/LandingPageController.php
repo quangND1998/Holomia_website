@@ -50,7 +50,7 @@ class LandingPageController extends Controller
     public function chitiet_tintuc(Request $request, $slug)
     {
         $header = Page::with('sections.contents.images',  'sections.theme')->where('title', 'header')->first();
-        $pages = Page::get();
+        $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $number_all = News::count();
         $theloais = CategoryNew::withCount('news')->get();
         $projects = Project::where('link','!=',null)->get();
@@ -62,10 +62,18 @@ class LandingPageController extends Controller
             ->first();
         if ($language) {
             $tintuc = News::with('category', 'tags')->findOrFail($language->languageable->id);
+            $previousNews = News::where('created_at', '<', $tintuc->created_at)
+                ->orderBy('created_at', 'desc')
+                ->orderBy('id', 'desc')
+                ->first();
+            $nextNews = News::where('created_at', '>', $tintuc->created_at)
+                ->orderBy('created_at', 'asc')
+                ->orderBy('id', 'asc')
+                ->first();
 
             $tintuc_lienquan =  News::with('category', 'tags')->where('category_id', $tintuc->category->id)->where('title', '!=', $tintuc->title)->take(3)->get();
             if ($tintuc) {
-                return view('page.new_detail', compact('pages', 'tintuc', 'tintuc_lienquan', 'number_all', 'theloais', 'header','projects'));
+                return view('page.new_detail', compact('pages', 'tintuc', 'tintuc_lienquan', 'number_all', 'theloais', 'header', 'projects', 'previousNews', 'nextNews'));
             }
         } else {
             return view('landingpage.not-found', compact('pages', 'header','projects'));

@@ -60,17 +60,30 @@
                     </div>
                     <div class="blog_nav">
                         <div class="blog_previous ">
-                            <a href="" class="prev">
-                                <i class="fas fa-long-arrow-alt-left"></i>
-                                <span class="title_prev">{{__('previous_post')}}</span>
-                            </a>
+                            @if (!empty($previousNews))
+                                <a href="{{ route('new.detail', __($previousNews->slug)) }}" class="prev">
+                                    <i class="fas fa-long-arrow-alt-left"></i>
+                                    <span class="title_prev">{{ __('previous_post') }}</span>
+                                </a>
+                            @else
+                                <span class="prev disabled">
+                                    <i class="fas fa-long-arrow-alt-left"></i>
+                                    <span class="title_prev">{{ __('previous_post') }}</span>
+                                </span>
+                            @endif
                         </div>
                         <div class="blog_next">
-                            <a href="" class="next">
-                                <span class="title_prev">{{__('next_post')}}</span>
-                                <i class="fas fa-long-arrow-alt-right"></i>
-
-                            </a>
+                            @if (!empty($nextNews))
+                                <a href="{{ route('new.detail', __($nextNews->slug)) }}" class="next">
+                                    <span class="title_prev">{{ __('next_post') }}</span>
+                                    <i class="fas fa-long-arrow-alt-right"></i>
+                                </a>
+                            @else
+                                <span class="next disabled">
+                                    <span class="title_prev">{{ __('next_post') }}</span>
+                                    <i class="fas fa-long-arrow-alt-right"></i>
+                                </span>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -152,6 +165,16 @@
 
     .news_item_left a {
         color: #2196f3 !important;
+    }
+
+    .blog_previous .disabled,
+    .blog_next .disabled {
+        color: #999;
+        cursor: not-allowed;
+        opacity: 0.7;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
     }
 </style>
 

@@ -142,8 +142,6 @@
                                     @endforeach
                                 </ul>
 
-
-
                             </nav>
                             <div class="menu-language-pc">
                                 <ul class="list-language">
