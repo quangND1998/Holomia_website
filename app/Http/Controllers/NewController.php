@@ -67,8 +67,9 @@ class NewController extends InertiaController
     {
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
             $destinationpath = 'images/tintuc/';
-            if (!file_exists($destinationpath)) {
-                mkdir($destinationpath, 777, true);
+            $destinationpathFull = public_path($destinationpath);
+            if (!is_dir($destinationpathFull)) {
+                mkdir($destinationpathFull, 0755, true);
             }
             $name = time();
             $tintuc = News::create([
@@ -82,9 +83,11 @@ class NewController extends InertiaController
             ]);
             $tags = Tag::find($request->tags);
             $tintuc->tags()->sync($tags);
+            $slugEn = $this->generateUniqueNewsSlug($request->title_en, 'en');
+            $slugVn = $this->generateUniqueNewsSlug($request->title_vn, 'vn');
             $this->CreateLanguage($tintuc->title, $request->title_en, $request->title_vn, $tintuc);
             $this->CreateLanguage($tintuc->content, $request->content_en, $request->content_vn, $tintuc);
-            $this->CreateLanguage($tintuc->slug, Str::slug($request->title_en), Str::slug($request->title_vn), $tintuc);
+            $this->CreateLanguage($tintuc->slug, $slugEn, $slugVn, $tintuc);
             return redirect('/admin/blogs/tintuc')->with('success', 'Create successfully');
         } else {
             return $this->errors()->errors_403();
@@ -101,8 +104,8 @@ class NewController extends InertiaController
             $this->validate(
                 $request,
                 [
-                    'title_en' => 'required|unique:languages,en,' . $language_title->id,
-                    'title_vn' => 'required|unique:languages,vn,' . $language_title->id,
+                    'title_en' => 'required',
+                    'title_vn' => 'required',
                     'content_en' => 'required_with:NoiDung',
                     'content_vn' => 'required_with:NoiDung',
                     'image' => 'nullable|mimes:png,jpg,jpeg',
@@ -113,8 +116,6 @@ class NewController extends InertiaController
                 [
                     'title_en.required' => __('Hãy nhập tiêu đề Tiếng Anh'),
                     'title_vn.required' => __('Hãy nhập tiêu đề  Tiếng Việt'),
-                    'title_en.unique' => __('Bài viết  bằng Tiếng Anh đã tồn tại'),
-                    'title_vn.unique' => __('Bài viết bằng Tiếng Việt đã tồn tại'),
                     'content_en.required' => __('Hãy nhập nội dung tin tức Tiếng Anh'),
                     'content_vn.required' => __('Hãy nhập nội dung tin tức  Tiếng Việt'),
                     'category_id.required' => __('Hãy chọn Thể loại cho tin tức'),
@@ -123,8 +124,9 @@ class NewController extends InertiaController
                 ]
             );
             $destinationpath = 'images/tintuc/';
-            if (!file_exists($destinationpath)) {
-                mkdir($destinationpath, 777, true);
+            $destinationpathFull = public_path($destinationpath);
+            if (!is_dir($destinationpathFull)) {
+                mkdir($destinationpathFull, 0755, true);
             }
             $name = time();
             $tintuc->update([
@@ -137,8 +139,10 @@ class NewController extends InertiaController
             $tags = Tag::find($request->tags);
             $tintuc->tags()->sync($tags);
             $tintuc->save();
+            $slugEn = $this->generateUniqueNewsSlug($request->title_en, 'en', $language_sub_title ? $language_sub_title->id : null);
+            $slugVn = $this->generateUniqueNewsSlug($request->title_vn, 'vn', $language_sub_title ? $language_sub_title->id : null);
             $this->updateLanguage($tintuc->title, $request->title_en, $request->title_vn, $tintuc);
-            $this->updateLanguage($tintuc->slug, Str::slug($request->title_en), Str::slug($request->title_vn), $tintuc);
+            $this->updateLanguage($tintuc->slug, $slugEn, $slugVn, $tintuc);
             $this->updateLanguage($tintuc->content, $request->content_en, $request->content_vn, $tintuc);
 
             return redirect('/admin/blogs/tintuc')->with('success', 'Update successfully');
@@ -166,7 +170,12 @@ class NewController extends InertiaController
 
     public function preview(Request $request, $slug)
     {
-        $language = Languages::where('en', $slug)->orWhere('vn', $slug)->first();
+        $language = Languages::where('languageable_type', News::class)
+            ->where('key', 'like', 'slug%')
+            ->where(function ($query) use ($slug) {
+                $query->where('en', $slug)->orWhere('vn', $slug);
+            })
+            ->first();
         if ($language) {
             $tintuc = News::with('category', 'tags')->findOrFail($language->languageable->id);
             if ($tintuc) {
@@ -176,5 +185,36 @@ class NewController extends InertiaController
 
             return $this->errors()->errors_404();
         }
+    }
+
+    private function generateUniqueNewsSlug(string $title, string $languageColumn, ?int $ignoreLanguageId = null): string
+    {
+        $baseSlug = Str::slug($title);
+        if ($baseSlug === '') {
+            $baseSlug = 'news';
+        }
+
+        $slug = $baseSlug;
+        $suffix = 2;
+
+        while ($this->newsSlugExists($slug, $languageColumn, $ignoreLanguageId)) {
+            $slug = $baseSlug . '-' . $suffix;
+            $suffix++;
+        }
+
+        return $slug;
+    }
+
+    private function newsSlugExists(string $slug, string $languageColumn, ?int $ignoreLanguageId = null): bool
+    {
+        $query = Languages::where('languageable_type', News::class)
+            ->where('key', 'like', 'slug%')
+            ->where($languageColumn, $slug);
+
+        if ($ignoreLanguageId) {
+            $query->where('id', '!=', $ignoreLanguageId);
+        }
+
+        return $query->exists();
     }
 }

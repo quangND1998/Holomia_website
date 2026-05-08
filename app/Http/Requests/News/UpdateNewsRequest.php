@@ -24,8 +24,8 @@ class UpdateNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'title_en' => 'required|unique:languages,en,' . $this->language_title->id,
-            'title_vn' => 'required|unique:languages,vn,' . $this->language_title->id,
+            'title_en' => 'required',
+            'title_vn' => 'required',
             'content_en' => 'required_with:NoiDung',
             'content_vn' => 'required_with:NoiDung',
             'image' => 'required|mimes:png,jpg,jpeg',
@@ -40,8 +40,6 @@ class UpdateNewsRequest extends FormRequest
         return [
             'title_en.required' => __('Hãy nhập tiêu đề Tiếng Anh'),
             'title_vn.required' => __('Hãy nhập tiêu đề  Tiếng Việt'),
-            'title_en.unique' => __('Bài viết  bằng Tiếng Anh đã tồn tại'),
-            'title_vn.unique' => __('Bài viết bằng Tiếng Việt đã tồn tại'),
             'content_en.required' => __('Hãy nhập nội dung tin tức Tiếng Anh'),
             'content_vn.required' => __('Hãy nhập nội dung tin tức  Tiếng Việt'),
             'category_id.required' => __('Hãy chọn Thể loại cho tin tức'),

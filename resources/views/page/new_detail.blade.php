@@ -4,8 +4,40 @@
     <div class="container">
         <div class="row news_item">
             <div class="news_item_left">
+                @php
+                    $newsImage = null;
+                    if (!empty($tintuc->image)) {
+                        $newsImage = \Illuminate\Support\Str::startsWith($tintuc->image, ['http://', 'https://', '/'])
+                            ? $tintuc->image
+                            : asset($tintuc->image);
+                    }
+                @endphp
                 <h1>{{__($tintuc->title)}}</h1>
-                <span>{!!__($tintuc->content)!!}</span>
+                @if ($newsImage)
+                    <div class="news_detail_image">
+                        <img src="{{ $newsImage }}" class="img-fluid" alt="{{ __($tintuc->title) }}">
+                    </div>
+                @endif
+                @php
+                    $rawNewsContent = __($tintuc->content);
+                    $normalizedNewsContent = preg_replace_callback(
+                        '/src=(["\'])(.*?)\1/i',
+                        function ($matches) {
+                            $quote = $matches[1];
+                            $src = trim($matches[2]);
+
+                            if (\Illuminate\Support\Str::contains($src, 'uploads/editor/')) {
+                                $src = preg_replace('/^(\.\.\/)+/', '', $src);
+                                $src = preg_replace('/^\/+/', '', $src);
+                                $src = '/' . $src;
+                            }
+
+                            return 'src=' . $quote . $src . $quote;
+                        },
+                        $rawNewsContent
+                    );
+                @endphp
+                <div>{!! $normalizedNewsContent !!}</div>
                 <div class="blog_post_news">
                     <div class="blog_share">
                         <span>{{__('share')}} </span>
@@ -69,7 +101,12 @@
                     <li class="col_related_news">
                         <div class="row ">
                             <div class="img-left">
-                                <img src="{{$tintuc->image}}" class="img-fluid img_news " alt="">
+                                @php
+                                    $relatedImage = !empty($tintuc->image) && !\Illuminate\Support\Str::startsWith($tintuc->image, ['http://', 'https://', '/'])
+                                        ? asset($tintuc->image)
+                                        : $tintuc->image;
+                                @endphp
+                                <img src="{{ $relatedImage }}" class="img-fluid img_news " alt="">
                             </div>
                             <div class="text-event">
                                 <h5><a href="{{route('new.detail',__($tintuc->slug))}}">{{__($tintuc->title)}}</a></h5>
@@ -97,6 +134,18 @@
     </div>
 </div>
 <style>
+    .news_detail_image {
+        margin: 1rem 0 1.5rem;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .news_detail_image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
     .news_item_left img {
         width: 100% !important;
     }

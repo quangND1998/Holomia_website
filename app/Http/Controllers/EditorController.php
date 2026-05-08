@@ -17,7 +17,7 @@ class EditorController extends Controller
         $folder = public_path('uploads/editor');
 
         if (!is_dir($folder)) {
-            mkdir($folder, 0777, true);
+            mkdir($folder, 0755, true);
         }
 
         $filename = time() . '-' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));

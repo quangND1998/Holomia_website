@@ -24,8 +24,8 @@ class PostNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'title_en' => 'required|unique:languages,en',
-            'title_vn' => 'required|unique:languages,vn',
+            'title_en' => 'required',
+            'title_vn' => 'required',
             'content_en' => 'required',
             'content_vn' => 'required',
             'image' => 'required|mimes:png,jpg,jpeg',

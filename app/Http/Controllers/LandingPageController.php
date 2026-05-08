@@ -54,7 +54,12 @@ class LandingPageController extends Controller
         $number_all = News::count();
         $theloais = CategoryNew::withCount('news')->get();
         $projects = Project::where('link','!=',null)->get();
-        $language = Languages::where('en', $slug)->orWhere('vn', $slug)->first();
+        $language = Languages::where('languageable_type', News::class)
+            ->where('key', 'like', 'slug%')
+            ->where(function ($query) use ($slug) {
+                $query->where('en', $slug)->orWhere('vn', $slug);
+            })
+            ->first();
         if ($language) {
             $tintuc = News::with('category', 'tags')->findOrFail($language->languageable->id);
 
