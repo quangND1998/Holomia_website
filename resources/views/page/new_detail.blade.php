@@ -37,7 +37,7 @@
                         $rawNewsContent
                     );
                 @endphp
-                <div>{!! $normalizedNewsContent !!}</div>
+                <div class="news_detail_content">{!! $normalizedNewsContent !!}</div>
                 <div class="blog_post_news">
                     <div class="blog_share">
                         <span>{{__('share')}} </span>
@@ -159,8 +159,14 @@
         object-fit: cover;
     }
 
-    .news_item_left img {
+    .news_item_left .news_detail_image img {
         width: 100% !important;
+    }
+
+    .news_item_left .news_detail_content img {
+        max-width: 100%;
+        width: auto !important;
+        height: auto !important;
     }
 
     .news_item_left a {
