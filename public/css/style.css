@@ -456,28 +456,59 @@ li {
     text-align: center;
     border: 1px solid #00000014;
     border-radius: 10px;
+    padding: 1.25rem 1.25rem 1rem;
 }
 .title_holo360:hover{
     color:rgb(175, 136, 9);
 }
 
+.overview img {
+    margin-bottom: 0.9rem;
+}
+
 .overview h4 {
-    margin-top: 0.8rem;
+    margin: 0 0 0.5rem;
+}
+
+.overview .text-font {
+    display: block;
+    margin: 0;
+    line-height: 1.6;
 }
 
 .learn-more {
     justify-content: end;
     text-align: end;
-    margin-top: 2rem;
+    margin-top: 0;
+    padding-top: 0.85rem;
 }
+
+/* .learn-more a {
+    color: #000000;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    border-bottom: 2px solid #1870f4;
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease, letter-spacing 0.2s ease;
+}
+
+.learn-more a:hover {
+    color: #000000;
+    border-bottom-color: #1870f4;
+}
+
+.learn-more a span {
+    color: inherit !important;
+} */
 
 .learn-more span:hover {
-    letter-spacing: 0.08em;
-    transition: inherit;
-    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    border-bottom-color: #1870f4;
 }
-
-.learn-more span {}
 
 .icon_learnMore {
     font-size: 20px;
