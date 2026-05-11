@@ -178,6 +178,9 @@ class NewController extends InertiaController
             ->first();
         if ($language) {
             $tintuc = News::with('category', 'tags')->findOrFail($language->languageable->id);
+            if (! News::withCompleteTranslations()->whereKey($tintuc->id)->exists()) {
+                return $this->errors()->errors_404();
+            }
             if ($tintuc) {
                 return view('preview.index', compact( 'tintuc'));
             }

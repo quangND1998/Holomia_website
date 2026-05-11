@@ -18,13 +18,13 @@
                 <div class="content-news">
                     <span class="time">{{ \Carbon\Carbon::parse($new->created_at)->isoFormat('MMMM D, YYYY')}}</span>
                     <div class="title-news">
-                         <a href="{{route('new.detail',__($new->slug))}}" >
+                         <a href="{{ route('new.detail', $new->detailSlug()) }}" >
                                 <h5 class="title-lastest-news text-font">{{__($new->title)}}</h5>
                             </a>
                         <span>{!!Str::words(strip_tags(__($new->content)), 10, '...')!!}</span>
                     </div>
                      <div class="read-more-laster">
-                    <a class="link-read-more" href="{{route('new.detail',__($new->slug))}}" >{{__('read_more')}}</a>
+                    <a class="link-read-more" href="{{ route('new.detail', $new->detailSlug()) }}" >{{__('read_more')}}</a>
                 </div>
 
                 </div>

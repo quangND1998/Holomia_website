@@ -61,7 +61,7 @@
                     <div class="blog_nav">
                         <div class="blog_previous ">
                             @if (!empty($previousNews))
-                                <a href="{{ route('new.detail', __($previousNews->slug)) }}" class="prev">
+                                <a href="{{ route('new.detail', $previousNews->detailSlug()) }}" class="prev">
                                     <i class="fas fa-long-arrow-alt-left"></i>
                                     <span class="title_prev">{{ __('previous_post') }}</span>
                                 </a>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="blog_next">
                             @if (!empty($nextNews))
-                                <a href="{{ route('new.detail', __($nextNews->slug)) }}" class="next">
+                                <a href="{{ route('new.detail', $nextNews->detailSlug()) }}" class="next">
                                     <span class="title_prev">{{ __('next_post') }}</span>
                                     <i class="fas fa-long-arrow-alt-right"></i>
                                 </a>
@@ -122,7 +122,7 @@
                                 <img src="{{ $relatedImage }}" class="img-fluid img_news " alt="">
                             </div>
                             <div class="text-event">
-                                <h5><a href="{{route('new.detail',__($tintuc->slug))}}">{{__($tintuc->title)}}</a></h5>
+                                <h5><a href="{{ route('new.detail', $tintuc->detailSlug()) }}">{{__($tintuc->title)}}</a></h5>
                                 <div class="der_news">{!!Str::words(strip_tags(__($tintuc->content)), 5, '...')!!}
                                 </div>
                                 <div class="calendar">
@@ -130,7 +130,7 @@
                                         <img src="/img/lich.svg" alt="">
                                         {{ \Carbon\Carbon::parse($tintuc->created_at)->format('d/m/Y')}}
                                     </div>
-                                    <a href="{{route('new.detail',__($tintuc->slug))}}">{{__('see_more')}}<img
+                                    <a href="{{ route('new.detail', $tintuc->detailSlug()) }}">{{__('see_more')}}<img
                                             src="/img/right.svg" alt=""></a>
                                 </div>
                             </div>

@@ -18,7 +18,7 @@
                             <span class="d-block time-event">{{
                                 \Carbon\Carbon::parse($new->created_at)->isoFormat('MMMM, D,YYYY').' '.'-'.'
                                 '.\Carbon\Carbon::parse($new->created_at)->diffForHumans()}}</span>
-                            <a href="{{route('new.detail',__($new->slug))}}"
+                            <a href="{{ route('new.detail', $new->detailSlug()) }}"
                                 class="title-event"><span
                                     class="d-block text-font ">{{__($new->title)}}</span></a>
 
@@ -44,10 +44,10 @@
                 </div>
 
             </div>
-            <div class="event-readmore">
+            {{-- <div class="event-readmore">
                 <a href="#hidden" aria-expanded="false" data-toggle="collapse"
                     class="btn-event-readmore btn-readmore"> Read More</a>
-            </div>
+            </div> --}}
 
         </div>
         <!-- <div class="row">
