@@ -114,6 +114,7 @@ Route::middleware(['auth', 'verified'])->group(
                 Route::get('edit/{id}', [NewController::class, 'edit'])->name('tintuc.edit');
                 Route::post('', [NewController::class, 'store'])->name('tintuc.store');
                 Route::post('update/{id}', [NewController::class, 'update'])->name('tintuc.update');
+                Route::post('state/{id}', [NewController::class, 'updateState'])->name('tintuc.state');
                 Route::delete('delete/{id}', [NewController::class, 'delete'])->name('tintuc.delete');
                 Route::get('{slug}', [NewController::class, 'preview'])->name('tintuc.preview');
             });

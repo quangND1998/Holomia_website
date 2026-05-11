@@ -123,6 +123,15 @@
                       </div>
                 </div>
                 <div class="text-red-500" v-if="errors.outstanding">{{ errors.outstanding }}</div>
+                <label class="block text-sm font-medium text-gray-700 mt-3">Hiển thị trên site</label>
+                <select
+                  v-model="form.state"
+                  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                >
+                  <option value="public">Công khai (public)</option>
+                  <option value="private">Riêng tư (private)</option>
+                </select>
+                <div class="text-red-500" v-if="errors.state">{{ errors.state }}</div>
               </div>
 
               <div class="col-span-6 sm:col-span-2" >
@@ -212,6 +221,7 @@ export default {
         content_vn: null,
         image: null,
         outstanding:0,
+        state: "public",
         tags:null,
         category_id:null
 
@@ -245,6 +255,7 @@ export default {
         content_vn: null,
         image: null,
         outstanding:0,
+        state: "public",
         tags:null,
         category_id:null
       });

@@ -43,17 +43,35 @@
                 <div class="text-red-500" v-if="errors.category_id">{{ errors.category_id }}</div>
               </div>
               <div class="col-span-6 sm:col-span-2">
-                <label for="country" class="block text-sm font-medium text-gray-700">Image</label>
+                <label for="news-update-image" class="block text-sm font-medium text-gray-700">Image</label>
                 <input
-                  @input="form.image  = $event.target.files[0]"
+                  id="news-update-image"
                   type="file"
-                  name="email_address"
-                  id="email_address"
-                  placeholder="Title VietNamese"
-                  autocomplete="Image"
-                  accept=".png, .jpeg, .jpg"
+                  name="image"
+                  accept=".png,.jpeg,.jpg"
+                  autocomplete="off"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  @change="onImageChange"
                 />
+                <div class="mt-3">
+                  <template v-if="imagePreview">
+                    <p class="text-xs text-gray-500 mb-1">
+                      {{ imagePreviewIsNew ? "Ảnh mới (chưa lưu)" : imagePreviewFromContent ? "Ảnh lấy từ nội dung (chưa có ảnh đại diện)" : "Ảnh đại diện hiện tại" }}
+                    </p>
+                    <img
+                      :src="imagePreview"
+                      alt="Preview"
+                      class="max-h-48 max-w-full rounded border border-gray-200 object-contain bg-gray-50"
+                      @error="onPreviewImageError"
+                    />
+                  </template>
+                  <div
+                    v-else
+                    class="rounded border border-dashed border-gray-300 bg-gray-50 px-3 py-6 text-center text-xs text-gray-500"
+                  >
+                    Chưa có ảnh để xem trước. Thêm ảnh ở cột Image bên trên, hoặc ảnh chỉ nằm trong nội dung bài (editor) thì không hiện ở đây.
+                  </div>
+                </div>
                 <div class="text-red-500" v-if="errors.image">{{ errors.image }}</div>
               </div>
             </div>
@@ -61,15 +79,15 @@
             <div class="grid grid-cols-6 gap-6 mt-4">
               <div class="col-span-6 sm:col-span-2">
                 <label
-                  for="email_address"
+                  for="news-title-en"
                   class="block text-sm font-medium text-gray-700"
                 >{{__('title')}} {{__('en')}}</label>
                 <input
+                  id="news-title-en"
                   v-model="form.title_en"
                   type="text"
-                  name="email_address"
-                  id="email_address"
-                  autocomplete="email"
+                  name="title_en"
+                  autocomplete="off"
                   placeholder="Title English"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
@@ -78,16 +96,16 @@
 
               <div class="col-span-6 sm:col-span-2">
                 <label
-                  for="country"
+                  for="news-title-vn"
                   class="block text-sm font-medium text-gray-700"
                 >Tiêu Đề Tiếng Việt</label>
                 <input
+                  id="news-title-vn"
                   v-model="form.title_vn"
                   type="text"
-                  name="email_address"
-                  id="email_address"
+                  name="title_vn"
+                  autocomplete="off"
                   placeholder="Title VietNamese"
-                  autocomplete="email"
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
                 <div class="text-red-500" v-if="errors.title_vn">{{ errors.title_vn }}</div>
@@ -126,6 +144,15 @@
                   </div>
                 </div>
                 <div class="text-red-500" v-if="errors.outstanding">{{ errors.outstanding }}</div>
+                <label class="block text-sm font-medium text-gray-700 mt-3">Hiển thị trên site</label>
+                <select
+                  v-model="form.state"
+                  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                >
+                  <option value="public">Công khai (public)</option>
+                  <option value="private">Riêng tư (private)</option>
+                </select>
+                <div class="text-red-500" v-if="errors.state">{{ errors.state }}</div>
               </div>
               <div class="col-span-6 sm:col-span-2">
                 <label
@@ -199,6 +226,12 @@ export default {
     return {
       tinymceScriptSrc,
       editorInit: createTinyInit(),
+      /** URL hiển thị: ảnh gốc hoặc blob khi chọn file mới */
+      imagePreview: "",
+      imagePreviewIsNew: false,
+      /** true khi không có news.image nhưng lấy được thẻ img đầu tiên trong HTML nội dung */
+      imagePreviewFromContent: false,
+      imageObjectUrl: null,
       form: this.$inertia.form({
         id: null,
         title: null,
@@ -209,6 +242,7 @@ export default {
         content_vn: null,
         image: null,
         outstanding: 0,
+        state: "public",
         tags: this.getData(),
         category_id: null
       })
@@ -218,31 +252,138 @@ export default {
     this.form.id = this.new.id;
     this.form.title = this.new.title;
     this.form.content = this.new.content;
-    const result = this.new.languages.find(
-      element => element.key == this.form.title
-    );
-    this.form.title_en = result == undefined ? null : result.en;
-    this.form.title_vn = result == undefined ? null : result.vn;
 
-    const result2 = this.new.languages.find(
-      element => element.key == this.new.content
-    );
-    this.form.content_en = result2 == undefined ? null : result2.en;
-    this.form.content_vn = result2 == undefined ? null : result2.vn;
+    const langs = Array.isArray(this.new.languages) ? this.new.languages : [];
+    const titleRow = this.findLanguageRow(langs, this.new.title);
+    this.form.title_en = titleRow && titleRow.en != null ? titleRow.en : "";
+    this.form.title_vn = titleRow && titleRow.vn != null ? titleRow.vn : "";
+
+    const contentRow = this.findLanguageRow(langs, this.new.content);
+    this.form.content_en = contentRow && contentRow.en != null ? contentRow.en : "";
+    this.form.content_vn = contentRow && contentRow.vn != null ? contentRow.vn : "";
+
     this.form.outstanding = this.new.outstanding;
     this.form.category_id = this.new.category_id;
+    this.form.state = this.new.state === "private" ? "private" : "public";
+
+    this.applyExistingImagePreview();
+  },
+  beforeDestroy() {
+    this.revokeImageObjectUrl();
   },
   computed: {},
 
   methods: {
-    getData() {
-      let array = [];
-      if (this.new.tags.length > 0) {
-        this.new.tags.map(function(value, key) {
-          array.push(parseInt(value.id));
-        });
+    findLanguageRow(languages, key) {
+      if (key == null || key === "") {
+        return null;
       }
+      const k = String(key);
+      let row = languages.find(l => String(l.key) === k);
+      if (row) {
+        return row;
+      }
+      return languages.find(l => l.key == key);
+    },
 
+    publicAssetUrl(path) {
+      if (!path || typeof path !== "string") {
+        return "";
+      }
+      const p = path.trim().replace(/\\/g, "/");
+      if (!p) {
+        return "";
+      }
+      if (/^https?:\/\//i.test(p)) {
+        return p;
+      }
+      return `/${p.replace(/^\/+/, "")}`;
+    },
+
+    firstSrcFromHtml(html) {
+      if (!html || typeof html !== "string") {
+        return "";
+      }
+      const m = html.match(/<img[^>]+src\s*=\s*["']([^"']+)["']/i);
+      return m && m[1] ? m[1].trim() : "";
+    },
+
+    /** Chuẩn hóa src trong HTML editor (tương đối / tuyệt đối) thành URL tải được trên trình duyệt */
+    normalizeSrcForPreview(src) {
+      if (!src || typeof src !== "string") {
+        return "";
+      }
+      let u = src.trim();
+      if (/^https?:\/\//i.test(u)) {
+        return u;
+      }
+      if (u.startsWith("//")) {
+        return `${window.location.protocol}${u}`;
+      }
+      u = u.replace(/^(\.\.\/)+/, "").replace(/^\.\//, "");
+      if (u.startsWith("/")) {
+        return `${window.location.origin}${u}`;
+      }
+      return `${window.location.origin}/${u.replace(/^\/+/, "")}`;
+    },
+
+    onPreviewImageError() {
+      this.imagePreview = "";
+      this.imagePreviewFromContent = false;
+    },
+
+    revokeImageObjectUrl() {
+      if (this.imageObjectUrl) {
+        URL.revokeObjectURL(this.imageObjectUrl);
+        this.imageObjectUrl = null;
+      }
+    },
+
+    applyExistingImagePreview() {
+      this.revokeImageObjectUrl();
+      this.imagePreviewIsNew = false;
+      this.imagePreviewFromContent = false;
+
+      let url = "";
+      if (this.new.image_url) {
+        url = this.new.image_url;
+      } else if (this.new.image) {
+        url = this.publicAssetUrl(this.new.image);
+      } else {
+        const fromEn = this.firstSrcFromHtml(this.form.content_en);
+        const fromVn = this.firstSrcFromHtml(this.form.content_vn);
+        const raw = fromEn || fromVn;
+        if (raw) {
+          url = this.normalizeSrcForPreview(raw);
+          this.imagePreviewFromContent = true;
+        }
+      }
+      this.imagePreview = url || "";
+    },
+
+    onImageChange(e) {
+      const file = e.target.files && e.target.files[0];
+      this.form.image = file || null;
+      this.revokeImageObjectUrl();
+      if (file) {
+        this.imageObjectUrl = URL.createObjectURL(file);
+        this.imagePreview = this.imageObjectUrl;
+        this.imagePreviewIsNew = true;
+        this.imagePreviewFromContent = false;
+      } else {
+        this.applyExistingImagePreview();
+      }
+    },
+
+    getData() {
+      const array = [];
+      const tags = this.new.tags;
+      if (!tags || !tags.length) {
+        return array;
+      }
+      tags.forEach(value => {
+        array.push(parseInt(value.id, 10));
+      });
       return array;
     },
 
@@ -259,23 +400,24 @@ export default {
         }
       });
     },
-    reset: function() {
+    reset() {
       this.form.title = this.new.title;
       this.form.content = this.new.content;
-      const result = this.new.languages.find(
-        element => element.key == this.form.title
-      );
-      this.form.title_en = result == undefined ? null : result.en;
-      this.form.title_vn = result == undefined ? null : result.en;
+      const langs = Array.isArray(this.new.languages) ? this.new.languages : [];
+      const titleRow = this.findLanguageRow(langs, this.new.title);
+      this.form.title_en = titleRow && titleRow.en != null ? titleRow.en : "";
+      this.form.title_vn = titleRow && titleRow.vn != null ? titleRow.vn : "";
 
-      const result2 = this.new.languages.find(
-        element => element.key == this.new.content
-      );
-      this.form.content_en = result2 == undefined ? null : result2.en;
-      this.form.content_vn = result2 == undefined ? null : result2.en;
+      const contentRow = this.findLanguageRow(langs, this.new.content);
+      this.form.content_en = contentRow && contentRow.en != null ? contentRow.en : "";
+      this.form.content_vn = contentRow && contentRow.vn != null ? contentRow.vn : "";
+
       this.form.outstanding = this.new.outstanding;
       this.form.category_id = this.new.category_id;
-      let object = Object.assign({}, this.new.tags);
+      this.form.state = this.new.state === "private" ? "private" : "public";
+      this.form.image = null;
+      this.form.tags = this.getData();
+      this.applyExistingImagePreview();
     }
   }
 };

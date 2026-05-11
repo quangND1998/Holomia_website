@@ -25,6 +25,7 @@ class LandingPageController extends Controller
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
         $last_new  = News::with('languages', 'category', 'tags')
             ->withCompleteTranslations()
+            ->publicState()
             ->orderBy('created_at', 'desc')
             ->take(2)
             ->get();
@@ -45,8 +46,8 @@ class LandingPageController extends Controller
         // Khác với chitiet_tintuc: query Languages theo slug chỉ để khớp URL, không thay cho kiểm tra đủ dịch.
         $news = News::with('languages', 'category', 'tags')
             ->withCompleteTranslations()
+            ->publicState()
             ->whereNotNull('image')
-            ->where('outstanding',  1)
             ->orderBy('created_at', 'desc')
             ->take(9)
             ->get();
@@ -77,10 +78,10 @@ class LandingPageController extends Controller
         ])->where('title', 'header')->first();
         $this->filterPageSectionsIncompleteLanguages($header);
         $pages = Page::orderBy('id_priority', 'asc')->orderBy('id', 'asc')->get();
-        $number_all = News::withCompleteTranslations()->count();
+        $number_all = News::withCompleteTranslations()->publicState()->count();
         $theloais = CategoryNew::withCount([
             'news' => function ($query) {
-                $query->withCompleteTranslations();
+                $query->withCompleteTranslations()->publicState();
             },
         ])->get();
         $projects = Project::where('link','!=',null)->get();
@@ -95,29 +96,33 @@ class LandingPageController extends Controller
         if ($language) {
             $tintuc = News::with('languages', 'category', 'tags')->findOrFail($language->languageable->id);
 
+            if ($tintuc->state !== 'public') {
+                return response()->view('landingpage.not-found', compact('pages', 'header', 'projects'), 404);
+            }
+
             if (! News::withCompleteTranslations()->whereKey($tintuc->id)->exists()) {
                 return response()->view('landingpage.not-found', compact('pages', 'header', 'projects'), 404);
             }
 
             $previousNews = News::withCompleteTranslations()
+                ->publicState()
                 ->with('languages')
                 ->where('created_at', '<', $tintuc->created_at)
-                ->where('outstanding',  1)
                 ->orderBy('created_at', 'desc')
                 ->orderBy('id', 'desc')
                 ->first();
             $nextNews = News::withCompleteTranslations()
+                ->publicState()
                 ->with('languages')
                 ->where('created_at', '>', $tintuc->created_at)
-                ->where('outstanding',  1)
                 ->orderBy('created_at', 'asc')
                 ->orderBy('id', 'asc')
                 ->first();
 
             $tintuc_lienquan = News::with('languages', 'category', 'tags')
                 ->withCompleteTranslations()
+                ->publicState()
                 ->where('id', '!=', $tintuc->id)
-                ->where('outstanding',  1)
                 ->when($tintuc->category_id, function ($q) use ($tintuc) {
                     $q->where('category_id', $tintuc->category_id);
                 })

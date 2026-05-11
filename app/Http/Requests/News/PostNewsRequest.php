@@ -30,6 +30,7 @@ class PostNewsRequest extends FormRequest
             'content_vn' => 'required',
             'image' => 'required|mimes:png,jpg,jpeg',
             'outstanding' => 'required',
+            'state' => 'required|in:public,private',
             'tags' => 'required',
             'category_id' => 'required'
         ];
@@ -44,6 +45,8 @@ class PostNewsRequest extends FormRequest
             'content_vn.required' => __('Hãy nhập nội dung tin tức  Tiếng Việt'),
             'category_id.required' => __('Hãy chọn Thể loại cho tin tức'),
             'outstanding.required' => __('Hãy chọn tin tức có nổi bật hay không?'),
+            'state.required' => __('Hãy chọn trạng thái hiển thị (public/private)'),
+            'state.in' => __('Trạng thái không hợp lệ'),
             'image.required' => __('Hãy Thêm ảnh cho tin tức'),
             'tags.required' => __('Hãy chọn tags cho tin tức'),
         ];

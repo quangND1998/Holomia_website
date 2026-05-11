@@ -55,6 +55,7 @@ class NewController extends InertiaController
     {
         if (Gate::allows(config('constants.USER_PERMISSION'))) {
             $new = News::with('languages', 'tags')->findOrFail($id);
+            $new->append('image_url');
             $category_news = CategoryNew::get();
             $tags = Tag::get();
 
@@ -79,6 +80,7 @@ class NewController extends InertiaController
                 'image' => $request->hasFile('image') ? $this->image($request->file('image'), $destinationpath) : null,
                 'category_id' => $request->category_id,
                 'outstanding' => $request->outstanding,
+                'state' => $request->input('state', 'public'),
 
             ]);
             $tags = Tag::find($request->tags);
@@ -110,6 +112,7 @@ class NewController extends InertiaController
                     'content_vn' => 'required_with:NoiDung',
                     'image' => 'nullable|mimes:png,jpg,jpeg',
                     'outstanding' => 'required',
+                    'state' => 'required|in:public,private',
                     'tags' => 'required',
                     'category_id' => 'required'
                 ],
@@ -120,6 +123,8 @@ class NewController extends InertiaController
                     'content_vn.required' => __('Hãy nhập nội dung tin tức  Tiếng Việt'),
                     'category_id.required' => __('Hãy chọn Thể loại cho tin tức'),
                     'outstanding.required' => __('Hãy chọn tin tức có nổi bật hay không?'),
+                    'state.required' => __('Hãy chọn trạng thái hiển thị (public/private)'),
+                    'state.in' => __('Trạng thái không hợp lệ'),
                     'tags.required' => __('Hãy chọn tags cho tin tức'),
                 ]
             );
@@ -133,6 +138,7 @@ class NewController extends InertiaController
                 'image' =>  $request->hasFile('image') ? $this->update_image($request->file('image'), $name, $destinationpath, $tintuc->image) : $tintuc->image,
                 'category_id' => $request->category_id,
                 'outstanding' => $request->outstanding,
+                'state' => $request->input('state', 'public'),
 
             ]);
 
@@ -168,6 +174,28 @@ class NewController extends InertiaController
         }
     }
 
+    /**
+     * Bật/tắt hiển thị công khai từ danh sách tin (chỉ cập nhật cột state).
+     */
+    public function updateState(Request $request, $id)
+    {
+        if (! Gate::allows(config('constants.USER_PERMISSION'))) {
+            return $this->errors()->errors_403();
+        }
+
+        $request->validate([
+            'state' => 'required|in:public,private',
+        ], [
+            'state.required' => __('Hãy chọn trạng thái hiển thị'),
+            'state.in' => __('Trạng thái không hợp lệ'),
+        ]);
+
+        $tintuc = News::query()->findOrFail($id);
+        $tintuc->update(['state' => $request->input('state')]);
+
+        return back()->with('success', __('Cập nhật trạng thái thành công'));
+    }
+
     public function preview(Request $request, $slug)
     {
         $language = Languages::where('languageable_type', News::class)
@@ -178,6 +206,9 @@ class NewController extends InertiaController
             ->first();
         if ($language) {
             $tintuc = News::with('category', 'tags')->findOrFail($language->languageable->id);
+            if ($tintuc->state !== 'public') {
+                return $this->errors()->errors_404();
+            }
             if (! News::withCompleteTranslations()->whereKey($tintuc->id)->exists()) {
                 return $this->errors()->errors_404();
             }

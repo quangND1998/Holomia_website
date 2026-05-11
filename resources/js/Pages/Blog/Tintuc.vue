@@ -69,6 +69,7 @@
             <th scope="col" class="px-6 py-3">{{__('sub_title')}}</th>
             <!-- <th scope="col" class="px-6 py-3">Content</th> -->
             <th scope="col" class="px-6 py-3">{{__('outstanding')}}</th>
+            <th scope="col" class="px-6 py-3">Hiển thị</th>
             <th scope="col" class="px-6 py-3">Tags</th>
             <th scope="col" class="px-6 py-3">Preview</th>
 
@@ -86,7 +87,7 @@
 
         <tr
           v-for="(element, index) in news.data"
-          :key="index"
+          :key="element.id"
           class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
         >
           <th
@@ -104,6 +105,18 @@
           <!-- <td class="px-6 py-4 crop-content" v-html="__(element.NoiDung)"></td> -->
           <td class="px-6 py-4 crop-content">
             <icon v-if="element.outstanding ==1" name="check" />
+          </td>
+          <td class="px-6 py-4">
+            <label class="inline-flex items-center cursor-pointer select-none">
+              <input
+                type="checkbox"
+                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50"
+                :checked="element.state !== 'private'"
+                :disabled="stateSavingId === element.id"
+                @change="onToggleState(element, $event)"
+              />
+              <span class="ml-2 text-xs text-gray-700 whitespace-nowrap">Công khai</span>
+            </label>
           </td>
           <td class="px-6 py-4">
             <span
@@ -169,10 +182,33 @@ export default {
   },
   data() {
     return {
-      term: null
+      term: null,
+      stateSavingId: null
     };
   },
   methods: {
+    onToggleState(row, event) {
+      const wantsPublic = event.target.checked;
+      const next = wantsPublic ? "public" : "private";
+      const current = row.state === "private" ? "private" : "public";
+      if (current === next) {
+        return;
+      }
+      this.stateSavingId = row.id;
+      this.$inertia.post(
+        this.route("tintuc.state", row.id),
+        { state: next },
+        {
+          preserveScroll: true,
+          onFinish: () => {
+            this.stateSavingId = null;
+          },
+          onError: () => {
+            event.target.checked = !wantsPublic;
+          }
+        }
+      );
+    },
     onDelete(id) {
       if (!confirm("Are you sure want to remove?")) return;
       this.$inertia.delete(this.route("tintuc.delete", id));
