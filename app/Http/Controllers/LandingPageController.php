@@ -27,8 +27,7 @@ class LandingPageController extends Controller
             ->withCompleteTranslations()
             ->orderBy('created_at', 'desc')
             ->take(2)
-            ->get()
-            ->values();
+            ->get();
         $projects = Project::where('link','!=',null)->get();
         $this->filterPageSectionsIncompleteLanguages($page);
 
@@ -50,9 +49,7 @@ class LandingPageController extends Controller
             ->where('outstanding',  1)
             ->orderBy('created_at', 'desc')
             ->take(9)
-            ->get()
-            ->filter(fn (News $item) => $item->detailSlug() !== '')
-            ->values();
+            ->get();
         $this->filterPageSectionsIncompleteLanguages($page);
 
         return view('page.immersive', compact('page', 'pages', 'news','projects'));
