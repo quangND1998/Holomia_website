@@ -28,7 +28,6 @@ class LandingPageController extends Controller
             ->orderBy('created_at', 'desc')
             ->take(2)
             ->get()
-            ->filter(fn (News $item) => $item->detailSlug() !== '')
             ->values();
         $projects = Project::where('link','!=',null)->get();
         $this->filterPageSectionsIncompleteLanguages($page);
