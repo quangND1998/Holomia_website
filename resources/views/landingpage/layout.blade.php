@@ -12,7 +12,7 @@
         @if (View::hasSection('title'))
             @yield('title')
         @else
-            Holomia
+            Holomia - Immersive VR Experiences
         @endif
     </title>
     <meta property="og:image" content="@if (View::hasSection('image')) @yield('image') @else img/thumb1.jpg @endif" />
