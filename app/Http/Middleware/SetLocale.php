@@ -12,15 +12,10 @@ class SetLocale
     public function handle($request, Closure $next)
     {
 
-        if (Session::has('locale')) {
+        $locale = Session::get('locale', Config::get('app.locale'));
 
-            $locale = Session::get('locale', Config::get('app.locale'));
-        } else {
-            $locale = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
-
-            if ($locale != 'vn' && $locale != 'en') {
-                $locale = 'vn';
-            }
+        if (! array_key_exists($locale, Config::get('app.locales'))) {
+            $locale = Config::get('app.locale');
         }
 
         App::setLocale($locale);

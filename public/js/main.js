@@ -31,9 +31,6 @@ $(document).ready(function() {
         $(".mean-nav").hide();
     });
 
-    $(".dropdown-mobile").click(function() {
-        $(".dropdown-content-mobile").toggle();
-    });
 });
 
 

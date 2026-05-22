@@ -186,20 +186,37 @@
                                                     <a href="/index">{{ __($page->title) }}</a>
                                                 </li>
                                             @elseif($page->title == 'project')
-                                                <li class="dropdown-mobile">
-                                                    <!-- <a target="_blank" href="https://missionxvr.com/index">Project</a> -->
-                                                    <a class="">Product </a>
+                                                <li class="dropdown-mobile is-open">
+                                                    <button type="button" class="dropdown-mobile__trigger">
+                                                        <span>{{ __($page->title) }}</span>
+                                                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                                    </button>
                                                     <div class="dropdown-content-mobile">
-                                                        {{-- <a href="/holo360" class="drop_link" target="_self">Holo
-                                                            360</a> --}}
-                                                        {{-- <a href="/projects"
-                                                            class="drop_link">{{ __('missionxvr') }}</a> --}}
-                                                        <a href="https://missionxvr.com/" target="_blank"
-                                                            class="drop_link">VR Laser Tag Mission X </a>
-                                                        <a href="https://zone.holomia.com" target="_blank"
-                                                            class="drop_link">Holomia VR Zone</a>
-                                                        <a href="https://xr.holomia.com" target="_blank"
-                                                            class="drop_link">Holomia XR</a>
+                                                        @foreach ($projects as $project)
+                                                            @if ($project->name == 'Contents')
+                                                                <div
+                                                                    class="dropdown-content__row dropdown-content__row--content dropdown-content__row--mobile">
+                                                                    <div class="dropdown-content__flyout-trigger">
+                                                                        <a href="/holo360"
+                                                                            class="drop_link drop_link--content-parent {{ Request::segment(1) === 'holo360' ? 'active' : '' }}">{{ $project->name }}</a>
+                                                                        <span class="dropdown-content__flyout-chevron"
+                                                                            aria-hidden="true"><i
+                                                                                class="fas fa-chevron-right"></i></span>
+                                                                    </div>
+                                                                    <div class="dropdown-content__flyout dropdown-content__flyout--mobile"
+                                                                        role="menu">
+                                                                        @foreach (App\Models\CategoryHolo360::get() as $category)
+                                                                            <a href="/holo360?category={{ $category->slug }}"
+                                                                                class="drop_link drop_link--content-child link_holo360"
+                                                                                target="_self">{{ $category->name }}</a>
+                                                                        @endforeach
+                                                                    </div>
+                                                                </div>
+                                                            @else
+                                                                <a href="#products"
+                                                                    class="drop_link">{{ $project->name }}</a>
+                                                            @endif
+                                                        @endforeach
                                                     </div>
                                                 </li>
                                             @else
