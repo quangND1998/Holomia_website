@@ -124,8 +124,11 @@
                                                                 </div>
                                                             </div>
                                                         @else
-                                                            <a href="#products"
-                                                                class="drop_link">{{ $project->name }}</a>
+                                                            <a href="{{ $project->link ?: '#products' }}"
+                                                            {{ $project->link && Str::startsWith($project->link, 'https://') ? 'target=_blank' : '' }}
+                                                            class="drop_link">
+                                                                {{ $project->name }}
+                                                            </a>
                                                         @endif
                                                     @endforeach
                                                 </div>
